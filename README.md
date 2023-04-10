@@ -10,4 +10,10 @@ Team members
 
 This is a test commit to add the team members names into the README.md file. If you would like to test the commit function, you can start by using this file.
 
+<<<<<<< Updated upstream
 Test 2
+=======
+Hello
+
+Test pull request to terminate previous pull request
+>>>>>>> Stashed changes
