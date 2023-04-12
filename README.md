@@ -5,7 +5,7 @@ Team members
 1. Chiang Kai Ni
 2. Cheong Yee Weng
 3. Chew Tung En
-4. Cheng Zi Ming
+4. Cheng Zi Ming (Hi Zi Ming!)
 5. Chin Hong Wei
 
 This is a test commit to add the team members names into the README.md file. If you would like to test the commit function, you can start by using this file.
