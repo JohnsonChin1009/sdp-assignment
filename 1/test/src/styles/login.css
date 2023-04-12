@@ -1,0 +1,19 @@
+/*Login*/
+.box1{
+    width: 500px;
+    height: 280px;
+    background-color: #b6d3e6;
+    margin: 20px;
+    margin-bottom: 30px;
+    border-radius: 35px;
+    box-shadow: 0 7px 25px rgb(0,0,0,0.15);
+  }
+  .box2{
+    padding: 30px;
+    font-size: 20px;
+    color: #497b9c;
+  }
+  .box2button{
+    margin-left: 150px;
+    align-items: center;
+  }
