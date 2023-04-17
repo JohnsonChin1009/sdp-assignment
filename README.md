@@ -13,4 +13,4 @@ This is a test commit to add the team members names into the README.md file. If 
 System Requirements
 1. Composer version 2.5.5.
 2. PHP version 8.1.6
-3. 
+3. Next.js v13.2.4
