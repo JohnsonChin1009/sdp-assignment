@@ -15,12 +15,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="APUlogo.png" />        
       </Head>
-      <main className={styles.header}>             
-        <a href="http://localhost:3000/HomeStu">
+      <main className={styles.header}>                     
             <table>
                 <tbody>
                     <tr>
-                        <td>
+                        <td><a href="http://localhost:3000/HomeStu">
                             <Image
                             src="/APUlogo.png"
                             alt="APU Logo"
@@ -29,9 +28,9 @@ export default function Home() {
                             height={50}
                             priority            
                             />
-                        
+                        </a>
                         </td>
-                        <td><b className={styles.title1}>ApFYPCentre</b></td>                     
+                        <td><a href="http://localhost:3000/HomeStu"><b className={styles.title1}>ApFYPCentre</b></a></td>                     
                         <td><a href="http://localhost:3000/ProfileStu" className={styles.button3}>Profile</a></td>
                         <td><a href="http://localhost:3000/SubStu" className={styles.button2}>Submission</a></td>                        
                         <td><a href="http://localhost:3000/StaffStu" className={styles.button2}>Staff</a></td>
@@ -40,8 +39,7 @@ export default function Home() {
                         <td><a href="http://localhost:3000/" className={styles.box6}><u>Logout</u></a></td>
                     </tr>
                 </tbody>                
-            </table>
-        </a>                                                      
+            </table>                                                              
       </main>
       <div className={styles.content3}>
         <a href="http://localhost:3000/HomeStu">

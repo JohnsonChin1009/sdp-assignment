@@ -183,6 +183,7 @@
   height: 30px;
   padding: 10px;
   font-size: 20px;
+  font-weight: bold;  
   align-items: center;
   background-color:  #497b9c;
   color:white;
@@ -233,6 +234,7 @@
 .button1:hover, .button2:hover, .button5:hover, .button6:hover{
   background-color:  #497b9c;
   color:white;
+  font-weight: bold;
 }
 
 

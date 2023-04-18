@@ -14,12 +14,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="APUlogo.png" />        
       </Head>
-      <main className={styles.header}>             
-        <a href="http://localhost:3000/HomeSupervisor">
+      <main className={styles.header}>                     
             <table>
                 <tbody>
                     <tr>
-                        <td>
+                        <td><a href="http://localhost:3000/HomeSupervisor">
                             <Image
                             src="/APUlogo.png"
                             alt="APU Logo"
@@ -28,9 +27,9 @@ export default function Home() {
                             height={50}
                             priority            
                             />
-                        
+                        </a>
                         </td>
-                        <td><b className={styles.title1}>ApFYPCentre</b></td>                     
+                        <td><a href="http://localhost:3000/HomeSupervisor"><b className={styles.title1}>ApFYPCentre</b></a></td>                     
                         <td><a href="" className={styles.button1}>Profile</a></td>
                         <td><a href="" className={styles.button2}>Student</a></td>                        
                         <td><a href="" className={styles.button2}>Submission</a></td>
@@ -39,8 +38,7 @@ export default function Home() {
                         <td><a href="http://localhost:3000/" className={styles.box6}><u>Logout</u></a></td>
                     </tr>
                 </tbody>                
-            </table>
-        </a>                                                      
+            </table>                                                              
       </main>
       <div className={styles.content1}>
         
