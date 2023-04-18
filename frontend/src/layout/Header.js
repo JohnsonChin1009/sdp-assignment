@@ -2,12 +2,11 @@ import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 export default function header(){
     return (
-        <main className={styles.header}>                           
-            <a href="http://localhost:3000/">
+        <main className={styles.header}>                                       
                 <table>
                     <tbody>
                         <tr>
-                            <td>
+                            <td><a href="http://localhost:3000/">
                                 <Image
                                 src="/APUlogo.png"
                                 alt="APU Logo"
@@ -16,14 +15,14 @@ export default function header(){
                                 height={50}
                                 priority            
                                 />
-                            
+                            </a>
                             </td>
-                            <td><b className={styles.title1}>ApFYPCentre</b></td>
+                            <td><a href="http://localhost:3000/"><b className={styles.title1}>ApFYPCentre</b></a></td>
                             
                         </tr>
                     </tbody>                    
                 </table>
-            </a>                                                                                          
+                                                                                                      
       </main>
 
     )
