@@ -32,3 +32,5 @@ To start backend
 - php artisan serve
 
 It will start at localhost:8000
+
+Change id in schedules into meeting idd
