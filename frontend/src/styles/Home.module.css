@@ -204,6 +204,7 @@
 }
 .button5{
   margin-left: 100px;
+  margin-top:200px;
   width: fit-content;
   height: 35px;
   padding: 5px;
@@ -276,6 +277,7 @@
   border-radius: 10px;
 }
 
+
 /*Supervisor content*/
 .box7{
   margin: 20px;
@@ -311,9 +313,11 @@
 .content3{
   background-color: white;
   width: 10px;
+  margin-top:550px;
   
 }
 .contentbox{
+  height:500px;
   width: 100px;
   float:left;
   background-color: #efefef;
@@ -322,8 +326,8 @@
 }
 .contentbox1{
   float: right;
-  margin: 20px;
-  margin-right: 100px;    
+  margin-right:-400px;
+  margin-top:-650px;
 }
 .contentbox3{  
   float:left;  
@@ -344,8 +348,7 @@
   float: left;
 }
 .infobox{
-  margin: 10px;
-  padding-right: 50px;
+  margin: 15px;
   clear: both;
   float: right;
 }
@@ -356,10 +359,13 @@
 }
 .line1{
   background-color: black;
-  width: 2px;
+  width: 1px;
   height:200px;
-  float: left;
+  float: right;
   margin: 10px;
+  margin-top:-650px;
+  margin-right:400px;
+  height:650px;
 }
 .line2{
   background-color: black;
@@ -374,9 +380,15 @@
   clear: both;
   width: auto;
   height: auto;
-  box-shadow: 0 7px 25px rgb(0,0,0,0.1);
-  
+  box-shadow: 0 7px 25px rgb(0,0,0,0.1);  
 }
+
+.Ccontentbox { /*Calendar*/
+  margin:15px;
+  height: 50px;
+  width:700px;
+}
+
 
 /*Student*/
 .contentbox2{
