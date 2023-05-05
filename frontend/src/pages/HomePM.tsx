@@ -71,7 +71,7 @@ export default function Home() {
             <p className={styles.word1}>Student</p>
           </div> 
         </a>
-        <a href="">
+        <a href="http://localhost:3000/StaffPM">
         <div className={styles.box5}>          
             <Image 
             src="/staff.png"
@@ -84,7 +84,7 @@ export default function Home() {
             <p className={styles.word}>Staff</p>
           </div>
         </a>
-        <a href="">
+        <a href="http://localhost:3000/SubPM">
         <div className={styles.box5}>          
             <Image 
             src="/submission.png"

@@ -104,7 +104,7 @@ export default function Home() {
               <div className={styles.subtext}>Total_Mark: </div>
             </td>
             <td>
-              <div className={styles.subtext}>""</div></td>
+              <div className={styles.subtext}></div></td>
           </tr>
         </table>
       </div>

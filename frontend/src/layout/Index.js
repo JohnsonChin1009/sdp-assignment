@@ -6,7 +6,7 @@ export default function Footer(){
           <div className={styles.card1}>
             Student
           </div>
-          <a href="">
+          <a href="http://localhost:3000/login">
           <div className={styles.button}>
             Click
           </div>
@@ -16,7 +16,7 @@ export default function Footer(){
           <div className={styles.card1}>
             Second Marker
           </div>
-          <a href="">
+          <a href="http://localhost:3000/login">
           <div className={styles.button}>
             Click
           </div>
@@ -26,7 +26,7 @@ export default function Footer(){
           <div className={styles.card1}>
             Supervisor
           </div>
-          <a href="">
+          <a href="http://localhost:3000/login">
           <div className={styles.button}>
             Click
           </div>
@@ -36,7 +36,7 @@ export default function Footer(){
           <div className={styles.card1}>
             Project Manager
           </div>
-          <a href="">
+          <a href="http://localhost:3000/login">
           <div className={styles.button}>
             Click
           </div>

@@ -29,7 +29,7 @@ export default function Home() {
                 <input type="text" required name="tp"/><br /><br />
                 Password: <br />
                 <input type="password"required name="password"/><br /><br />
-                <button type="submit" value="login" name="login" className={styles.box2button}>LOGIN</button>
+                <a href="http://localhost:3000/HomeSupervisor"><button type="submit" value="login" name="login" className={styles.box2button}>LOGIN</button></a>
               </form>
             </div>
         </div>
