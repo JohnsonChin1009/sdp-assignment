@@ -158,6 +158,10 @@
   border-radius: 5px;
   border-color: transparent;
 }
+.box2 form button:hover{
+  background-color: #8aadc6;
+  color: #1c4365;
+}
 
 /*Home*/
 .content1{
