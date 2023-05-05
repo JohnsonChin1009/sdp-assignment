@@ -8,9 +8,29 @@ Team members
 4. Cheng Zi Ming
 5. Chin Hong Wei
 
-This is a test commit to add the team members names into the README.md file. If you would like to test the commit function, you can start by using this file.
-
 System Requirements
-1. Composer version 2.5.5.
-2. PHP version 8.1.6
-3. Next.js v13.2.4
+✅Composer version 2.5.5.
+✅PHP version 8.1.6
+✅Next.js v13.2.4
+
+Steps to start
+1. Open command prompt/git bash/terminal
+2. Change directory to the repository
+3. Change dir to frontend/backend based on your choice
+
+To start frontend
+- npm run dev
+
+it will start at localhosts:3000
+
+if cannot find the files, means you are in the wrong directory
+if it displays a lot of errors, means that you don't have npm installed
+
+Run npm install
+
+To start backend
+- php artisan serve
+
+It will start at localhost:8000
+
+Change id in schedules into meeting idd

@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `project_manager` (
   `id` text NOT NULL COMMENT 'This "id" refers to the project manager''s staff id in Asia Pacific University (APU).',
-  `manager_name` text NOT NULL,
+  `name` text NOT NULL,
   `field_of_study` text NOT NULL,
   `email` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -55,7 +55,7 @@ CREATE TABLE `results` (
 --
 
 CREATE TABLE `schedule` (
-  `id` int(11) NOT NULL COMMENT 'The column "id" is used to refer back to the record of meeting conducted among students and their supervisors.',
+  `meetingid` int(11) NOT NULL COMMENT 'The column "id" is used to refer back to the record of meeting conducted among students and their supervisors.',
   `date` date NOT NULL,
   `time` time(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -81,7 +81,7 @@ CREATE TABLE `second_marker` (
 
 CREATE TABLE `students` (
   `tp_number` varchar(8) NOT NULL,
-  `student_name` varchar(50) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
   `field_of_study` varchar(20) DEFAULT NULL,
   `specialism` varchar(20) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
@@ -148,7 +148,7 @@ ALTER TABLE `results`
 -- Indexes for table `schedule`
 --
 ALTER TABLE `schedule`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`meetingid`);
 
 --
 -- Indexes for table `second_marker`

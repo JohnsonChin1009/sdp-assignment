@@ -150,7 +150,7 @@
   min-height: 50vh;
 }
 .content2{
-  background-color: white;
+  background-color: transparent;
   min-height: 20vh;
 }
 /*Menubar*/
@@ -183,6 +183,7 @@
   height: 30px;
   padding: 10px;
   font-size: 20px;
+  font-weight: bold;  
   align-items: center;
   background-color:  #497b9c;
   color:white;
@@ -234,6 +235,7 @@
 .button1:hover, .button2:hover, .button5:hover, .button6:hover{
   background-color:  #497b9c;
   color:white;
+  font-weight: bold;
 }
 
 
@@ -311,7 +313,7 @@
 }
 /*Profile*/
 .content3{
-  background-color: white;
+  background-color: transparent;
   width: 10px;
   margin-top:550px;
   

@@ -35,12 +35,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-wxidth, initial-scale=1" />
         <link rel="icon" href="APUlogo.png" />        
       </Head>
-      <main className={styles.header}>             
-        <a href="http://localhost:3000/HomePM">
+      <main className={styles.header}>                     
             <table>
                 <tbody>
                     <tr>
-                        <td>
+                        <td><a href="http://localhost:3000/HomePM">
                             <Image
                             src="/APUlogo.png"
                             alt="APU Logo"
@@ -49,9 +48,9 @@ export default function Home() {
                             height={50}
                             priority            
                             />
-                        
+                        </a>
                         </td>
-                        <td><b className={styles.title1}>ApFYPCentre</b></td>                     
+                        <td><a href="http://localhost:3000/HomePM"><b className={styles.title1}>ApFYPCentre</b></a></td>                     
                         <td><a href="http://localhost:3000/ProfilePM" className={styles.button3}>Profile</a></td>
                         <td><a href="http://localhost:3000/StudentPM" className={styles.button2}>Student</a></td>
                         <td><a href="" className={styles.button2}>Staff</a></td>
@@ -61,13 +60,9 @@ export default function Home() {
                         <td><a href="http://localhost:3000/" className={styles.box3}><u>Logout</u></a></td>
                     </tr>
                 </tbody>                
-            </table>
-        </a> 
-        <Calendar/>                                                 
-      </main>
-
-
-      <div className={styles.content3}> 
+            </table>                                                          
+      </main>       
+      <div className={styles.content3}>
         <a href="http://localhost:3000/HomePM">
           <div className={styles.button5}>
             Back 
