@@ -86,10 +86,7 @@ form select{
 }
 
 
-form button:hover{
-  background-color: #8aadc6;
-  color: #1c4365;
-}
+
 
 @media (prefers-color-scheme: dark) {
   html {
