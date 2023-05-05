@@ -125,8 +125,7 @@ CREATE TABLE `supervisor` (
 CREATE TABLE `user` (
   `email` text NOT NULL COMMENT 'This column is the email that the users use to login into the FYP management system.',
   `password` text NOT NULL,
-  `user_type` int(1) NOT NULL COMMENT 'This column is used to identify the user type associated to the email and password.',
-  `profile_pic` text NOT NULL
+  `user_type` int(1) NOT NULL COMMENT 'This column is used to identify the user type associated to the email and password.'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
