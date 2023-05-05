@@ -85,7 +85,7 @@ CREATE TABLE `students` (
   `field_of_study` varchar(20) DEFAULT NULL,
   `specialism` varchar(20) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `fyp_title` varchar(50) DEFAULT NULL
+  `title` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -96,9 +96,9 @@ CREATE TABLE `students` (
 
 CREATE TABLE `student_progression` (
   `tp_number` varchar(8) DEFAULT NULL,
-  `proposal_submission` int(1) DEFAULT NULL,
-  `investigation_report` int(1) DEFAULT NULL,
-  `fyp_submission` int(1) DEFAULT NULL,
+  `proposal` int(1) DEFAULT NULL,
+  `ir` int(1) DEFAULT NULL,
+  `fyp` int(1) DEFAULT NULL,
   `presentation` int(1) DEFAULT NULL,
   `notes` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
