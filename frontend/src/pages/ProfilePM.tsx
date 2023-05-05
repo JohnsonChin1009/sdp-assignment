@@ -60,7 +60,8 @@ export default function Home() {
                         <td><a href="http://localhost:3000/" className={styles.box3}><u>Logout</u></a></td>
                     </tr>
                 </tbody>                
-            </table>                                                          
+            </table>
+            <Calendar/>                                                          
       </main>       
       <div className={styles.content3}>
         <a href="http://localhost:3000/HomePM">
