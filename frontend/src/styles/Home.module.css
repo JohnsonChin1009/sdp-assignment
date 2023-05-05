@@ -167,7 +167,7 @@
   box-shadow: 0 7px 25px rgb(0,0,0,0.13);
 }
 .button2{
-  margin-left: 20px;
+  margin-left: 30px;
   height: 30px;
   padding: 10px;
   font-size: 20px;
@@ -179,7 +179,7 @@
   box-shadow: 0 7px 25px rgb(0,0,0,0.13);
 }
 .button3{
-  margin-left: 150px;
+  margin-left: 30px;
   height: 30px;
   padding: 10px;
   font-size: 20px;
@@ -192,7 +192,7 @@
   box-shadow: 0 7px 25px rgb(0,0,0,0.13);
 }
 .button4{
-  margin-left: 20px;
+  margin-left: 30px;
   height: 30px;
   padding: 10px;
   font-size: 20px;
@@ -218,11 +218,26 @@
   box-shadow: 0 7px 25px rgb(0,0,0,0.13);
 }
 
+.button5s{ 
+  margin-left: 100px;
+  margin-top:300px;
+  width: fit-content;
+  height: 35px;
+  padding: 5px;
+  font-size: 20px;
+  align-items: center;
+  color: #497b9c;
+  background-color: #efefef;
+  border-radius: 10px;
+  border-color: #efefef;
+  box-shadow: 0 7px 25px rgb(0,0,0,0.13);
+}
+
 .box3{
-  margin-left: 400px;
+  margin-left: 300px;
 }
 .box3:hover{
-  margin-left: 400px;
+  margin-left:300px;
   color: #497b9c;
 }
 .box6{
@@ -315,7 +330,8 @@
 .content3{
   background-color: transparent;
   width: 10px;
-  margin-top:550px;
+  margin-top:-290px;
+  margin-left:-75px;
   
 }
 .contentbox{
@@ -329,7 +345,7 @@
 .contentbox1{
   float: right;
   margin-right:-400px;
-  margin-top:-650px;
+  margin-top:-50px;
 }
 .contentbox3{  
   float:left;  
@@ -365,7 +381,7 @@
   height:200px;
   float: right;
   margin: 10px;
-  margin-top:-650px;
+  margin-top:-50px;
   margin-right:400px;
   height:650px;
 }
@@ -386,17 +402,57 @@
 }
 
 .Ccontentbox { /*Calendar*/
-  margin:15px;
+  margin-top:50px;
+  margin-left:20px;
   height: 50px;
   width:700px;
 }
 
 
 /*Student*/
+.subhead{
+  background-color: #87ABCC;
+  color:rgb(72, 72, 72);
+  width:100%;
+  height:70px;
+  padding:15px;
+}
+
+.subtitle{
+  margin-left:100px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.check{
+  margin-top:10px;
+  padding:10px;
+}
+
+.subtext{
+  font-family: 'Times New Roman', Times, serif;
+  font-size:30px;
+  padding:10px;
+}
+
+.rectangle{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  margin-left:20px;
+  background: rgb(0, 0, 0);
+}
+
+.table{
+  margin-left:90px;
+  width:1000px;
+}
+
 .contentbox2{
   float: left;
   margin: 20px;
-  margin-left: 250px;    
+  margin-left: 250px; 
+  margin-top:100px;   
 }
 
 /* Enable hover only on non-touch devices */
