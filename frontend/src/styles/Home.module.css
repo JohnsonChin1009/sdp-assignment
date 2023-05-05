@@ -141,6 +141,23 @@
   margin-left: 150px;
   align-items: center;
 }
+.box2 form button{
+  font-size: 30px;
+  width: 150px;
+  height: 50px;
+  color: #ffffff;
+  background-color: #7AA0C1;
+  box-shadow: 0 7px 25px rgb(0,0,0,0.15);
+  border-color:transparent;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.box2 form input{
+  width: 400px;
+  height: 40px;
+  border-radius: 5px;
+  border-color: transparent;
+}
 
 /*Home*/
 .content1{
