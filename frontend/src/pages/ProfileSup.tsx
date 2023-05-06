@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import Footer from '@/layout/Footer.js'
+import Footer from '@/layout/ProfileFooter.js'
 import React from 'react'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -51,18 +51,18 @@ export default function Home() {
                         </a>
                         </td>
                         <td><a href="http://localhost:3000/HomeSupervisor"><b className={styles.title1}>ApFYPCentre</b></a></td>                     
-                        <td><a href="http://localhost:3000/ProfileSup" className={styles.button1}>Profile</a></td>
+                        <td><a href="http://localhost:3000/ProfileSup" className={styles.button3}>Profile</a></td>
                         <td><a href="http://localhost:3000/StuSup" className={styles.button2}>Student</a></td>                        
                         <td><a href="http://localhost:3000/SubSup" className={styles.button2}>Submission</a></td>
                         <td> <br/></td>
                         <td><br/></td>
-                        <td><a href="http://localhost:3000/" className={styles.box3}><u>Logout</u></a></td>
+                        <td><a href="http://localhost:3000/login" className={styles.box3}><u>Logout</u></a></td>
                     </tr>
                 </tbody>                
             </table>
             <Calendar/>                                                          
       </main>       
-      <div className={styles.content3}>
+      <div className={styles.content4}>
         <a href="http://localhost:3000/HomeSupervisor">
           <div className={styles.button5}>
             Back 
@@ -93,7 +93,7 @@ export default function Home() {
           </div>  
         </div>
         
-        
+        <div></div>
       <Footer />
       </>
   )

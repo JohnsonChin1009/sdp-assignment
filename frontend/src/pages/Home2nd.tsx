@@ -30,11 +30,11 @@ export default function Home() {
                         </a>
                         </td>
                         <td><a href="http://localhost:3000/Home2nd"><b className={styles.title1}>ApFYPCentre</b></a></td>                     
-                        <td><a href="" className={styles.button1}>Profile</a></td>                                               
-                        <td><a href="" className={styles.button2}>Submission</a></td>
+                        <td><a href="http://localhost:3000/Profile2" className={styles.button1}>Profile</a></td>                                               
+                        <td><a href="http://localhost:3000/Sub2" className={styles.button2}>Submission</a></td>
                         <td> <br/></td>
                         <td><br/></td>
-                        <td><a href="http://localhost:3000/" className={styles.box6}><u>Logout</u></a></td>
+                        <td><a href="http://localhost:3000/login" className={styles.box6}><u>Logout</u></a></td>
                     </tr>
                 </tbody>                
             </table>                                                              
@@ -43,7 +43,7 @@ export default function Home() {
         
       </div>
       <div className={styles.content2}>
-        <a href="">
+        <a href="http://localhost:3000/Profile2">
           <div className={styles.box9}>          
             <Image 
             src="/profile.png"
@@ -57,7 +57,7 @@ export default function Home() {
           </div>
         </a>
                
-        <a href="">
+        <a href="http://localhost:3000/Sub2">
         <div className={styles.box8}>          
             <Image 
             src="/submission.png"

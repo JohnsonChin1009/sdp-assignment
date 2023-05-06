@@ -90,9 +90,20 @@
   color:rgb(255, 255, 255);
   background-color: #282828;
   opacity:65%;
-   
-     
 }
+.footer1{    
+  white-space:nowrap;  
+  padding:10px;    
+  transition: 0.3s;
+  clear: both;
+  width: fill;
+  height:120px;  
+  font-size: 15px;  
+  color:rgb(255, 255, 255);
+  background-color: #282828;
+  opacity:65%;
+}
+
 
 .line{
   background-color: white;
@@ -217,6 +228,7 @@
   height: 30px;
   padding: 10px;
   font-size: 20px;
+  font-weight: bold;
   align-items: center;
   background-color:  #497b9c;
   color:white;
@@ -239,20 +251,7 @@
   box-shadow: 0 7px 25px rgb(0,0,0,0.13);
 }
 
-.button5s{ 
-  margin-left: 100px;
-  margin-top:300px;
-  width: fit-content;
-  height: 35px;
-  padding: 5px;
-  font-size: 20px;
-  align-items: center;
-  color: #497b9c;
-  background-color: #efefef;
-  border-radius: 10px;
-  border-color: #efefef;
-  box-shadow: 0 7px 25px rgb(0,0,0,0.13);
-}
+
 
 .box3{
   margin-left: 300px;
@@ -631,8 +630,17 @@
   .footer {
     font-size: 0.8rem;
     height: 150px;
-    align-items: left;
+    align-items: left;    
   }
+  .footer1{
+    font-size: 0.8rem;
+    height: 150px;
+    align-items: left;
+    position: fixed;    
+    left: 0;
+    bottom: 0;
+  }
+
 
   .contact{
     float: left;
@@ -679,6 +687,8 @@
 
 }
 
+
+
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
@@ -712,6 +722,7 @@
   }
   
 }
+
 
 @media (prefers-color-scheme: dark) {
   .vercelLogo {

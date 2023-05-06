@@ -3,7 +3,7 @@ import styles from '@/styles/Home.module.css'
 export default function Footer(){
   
     return (
-        <div className={styles.footer}>
+        <div className={styles.footer1}>
           <div className={styles.info}>
               <b>Asia Pacific University of Technology & Innovation <br />(APU) <br /></b>
               Technology Park Malaysia Bukit Jalil, <br />

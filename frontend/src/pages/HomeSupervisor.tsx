@@ -36,7 +36,7 @@ export default function Home() {
                         <td><a href="http://localhost:3000/SubSup" className={styles.button2}>Submission</a></td>
                         <td> <br/></td>
                         <td><br/></td>
-                        <td><a href="http://localhost:3000/" className={styles.box6}><u>Logout</u></a></td>
+                        <td><a href="http://localhost:3000/login" className={styles.box6}><u>Logout</u></a></td>
                     </tr>
                 </tbody>                
             </table>                                                              
@@ -45,7 +45,7 @@ export default function Home() {
         
       </div>
       <div className={styles.content2}>
-        <a href="">
+        <a href="http://localhost:3000/ProfileSup">
           <div className={styles.box7}>          
             <Image 
             src="/profile.png"
@@ -58,7 +58,7 @@ export default function Home() {
             <p>Profile</p>
           </div>
         </a>
-        <a href="">
+        <a href="http://localhost:3000/StuSup">
         <div className={styles.box5}>          
             <Image 
             src="/student.png"
@@ -71,7 +71,7 @@ export default function Home() {
             <p className={styles.word1}>Student</p>
           </div> 
         </a>        
-        <a href="">
+        <a href="http://localhost:3000/SubSup">
         <div className={styles.box5}>          
             <Image 
             src="/submission.png"
