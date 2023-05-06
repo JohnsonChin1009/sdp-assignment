@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
+import Table from '@/layout/TableSub.js'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -49,10 +50,11 @@ export default function Home() {
           </div>
           </a>  <br />
       </div>
-
-        <div>
-            
-        </div>
+      <div className={styles.button7}><a href=""><button>Edit</button></a></div>
+      <br /><br /><br />                             
+      
+      <Table />  
+        
         <br /><br /><br />
         <Footer />
         </>
