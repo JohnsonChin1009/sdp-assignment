@@ -81,11 +81,10 @@ export default function Home() {
           </div> 
           <div className={styles.infobox}>
           Email  : <br />
-          Tel    : 0123456789        <br />     
-          
+          Tel    : 0123456789<br />         
           Preferable Platform :     
           <form action=""> 
-            <input type="submit" value="Edit" className={styles.button6} />          
+            <a href="http://localhost:3000/Profile"><input type="submit" value="Edit" className={styles.button6} /></a>
           </form>                                              
           </div>  
         </div>

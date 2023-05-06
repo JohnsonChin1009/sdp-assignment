@@ -65,20 +65,20 @@ export default function Home() {
         <div className={styles.content6}>
           <div className={styles.box10}>
             <div className={styles.text}>Project Manager</div>
-            <div className={styles.image1}></div><br /><br /><br /><br /><br /><br />
+            <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
             <div className={styles.text}><b>Name</b></div>
 
             </div>
           <div className={styles.line3}></div>
           <div className={styles.box10}>
             <div className={styles.text1}>Supervisor</div>
-            <div className={styles.image1}></div><br /><br /><br /><br /><br /><br />
+            <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
             <div className={styles.text}><b>Name</b></div>
           </div>          
           <div className={styles.line3}></div>
           <div className={styles.box10}>
             <div className={styles.text}>Second Marker</div>
-            <div className={styles.image1}></div><br /><br /><br /><br /><br /><br />
+            <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
             <div className={styles.text}><b>Name</b></div>      
           </div>
           

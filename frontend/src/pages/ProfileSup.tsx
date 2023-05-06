@@ -80,16 +80,11 @@ export default function Home() {
           </div> 
           <div className={styles.infobox}>
           Email  : <br />
-          Tel    : 0123456789             
-          <form action="">     
+          Tel    : 0123456789    <br />         
           Preferable Platform :     
-            <select name="platform">
-              <option value="-">Select One</option>
-              <option value="teams">MS Teams</option>
-              <option value="whatsapp">WhatsApp</option>
-            </select>
-            <input type="submit" value="Confirm" className={styles.button6} />          
-          </form>                                              
+          <form action=""> 
+            <a href="http://localhost:3000/Profile"><input type="submit" value="Edit" className={styles.button6} /></a>
+          </form>                                           
           </div>  
         </div>
         
