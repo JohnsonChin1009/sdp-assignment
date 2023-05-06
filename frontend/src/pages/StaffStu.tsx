@@ -49,9 +49,39 @@ export default function Home() {
           </div>
           </a>  <br />
       </div>
+      <div className={styles.contentbox2a}>
+      <form action="">
+          <input type="text" name="Search"/>
+          <button type="submit"><Image
+                            src="/search_icon.png"
+                            alt="Search"
+                            className={styles.vercelLogo}
+                            width={20}
+                            height={10}
+                            priority            
+                            /></button>
+      </form>
+      </div> <br /><br /><br /><br />
+        <div className={styles.content6}>
+          <div className={styles.box10}>
+            <div className={styles.text}>Project Manager</div>
+            <div className={styles.image1}></div><br /><br /><br /><br /><br /><br />
+            <div className={styles.text}><b>Name</b></div>
 
-        <div>
-            
+            </div>
+          <div className={styles.line3}></div>
+          <div className={styles.box10}>
+            <div className={styles.text1}>Supervisor</div>
+            <div className={styles.image1}></div><br /><br /><br /><br /><br /><br />
+            <div className={styles.text}><b>Name</b></div>
+          </div>          
+          <div className={styles.line3}></div>
+          <div className={styles.box10}>
+            <div className={styles.text}>Second Marker</div>
+            <div className={styles.image1}></div><br /><br /><br /><br /><br /><br />
+            <div className={styles.text}><b>Name</b></div>      
+          </div>
+          
         </div>
         <br /><br /><br />
         <Footer />

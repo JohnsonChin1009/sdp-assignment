@@ -267,7 +267,7 @@
   margin-left: 500px;
   color: #497b9c;
 }
-.button1:hover, .button2:hover, .button5:hover, .button5s.hover,.button6:hover{
+.button1:hover, .button2:hover, .button5:hover, .button5s.hover{
   background-color:  #497b9c;
   color:white;
   font-weight: bold;
@@ -374,7 +374,7 @@
 }
 .contentbox1{
   float: right;
-  margin-right:-400px;
+  margin-right:-300px;
   margin-top:-50px;
 }
 .contentbox3{  
@@ -399,6 +399,7 @@
   margin: 15px;
   clear: both;
   float: right;
+  margin-right: 100px;
 }
 .topicbox{
   margin: 20px;
@@ -412,7 +413,7 @@
   float: right;
   margin: 10px;
   margin-top:-50px;
-  margin-right:400px;
+  margin-right:500px;
   height:650px;
 }
 .line2{
@@ -428,7 +429,16 @@
   clear: both;
   width: auto;
   height: auto;
+  border-radius: 2px;
+  border-color: rgba(0, 0, 0, 0.258);
+  background-color: white;
+  color: #497b9c;
   box-shadow: 0 7px 25px rgb(0,0,0,0.1);  
+}
+.button6:hover{
+  background-color: #1c4365;
+  color: white;
+  border-radius: 2px;
 }
 
 .Ccontentbox { /*Calendar*/
@@ -506,6 +516,46 @@
   background-color: #a8c1d4;
   color: #1c4365;
 }
+
+/*Student - Staff*/
+.content6{
+  background-color: transparent;
+  width: auto;
+  height: 200px;
+}
+.box10{
+  background-color: transparent;
+  padding: 10px;  
+  margin-left:100px;
+  height: 200px;
+  width: 200px;
+  float: left;
+}
+.line3{
+  background-color: #497b9c;
+  float: left;
+  margin-left: 100px;
+  width: 2px;
+  height: 250px;
+}
+.image1{
+  border-radius: 2000px;
+  width: 100px;
+  height: 100px;
+  margin-left: 35px;
+  background-color: #efefef;
+  float: left;    
+}
+.text{
+  margin-left: 35px;
+}
+.text1{
+  margin-left: 50px;
+}
+
+
+
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .button:hover {
@@ -684,7 +734,21 @@
     height: 2px;  
     margin-left: 10px;      
   }
-
+  .line3{  
+    background-color:  #497b9c;  
+    width: 250px;
+    height: 2px;
+    float: left;
+    margin-left: 170px;
+  }
+  .box10{
+    background-color: white;
+    padding: 10px;  
+    margin-left:200px;
+    height: 200px;
+    width: 200px;
+    float: left;
+  }
 }
 
 
