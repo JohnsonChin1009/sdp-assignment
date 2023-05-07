@@ -542,12 +542,11 @@
 
 /*Student - Staff*/
 .content6{
-  background-color: transparent;
+
   width: auto;
   height: 200px;
 }
 .box10{
-  background-color: transparent;
   padding: 10px;  
   margin-left:100px;
   height: 200px;
@@ -575,7 +574,61 @@
 .text1{
   margin-left: 50px;
 }
-
+.image3{
+  border-radius: 2000px;
+  width: 100px;
+  height: 100px;
+  margin-left: 20px;
+  background-color: #efefef;
+  float: left;  
+}
+.box11{  
+  float: left;
+  margin-top: 20px;
+  margin-left: 400px;
+}
+.box11a{  
+  float: left;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.content7{
+  background-color: #b6d3e6;
+  height: auto;
+  width: 200px;
+  border-radius: 20px;
+  margin-left: 100px;
+  float: left;
+  padding: 25px;  
+  font-size: 30px;
+}
+.content8{
+  background-color: #b6d3e6;
+  height: auto;
+  width: 200px;
+  border-radius: 20px;
+  margin-left: 5px;
+  float: left;
+  padding: 25px;  
+  font-size: 30px;
+}
+.contentbox5{
+  font-size: 20px;
+}
+/*Supervisor -Student*/
+.image3a{
+    border-radius: 2000px;
+    width: 100px;
+    height: 100px;    
+    background-color: #efefef;
+}
+.box12{  
+  padding: 10px;  
+  margin-left:100px;
+  height: auto;
+  width: auto;
+  float: left;
+}
 /*Submission*/
 .button7 button{
   float: right;
@@ -802,6 +855,22 @@
     display:grid;
     grid-template-columns: repeat(4,1fr);
     gap: 5px;
+  }
+  .box11{  
+    float: left;
+    margin-top: 20px;
+    margin-left: 100px;
+  }
+  
+  .content8, .content7{
+    background-color: #b6d3e6;
+    height: auto;
+    width: 500px;
+    border-radius: 20px;
+    margin-left: 50px;  
+    float: left;
+    padding: 25px;    
+    font-size: 30px;
   }
 }
 

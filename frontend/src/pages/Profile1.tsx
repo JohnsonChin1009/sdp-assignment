@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
+import Event from '@/layout/TableEvent.js'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -41,47 +42,42 @@ export default function Home() {
                   </tbody>                
               </table>                                                              
         </main>
-
         <div className={styles.content5}>
-        <a href="http://localhost:3000/HomeStu">
+        <a href="http://localhost:3000/StaffStu">
           <div className={styles.button5}>
             Back 
           </div>
           </a>  <br />
       </div>
-      <div className={styles.contentbox2a}>
-      <form action="">
-          <input type="text" name="Search"/>
-          <button type="submit"><Image
-                            src="/search_icon.png"
-                            alt="Search"
-                            className={styles.vercelLogo}
-                            width={20}
-                            height={10}
-                            priority            
-                            /></button>
-      </form>
-      </div> <br /><br /><br /><br />
-        <div className={styles.content6}>
-          <div className={styles.box10}>
-            <a href='http://localhost:3000/Profile1'><div className={styles.text}>Project Manager</div>
-            <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
-            <div className={styles.text}><b>Name</b></div></a>
-          </div>
-          <div className={styles.line3}></div>
-          <div className={styles.box10}>
-            <div className={styles.text1}>Supervisor</div>
-            <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
-            <div className={styles.text}><b>Name</b></div>
-          </div>          
-          <div className={styles.line3}></div>
-          <div className={styles.box10}>
-            <div className={styles.text}>Second Marker</div>
-            <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
-            <div className={styles.text}><b>Name</b></div>      
-          </div>
-          
-        </div>
+      <div className={styles.content6}>        
+        <form action="" className={styles.box11}>            
+            <select name="date" id="date">
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select><br /><br />
+            <select name="date" id="date">
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+            </select>            
+        </form>
+        <div className={styles.image3}></div>
+        <div className={styles.box11a}>Name <br /> Description <br />Platform</div>
+      </div>
+      <Event /><br /><br />
         <br /><br /><br />
         <Footer />
         </>

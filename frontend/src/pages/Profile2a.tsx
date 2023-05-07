@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
+import Table from '@/layout/TableStu1.js'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -49,45 +50,28 @@ export default function Home() {
             </table>                                                              
       </main>            
       <div className={styles.content5}>
-        <a href="http://localhost:3000/HomeSupervisor">
+        <a href="http://localhost:3000/StuSup">
         <div className={styles.button5}>
           Back 
         </div>
         </a>
-      </div>            
-      <div className={styles.contentbox2a}>
-      <form action="">
-          <input type="text" name="Search"/>
-          <button type="submit"><Image
-                            src="/search_icon.png"
-                            alt="Search"
-                            className={styles.vercelLogo}
-                            width={20}
-                            height={10}
-                            priority            
-                            /></button>
-      </form>
-      </div> <br /><br /><br />
-      <div className={styles.content6}>
-        <div className={styles.box12}>          
-          <div className={styles.image3a}></div>
-          Name
+      </div>  
+      <div className={styles.contentbox3}>
+        <div className={styles.image}></div>
+        <div className={styles.namebox}>
+            <h2>Name</h2>
+            <h3>TP</h3>
+            UCDF
         </div>
-        <div className={styles.box12}>          
-          <div className={styles.image3a}></div>
-          Name
+        <div className={styles.line2}></div>
+        <div className={styles.topicbox}>
+            <h4>Final Year Project Title</h4><br />
+            <h2>TITLE</h2>
         </div>
-        <div className={styles.box12}>          
-          <div className={styles.image3a}></div>
-          Name
-        </div>
-        <div className={styles.box12}>          
-          <div className={styles.image3a}></div>
-          Name
-        </div>
-        
-        
-      </div>                                           
+      </div>
+      <div className={styles.contentbox3}>
+            <Table />
+      </div>
       <br /><br /><br />
       <Footer />
       </>

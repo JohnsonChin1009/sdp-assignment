@@ -1,5 +1,5 @@
 import styles from '@/styles/Home.module.css'
-export default function Footer(){
+export default function Index(){
     return (
         <div className={styles.content}> 
         <div className={styles.box}>
