@@ -1,5 +1,5 @@
 import style from '@/styles/Home.module.css'
-
+import{ useEffect, useState } from 'react'
 
 const data = [
     { id: 1, name: "John", age: 25 },
@@ -7,6 +7,9 @@ const data = [
     { id: 3, name: "Mike", age: 35 },
   ];
 export default function Home() {
+  const DataList = () =>{
+    const [data, setData]= useState([]);
+  }
     return (
         
               <div className={style.container}>

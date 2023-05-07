@@ -7,12 +7,13 @@ import Footer from '@/layout/Footer.js'
 import {useState} from 'react'
 
 
+
 const inter = Inter({ subsets: ['latin'] })
 const roboto = Roboto({ weight:'300',subsets:['latin']})
 export default function Login() {
-  const[user, setUser] = useState('')
-  const[password, setPassword] = useState('')
-  const submitForm = async (event) =>{
+  const[user, setUser] = useState('');
+  const[password, setPassword] = useState('');
+  const submitForm = async event =>{
     event.preventDefault()
   }
   
@@ -34,9 +35,9 @@ export default function Login() {
             <div className={styles.box2}>
               <form onSubmit={submitForm} className={roboto.className}>
                 TP Number: <br />
-                <input type="text" required  value ={user} name="tp"/><br /><br />
+                <input type="text" required  value ={user} onChange={(event)=>setUser(event.target.value)}name="tp"/><br /><br />
                 Password: <br />
-                <input type="password"required value={password} name="password"/><br /><br />
+                <input type="password"required value={password} onChange={(event)=>setPassword(event.target.value)} name="password"/><br /><br />
                 <button type="submit" value="login" name="login" className={styles.box2button}>LOGIN</button>
               </form>
             </div>
