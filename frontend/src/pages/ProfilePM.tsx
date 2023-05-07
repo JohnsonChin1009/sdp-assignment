@@ -68,7 +68,7 @@ export default function Home() {
           <div className={styles.button5}>
             Back 
           </div>
-        </a>  <br />    
+        </a>     
       </div>        
         
       <div className={styles.line1}></div>        
@@ -85,6 +85,11 @@ export default function Home() {
           Preferable Platform :     
           <form action=""> 
             <a href="http://localhost:3000/Profile"><input type="submit" value="Edit" className={styles.button6} /></a>
+            <br />
+            Event Name: <br /><input type="text" name="EventName"/><br />
+            Date:
+            <br />
+            <input type="datetime-local"></input>
           </form>                                              
           </div>  
         </div>

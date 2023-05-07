@@ -412,7 +412,8 @@
   width: 100px;
   height: 100px;
   background-color: #efefef;
-  float: left;    
+  float: left;   
+  margin-left: 20px; 
 }
 .namebox{
   margin: 20px;
