@@ -647,6 +647,23 @@
   background-color: #a8c1d4;
   color: #1c4365;
 }
+.button8{
+  border-radius: 2000px;
+  width: 100px;
+  height: 100px;   
+  font-size: 20px; 
+  background-color: #efefef;
+  margin-left: 20px;
+}
+.button8:hover{
+  border-radius: 2000px;
+  width: 100px;
+  height: 100px;   
+  font-size: 20px;
+  font-weight: bold; 
+  background-color: #b6d3e6;
+  margin-left: 20px;
+}
 
 
 /* Enable hover only on non-touch devices */
