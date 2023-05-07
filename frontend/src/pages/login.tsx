@@ -4,11 +4,19 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Header from '@/layout/Header.js'
 import Footer from '@/layout/Footer.js'
+import {useState} from 'react'
 
 
 const inter = Inter({ subsets: ['latin'] })
 const roboto = Roboto({ weight:'300',subsets:['latin']})
-export default function Home() {
+export default function Login() {
+  const[user, setUser] = useState('')
+  const[password, setPassword] = useState('')
+  const submitForm = async (event) =>{
+    event.preventDefault()
+  }
+  
+  
   return (
     <>
       <Head>
@@ -24,12 +32,12 @@ export default function Home() {
         </div>
         <div className={styles.box1}>
             <div className={styles.box2}>
-              <form action="" className={roboto.className}>
+              <form onSubmit={submitForm} className={roboto.className}>
                 TP Number: <br />
-                <input type="text" required name="tp"/><br /><br />
+                <input type="text" required  value ={user} name="tp"/><br /><br />
                 Password: <br />
-                <input type="password"required name="password"/><br /><br />
-                <a href="http://localhost:3000/HomeSupervisor"><button type="submit" value="login" name="login" className={styles.box2button}>LOGIN</button></a>
+                <input type="password"required value={password} name="password"/><br /><br />
+                <button type="submit" value="login" name="login" className={styles.box2button}>LOGIN</button>
               </form>
             </div>
         </div>
