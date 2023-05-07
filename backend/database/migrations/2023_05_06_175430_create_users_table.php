@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('user_type');
             $table->string('profile_pic');
+            
             $table->primary('email');
         });
     }
