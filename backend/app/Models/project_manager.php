@@ -3,7 +3,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class users extends Model
+class project_manager extends Model
 {
     protected $table = 'project_manager';
 
