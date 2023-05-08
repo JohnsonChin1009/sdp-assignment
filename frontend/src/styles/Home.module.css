@@ -792,15 +792,6 @@
     height: 150px;
     align-items: left;    
   }
-  .footer1{
-    font-size: 0.8rem;
-    height: 150px;
-    align-items: left;
-    position: fixed;    
-    left: 0;
-    bottom: 0;
-  }
-
 
   .contact{
     float: left;
@@ -821,17 +812,21 @@
   }
   
   .infobox{                
-    clear: both;  
-    margin-right: 1rem;      
+    clear: both;      
     align-items: center; 
     justify-content: center; 
-    margin-left: 0px;  
+    margin-left: -50px;
   }
-  .namebox{
-    clear: both;  
+  .namebox{     
+    float: right;
     margin-right: 10px;      
     align-items: center; 
     justify-content: center; 
+  }
+  .contentbox1{    
+    float: left;
+    margin-top: 500px;
+    margin-left: 100px;
   }
   .line1{
     background-color: transparent;
@@ -879,7 +874,6 @@
     margin-top: 20px;
     margin-left: 100px;
   }
-  
   .content8, .content7{
     background-color: #b6d3e6;
     height: auto;
@@ -895,31 +889,13 @@
     margin-top: 200px;
     font-family: 'Times New Roman', Times, serif;
   }
-  
-  .check{
-    margin-top:10px;
-    padding:10px;
-  }
-  
-  .subtext{
-    font-family: 'Times New Roman', Times, serif;
-    font-size:30px;
-    padding:10px;
-  }
-  
-  .rectangle{
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    margin: 10px;
+  .Ccontentbox { /*Calendar*/
+    margin-top:50px;
     margin-left:20px;
-    background: rgb(0, 0, 0);
+    height: 50px;
+    width: 500px;
   }
   
-  .table{
-    margin-left:90px;
-    width:1000px;
-  }
 }
 
 
