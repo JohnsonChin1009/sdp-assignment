@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import Footer from '@/layout/ProfileFooter.js'
+import Footer from '@/layout/Footer.js'
 import React from 'react'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -88,7 +88,8 @@ export default function Home() {
             Event Name: <br /><input type="text" name="EventName"/><br />
             Date:
             <br />
-            <input type="datetime-local"></input>
+            <input type="datetime-local"></input><br /><br />
+            <button type="submit" value="Add" className={styles.button6}>Add</button>
           </form>                                           
           </div>  
         </div>
