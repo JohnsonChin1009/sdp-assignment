@@ -3,7 +3,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class users extends Model
+class second_marker extends Model
 {
     protected $table = 'second_marker';
 

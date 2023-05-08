@@ -4,7 +4,7 @@ namespace App\Models;
 use Doctrine\DBAL\Query;
 use Illuminate\Database\Eloquent\Model;
 
-class users extends Model
+class results extends Model
 {
     protected $table = 'results';
 

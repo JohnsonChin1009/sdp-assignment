@@ -8,11 +8,13 @@ class users extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 'users';
+    
     protected $fillable =
         [
-            'name',
             'email',
             'password',
+            'user_type',
         ];
 
     protected $hidden =
