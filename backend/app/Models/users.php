@@ -1,21 +1,23 @@
 <?php
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class users extends Model
+class users extends Authenticatable
 {
-    protected $table = 'user';
+    use Notifiable;
 
-    protected $fillable = [
-        'email',
-        'password',
-        'user_type',
-        'profile_pic',
-    ];
+    protected $fillable =
+        [
+            'name',
+            'email',
+            'password',
+        ];
 
-    public static function insertbaseusers($users)
-    {
-        return self::insert($users);
-    }
+    protected $hidden =
+        [
+            'password',
+            'remember_token',
+        ];
 }

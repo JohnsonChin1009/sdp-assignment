@@ -16,7 +16,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="https://images.credly.com/images/c970e3b3-bd27-475d-851c-b690ac1a5ffa/blob.png" />
       </Head>
-      <main className={styles.main}>                           
+      <main className={styles.main}>
         <div className={styles.center}>
           <Image
             src="/APUlogo.png"
@@ -25,13 +25,13 @@ export default function Home() {
             width={150}
             height={150}
             priority
-          />          
+          />
           <p className={styles.title2}><b className={styles.title}>ApFYPCentre</b><br />
-          <i className={styles.title3}>APU Final Year Project</i> </p>                              
-        </div>               
+            <i className={styles.title3}>APU Final Year Project</i> </p>
+        </div>
       </main>
-      <Index />         
-      <Footer />      
+      <Index />
+      <Footer />
     </>
   )
 }
