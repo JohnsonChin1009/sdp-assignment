@@ -8,7 +8,7 @@ export default function Home() {
     useEffect(()=>{
       const fetchData = async()=>{
         try{
-          const response = await fetch ('/api/students');
+          const response = await fetch ('http:localhost:8000/api/students');
           const jsonData = await response.json();
           setData(jsonData);
         }catch(error){
