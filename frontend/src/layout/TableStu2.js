@@ -8,7 +8,7 @@ export default function Home() {
     useEffect(()=>{
       const fetchData = async()=>{
         try{
-          const response = await fetch ('/api/data');
+          const response = await fetch ('/api/students');
           const jsonData = await response.json();
           setData(jsonData);
         }catch(error){
@@ -18,18 +18,14 @@ export default function Home() {
     fetchData();
     },[]);
   }
-    return (
-        
-              <div className={style.container}>
-                {data.map((item) => (
-                  <div className={style.row1} key={item.id}>
-                    <div className={style.image}></div>
-                    <div>{item.name}<br/>TP<br/>UCDF</div>                    
-                    <div><b>{item.title}</b><br/><br/>{item.supervisor}</div>                  
-                  </div>
-                ))}
-              </div>
-            
-       
-        
+    return (        
+      <div className={style.container}>
+        {data.map((item) => (
+          <div className={style.row1} key={item.id}>
+            <div className={style.image}></div>
+            <div>{item.name}<br/>{item.tp_number}<br/>{item.field_of_study}</div>                    
+            <div><b>{item.fyp_title}</b><br/><br/>{item.supervisor}</div>                  
+          </div>
+        ))}
+      </div>                           
     )}

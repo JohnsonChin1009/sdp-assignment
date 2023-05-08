@@ -193,6 +193,16 @@
   background-color: #8aadc6;
   color: #1c4365;
 }
+.word3{
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;    
+  letter-spacing: 2px;
+  padding: 10px;
+}
+.word4{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #2c4051;  
+}
 
 /*Home*/
 .content1{
@@ -894,6 +904,12 @@
     margin-left:20px;
     height: 50px;
     width: 500px;
+  }
+  .box2 form input{
+    width: 450px;
+    height: 40px;
+    border-radius: 5px;
+    border-color: transparent;
   }
   
 }
