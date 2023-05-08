@@ -11,7 +11,7 @@ import {useState} from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Login() {
-  const[user, setUser] = useState('');
+  const[email, setEmail] = useState('');
   const[password, setPassword] = useState('');
   const submitForm = async (event) => {
     event.preventDefault();
@@ -22,7 +22,7 @@ export default function Login() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ user, password }),
+        body: JSON.stringify({ email, password }),
       });
 
       if (response.ok) {
@@ -54,8 +54,8 @@ export default function Login() {
         <div className={styles.box1}>
             <div className={styles.box2}>
               <form onSubmit={submitForm} className={styles.word3}>
-                ID <br />
-                <input type="text" required  value ={user} onChange={(event)=>setUser(event.target.value)}name="tp"/><br /><br />
+                Email <br />
+                <input type="text" required  value ={email} onChange={(event)=>setEmail(event.target.value)}name="email"/><br /><br />
                 Password <br />
                 <input type="password"required value={password} onChange={(event)=>setPassword(event.target.value)} name="password"/><br /><br />
                 <button type="submit" value="login" name="login" className={styles.box2button}>LOGIN</button>
