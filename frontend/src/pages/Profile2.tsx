@@ -62,7 +62,7 @@ export default function Home() {
             <Calendar/>                                                          
       </main>       
       <div className={styles.content4}>
-        <a href="http://localhost:3000/HomeSupervisor">
+        <a href="http://localhost:3000/Home2nd">
           <div className={styles.button5}>
             Back 
           </div>
