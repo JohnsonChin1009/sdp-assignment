@@ -20,7 +20,7 @@
   --card-border-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -43,7 +43,7 @@
     
   }
 }
-
+*/
 * {
   box-sizing: border-box;
   padding: 0;
