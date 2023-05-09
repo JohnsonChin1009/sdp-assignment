@@ -89,12 +89,14 @@ export default function Home() {
           <a href="http://localhost:3000/Profile"><input type="submit" value="Edit" className={styles.button6} /></a>
           </div> 
           </form> 
-          <div className={styles.infobox}> 
+          <div className={styles.infobox1}> 
             <form action=""> <br />
             Event Name: <br /><input type="text" name="EventName"/><br />
             Date:
             <br />
-            <input type="datetime-local"></input><br /><br />
+            <input type="datetime-local"></input>
+            to
+            <input type="time"  /><br />
             <button type="submit" value="Add" className={styles.button6}>Add</button>
             </form>
            
