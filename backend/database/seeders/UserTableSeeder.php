@@ -5,12 +5,12 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class UsersTableSeeder extends Seeder
+class UserTableSeeder extends Seeder
 {
     
     public function run(): void
     {
-        $users = [
+        $User = [
             [
                 'email' => 'bobjones01@apu.edu.my',
                 'password' => bcrypt('admin'),
@@ -38,6 +38,6 @@ class UsersTableSeeder extends Seeder
         
         ];
 
-        DB::table('users')->insert($users);
+        DB::table('User')->insert($User);
     }
 }

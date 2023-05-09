@@ -25,5 +25,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/students', 'StudentController@index');
 
-Route::post('login', 'AuthController@login');
-Route::middleware('auth:api')->post('logout', 'AuthController@logout');
+Route::post('login', [AuthController::class, 'login']);
+// Route::middleware('auth:api')->post('logout', 'AuthController@logout');

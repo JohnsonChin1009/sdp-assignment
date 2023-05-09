@@ -48,22 +48,22 @@
   resolved "https://registry.npmjs.org/@eslint/js/-/js-8.37.0.tgz"
   integrity sha512-x5vzdtOOGgFVDCUs81QRB2+liax8rFg3+7hqM+QhBG0/G3F1ZsoYl97UrqgHgQ9KKT7G6c4V+aTUCgu/n22v1A==
 
-"@fullcalendar/core@~6.1.6":
-  version "6.1.6"
-  resolved "https://registry.npmjs.org/@fullcalendar/core/-/core-6.1.6.tgz"
-  integrity sha512-Q/3pWgOv7qr/eVpuDz+05jxJZSg7Fdwh4XgQP8DlJFLp5aLlOiiKdkTUIO1BX7clQtYTm8P0v7FqMKbsFiQInw==
+"@fullcalendar/core@~6.1.7":
+  version "6.1.7"
+  resolved "https://registry.npmjs.org/@fullcalendar/core/-/core-6.1.7.tgz"
+  integrity sha512-Hc63ARSyABlNo10B3NkA0z8ndaDmq5MKpcBB2iQsGQyn8N8cyn/x6V284Je1EwDoKsBlbrZAj+j+efBO+QQf5g==
   dependencies:
     preact "~10.12.1"
 
-"@fullcalendar/daygrid@^6.1.6":
-  version "6.1.6"
-  resolved "https://registry.npmjs.org/@fullcalendar/daygrid/-/daygrid-6.1.6.tgz"
-  integrity sha512-HKxprePWXRyg1Shn7p0CWgggFZVwvs+Pg0Z9uSvx6a58wP1yTbOoJHhSVv5CDsfjnq1a0y6DsJbPP/V2LDl6bg==
+"@fullcalendar/daygrid@^6.1.7":
+  version "6.1.7"
+  resolved "https://registry.npmjs.org/@fullcalendar/daygrid/-/daygrid-6.1.7.tgz"
+  integrity sha512-IB+QdRcs+TeTlsK8qJFtYZ/2GugmXEFC0C00/n1aLT7GLgFn3ueV1GN0EKvXv9HJ5ai8My65mYbSyQizY/Ishw==
 
-"@fullcalendar/react@^6.1.6":
-  version "6.1.6"
-  resolved "https://registry.npmjs.org/@fullcalendar/react/-/react-6.1.6.tgz"
-  integrity sha512-Ib1jl+4SwlyzM5JsVkhBEoB45hL11sQaN9O600XAa39lK2vSL4d0+ZTBSsBBdmezcHd/iECFk64jS0e3agGPVg==
+"@fullcalendar/react@^6.1.7":
+  version "6.1.7"
+  resolved "https://registry.npmjs.org/@fullcalendar/react/-/react-6.1.7.tgz"
+  integrity sha512-Pwe88D4zXwP/XQsYWOa1foroF/OpHSLet5CiE4crnaKvngEtzt3SBDIO01agQOpo+yE1KM/n3yE5ePbdJtVJIQ==
 
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"

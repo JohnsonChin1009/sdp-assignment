@@ -4,30 +4,25 @@ import styles from '@/styles/Home.module.css'
 import Header from '@/layout/Header.js'
 import Footer from '@/layout/Footer.js'
 import {useState} from 'react'
-import axios from 'axios';
+import {login} from '../pages/api/api.js'
 
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Login() {
-  const[email, setEmail] = useState('');
-  const[password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-  
+
     try {
-      const response = await axios.post('http://localhost:8000/api/login', {
-        email,
-        password,
-      });
-  
-      if (response.status === 200) {
-        const data = response.data;
-        console.log(data);
-      } else {
-        console.error('Login request failed');
-      }
+      const response = await login(email, password);
+
+      // Handle successful login response here
+      console.log('Login successful:', response);
     } catch (error) {
+      // Handle error during login here
       console.error('An error occurred during the login request:', error);
     }
   };
