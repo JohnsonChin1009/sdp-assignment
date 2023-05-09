@@ -48,11 +48,13 @@ export default function Home() {
           <div className={styles.button5}>
             Back 
           </div>
-        </a>  <br />    
-      </div> 
+        </a>    
+      </div>
+      <div className={styles.button7}><a href=""><button>Edit</button></a></div>
+      <br />  
       <div className={styles.contentbox3}>
         <div className={styles.image}></div>
-        <div className={styles.namebox}>
+        <div className={styles.namebox1}>
             <h2>Name</h2>
             <h3>TP</h3>
             UCDF
