@@ -3,6 +3,7 @@ namespace App\Models;
 
 use Doctrine\DBAL\Query;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\FlareClient\FlareMiddleware\AddDocumentationLinks;
 
 class results extends Model
 {
