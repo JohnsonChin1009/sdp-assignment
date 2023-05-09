@@ -77,26 +77,31 @@ export default function Home() {
           <div className={styles.image}></div>
           <form action="">
           <div className={styles.namebox}>
-          Name <br />
-          Lecture
+          <input type="text" placeholder="Name"/><br /><br />
+          <input type="text" placeholder="Field"/>
           </div> 
           <div className={styles.infobox}>
           Email  : <br />
           <input type="text" /><br />
           Tel    :<br />
           <input type="text" /><br />
-          Preferable Platform :
+          Preferable Platform :<br/>
           <input type="text" />
           <br />
-            <a href="http://localhost:3000/Profile"><input type="submit" value="Edit" className={styles.button6} /></a>
-            <br />
+          <a href="http://localhost:3000/Profile"><input type="submit" value="Edit" className={styles.button6} /></a>
+          </div> 
+          </form> 
+          <div className={styles.infobox}> 
+            <form action=""> <br />
             Event Name: <br /><input type="text" name="EventName"/><br />
             Date:
             <br />
             <input type="datetime-local"></input><br /><br />
             <button type="submit" value="Add" className={styles.button6}>Add</button>
-            </div> 
-          </form>                                              
+            </form>
+           
+          </div> 
+                                                      
            
         </div>
         

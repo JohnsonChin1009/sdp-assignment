@@ -427,9 +427,12 @@
 }
 .namebox{
   margin: 20px;
-  padding-top: 10px;
-  float: left;
+  margin-top: -70px;
+  float: right;
+  margin-right: -10px;
+  clear: both;
 }
+
 .infobox{
   margin: 15px;
   clear: both;
@@ -827,11 +830,12 @@
     justify-content: center; 
     margin-left: -50px;
   }
-  .namebox{     
+  .namebox{
+    margin: 20px;
+    margin-top: -75px;
     float: right;
-    margin-right: 10px;      
-    align-items: center; 
-    justify-content: center; 
+    margin-right: -60px;
+    clear: both;
   }
   .contentbox1{    
     float: left;
