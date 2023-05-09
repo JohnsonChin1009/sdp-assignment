@@ -67,6 +67,7 @@ export default function Home() {
 
       <div className={styles.table}>
         <table>
+          <tbody>
           <tr>
             <td>
               <Rectangle />
@@ -106,6 +107,7 @@ export default function Home() {
             <td>
               <div className={styles.subtext}></div></td>
           </tr>
+          </tbody>
         </table>
       </div>
       <br /><br /><br />
