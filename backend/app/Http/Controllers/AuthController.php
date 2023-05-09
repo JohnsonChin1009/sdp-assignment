@@ -3,33 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\users;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-        if (Auth::attempt($credentials))
-        {
-            $user = users::where('email', $request->input('email'))->first();
-            $token = $user->createToken('auth_token')->plainTextToken;
-
-            return response()->json([
-                'access_token' => $token,
-                'token_type' => 'Bearer',
-            ]);
+        if (Auth::attempt($credentials)) {
+            $token = Auth::user()->createToken('LaravelPassport')->accessToken;
+            return response()->json(['token' => $token], 200);
+        } else {
+            return response()->json(['message' => 'Invalid credentials'], 401);
         }
-
-        return response()->json(['error' => 'Unauthorized'], 401);
     }
-    
+
     public function logout(Request $request)
     {
-        $request->user()->currentAccessToken()->delete();
-
-        return response()->json(['message' => 'Successfully logged out']);
+        $request->user()->token()->revoke();
+        return response()->json(['message' => 'Successfully logged out'], 200);
     }
-}   
+}
