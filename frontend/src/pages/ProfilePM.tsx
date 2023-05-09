@@ -75,15 +75,19 @@ export default function Home() {
 
         <div className={styles.contentbox1}>           
           <div className={styles.image}></div>
+          <form action="">
           <div className={styles.namebox}>
           Name <br />
           Lecture
           </div> 
           <div className={styles.infobox}>
           Email  : <br />
-          Tel    : 0123456789<br />         
-          Preferable Platform :     
-          <form action=""> 
+          <input type="text" /><br />
+          Tel    :<br />
+          <input type="text" /><br />
+          Preferable Platform :
+          <input type="text" />
+          <br />
             <a href="http://localhost:3000/Profile"><input type="submit" value="Edit" className={styles.button6} /></a>
             <br />
             Event Name: <br /><input type="text" name="EventName"/><br />
@@ -91,8 +95,9 @@ export default function Home() {
             <br />
             <input type="datetime-local"></input><br /><br />
             <button type="submit" value="Add" className={styles.button6}>Add</button>
+            </div> 
           </form>                                              
-          </div>  
+           
         </div>
         
         
