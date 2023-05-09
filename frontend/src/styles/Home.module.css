@@ -649,6 +649,12 @@
   width: auto;
   float: left;
 }
+.content9{
+  width: auto;
+  margin-top: -20px;
+  margin-left: 100px;
+  height: 200px;
+}
 /*Submission*/
 .button7 button{
   float: right;
