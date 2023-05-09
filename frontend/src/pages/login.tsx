@@ -1,19 +1,16 @@
 import Head from 'next/head'
-import {Roboto} from 'next/font/google'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Header from '@/layout/Header.js'
 import Footer from '@/layout/Footer.js'
 import {useState} from 'react'
 
-
-
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Login() {
   const[email, setEmail] = useState('');
   const[password, setPassword] = useState('');
-  const submitForm = async (event) => {
+  const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
