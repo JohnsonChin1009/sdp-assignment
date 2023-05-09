@@ -6,12 +6,7 @@ import Footer from '@/layout/Footer.js'
 import Filter from '@/layout/TableSup1.js'
 const inter = Inter({ subsets: ['latin'] })
 
-//Checkbox
-const Rectangle = () => {
-  return (
-    <div className={styles.rectangle}></div>
-  );
-};
+
 
 export default function Home() {
   return (

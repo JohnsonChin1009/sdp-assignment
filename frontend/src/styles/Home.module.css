@@ -149,8 +149,13 @@
 }
 .row{
   display:grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(5,1fr);
   gap: 100px;
+}
+.row1{
+  display:grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 100px;  
 }
 
 /*Login*/
@@ -443,7 +448,7 @@
   margin: 15px;
   clear: both;
   float: right;
-  margin-right: -10px;
+  margin-right: -20px;
 }
 .topicbox{
   margin: 20px;
@@ -490,6 +495,16 @@
   margin-left:20px;
   height: 50px;
   width:700px;
+}
+/*Edit Profile*/
+.namebox1{
+  margin: 20px;
+  margin-left: 25px;
+  float: left;
+}
+.infobox2{  
+  float: left;
+  margin-left: 30px;
 }
 
 
@@ -892,8 +907,15 @@
   }
   .row{
     display:grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 5px;
+    grid-template-columns: repeat(5,1fr);
+    gap: 40px;
+    margin-left: -100px;
+  }
+  .row1{
+    display:grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 40px;
+    margin-left: 0px;
   }
   .box11{  
     float: left;
@@ -927,7 +949,11 @@
     border-radius: 5px;
     border-color: transparent;
   }
-  
+  .infobox2{
+    margin-top: 10px;
+    float: left;
+    margin-left: 20px;
+  }
 }
 
 

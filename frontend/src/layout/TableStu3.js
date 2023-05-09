@@ -11,7 +11,7 @@ export default function Table() {
         
               <div className={style.container1}>
                 {data.map((row) => (
-                  <div className={style.row} key={row.id}>
+                  <div className={style.row1} key={row.id}>
                     <div className={style.image}></div>
                     <div>Name <br/>TP<br/>UCDF</div>
                     <div>Title<br/><br/>Supervisor</div>

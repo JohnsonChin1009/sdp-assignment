@@ -22,18 +22,14 @@ export default function Home() {
         </table>
         <br />
         <table>
-            <tbody>
-                <tr>
-                    <td>Project Manager</td>
-                    <td>: </td>
-                </tr>
+            <tbody>                
                 <tr>
                     <td>Supervisor</td>
                     <td>: </td>
                 </tr>
                 <tr>
                     <td>Second Marker</td>
-                    <td>: </td>
+                    <td>:  </td>
                 </tr>
             </tbody>
         </table>        
