@@ -24,3 +24,14 @@ export const getStudents = async () => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching student records');
   }
 };
+
+export const getProfileStudents = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/students`);
+    const students = response.data.data;
+
+    return students;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching student records');
+  }
+};

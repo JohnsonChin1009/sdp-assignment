@@ -426,6 +426,12 @@
   margin-left: 50px;
   clear: both;
 }
+.contentbox3a{  
+  float:left;  
+  margin: 20px;
+  margin-left: 5px;
+  clear: both;
+}
 .image{
   border-radius: 2000px;
   width: 100px;
