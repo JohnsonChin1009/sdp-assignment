@@ -15,6 +15,7 @@ export default function Login() {
   const router = useRouter()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [role_type, setRoleType] = useState('');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {

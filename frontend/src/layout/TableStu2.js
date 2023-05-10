@@ -1,5 +1,6 @@
 import style from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react'
+import { getStudents } from '@/pages/api/api';
 
 export default function Home() {
   const DataList = () => {
@@ -8,9 +9,8 @@ export default function Home() {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await fetch('http://localhost:8000/api/students');
-          const jsonData = await response.json();
-          setData(jsonData);
+          const students = await getStudents();
+          setData(students);
         } catch (error) {
           console.log('Error fetching data: ', error);
         }

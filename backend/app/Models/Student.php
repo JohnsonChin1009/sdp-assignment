@@ -5,6 +5,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
+    protected $table = 'students';
+    protected $primaryKey = 'tp_number';
+    
     protected $fillable = [
         'tp_number',
         'name',
