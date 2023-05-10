@@ -28,7 +28,7 @@ export const getStudents = async () => {
 export const getStudentProfile = async (token) => {
   try {
     console.log(token);
-    const response = await axios.post(`${API_URL}/displayStudentProfile`, {
+    const response = await axios.post(`${API_URL}/displayStudentProfile/${token}`, {
       token
     });
     const students = response.data.data;
@@ -49,3 +49,12 @@ export const getLecturers = async () => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecture records');
   }
 };
+
+export default function getNewEvent(){
+  try{
+    const response = await axios.post(`${API_URL}/schedule`,{value});
+    return response.data;
+  }catch(error){
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}

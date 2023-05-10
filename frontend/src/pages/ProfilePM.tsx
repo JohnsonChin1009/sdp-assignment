@@ -6,27 +6,33 @@ import Footer from '@/layout/Footer.js'
 import React from 'react'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import {getNewEvent} from '@/pages/api/api'
+import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 //Calendar
-const Calendar = () => {
+const Calendar = ({events, handleAddEvent}) => {
   return (
     <div className={styles.Ccontentbox}>
       <FullCalendar
         plugins={[ dayGridPlugin ]}
         initialView="dayGridMonth"
-        events={[
-          { title: 'Event 1', date: '2023-05-01' },
-          { title: 'Event 2', date: '2023-05-02' }
-        ]}
+        events={[events]}
+        editable={true}
+        selectable={true}
+        select={handleAddEvent}
       />
     </div>
   );
 };
 
-//Navigation bar
+
 export default function Home() {
+  const [value,setValue]=useState([]);
+  const handleAddEvent = (event)=>{
+
+  }
   return (
     <>    
       <Head>
@@ -92,13 +98,13 @@ export default function Home() {
           </div> 
           </form> 
           <div className={styles.infobox1}> 
-            <form action=""> <br />
+            <form onSubmit={handleAddEvent}> <br />
             Event Name: <br /><input type="text" name="EventName"/><br />
             Date:
             <br />
             <input type="datetime-local"/> to <input type="time"  /><br />
-            <button type="submit" value="Add" className={styles.button6}>Add</button>
-            </form>
+          <button type="submit" value="Add" className={styles.button6}>Add</button>
+          </form>
            
           </div> 
                                                       
