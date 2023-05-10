@@ -31,8 +31,8 @@ class UserTableSeeder extends Seeder
                 'role_type' => 'lecturer',
             ],
             [
-                'name'  => 'Ahmad',
-                'email' => 'tp006293@mail.apu.edu.my',
+                'name'  => 'Dieter Penright',
+                'email' => 'tp038889@mail.apu.edu.my',
                 'password' => Hash::make('student'),
                 'role_type' => 'student',
             ],
