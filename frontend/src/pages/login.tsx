@@ -12,7 +12,8 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -24,6 +25,9 @@ export default function Login() {
     } catch (error) {
       // Handle error during login here
       console.error('An error occurred during the login request:', error);
+      setError(true);
+      setErrorMessage('Invalid email or password')
+
     }
   };
   
@@ -39,7 +43,7 @@ export default function Login() {
       <Header />
       <div className={styles.main}>
         <div className={styles.center}>
-          <h1 className={styles.word4}>Login</h1>
+          <div className={styles.word4}><b>Login</b></div>
         </div>
         <div className={styles.box1}>
             <div className={styles.box2}>
@@ -49,7 +53,8 @@ export default function Login() {
                 Password <br />
                 <input type="password"required value={password} onChange={(event)=>setPassword(event.target.value)} name="password"/><br /><br />
                 <button type="submit" value="login" name="login" className={styles.box2button}>LOGIN</button>
-              </form>
+              </form> <br />
+              {error && <p className={styles.word5}><i>**{errorMessage}</i></p>}
             </div>
         </div>
       </div><br /><br /><br />

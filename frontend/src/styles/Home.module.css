@@ -207,8 +207,11 @@
 .word4{
   font-family: Arial, Helvetica, sans-serif;
   color: #2c4051;  
+  font-size: 50px;
 }
-
+.word5{
+  color: red;
+}
 /*Home*/
 .content1{
   padding: 45px;
