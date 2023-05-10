@@ -197,6 +197,7 @@
 .box2 form button:hover{
   background-color: #8aadc6;
   color: #1c4365;
+  cursor: pointer;
 }
 .word3{
   font-family: Arial, Helvetica, sans-serif;
