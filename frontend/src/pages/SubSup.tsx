@@ -49,7 +49,7 @@ export default function Home() {
           </a>  <br />
       </div>
 
-      <div className={styles.button7}><a href=""><button>Edit</button></a></div>
+      
       <br /><br /><br />                             
       
       <Table />  
