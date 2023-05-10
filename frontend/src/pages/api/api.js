@@ -25,9 +25,9 @@ export const getStudents = async () => {
   }
 };
 
-export const getLectures = async () => {
+export const getLecturers = async () => {
   try {
-    const response = await axios.get(`${API_URL}/lectures`);
+    const response = await axios.get(`${API_URL}/lecturers`);
     const lectures = response.data.data;
 
     return lectures;

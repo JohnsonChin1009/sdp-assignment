@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:api');
-Route::get('students', [StudentController::class, 'displayStudents']);
+Route::get('displaystudents', [StudentController::class, 'displayStudents']);
+Route::get('displaylecturers', [LecturerController::class, 'displayLecturers']);
