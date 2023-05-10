@@ -4,11 +4,11 @@ import { getStudentProfile } from '@/pages/api/api';
 
 export default function Home() {
     const [data, setData] = useState([]);
-
+    
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const student = await getStudentProfile();
+          const student = await getStudentProfile(token);
           setData(student);
         } catch (error) {
           console.log('Error fetching data: ', error);

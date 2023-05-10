@@ -25,9 +25,12 @@ export const getStudents = async () => {
   }
 };
 
-export const getStudentProfile = async () => {
+export const getStudentProfile = async (token) => {
   try {
-    const response = await axios.get(`${API_URL}/displayStudentProfile`);
+    console.log(token);
+    const response = await axios.post(`${API_URL}/displayStudentProfile`, {
+      token
+    });
     const students = response.data.data;
 
     return students;

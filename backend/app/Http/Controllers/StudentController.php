@@ -29,14 +29,14 @@ class StudentController extends Controller
 
     public function displayStudentProfile(Request $request)
     {
-        $token = $request->bearerToken();
+        $token = $request;
 
-        $user = User::where('api_token', $token)->first();
-
+        $user = User::where('email', $token)->first();
+        
         if (!$user) {
             return response()->json([
                 'success' => false,
-                'message' => 'Invalid Token',
+                'message' => $token,
             ], 401);
         }
 
