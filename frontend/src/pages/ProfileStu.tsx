@@ -66,7 +66,7 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.contentbox3}>
-            <Table />
+            <Table /><br />
       </div>
       
       <br /><br /><br />
