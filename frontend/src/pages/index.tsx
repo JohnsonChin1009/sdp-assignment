@@ -28,6 +28,9 @@ export default function Login() {
       setRoleType(role_type);
       // Handle successful login response here
       console.log('Login successful:', response);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('token', token);
+      }
 
       switch (role_type) { 
         case 'projectmanager':

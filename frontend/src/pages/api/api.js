@@ -27,9 +27,10 @@ export const getStudents = async () => {
 
 export const getStudentProfile = async (token) => {
   try {
-    console.log(token);
-    const response = await axios.post(`${API_URL}/displayStudentProfile`, {
-      token
+    const response = await axios.get(`${API_URL}/displayStudentProfile`, {
+      headers: {
+        Authorization: token, // Pass the token in the request header
+      },
     });
     const students = response.data.data;
 
