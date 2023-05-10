@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Contracts\Auth\Authenticatable;
 class StudentController extends Controller
 {
     public function displayStudents()
@@ -23,4 +26,27 @@ class StudentController extends Controller
             ], 500);
         }
     }
+
+    public function displayStudentProfile(Request $request)
+    {
+        $token = $request->bearerToken();
+
+        $user = User::where('api_token', $token)->first();
+
+        if (!$user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid Token',
+            ], 401);
+        }
+
+        $student = $user->student;
+
+        return response()->json([
+            'success' => true,
+            'data' => $student,
+        ]);    
+    }
+
+    
 }
