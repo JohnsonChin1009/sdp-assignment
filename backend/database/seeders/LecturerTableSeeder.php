@@ -18,7 +18,7 @@ class LecturerTableSeeder extends Seeder
                 'id' => 'STAFF007',
                 'name' => 'CAMILA ATHERTON',
                 'field_of_study' => 'HUMAN RESOURCES',
-                'email' => 'catherton0@yandex.ru',
+                'email' => 'camila01@apu.edu.my',
             ],
 
             [
