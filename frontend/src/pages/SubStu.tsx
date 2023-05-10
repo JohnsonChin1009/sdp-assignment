@@ -55,12 +55,12 @@ export default function Home() {
       
       <div className={styles.content3}>
         <a href="http://localhost:3000/HomeStu">
-          <div className={styles.button5s}>
+          <div className={styles.button5}>
             Back 
           </div>
-          </a>  <br />
+          </a>  
       </div>
-
+    <br />
       <div className ={styles.subtitle}>
         <h1><b>Submission</b></h1>
       </div>
