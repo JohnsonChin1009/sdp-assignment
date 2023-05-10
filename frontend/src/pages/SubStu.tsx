@@ -43,7 +43,7 @@ export default function Home() {
                         <td><a href="http://localhost:3000/StaffStu" className={styles.button2}>Staff</a></td>
                         <td> <br/></td>
                         <td><br/></td>
-                        <td><a href="http://localhost:3000/login" className={styles.box6}><u>Logout</u></a></td>
+                        <td><a href="http://localhost:3000" className={styles.box6}><u>Logout</u></a></td>
                     </tr>
                 </tbody>                
             </table>                                                              

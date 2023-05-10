@@ -56,7 +56,7 @@ export default function Home() {
                         <td><a href="http://localhost:3000/SubSup" className={styles.button2}>Submission</a></td>
                         <td> <br/></td>
                         <td><br/></td>
-                        <td><a href="http://localhost:3000/login" className={styles.box3}><u>Logout</u></a></td>
+                        <td><a href="http://localhost:3000" className={styles.box3}><u>Logout</u></a></td>
                     </tr>
                 </tbody>                
             </table>

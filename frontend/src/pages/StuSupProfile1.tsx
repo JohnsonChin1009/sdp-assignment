@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
-import Table from '@/layout/TableStaff.js'
+import Table from '@/layout/TableStu1.js'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -44,12 +44,12 @@ export default function Home() {
             </table>                                                          
       </main>       
       <div className={styles.content5}>
-        <a href="http://localhost:3000/HomePM">
+        <a href="http://localhost:3000/StaffPM">
         <div className={styles.button5}>
           Back 
         </div>
         </a>
-      </div>                               
+      </div>  
       <div className={styles.contentbox2}>
         <form action="">
           <select name="field">
@@ -78,7 +78,7 @@ export default function Home() {
       </div>
       <br /><br /><br />    <br /><br /><br />                          
       
-      <Table />                                      
+      <Table />                                   
              
       <br /><br /><br />
       <Footer />

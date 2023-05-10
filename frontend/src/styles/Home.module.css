@@ -155,7 +155,8 @@
 .row1{
   display:grid;
   grid-template-columns: repeat(5,1fr);
-  gap: 100px;  
+  gap: 80px;  
+  column-width: auto;
 }
 
 /*Login*/
