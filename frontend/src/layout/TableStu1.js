@@ -1,6 +1,6 @@
 import styles from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react'
-import { getStudents } from '@/pages/api/api';
+import { getStudentProfile } from '@/pages/api/api';
 
 export default function Home() {
     const [data, setData] = useState([]);
@@ -8,8 +8,8 @@ export default function Home() {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const students = await getStudents();
-          setData(students);
+          const student = await getStudentProfile();
+          setData(student);
         } catch (error) {
           console.log('Error fetching data: ', error);
         }
