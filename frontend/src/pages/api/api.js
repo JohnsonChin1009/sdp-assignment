@@ -50,7 +50,7 @@ export const getLecturers = async () => {
   }
 };
 
-export default function getNewEvent(){
+export const getNewEvent = async () => {
   try{
     const response = await axios.post(`${API_URL}/schedule`,{value});
     return response.data;

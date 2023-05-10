@@ -19,15 +19,9 @@ class UserTableSeeder extends Seeder
                 'role_type' => 'projectmanager',
             ],
             [
-                'name'  => 'Jennifer',
-                'email' => 'jennifer01@apu.edu.my',
+                'name'  => 'Camila Atherton',
+                'email' => 'camila01@apu.edu.my',
                 'password' => Hash::make('secondmarker'),
-                'role_type' => 'lecturer',
-            ],
-            [
-                'name'  => 'Rachel Jones',
-                'email' => 'racheljones01@apu.edu.my',
-                'password' => Hash::make('supervisor'),
                 'role_type' => 'lecturer',
             ],
             [

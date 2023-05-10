@@ -25,3 +25,4 @@ Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:api')
 Route::get('displaystudents', [StudentController::class, 'displayStudents']);
 Route::get('displayStudentProfile', [StudentController::class, 'displayStudentProfile']);
 Route::get('displaylecturers', [LecturerController::class, 'displayLecturers']);
+Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile'], );

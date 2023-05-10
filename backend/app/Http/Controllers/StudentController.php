@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Contracts\Auth\Authenticatable;
 class StudentController extends Controller
 {
     public function displayStudents()
@@ -28,25 +26,23 @@ class StudentController extends Controller
     }
 
     public function displayStudentProfile(Request $request)
-    {
-        $token = $request;
+        {
+            $token = $request->header("Authorization");
 
-        $user = User::where('email', $token)->first();
-        
-        if (!$user) {
+            $student = Student::where('email', $token)->first();
+            
+            if (!$student) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $token,
+                ], 401);
+            }
+
             return response()->json([
-                'success' => false,
-                'message' => $token,
-            ], 401);
+                'success' => true,
+                'data' => $student,
+            ]);    
         }
-
-        $student = $user->student;
-
-        return response()->json([
-            'success' => true,
-            'data' => $student,
-        ]);    
-    }
 
     
 }
