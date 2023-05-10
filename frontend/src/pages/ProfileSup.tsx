@@ -95,9 +95,7 @@ export default function Home() {
             Event Name: <br /><input type="text" name="EventName"/><br />
             Date:
             <br />
-            <input type="datetime-local"></input>
-            to
-            <input type="time"  /><br />
+            <input type="datetime-local"/> to <input type="time"  /><br />
             <button type="submit" value="Add" className={styles.button6}>Add</button>
             </form>
            
