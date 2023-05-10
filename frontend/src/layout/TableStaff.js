@@ -2,7 +2,6 @@ import style from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react'
 import { getLectures } from '@/pages/api/api';
 
-
 export default function TableStaff() {
   const [data, setData] = useState([]);
 
