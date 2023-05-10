@@ -487,7 +487,7 @@ class StudentsTableSeeder extends Seeder
                     'name' => 'DIETER PENRIGHT',
                     'field_of_study' => 'INFORMATION TECHNOLOGY',
                     'specialism' => 'BUSINESS',
-                    'email' => 'dpenright1g@g.co',
+                    'email' => 'tp038889@mail.apu.edu.my',
                     'fyp_title' => 'BALANCED MULTI-STATE CONCEPT',
                 ],
 
