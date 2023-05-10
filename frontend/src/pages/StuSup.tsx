@@ -3,15 +3,10 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
-
+import Filter from '@/layout/TableSup1.js'
 const inter = Inter({ subsets: ['latin'] })
 
-//Checkbox
-const Rectangle = () => {
-  return (
-    <div className={styles.rectangle}></div>
-  );
-};
+
 
 export default function Home() {
   return (
@@ -55,36 +50,11 @@ export default function Home() {
         </div>
         </a>
       </div>            
-      <div className={styles.contentbox2a}>
-      <form action="">
-          <input type="text" name="Search"/>
-          <button type="submit"><Image
-                            src="/search_icon.png"
-                            alt="Search"
-                            className={styles.vercelLogo}
-                            width={20}
-                            height={10}
-                            priority            
-                            /></button>
-      </form>
-      </div> <br /><br /><br />
+       <br /><br /><br />
+       <Filter/>
       <div className={styles.content6}>
-        <div className={styles.box12}>          
-          <div className={styles.image3a}></div>
-          Name
-        </div>
-        <div className={styles.box12}>          
-          <div className={styles.image3a}></div>
-          Name
-        </div>
-        <div className={styles.box12}>          
-          <div className={styles.image3a}></div>
-          Name
-        </div>
-        <div className={styles.box12}>          
-          <div className={styles.image3a}></div>
-          Name
-        </div>
+       
+
         
         
       </div>                                           

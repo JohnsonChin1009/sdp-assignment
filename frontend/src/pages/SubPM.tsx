@@ -50,8 +50,20 @@ export default function Home() {
           </div>
           </a>  <br />
       </div>
-      <div className={styles.button7}><a href=""><button>Edit</button></a></div>
-      <br /><br /><br />                             
+      <div className={styles.contentbox2a}>
+      <form action="">
+          <input type="text" name="Search"/>
+          <button type="submit"><Image
+                            src="/search_icon.png"
+                            alt="Search"
+                            className={styles.vercelLogo}
+                            width={20}
+                            height={10}
+                            priority            
+                            /></button>
+      </form>
+      </div><br /><br /><br /><br />
+                                   
       
       <Table />  
         

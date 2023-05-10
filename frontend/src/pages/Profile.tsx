@@ -51,20 +51,22 @@ export default function Home() {
       </div> 
       <div className={styles.contentbox4}>           
           <div className={styles.image} ></div>
-          <div className={styles.namebox}>
-          Name <br />
-          Lecture
-          </div> 
-          <div className={styles.line2}></div>
-          <div className={styles.namebox}>
-          Email  : <br />
-          Tel    : 0123456789<br />               
-          Preferable Platform :     
           <form action=""> 
+          <div className={styles.namebox1}>
+          <input type="text" placeholder="Name"/><br /><br/>
+          <input type="text" placeholder="Field"/>
+          </div> 
+          
+          <div className={styles.infobox2}>
+          
+          Email  : <input type="email" name="" id="" /><br /><br />
+          Tel    : <input type="text" /><br />        <br />       
+          Preferable Platform : <input type="text" />   
+          </div>
             <a href="http://localhost:3000/Profile"><button type="submit" className={styles.button6}>Done Editing</button></a>
           </form>  
           <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />                                                    
-          </div>  
+            <br /><br /><br /><br /><br /><br />
         </div>
             <Footer />
       </>
