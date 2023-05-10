@@ -1,19 +1,31 @@
 import style from '@/styles/Home.module.css'
+import { useEffect, useState } from 'react'
+import { getLectures } from '@/pages/api/api';
 
 
-const data = [
-    { id: 1, name: "John", age: 25 },
-    { id: 2, name: "Jane", age: 30 },
-    { id: 3, name: "Mike", age: 35 },
-  ];
-export default function Home() {
+export default function TableStaff() {
+  const [data, setData] = useState([]);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const lectures = await getLectures();
+          setData(lectures);
+        } catch (error) {
+          console.log('Error fetching data: ', error);
+        }
+      };
+
+      fetchData();
+    }, []);
+
     return (
         
               <div className={style.container}>
-                {data.map((row) => (
-                  <div className={style.row1} key={row.id}>
+                {data.map((item) => (
+                  <div className={style.row1} key={item.id}>
                     <div className={style.image}></div>
-                    <div><br/>Name <br/>Field<br/>Specialize</div>                                        
+                    <div><br/>{item.name} <br/>{item.field_of_study}</div>                                        
                   </div>
                 ))}
               </div>

@@ -25,13 +25,13 @@ export const getStudents = async () => {
   }
 };
 
-export const getProfileStudents = async () => {
+export const getLectures = async () => {
   try {
-    const response = await axios.get(`${API_URL}/students`);
-    const students = response.data.data;
+    const response = await axios.get(`${API_URL}/lectures`);
+    const lectures = response.data.data;
 
-    return students;
+    return lectures;
   } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching student records');
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecture records');
   }
 };

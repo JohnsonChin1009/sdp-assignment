@@ -4,25 +4,9 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import Table from '@/layout/TableStu1.js'
-import { useEffect, useState } from 'react'
-import { getProfileStudents } from '@/pages/api/api';
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Profile() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const students = await getProfileStudents();
-        setData(students);
-      } catch (error) {
-        console.log('Error fetching data: ', error);
-      }
-    };
-
-    fetchData();
-  }, []);
   return (
     <>
       <Head>

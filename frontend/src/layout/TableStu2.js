@@ -25,7 +25,7 @@ export default function Home() {
           <div className={style.row1} key={item.id}>
             <div className={style.image}></div>
             <div>{item.name}<br/>{item.tp_number}<br/>{item.field_of_study}</div>
-            <div><b>{item.fyp_title}</b><br/><br/>{item.supervisor}</div>
+            <div><b>{item.fyp_title}</b><br/><br/>{item.supervisor}<br/>{item.secondmarker}</div>
           </div>
         ))}
       </div>
