@@ -12,7 +12,7 @@ class PMTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $projectManager = 
+        $ProjectManager = 
         [
             [
                 'id' => 'STAFF001',
@@ -57,6 +57,6 @@ class PMTableSeeder extends Seeder
             ],
         ];
 
-        DB::table('projectmanager')->insert($projectManager);
+        DB::table('projectmanagers')->insert($ProjectManager);
     }
 }

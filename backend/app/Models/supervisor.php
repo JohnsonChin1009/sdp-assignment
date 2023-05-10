@@ -3,10 +3,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class supervisor extends Model
+class Supervisor extends Model
 {
-    protected $table = 'supervisor';
-
     protected $fillable = [
         'id',
         'name',

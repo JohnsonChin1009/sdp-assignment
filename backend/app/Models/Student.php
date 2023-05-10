@@ -3,14 +3,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class second_marker extends Model
+class Student extends Model
 {
-    protected $table = 'second_marker';
-
     protected $fillable = [
-        'id',
+        'tp_number',
         'name',
         'field_of_study',
+        'specialism',
         'email',
+        'title',
     ];
 }

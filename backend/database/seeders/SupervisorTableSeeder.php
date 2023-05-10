@@ -12,7 +12,7 @@ class SupervisorTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $supervisors =
+        $Supervisor =
             [
                 [
                     'id' => 'STAFF007',
@@ -365,6 +365,6 @@ class SupervisorTableSeeder extends Seeder
                 ],
             ];
 
-            DB::table('supervisor')->insert($supervisors);
+            DB::table('supervisors')->insert($Supervisor);
     }
 }

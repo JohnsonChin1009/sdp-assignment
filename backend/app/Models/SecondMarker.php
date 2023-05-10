@@ -3,10 +3,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class project_manager extends Model
+class SecondMarker extends Model
 {
-    protected $table = 'project_manager';
-
     protected $fillable = [
         'id',
         'name',

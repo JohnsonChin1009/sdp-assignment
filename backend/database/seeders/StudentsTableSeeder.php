@@ -12,7 +12,7 @@ class StudentsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $students =
+        $Student =
             [
                 [
                     'tp_number' => 'TP098154',
@@ -2715,6 +2715,6 @@ class StudentsTableSeeder extends Seeder
                 ],
 
             ];
-        DB::table('students')->insert($students);
+        DB::table('students')->insert($Student);
     }
 }

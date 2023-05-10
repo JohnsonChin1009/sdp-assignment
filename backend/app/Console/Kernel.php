@@ -26,8 +26,7 @@ class Kernel extends ConsoleKernel
     }
 
     protected $middleware = [
-
+        // ...
         \App\Http\Middleware\CorsMiddleware::class,
     ];
-    
 }

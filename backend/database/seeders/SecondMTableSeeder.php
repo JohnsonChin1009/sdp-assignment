@@ -12,7 +12,7 @@ class SecondMTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $second_marker =
+        $SecondMarker =
             [
                 [
                     'id' => 'STAFF057', 
@@ -365,6 +365,6 @@ class SecondMTableSeeder extends Seeder
                  ],
             ];
 
-        DB::table('secondmarker')->insert($second_marker);
+        DB::table('secondmarkers')->insert($SecondMarker);
     }
 }

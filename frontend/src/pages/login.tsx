@@ -3,24 +3,47 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Header from '@/layout/Header.js'
 import Footer from '@/layout/Footer.js'
-import {useState} from 'react'
-import {login} from '../pages/api/api.js'
+import {useState, useEffect} from 'react'
+import { login } from '../pages/api/api.js'
+import { useRouter } from 'next/router.js'
+
 
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Login() {
+  const router = useRouter()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [roleType, setRoleType] = useState('');
+
 
   const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
       const response = await login(email, password);
+      const { token, role_type } = response;
 
+      setRoleType(role_type);
       // Handle successful login response here
       console.log('Login successful:', response);
+
+      switch (role_type) { 
+        case 'projectmanager':
+          router.push('/HomePM');
+          break;
+        case 'lecturer':
+          router.push('/HomeSupervisor');
+          break;
+        case 'student':
+          router.push('/HomeStu');
+          break;
+        default:
+          router.push('/login');
+
+      }
+
     } catch (error) {
       // Handle error during login here
       console.error('An error occurred during the login request:', error);

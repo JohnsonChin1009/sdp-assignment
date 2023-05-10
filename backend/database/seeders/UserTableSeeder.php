@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserTableSeeder extends Seeder
 {
@@ -12,32 +13,32 @@ class UserTableSeeder extends Seeder
     {
         $User = [
             [
+                'name'  => 'bob',
                 'email' => 'bobjones01@apu.edu.my',
-                'password' => bcrypt('admin'),
-                'user_type' => '1',
-                'profile_pic' => '',
+                'password' => Hash::make('projectmanager'),
+                'role_type' => 'projectmanager',
             ],
             [
+                'name'  => 'Jennifer',
                 'email' => 'jennifer01@apu.edu.my',
-                'password' => bcrypt('secondmarker'),
-                'user_type' => '3',
-                'profile_pic' => '',
+                'password' => Hash::make('secondmarker'),
+                'role_type' => 'lecturer',
             ],
             [
+                'name'  => 'Rachel Jones',
                 'email' => 'racheljones01@apu.edu.my',
-                'password' => bcrypt('supervisor'),
-                'user_type' => '2',
-                'profile_pic' => '',
+                'password' => Hash::make('supervisor'),
+                'role_type' => 'lecturer',
             ],
             [
+                'name'  => 'Ahmad',
                 'email' => 'tp006293@mail.apu.edu.my',
-                'password' => bcrypt('student'),
-                'user_type' => '4',
-                'profile_pic' => '',
+                'password' => Hash::make('student'),
+                'role_type' => 'student',
             ],
         
         ];
 
-        DB::table('User')->insert($User);
+        DB::table('users')->insert($User);
     }
 }

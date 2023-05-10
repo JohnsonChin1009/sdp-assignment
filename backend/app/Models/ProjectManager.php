@@ -3,16 +3,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class students extends Model
+class ProjectManager extends Model
 {
-    protected $table = 'students';
-
     protected $fillable = [
-        'tp_number',
+        'id',
         'name',
         'field_of_study',
-        'specialism',
         'email',
-        'title',
     ];
 }
