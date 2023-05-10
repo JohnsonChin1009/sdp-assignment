@@ -3,16 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Lecturer;
+use App\Models\Lecturer;
 
 class LecturerController extends Controller
 {
     public function displayLecturers()
     {
         try {
-            $lecturers = {lecturertable}
+            $lecturers = Lecturer::all();
 
-            return response()->json();
+            return response()->json([
+                'success' => true,
+                'data' => $lecturers,
+            ]);
+
     } catch (\Exception $e) {
         return response()->json([
             'success' => false,
