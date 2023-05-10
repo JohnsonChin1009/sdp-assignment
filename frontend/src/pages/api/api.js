@@ -16,7 +16,7 @@ export const login = async (email, password) => {
 
 export const getStudents = async () => {
   try {
-    const response = await axios.get(`${API_URL}/students`);
+    const response = await axios.get(`${API_URL}/displaystudents`);
     const students = response.data.data;
 
     return students;
@@ -27,7 +27,7 @@ export const getStudents = async () => {
 
 export const getLecturers = async () => {
   try {
-    const response = await axios.get(`${API_URL}/lecturers`);
+    const response = await axios.get(`${API_URL}/displaylecturers`);
     const lectures = response.data.data;
 
     return lectures;
