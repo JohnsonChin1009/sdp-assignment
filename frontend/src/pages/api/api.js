@@ -151,3 +151,17 @@ export const AssignLecturers= async (token, value1, value2)=>{
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 }
+
+export const deleteStudent = async (tp_number) => {
+  console.log(deleteStudent)
+  console.log(tp_number)
+  try {
+    const response = await axios.delete(`${API_URL}/delete/${tp_number}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message ||
+        "Error delete Event"
+    );
+  }
+};
