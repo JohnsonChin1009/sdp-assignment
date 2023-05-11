@@ -14,8 +14,13 @@ export default function StudentPM() {
 useEffect(() => {
   const fetchData = async () => {
       try {
-            const token = localStorage.getItem('token'); //Retrieving token from local storage)
-            const student = await getPMStudentProfile(token);
+          const temp = localStorage.getItem('token');
+          const tp_number = localStorage.get('tp_number');
+          const token = {
+              temp,
+              tp_number,
+          }
+        const student = await getPMStudentProfile(token);
           setData(student);
     } catch (error) {
         console.log('Error fetching data: ', error);

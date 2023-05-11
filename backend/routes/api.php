@@ -30,11 +30,14 @@ Route::get('displaystudents', [StudentController::class, 'displayStudents']);
 Route::get('displayStudentProfile', [StudentController::class, 'displayStudentProfile']);
 Route::get('displayFieldStudent', [StudentController::class, 'displayFieldStudent']);
 
-Route::get('displaylecturers', [LecturerController::class, 'displayLecturers']);
+Route::get('displayLecturers', [LecturerController::class, 'displayLecturers']);
 Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile']);
 
 Route::get('displayPMProfile', [PMController::class, 'displayPMProfile']);
 Route::get('displayPMOwnStudents', [PMController::class, 'displayPMOwnStudents']);
+Route::get('displayPMStudentProfile', [PMController::class, 'displayPMStudentProfile']);
+Route::get('dispalyPMStaff', [PMController::class, 'displayPMStaff']);
 Route::delete('delete/{tp_number}', [PMController::class, 'delete']);
+
 
 Route::post('addSchedule', [EventController::class, 'addSchedule']);
