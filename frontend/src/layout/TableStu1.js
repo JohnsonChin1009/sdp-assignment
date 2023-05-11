@@ -11,7 +11,9 @@ export default function Home() {
           try {
                 const token = localStorage.getItem('token'); //Retrieving token from local storage)
                 const student = await getStudentProfile(token);
-                setData(student);
+                const array = Object.values(student);
+              setData(array);
+              console.log(array);
         } catch (error) {
             console.log('Error fetching data: ', error);
         }
@@ -32,7 +34,7 @@ export default function Home() {
                         <div className={style.line2}></div>
                         <div className={style.topicbox}>
                             <h4>Final Year Project Title</h4><br />
-                            <h2>{item.fyp_title}</h2>
+                            <h2>{item.title}</h2>
                         </div>
                     </div><div className={style.table1}>
                             <table>
