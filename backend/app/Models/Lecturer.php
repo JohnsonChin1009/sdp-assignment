@@ -13,4 +13,7 @@ class Lecturer extends Model
         'email',
     ];
 
+    protected $primaryKey = 'id';
+    protected $keyType = 'string';
+
 }

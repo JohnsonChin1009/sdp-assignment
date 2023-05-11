@@ -30,8 +30,6 @@ export default function Table() {
       }
      }
 
-
-
      const handleRemoveStudent = async (tp_number) => {
       try {
         const response = await deleteStudent(tp_number);

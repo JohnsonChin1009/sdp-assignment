@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ProjectManager;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Models\Student;
 
 class PMController extends Controller
 {
@@ -47,5 +48,23 @@ class PMController extends Controller
             'success' => true,
             'data' => $students,
         ]);
+    }
+
+
+
+
+
+
+    public function delete($tpNumber)
+    {
+        $student = Student::where('tp_number', $tpNumber)->first();
+
+        if (!$student) {
+            return response()->json(['message' => 'Student not found'], 404);
+        }
+
+        $student->delete();
+
+        return response()->json(['message' => 'Student deleted']);
     }
 }

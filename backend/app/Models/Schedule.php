@@ -14,4 +14,6 @@ class Schedule extends Model
     ];
 
     public $timestamps = false;
+
+    
 }
