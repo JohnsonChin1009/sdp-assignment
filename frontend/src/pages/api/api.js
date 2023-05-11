@@ -65,10 +65,10 @@ export const getLecturerProfile = async (token) => {
     }
     console.log(config);
     const response = await axios.get(`${API_URL}/displayLecturerProfile`, config);
-    const students = response.data.data;
+    const lecturers = response.data.data;
     console.log(lecturers);
 
-    return students;
+    return lecturers;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
@@ -76,7 +76,7 @@ export const getLecturerProfile = async (token) => {
 
 export const getNewEvent = async () => {
   try{
-    const response = await axios.post(`${API_URL}/schedule`);
+    const response = await axios.post(`${API_URL}/addSchedule`);
     return response.data;
     
   }catch(error){
@@ -85,39 +85,69 @@ export const getNewEvent = async () => {
 }
 
 export const addEvent = async (EventName, startDatetime, endtime) => {
-  try{
-    console.log(EventName, startDatetime, endtime);
-    const response = await axios.post(`${API_URL}/addSchedule`, {
-      EventName, startDatetime, endtime});
-      return response.data;
-  }catch(error){
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecture records');
-  }
-  const eventData = {
-  title: EventName,
-  start: startDatetime,
-  end: endtime,
-  };
-
   try {
-  // const token = localStorage.getItem("Token:");
-  // const config = {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`
-  //     }
-  // }
-  
-  const response = await axios.post(`${API_URL}/addSchedule`, {
-  method: 'POST',
-  headers: {
-  'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(eventData),
-  });
-  if (!response.ok) {
-  throw new Error('Failed to add event');
-  }
+    
+    console.log(EventName, startDatetime, endtime);
+    const eventData = {
+      title: EventName,
+      start: startDatetime,
+      end: endtime,
+    };
+    const response = await axios.post(`${API_URL}/addSchedule`, eventData);
+    return response.data;
   } catch (error) {
-  console.error(error);
+    throw new Error(
+      error.response?.data?.message ||
+        "Error adding Event"
+    );
   }
 };
+export const fetchSlides = async () => {
+  try{
+    const response = await axios.get(`${API_URL}/displayslides`);
+    return response.data;
+  }catch(error){
+    
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}
+export const UpdateProfileStu = async (token, newValue) =>{
+  try{
+    const config = {
+      headers: {
+        Authorization: 'Bearer' + token
+      }
+    }
+    const payload = {
+      newValue,
+    }
+    const response = await axios.put(`${API_URL}/updateprofilestu`,config);
+    const update = response.data.data;
+    console.log(update);
+    console.log(payload)
+    return update;
+  }catch(error){
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}
+
+export const AssignLecturers= async (token, value1, value2)=>{
+  try{
+    const config = {
+      headers: {
+        Authorization: 'Bearer' + token
+      }
+    }
+    const payload = {
+      value1,
+      value2,
+    }
+    const response = await axios.put(`${API_URL}/assignlecturers`,config);
+    const update = response.data.data;
+    console.log(update);
+    console.log(payload)
+    return update;
+  }catch(error){
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}

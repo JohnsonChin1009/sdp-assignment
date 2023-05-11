@@ -6,6 +6,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\PMController;
+use App\Http\Controllers\EventController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,3 +33,5 @@ Route::get('displaylecturers', [LecturerController::class, 'displayLecturers']);
 Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile']);
 
 Route::get('displayProjectManagerProfile', [PMController::class, 'displayProjectManagerProfiel']);
+
+Route::post('addSchedule', [EventController::class, 'addSchedule']);

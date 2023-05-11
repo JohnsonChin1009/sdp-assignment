@@ -7,6 +7,7 @@ import React from 'react'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import {getNewEvent} from '@/pages/api/api'
+import { addEvent } from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -18,8 +19,9 @@ const Calendar = () => {
       <FullCalendar
         plugins={[ dayGridPlugin ]}
         initialView="dayGridMonth"        
-        editable={true}
-        selectable={true}        
+        events={[
+          
+        ]}      
       />
     </div>
   );
@@ -27,11 +29,11 @@ const Calendar = () => {
 
 
 export default function Home() {
-  const [eventName, setEventName] = useState('');
-  const[events,setEvents] = useState([]);
-  useEffect(()=>{
-    getNewEvent();
-  },[]);
+  // const [eventName, setEventName] = useState('');
+  // const[events,setEvents] = useState([]);
+  // useEffect(()=>{
+  //   getNewEvent();
+  // },[]);
   
   return (
       <>    
@@ -67,11 +69,7 @@ export default function Home() {
                     </tr>
                 </tbody>                
             </table>
-            <ul>
-              {events.map((event, index) => (
-                <li key={index}>{event.name}</li>
-              ))}
-            </ul>
+            
             <Calendar />                                                          
       </main>       
       <div className={styles.content4}>
@@ -103,8 +101,8 @@ export default function Home() {
           </div> 
           </form> 
           <div className={styles.infobox1}> 
-            <form > <br />
-            Event Name: <br /><input type="text" name="EventName" required value={eventName} onChange={(event)=>setEventName(event.target.value)} /><br />
+            <form onSubmit={addEvent}> <br />
+            Event Name: <br /><input type="text" name="EventName" required /><br />
             Date:
             <br />
             <input type="datetime-local" required  / > to <input type="time"  required /><br />

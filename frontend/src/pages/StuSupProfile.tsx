@@ -52,7 +52,8 @@ export default function Home() {
       </div>  
       <div>
       <div className={styles.image3}></div>
-        <div className={styles.box11a}>Name <br /> Description <br />Platform</div>
+      
+        <div className={styles.box11a} >Name<br /> Description <br />Platform</div>
         </div>                        
       <br /><br /><br />    <br /><br /><br />                          
       

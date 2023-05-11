@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('schedules', function (Blueprint $table) {
+        Schema::create('announcements', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->dateTime('start');
-            $table->time('end');
-
-            $table->unsignedBigInteger('id')->default(1)->change();
+            $table->string('title');
+            $table->longText('description');
+            $table->string('projectmanager');
+            $table->date('date');
+            $table->time('time');
+            $table->boolean('show')->default(true);
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('schedules');
+        Schema::dropIfExists('announcements');
     }
 };
