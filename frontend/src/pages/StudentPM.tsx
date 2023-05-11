@@ -33,7 +33,7 @@ export default function StudentPM() {
                         <td><a href="http://localhost:3000/HomePM"><b className={styles.title1}>ApFYPCentre</b></a></td>                     
                         <td><a href="http://localhost:3000/ProfilePM" className={styles.button1}>Profile</a></td>
                         <td><a href="http://localhost:3000/StudentPM" className={styles.button4}>Student</a></td>
-                        <td><a href="http://localhost:3000/StaffPM" className={styles.button2}>Staff</a></td>
+                        <td><a href="http://localhost:3000/StaffPM" className={styles.button2}>Lecturer</a></td>
                         <td><a href="http://localhost:3000/SubPM" className={styles.button2}>Submission</a></td>
                         <td> <br/></td>
                         <td><br/></td>
