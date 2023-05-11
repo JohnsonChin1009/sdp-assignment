@@ -28,11 +28,13 @@ Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:api')
 
 Route::get('displaystudents', [StudentController::class, 'displayStudents']);
 Route::get('displayStudentProfile', [StudentController::class, 'displayStudentProfile']);
+Route::get('displayFieldStudent', [StudentController::class, 'displayFieldStudent']);
 
 Route::get('displaylecturers', [LecturerController::class, 'displayLecturers']);
 Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile']);
 
 Route::get('displayPMProfile', [PMController::class, 'displayPMProfile']);
+Route::get('displayPMOwnStudents', [PMController::class, 'displayPMOwnStudents']);
 Route::delete('delete/{tp_number}', [PMController::class, 'delete']);
 
 Route::post('addSchedule', [EventController::class, 'addSchedule']);
