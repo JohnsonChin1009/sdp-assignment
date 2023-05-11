@@ -19,7 +19,10 @@ const Calendar = () => {
       <FullCalendar
         plugins={[ dayGridPlugin ]}
         initialView="dayGridMonth"        
-        events={[
+        events={[events.map((event) =>({
+          title:event.name,
+          start: event.date
+        }))
           
         ]}      
       />
