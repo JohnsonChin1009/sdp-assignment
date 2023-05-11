@@ -6,18 +6,18 @@ export default function Table() {
   const [data, setData] = useState([]);
 //   const [selectedStudents, setSelectedStudents] = useState([]);
 
-//     useEffect(() => {
-//       const fetchData = async () => {
-//         try {
-//           const students = await getStudents();
-//           setData(students);
-//         } catch (error) {
-//           console.log('Error fetching data: ', error);
-//         }
-//       };
+    // useEffect(() => {
+    //   const fetchData = async () => {
+    //     try {
+    //       const students = await getStudents();
+    //       setData(students);
+    //     } catch (error) {
+    //       console.log('Error fetching data: ', error);
+    //     }
+    //   };
 
-//       fetchData();
-//     }, []);
+    //   fetchData();
+    // }, []);
     //  const handleStudentSelection = (event) =>{
     //   const studentID = event.target.value;
     //   const isChecked = event.target.checked;

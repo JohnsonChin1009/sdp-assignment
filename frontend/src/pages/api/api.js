@@ -101,3 +101,11 @@ export const addEvent = async (EventName, startDatetime, endtime) => {
     );
   }
 };
+export const fetchSlides = async () => {
+  try{
+    const response = await axios.get(`${API_URL}/displayslides`);
+    return response.data;
+  }catch(error){
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
-
+import Slides from '@/layout/Slider.js'
 const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
@@ -42,7 +42,7 @@ export default function Home() {
             </table>                                                          
       </main> 
       <div className={styles.content1}>
-        
+        {/* <Slides/> */}
       </div>
       <div className={styles.content2}>
         <a href="http://localhost:3000/ProfilePM">
