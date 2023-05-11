@@ -6,7 +6,7 @@ import Footer from '@/layout/Footer.js'
 import React from 'react'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import {getEvents} from '@/pages/api/api'
+import {getNewEvent} from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -30,7 +30,7 @@ export default function Home() {
   const [eventName, setEventName] = useState('');
   const[events,setEvents] = useState([]);
   useEffect(()=>{
-    getEvents();
+    getNewEvent();
   },[]);
   
   return (
