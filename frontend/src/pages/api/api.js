@@ -111,16 +111,20 @@ export const fetchSlides = async () => {
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 }
-export const UpdateProfileStu = async (token) =>{
+export const UpdateProfileStu = async (token, newValue) =>{
   try{
     const config = {
       headers: {
         Authorization: 'Bearer' + token
       }
     }
-    const response = await axios.get(`${API_URL}/updateprofilestu`,config);
+    const payload = {
+      newValue,
+    }
+    const response = await axios.put(`${API_URL}/updateprofilestu`,config);
     const update = response.data.data;
     console.log(update);
+    console.log(payload)
     return update;
   }catch(error){
     throw new Error(error.response?.data?.message || 'An error occurred');

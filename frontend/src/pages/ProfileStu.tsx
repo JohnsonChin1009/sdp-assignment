@@ -50,7 +50,7 @@ export default function Profile() {
           </div>
         </a>    
       </div>
-      <div className={styles.button7}><a href=""><button>Edit</button></a></div>
+      <div className={styles.button7}><a href="http://localhost:3000/Profile2a"><button>Edit</button></a></div>
       <br />  
       
       <div className={styles.contentbox3}>
