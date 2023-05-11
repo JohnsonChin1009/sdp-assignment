@@ -3,10 +3,27 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
-
+import { getStudentProfile } from './api/api'
+import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
-export default function StudentPM() {      
+
+export default function StudentPM() { 
+    const [data, setData] = useState([]);
+    
+useEffect(() => {
+  const fetchData = async () => {
+      try {
+            const token = localStorage.getItem('token'); //Retrieving token from local storage)
+            const student = await getStudentProfile(token);
+          setData(student);
+    } catch (error) {
+        console.log('Error fetching data: ', error);
+    }
+  };
+    fetchData();
+
+}, []);     
   return (
     <>    
       <Head>
@@ -50,69 +67,76 @@ export default function StudentPM() {
         </a>
       </div>
       <div className={styles.container}>
-                {/* {data.map((item) => ( */}
-            <><div className={styles.contentbox3a}>
-            <div className={styles.contentbox3}>
-                        <div className={styles.image}></div>
-                        <div className={styles.namebox1}>
-                            <h2>Name</h2>
-                            <h3>TP</h3>
-                        </div>
-                        <div className={styles.line2}></div>
-                        <div className={styles.topicbox}>
-                            <h4>Final Year Project Title</h4><br />
-                            <h2>TITLE</h2>
-                        </div>
-                    
-                    
-                    <div className={styles.table1}>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>Field of Study</td>
-                                        <td>: </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Specialize</td>
-                                        <td>: </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td>: </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <br />
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>Project Manager :</td>
-                                        <td>: </td>
-                                        <td><input type="text" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Supervisor</td>
-                                        <td>: </td>
-                                        <td><select name="" id="">
-                                            <option value="-">Choose</option>
-                                        </select></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Second Marker</td>
-                                        <td>:  </td>
-                                        <td><select name="" id="">
-                                            <option value="-">Choose</option>
-                                        </select></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button type="submit">Assign</button></td>
-                                    </tr>
-                                </tbody>
-
-                                
-                            </table>
-                        </div>
-                    </div></div></>
+                {data && (
+                    <><div className={styles.contentbox3a}>
+                    <div className={styles.contentbox3}>
+                                <div className={styles.image}></div>
+                                <div className={styles.namebox1} key={data.tp_number}>
+                                    <h2>{data.name}</h2>
+                                    <h3>{data.tp_number}</h3>
+                                </div>
+                                <div className={styles.line2}></div>
+                                <div className={styles.topicbox}>
+                                    <h4>Final Year Project Title</h4><br />
+                                    <h2>{data.title}</h2>
+                                </div>
+                            
+                            
+                            <div className={styles.table1}>
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>Field of Study</td>
+                                                <td>: </td>
+                                                <td>{data.field_of_study}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Specialize</td>
+                                                <td>: </td>
+                                                <td>{data.specialism}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Email</td>
+                                                <td>: </td>
+                                                <td>{data.email}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <br />
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>Project Manager :</td>
+                                                <td>: </td>
+                                                <td>{data.projectmanager}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Supervisor</td>
+                                                <td>: </td>
+                                                <td><select name="Supervior" id="">
+                                                    <option value="-">Choose</option>
+                                                    <option value={data.id}>{data.supervisor}</option>
+                                                </select></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Second Marker</td>
+                                                <td>:  </td>
+                                                <td><select name="Second Marker" id="">
+                                                    <option value="-">Choose</option>
+                                                    <option value={data.id}>{data.secondmarker}</option>
+                                                </select></td>
+                                            </tr>
+                                            <tr>
+                                                <td><button type="submit">Assign</button></td>
+                                            </tr>
+                                        </tbody>
+        
+                                        
+                                    </table>
+                                </div>
+                            </div></div></>
+                )}
+            
                 </div>
                 <Footer />
       </>
