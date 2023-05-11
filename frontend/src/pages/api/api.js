@@ -85,39 +85,19 @@ export const getNewEvent = async () => {
 }
 
 export const addEvent = async (EventName, startDatetime, endtime) => {
-  try{
-    console.log(EventName, startDatetime, endtime);
-    const response = await axios.post(`${API_URL}/addSchedule`, {
-      EventName, startDatetime, endtime});
-      return response.data;
-  }catch(error){
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecture records');
-  }
-  const eventData = {
-  title: EventName,
-  start: startDatetime,
-  end: endtime,
-  };
-
   try {
-  // const token = localStorage.getItem("Token:");
-  // const config = {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`
-  //     }
-  // }
-  
-  const response = await axios.post(`${API_URL}/addSchedule`, {
-  method: 'POST',
-  headers: {
-  'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(eventData),
-  });
-  if (!response.ok) {
-  throw new Error('Failed to add event');
-  }
+    console.log(EventName, startDatetime, endtime);
+    const eventData = {
+      title: EventName,
+      start: startDatetime,
+      end: endtime,
+    };
+    const response = await axios.post(`${API_URL}/addSchedule`, eventData);
+    return response.data;
   } catch (error) {
-  console.error(error);
+    throw new Error(
+      error.response?.data?.message ||
+        "Error adding Event"
+    );
   }
 };

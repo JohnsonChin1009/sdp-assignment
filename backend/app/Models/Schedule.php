@@ -7,8 +7,11 @@ class Schedule extends Model
 {
     protected $fillable = [
         'meetingid',
-        'date',
-        'time',
+        'name',
+        'start',
+        'end',
         'id',
     ];
+
+    public $timestamps = false;
 }
