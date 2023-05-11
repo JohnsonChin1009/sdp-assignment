@@ -27,3 +27,5 @@ Route::get('displayStudentProfile', [StudentController::class, 'displayStudentPr
 Route::get('displaylecturers', [LecturerController::class, 'displayLecturers']);
 Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile'], );
 Route::post('addSchedule', [LecturerController::class, 'addSchedule'], );
+Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile']);
+

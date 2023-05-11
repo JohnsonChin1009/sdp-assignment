@@ -12,16 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->string('tp_number');
+            $table->string('tp_number', 8)->primary();
             $table->string('name');
             $table->string('field_of_study');
             $table->string('specialism');
             $table->string('email');
             $table->string('fyp_title');
+
             $table->string('lecturerid');
             $table->string('lecturername');
             
             $table->primary('tp_number');
+
+
         });
     }
 

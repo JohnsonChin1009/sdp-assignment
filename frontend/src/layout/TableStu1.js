@@ -23,18 +23,18 @@ export default function Home() {
         <main>
             <div className={style.container}>
                 {data.map((item) => (
-            <><div className={styles.contentbox3a} key={item.id}>
-                        <div className={styles.image}></div>
-                        <div className={styles.namebox1}>
+            <><div className={style.contentbox3a} key={item.id}>
+                        <div className={style.image}></div>
+                        <div className={style.namebox1}>
                             <h2>{item.name}</h2>
                             <h3>{item.tp_number}</h3>
                         </div>
-                        <div className={styles.line2}></div>
-                        <div className={styles.topicbox}>
+                        <div className={style.line2}></div>
+                        <div className={style.topicbox}>
                             <h4>Final Year Project Title</h4><br />
                             <h2>{item.fyp_title}</h2>
                         </div>
-                    </div><div className={styles.table1}>
+                    </div><div className={style.table1}>
                             <table>
                                 <tbody>
                                     <tr>
