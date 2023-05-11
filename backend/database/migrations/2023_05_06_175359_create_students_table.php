@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('specialism');
             $table->string('email');
             $table->string('fyp_title');
+            $table->string('lecturerid');
+            $table->string('lecturername');
             
             $table->primary('tp_number');
         });

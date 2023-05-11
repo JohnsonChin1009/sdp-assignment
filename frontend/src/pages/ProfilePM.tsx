@@ -6,7 +6,6 @@ import Footer from '@/layout/Footer.js'
 import React from 'react'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import {getNewEvent} from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })

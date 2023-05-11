@@ -3,9 +3,10 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
-import React from 'react'
+import React, { useState } from 'react'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import {addEvent} from '@/pages/api/api';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,6 +25,17 @@ const Calendar = () => {
     </div>
   );
 };
+
+// addEvent(eventData);
+const handleSubmit = (event) => {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  const EventName = formData.get('EventName');
+  const startDatetime = formData.get('startDatetime');
+  const endtime = formData.get('endtime');
+  addEvent(EventName, startDatetime, endtime);
+};
+
 
 //Navigation bar
 export default function Home() {
@@ -68,7 +80,7 @@ export default function Home() {
             Back 
           </div>
         </a>  <br />    
-      </div>        
+      </div>     
         
       <div className={styles.line1}></div>        
 
@@ -91,13 +103,19 @@ export default function Home() {
           </div> 
           </form> 
           <div className={styles.infobox1}> 
-            <form action=""> <br />
-            Event Name: <br /><input type="text" name="EventName"/><br />
+          <form id="schedule-form" onSubmit={handleSubmit}>
+            <br />
+            Event Name: <br />
+            <input type="text" name="EventName" id="EventName" /><br />
             Date:
             <br />
-            <input type="datetime-local"/> to <input type="time"  /><br />
-            <button type="submit" value="Add" className={styles.button6}>Add</button>
-            </form>
+            <input type="datetime-local" id="startDatetime" name="startDatetime" /> to{' '}
+            <input type="time" id="endtime" name="endtime" />
+            <br />
+            <button type="submit" value="Add" className={styles.button6}>
+              Add
+            </button>
+          </form>
            
           </div> 
                                                       

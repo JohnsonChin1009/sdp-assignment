@@ -58,3 +58,25 @@ export const getNewEvent = async () => {
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 }
+
+export const addEvent = async (EventName, startDatetime, endtime) => {
+  const eventData = {
+  title: EventName,
+  start: startDatetime,
+  end: endtime,
+  };
+  try {
+  const response = await axios.post(`${API_URL}/addSchedule`, {
+  method: 'POST',
+  headers: {
+  'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(eventData),
+  });
+  if (!response.ok) {
+  throw new Error('Failed to add event');
+  }
+  } catch (error) {
+  console.error(error);
+  }
+};
