@@ -9,5 +9,6 @@ class Schedule extends Model
         'meetingid',
         'date',
         'time',
+        'id',
     ];
 }

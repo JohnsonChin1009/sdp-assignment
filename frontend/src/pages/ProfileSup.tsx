@@ -27,18 +27,67 @@ const Calendar = () => {
 };
 
 // addEvent(eventData);
-const handleSubmit = (event) => {
-  event.preventDefault();
-  const formData = new FormData(event.target);
-  const EventName = formData.get('EventName');
-  const startDatetime = formData.get('startDatetime');
-  const endtime = formData.get('endtime');
-  addEvent(EventName, startDatetime, endtime);
-};
 
+  
+// const Form = () => {
+//   const [eventName, setEventName] = useState('initial value');
+//   const [startDatetime, setStartDatetime] = useState('');
+//   const [endtime, setEndtime] = useState('');
+//   const [error, setError] = useState(false);
+//   const [errorMessage, setErrorMessage] = useState('');
+
+//   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+//     event.preventDefault();
+
+//     try {
+//       await addEvent(eventName, startDatetime, endtime);
+//       // Reset form fields
+//       setEventName('');
+//       setStartDatetime('');
+//       setEndtime('');
+//     } catch (error) {
+//       setError(true);
+//       setErrorMessage('Error adding event');
+//     }
+//     console.log(addEvent)
+//   };
+// }
 
 //Navigation bar
 export default function Home() {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // const eventName = event.target.elements.EventName.value;
+    // const date = event.target.elements.date.value;
+    // const time = event.target.elements.time.value;
+
+    // const newEvent = {
+    //   eventName,datetime: '$(date) $(time)',
+    // };
+  const [eventName, setEventName] = useState('');
+  const [startDatetime, setStartDatetime] = useState('');
+  const [endtime, setEndtime] = useState('');
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+
+      try {
+        await addEvent(eventName, startDatetime, endtime);
+        // Reset form fields
+        setEventName('');
+        setStartDatetime('');
+        setEndtime('');
+        console.log(addEvent);
+        console.log(setEventName);      
+      } catch (error) {
+        setError(true);
+        setErrorMessage('Error adding event');
+      }
+      console.log(addEvent);
+    };
+  }
   return (
     <>    
       <Head>
@@ -106,7 +155,7 @@ export default function Home() {
           <form id="schedule-form" onSubmit={handleSubmit}>
             <br />
             Event Name: <br />
-            <input type="text" name="EventName" id="EventName" /><br />
+             <input type="text" name="EventName" value={"eventName"} onChange={(event) => setEventName(event.target.value)} /><br />
             Date:
             <br />
             <input type="datetime-local" id="startDatetime" name="startDatetime" /> to{' '}
@@ -116,7 +165,7 @@ export default function Home() {
               Add
             </button>
           </form>
-           
+          
           </div> 
                                                       
            
