@@ -55,7 +55,8 @@ export default function Home() {
     event.preventDefault();
 
       try {
-        const response = await addEvent(eventName, startDatetime, endtime);
+        const token = localStorage.getItem('token');
+        const response = await addEvent(token, eventName, startDatetime, endtime);
       } catch (error) {
         setError(true);
         setErrorMessage('Error adding Event')

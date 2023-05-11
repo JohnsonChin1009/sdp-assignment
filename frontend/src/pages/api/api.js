@@ -157,8 +157,13 @@ export const getNewEvent = async () => {
   }
 }
 
-export const addEvent = async (EventName, startDatetime, endtime) => {
-  try {
+export const addEvent = async (token, EventName, startDatetime, endtime) => {
+  try { 
+      const config = {
+        headers: {
+          Authorization: 'Bearer' + token
+        }
+      }
     
     console.log(EventName, startDatetime, endtime);
     const eventData = {
@@ -166,7 +171,9 @@ export const addEvent = async (EventName, startDatetime, endtime) => {
       start: startDatetime,
       end: endtime,
     };
-    const response = await axios.post(`${API_URL}/addSchedule`, eventData);
+    const response = await axios.post(`${API_URL}/addSchedule`, eventData, config);
+    console.log(config)
+
     return response.data;
   } catch (error) {
     throw new Error(
