@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->dateTime('start');
             $table->time('end');
+            $table->string('lecturerid');
 
             $table->unsignedBigInteger('id')->default(1)->change();
         });

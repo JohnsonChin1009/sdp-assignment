@@ -10,7 +10,7 @@ class Schedule extends Model
         'name',
         'start',
         'end',
-        'id',
+        'lecturerid'
     ];
 
     public $timestamps = false;
