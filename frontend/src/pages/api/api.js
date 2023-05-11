@@ -27,14 +27,16 @@ export const getStudents = async () => {
 
 export const getStudentProfile = async (token) => {
   try {
+    
     const config = {
-      header: {
-        Authorization:'Bearer ${token}'
+      headers: {
+        Authorization: 'Bearer' + token
       }
     }
     console.log(config);
     const response = await axios.get(`${API_URL}/displayStudentProfile`, config);
-    const students = response.data.data;
+    const students = response.data.data; 
+    console.log(students);
 
     return students;
   } catch (error) {
