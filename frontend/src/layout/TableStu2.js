@@ -1,6 +1,6 @@
 import style from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react'
-import { getStudents } from '@/pages/api/api';
+import { getPMOwnStudents } from '@/pages/api/api';
 
 export default function Home() {
   const DataList = () => {
@@ -9,7 +9,8 @@ export default function Home() {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const students = await getStudents();
+          const token = localStorage.getItem('token'); //Retrieving token from local storage)
+          const students = await getPMOwnStudents(token);
           setData(students);
           console.log(students);
         } catch (error) {
@@ -22,13 +23,13 @@ export default function Home() {
 
     return (
       <div className={style.container}>
-        {data.map((item) => (
+        {data&& (
           <div className={style.row1} key={item.id}>
             <div className={style.image}></div>
             <a href="http://localhost:3000/ProfileStuAssign"><div>{item.name}<br/>{item.tp_number}<br/>{item.field_of_study}</div>
             <div><b>{item.title}</b><br/><br/>{item.supervisor}<br/>{item.secondmarker}</div></a>
           </div>
-        ))}
+        )}
       </div>
     );
   };
