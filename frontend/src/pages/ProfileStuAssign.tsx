@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
-import { getStudentProfile } from './api/api'
+import { getPMStudentProfile } from './api/api'
 import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -15,7 +15,7 @@ useEffect(() => {
   const fetchData = async () => {
       try {
             const token = localStorage.getItem('token'); //Retrieving token from local storage)
-            const student = await getStudentProfile(token);
+            const student = await getPMStudentProfile(token);
           setData(student);
     } catch (error) {
         console.log('Error fetching data: ', error);
@@ -104,12 +104,7 @@ useEffect(() => {
                                     </table>
                                     <br />
                                     <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>Project Manager :</td>
-                                                <td>: </td>
-                                                <td>{data.projectmanager}</td>
-                                            </tr>
+                                        <tbody>                                            
                                             <tr>
                                                 <td>Supervisor</td>
                                                 <td>: </td>
