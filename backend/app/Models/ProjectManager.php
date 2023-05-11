@@ -12,4 +12,8 @@ class ProjectManager extends Model
         'field_of_study',
         'email',
     ];
+
+    protected $primaryKey = 'id';
+    protected $keyType = 'string';
+    
 }

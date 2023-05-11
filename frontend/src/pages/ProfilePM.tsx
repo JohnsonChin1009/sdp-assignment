@@ -7,7 +7,7 @@ import React from 'react'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import {getNewEvent} from '@/pages/api/api'
-import { addEvent } from '@/pages/api/api'
+import { addPMEvent } from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 import { getPMProfile } from '@/pages/api/api';
 

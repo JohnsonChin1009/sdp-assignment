@@ -171,7 +171,7 @@ export const addSupEvent = async (token, EventName, startDatetime, endtime) => {
       start: startDatetime,
       end: endtime,
     };
-    const response = await axios.post(`${API_URL}/addSchedule`, eventData, config);
+    const response = await axios.post(`${API_URL}/addSupSchedule`, eventData, config);
     console.log(config)
 
     return response.data;
@@ -263,7 +263,7 @@ export const AssignLecturers= async (token, value1, value2)=>{
 
 export const deleteStudent = async (tp_number) => {
   try {
-    const response = await axios.delete(`${API_URL}/delete/${tp_number}`);
+    const response = await axios.delete(`${API_URL}/deleteStuSup/${tp_number}`);
     return response.data;
   } catch (error) {
     throw new Error(
@@ -287,7 +287,7 @@ export const addPMEvent = async (token, EventName, startDatetime, endtime) => {
       start: startDatetime,
       end: endtime,
     };
-    const response = await axios.post(`${API_URL}/addSchedule`, eventData, config);
+    const response = await axios.post(`${API_URL}/addPMSchedule`, eventData, config);
     console.log(config)
 
     return response.data;

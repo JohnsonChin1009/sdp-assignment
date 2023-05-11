@@ -37,7 +37,8 @@ Route::get('displayPMProfile', [PMController::class, 'displayPMProfile']);
 Route::get('displayPMOwnStudents', [PMController::class, 'displayPMOwnStudents']);
 Route::get('displayPMStudentProfile', [PMController::class, 'displayPMStudentProfile']);
 Route::get('dispalyPMStaff', [PMController::class, 'displayPMStaff']);
-Route::delete('delete/{tp_number}', [PMController::class, 'delete']);
+Route::delete('deleteStuSup/{tp_number}', [PMController::class, 'deleteStuSup']);
 
 
-Route::post('addSchedule', [EventController::class, 'addSchedule']);
+Route::post('addSupSchedule', [EventController::class, 'addSupSchedule']);
+Route::post('addPMSchedule', [EventController::class, 'addPMSchedule']);
