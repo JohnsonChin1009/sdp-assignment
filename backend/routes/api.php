@@ -33,5 +33,6 @@ Route::get('displaylecturers', [LecturerController::class, 'displayLecturers']);
 Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile']);
 
 Route::get('displayProjectManagerProfile', [PMController::class, 'displayProjectManagerProfiel']);
+Route::delete('delete/{tp_number}', [PMController::class, 'delete']);
 
 Route::post('addSchedule', [EventController::class, 'addSchedule']);

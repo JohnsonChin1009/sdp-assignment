@@ -84,32 +84,35 @@ export default function StudentPM() {
                             </table>
                             <br />
                             <table>
-                                <tbody><form>
+                                <tbody>
                                     <tr>
-                                        <td>Project Manager</td>
-                                        <td>: <input type="text" /></td>
+                                        <td>Project Manager :</td>
+                                        <td>: </td>
+                                        <td><input type="text" /></td>
                                     </tr>
                                     <tr>
                                         <td>Supervisor</td>
-                                        <td>: <select name="" id="">
+                                        <td>: </td>
+                                        <td><select name="" id="">
                                             <option value="-">Choose</option>
                                         </select></td>
                                     </tr>
                                     <tr>
                                         <td>Second Marker</td>
-                                        <td>:  <select name="" id="">
+                                        <td>:  </td>
+                                        <td><select name="" id="">
                                             <option value="-">Choose</option>
                                         </select></td>
                                     </tr>
                                     <tr>
                                         <td><button type="submit">Assign</button></td>
-                                    </tr></form>
+                                    </tr>
                                 </tbody>
 
                                 
                             </table>
-                        </div></div>
-                    </div></>
+                        </div>
+                    </div></div></>
                 </div>
                 <Footer />
       </>

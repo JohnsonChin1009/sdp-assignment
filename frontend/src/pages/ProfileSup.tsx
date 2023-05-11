@@ -7,7 +7,8 @@ import React, { useState } from 'react'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import {addEvent} from '@/pages/api/api';
-
+import { useEffect, useState } from 'react'
+import { getLecturerProfile } from '@/pages/api/api';
 const inter = Inter({ subsets: ['latin'] })
 
 //Calendar
@@ -30,6 +31,22 @@ const Calendar = () => {
 
 //Navigation bar
 export default function Home() {
+  const [data, setData] = useState([]);
+    
+    
+    useEffect(() => {
+      const fetchData = async () => {
+          try {
+                const token = localStorage.getItem('token'); //Retrieving token from local storage)
+                const lecturer = await getLecturerProfile(token);
+                setData(lecturer);
+        } catch (error) {
+            console.log('Error fetching data: ', error);
+        }
+      };
+        fetchData();
+
+    }, []);
   const [eventName, setEventName] = useState('');
   const [startDatetime, setStartDatetime] = useState('');
   const [endtime, setEndtime] = useState('');
@@ -93,10 +110,11 @@ export default function Home() {
 
         <div className={styles.contentbox1}>           
           <div className={styles.image}></div>
+
           <form action="">
           <div className={styles.namebox}>
-          <input type="text" placeholder="Name"/><br /><br />
-          <input type="text" placeholder="Field"/>
+          <div>{data.name}</div><br /><br />
+          <div>{data.field_of_study}</div>
           </div> 
           <div className={styles.infobox}>
           Email  : <br />

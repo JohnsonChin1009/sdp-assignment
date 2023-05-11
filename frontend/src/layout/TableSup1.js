@@ -1,10 +1,7 @@
 
 import styles from '@/styles/Home.module.css'
-const data = [
-    { id: 1, name: "John", age: 25 },
-    { id: 2, name: "Jane", age: 30 },
-    { id: 3, name: "Mike", age: 35 },
-  ];
+import { useEffect, useState } from 'react'
+import { getStudentProfile } from '@/pages/api/api';
 export default function Table() {
     return (
 <div className={styles.content9}>
