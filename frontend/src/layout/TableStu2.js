@@ -1,7 +1,7 @@
 import style from '@/styles/Home.module.css';
 import { useEffect, useState } from 'react';
 import { getPMOwnStudents } from '@/pages/api/api';
-
+import {useRouter} from 'next/router';
 export default function Home() {
   const DataList = () => {
     const [data, setData] = useState([]);
