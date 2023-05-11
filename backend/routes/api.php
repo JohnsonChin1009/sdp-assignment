@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\PMController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,3 +29,5 @@ Route::get('displayStudentProfile', [StudentController::class, 'displayStudentPr
 
 Route::get('displaylecturers', [LecturerController::class, 'displayLecturers']);
 Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile']);
+
+Route::get('displayProjectManagerProfile', [PMController::class, 'displayProjectManagerProfiel']);
