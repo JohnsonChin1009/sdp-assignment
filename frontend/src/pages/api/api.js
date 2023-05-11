@@ -157,7 +157,7 @@ export const getNewEvent = async () => {
   }
 }
 
-export const addEvent = async (token, EventName, startDatetime, endtime) => {
+export const addSupEvent = async (token, EventName, startDatetime, endtime) => {
   try { 
       const config = {
         headers: {
@@ -269,6 +269,32 @@ export const deleteStudent = async (tp_number) => {
     throw new Error(
       error.response?.data?.message ||
         "Error delete Event"
+    );
+  }
+};
+
+export const addPMEvent = async (token, EventName, startDatetime, endtime) => {
+  try { 
+      const config = {
+        headers: {
+          Authorization: 'Bearer' + token
+        }
+      }
+    
+    console.log(EventName, startDatetime, endtime);
+    const eventData = {
+      title: EventName,
+      start: startDatetime,
+      end: endtime,
+    };
+    const response = await axios.post(`${API_URL}/addSchedule`, eventData, config);
+    console.log(config)
+
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message ||
+        "Error adding Event"
     );
   }
 };

@@ -54,6 +54,25 @@ export default function Home() {
         fetchData();
 
     }, []);
+
+    const [eventName, setEventName] = useState('');
+    const [startDatetime, setStartDatetime] = useState('');
+    const [endtime, setEndtime] = useState('');
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+    const submit = async (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+  
+        try {
+          const token = localStorage.getItem('token');
+          const response = await addPMEvent(token, eventName, startDatetime, endtime);
+        } catch (error) {
+          setError(true);
+          setErrorMessage('Error adding Event')
+        }
+      };
+
+
   return (
     <>    
       <Head>
@@ -113,13 +132,15 @@ export default function Home() {
               <br />
               <a href="http://localhost:3000/Profile"><button type="submit" className={styles.button6}>Edit</button></a>
             </div><div className={styles.infobox1}>
-              <form onSubmit={addEvent}> <br />
-                Event Name: <br /><input type="text" name="EventName" required /><br />
-                Date:
-                <br />
-                <input type="datetime-local" required /> to <input type="time" required /><br />
-                <button type="submit" value="Add" className={styles.button6}>Add</button>
-              </form>
+                <form onSubmit={submit}> <br />
+                  Event Name: <br /><input type="text" name="EventName" required value={eventName} onChange={(event) => setEventName(event.target.value)} /><br />
+                  Date:
+                  <br />
+                  <input type="datetime-local" required value={startDatetime} onChange={(event) => setStartDatetime(event.target.value)} />
+                  to
+                  <input type="time" required value={endtime} onChange={(event) => setEndtime(event.target.value)} /><br />
+                  <button type="submit" className={styles.button6}>Add</button>
+                </form>
 
             </div></> 
           )}

@@ -5,7 +5,7 @@ import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import {addEvent} from '@/pages/api/api';
+import {addSupEvent} from '@/pages/api/api';
 import { useEffect, useState } from 'react'
 import { getLecturerProfile } from '@/pages/api/api';
 const inter = Inter({ subsets: ['latin'] })
@@ -56,7 +56,7 @@ export default function Home() {
 
       try {
         const token = localStorage.getItem('token');
-        const response = await addEvent(token, eventName, startDatetime, endtime);
+        const response = await addLEvent(token, eventName, startDatetime, endtime);
       } catch (error) {
         setError(true);
         setErrorMessage('Error adding Event')

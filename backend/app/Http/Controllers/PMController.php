@@ -79,7 +79,7 @@ class PMController extends Controller
         ]);
     }
 
-    public function delete($tpNumber)
+    public function deleteStuSup($tpNumber)
     {
         $student = Student::where('tp_number', $tpNumber)->first();
 
