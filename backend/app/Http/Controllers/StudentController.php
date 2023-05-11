@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProjectManager;
 use App\Models\Student;
 use Illuminate\Http\Request;
 class StudentController extends Controller
@@ -36,6 +37,9 @@ class StudentController extends Controller
                     'authorization' => $token,
                 ], 401);
             }
+
+        $projectmanager = ProjectManager::where('id', $student->projectmanager)->first();
+        $student->projectmanager = $projectmanager ? $projectmanager->name : '';
 
             return response()->json([
                 'success' => true,
