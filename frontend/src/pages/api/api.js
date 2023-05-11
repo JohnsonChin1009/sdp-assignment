@@ -130,3 +130,24 @@ export const UpdateProfileStu = async (token, newValue) =>{
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 }
+
+export const AssignLecturers= async (token, value1, value2)=>{
+  try{
+    const config = {
+      headers: {
+        Authorization: 'Bearer' + token
+      }
+    }
+    const payload = {
+      value1,
+      value2,
+    }
+    const response = await axios.put(`${API_URL}/assignlecturers`,config);
+    const update = response.data.data;
+    console.log(update);
+    console.log(payload)
+    return update;
+  }catch(error){
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}

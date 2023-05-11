@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 
+
 const inter = Inter({ subsets: ['latin'] })
 export default function StudentPM() {      
   return (
@@ -51,6 +52,7 @@ export default function StudentPM() {
       <div className={styles.container}>
                 {/* {data.map((item) => ( */}
             <><div className={styles.contentbox3a}>
+            <div className={styles.contentbox3}>
                         <div className={styles.image}></div>
                         <div className={styles.namebox1}>
                             <h2>Name</h2>
@@ -61,7 +63,9 @@ export default function StudentPM() {
                             <h4>Final Year Project Title</h4><br />
                             <h2>TITLE</h2>
                         </div>
-                    </div><div className={styles.table1}>
+                    
+                    
+                    <div className={styles.table1}>
                             <table>
                                 <tbody>
                                     <tr>
@@ -79,8 +83,8 @@ export default function StudentPM() {
                                 </tbody>
                             </table>
                             <br />
-                            <table><form>
-                                <tbody>
+                            <table>
+                                <tbody><form>
                                     <tr>
                                         <td>Project Manager</td>
                                         <td>: <input type="text" /></td>
@@ -99,12 +103,13 @@ export default function StudentPM() {
                                     </tr>
                                     <tr>
                                         <td><button type="submit">Assign</button></td>
-                                    </tr>
+                                    </tr></form>
                                 </tbody>
 
-                                </form>
+                                
                             </table>
-                        </div></>
+                        </div></div>
+                    </div></>
                 </div>
                 <Footer />
       </>

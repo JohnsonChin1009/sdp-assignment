@@ -3,11 +3,35 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
-import Table from '@/layout/TableStu1.js'
+import { useEffect, useState } from 'react'
+import { getStudentProfile } from '@/pages/api/api';
+import { UpdateProfileStu } from '@/pages/api/api';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [data, setData] = useState([]);
+  const [newValue, setNewValue] = useState('');
+  useEffect(()=>{
+    fetchData();
+  },[])
+  const fetchData = async()=>{
+    try {
+      const token = localStorage.getItem('token'); //Retrieving token from local storage)
+      const student = await getStudentProfile(token);
+      setData(student);
+} catch (error) {
+  console.log('Error fetching data: ', error);
+}}
+const updateValue = async()=>{
+  try{
+    const token = localStorage.getItem('token'); //Retrieving token from local storage)
+    const update1 = await UpdateProfileStu(token, newValue)
+    fetchData();    
+  }catch(error){
+    console.log('Error updating value: ', error);
+  }
+}
   return (
     <>
       <Head>
@@ -51,21 +75,23 @@ export default function Home() {
       </div>  
       <div className={styles.contentbox3}>
         <div className={styles.image}></div>
-        <div className={styles.namebox1}>
-            <h2>Name</h2>
-            <h3>TP</h3>
-            UCDF
+        {data.map((item) => (<>
+        <div className={styles.namebox1} key={item.tp_number}>
+            <h2>{item.name}</h2>
+            <h3>{item.tp_number}</h3>
         </div>
         <div className={styles.line2}></div>
         <form><div className={styles.topicbox}>
             <h4>Final Year Project Title</h4><br />
-            <input type="text" />
-            <button type="submit">Done</button>
-        </div></form>
+            <input type="text" value={newValue} onChange={(e=> setNewValue(e.target.value))}/>
+            <button type="submit" onClick={updateValue}>Done</button>
+        </div></form></>))}
+        
       </div>
       <div className={styles.contentbox3}>
-            <Table /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br />
       </div>
+      
       <br /><br /><br />
       <Footer />
       </>
