@@ -40,20 +40,39 @@ export const getStudentProfile = async (token) => {
 
     return students;
   } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching student records');
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching student profile' || token);
   }
 };
 
 export const getLecturers = async () => {
   try {
     const response = await axios.get(`${API_URL}/displaylecturers`);
-    const lectures = response.data.data;
+    const lecturers = response.data.data;
 
-    return lectures;
+    return lecturers;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecture records');
   }
 };
+
+export const getLecturerProfile = async (token) => {
+  try {
+    
+    const config = {
+      headers: {
+        Authorization: 'Bearer' + token
+      }
+    }
+    console.log(config);
+    const response = await axios.get(`${API_URL}/displayLecturerProfile`, config);
+    const students = response.data.data;
+    console.log(lecturers);
+
+    return students;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+  }
+}
 
 export const getNewEvent = async () => {
   try{
