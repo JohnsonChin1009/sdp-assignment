@@ -3,20 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 class StudentController extends Controller
 {
     public function displayStudents()
     {
         try {
             $students = Student::all();
-            // dd($students);
-            // foreach ($students as $student) {
-            //     // Log the tp_number to verify its value
-            //     Log::info($student->tp_number);
-            // }
             return response()->json([
                 'success' => true,
                 'data' => $students,
@@ -33,13 +26,14 @@ class StudentController extends Controller
     public function displayStudentProfile(Request $request)
         {
             $token = $request->header("Authorization");
-
+            $token = str_replace('Bearer', "", $token);
             $student = Student::where('email', $token)->first();
             
             if (!$student) {
                 return response()->json([
                     'success' => false,
-                    'message' => $token,
+                    'message' => 'Failed to get student profile',
+                    'authorization' => $token,
                 ], 401);
             }
 
@@ -48,6 +42,4 @@ class StudentController extends Controller
                 'data' => $student,
             ]);    
         }
-
-    
 }

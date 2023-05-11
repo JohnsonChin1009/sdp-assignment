@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Route;
 
 class CorsMiddleware
 {
@@ -13,6 +14,11 @@ class CorsMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
+
+    protected $middleware = [
+        // Other middleware...
+        \App\Http\Middleware\CorsMiddleware::class,
+    ];
     public function handle(Request $request, Closure $next): Response
     {
         $response = $next($request);
@@ -23,3 +29,4 @@ class CorsMiddleware
         return $response;
     }
 }
+

@@ -38,7 +38,7 @@ class LecturerController extends Controller
                 ], 401);
             }
 
-            return respoonse()->json([
+            return response()->json([
                 'success' => true,
                 'data' => $lecturer,
                 ]);
