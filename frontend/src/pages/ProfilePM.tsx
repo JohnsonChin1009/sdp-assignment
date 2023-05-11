@@ -109,9 +109,7 @@ export default function Home() {
             <div>{data.name}</div><br /><br />
             <div>{data.field_of_study}</div>
           </div><div className={styles.infobox}>
-              Email  : {data.email}<br />
-              Preferable Platform :<br />
-              <input type="text" />
+              Email  : {data.email}<br />              
               <br />
               <a href="http://localhost:3000/Profile"><input type="submit" value="Edit" className={styles.button6} /></a>
             </div><div className={styles.infobox1}>
