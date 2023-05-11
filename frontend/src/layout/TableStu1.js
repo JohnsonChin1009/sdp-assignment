@@ -11,9 +11,7 @@ export default function Home() {
           try {
                 const token = localStorage.getItem('token'); //Retrieving token from local storage)
                 const student = await getStudentProfile(token);
-                const array = Object.values(student);
-              setData(array);
-              console.log(array);
+              setData(student);
         } catch (error) {
             console.log('Error fetching data: ', error);
         }
@@ -23,55 +21,58 @@ export default function Home() {
     }, []);
     return (
         <main>
-            <div className={style.container}>
-                {data.map((item) => (
-            <><div className={style.contentbox3a} key={item.id}>
-                        <div className={style.image}></div>
-                        <div className={style.namebox1}>
-                            <h2>{item.name}</h2>
-                            <h3>{item.tp_number}</h3>
-                        </div>
-                        <div className={style.line2}></div>
-                        <div className={style.topicbox}>
-                            <h4>Final Year Project Title</h4><br />
-                            <h2>{item.title}</h2>
-                        </div>
-                    </div><div className={style.table1}>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>Field of Study</td>
-                                        <td>: {item.field_of_study}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Specialize</td>
-                                        <td>: {item.specialism}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td>: {item.email}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <br />
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>Project Manager</td>
-                                        <td>: {item.projectmanager}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Supervisor</td>
-                                        <td>: {item.supervisor}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Second Marker</td>
-                                        <td>:  {item.secondmarker}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div></>))}
-                </div>
-      </main>
-    )
+      <div className={style.container}>
+        {data && (
+          <div className={style.contentbox3a} key={data.tp_number}>
+            <div className={style.image}></div>
+            <div className={style.namebox1}>
+              <h2>{data.name}</h2>
+              <h3>{data.tp_number}</h3>
+            </div>
+            <div className={style.line2}></div>
+            <div className={style.topicbox}>
+              <h4>Final Year Project Title</h4>
+              <br />
+              <h2>{data.title}</h2>
+            </div>
+            <div className={style.table1}>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Field of Study</td>
+                    <td>: {data.field_of_study}</td>
+                  </tr>
+                  <tr>
+                    <td>Specialize</td>
+                    <td>: {data.specialism}</td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td>: {data.email}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br />
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Project Manager</td>
+                    <td>: {data.projectmanager}</td>
+                  </tr>
+                  <tr>
+                    <td>Supervisor</td>
+                    <td>: {data.supervisor}</td>
+                  </tr>
+                  <tr>
+                    <td>Second Marker</td>
+                    <td>: {data.secondmarker}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+      </div>
+    </main>
+  );
 }
