@@ -1,8 +1,24 @@
 
 import styles from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react'
-import { getStudentProfile } from '@/pages/api/api';
+import { getResult } from '@/pages/api/api';
 export default function Table() {
+  const [data, setData] = useState([]);
+    
+    
+    useEffect(() => {
+      const fetchData = async () => {
+          try {
+                const token = localStorage.getItem('token'); //Retrieving token from local storage)
+                const student = await getStudentProfile(token);
+                setData(student);
+        } catch (error) {
+            console.log('Error fetching data: ', error);
+        }
+      };
+        fetchData();
+
+    }, []);
     return (
 <div className={styles.content9}>
       <form action="" className={styles.box12}>
