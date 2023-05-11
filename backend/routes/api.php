@@ -35,9 +35,11 @@ Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecture
 
 Route::get('displayPMProfile', [PMController::class, 'displayPMProfile']);
 Route::get('displayPMOwnStudents', [PMController::class, 'displayPMOwnStudents']);
-Route::get('displayPMStudentProfile', [PMController::class, 'displayPMStudentProfile']);
-Route::get('dispalyPMStaff', [PMController::class, 'displayPMStaff']);
+Route::get('displayPMStudentProfile', [PMController::class, 'displayPMStudentProfile']); !!!
+Route::get('displayPMStaff', [PMController::class, 'displayPMStaff']); !!!
 Route::delete('delete/{tp_number}', [PMController::class, 'delete']);
 
 
 Route::post('addSchedule', [EventController::class, 'addSchedule']);
+
+//User:PM at LecturerPage -> call Lecturer -> filter based on field_of_study -> when pressed on lecturer -> display assigned students
