@@ -76,9 +76,27 @@ export const getLecturerProfile = async (token) => {
 
 export const getNewEvent = async () => {
   try{
-    const response = await axios.post(`${API_URL}/schedule`,{value});
+    const response = await axios.post(`${API_URL}/schedule`);
     return response.data;
+    
   }catch(error){
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}
+
+export const handleSubmit = async(event) => {
+  event.preventDefault();
+  const eventData ={
+    name: eventName,
+  };
+  try{
+    await axios.post(`${API_URL}/schedule`,eventData);
+    //Upate events array
+    setEvents([...events, eventData]);
+    //Reset Form
+    setEventName('')
+  }catch(error){
+    console.error('Error fetching events: ',error)
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 }
