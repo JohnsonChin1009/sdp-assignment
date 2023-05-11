@@ -2,19 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProjectManager;
 use Illuminate\Http\Request;
-use App\Models\schedule;
 
 class PMController extends Controller
 {
-    public function store(Request $request)
-    {
-        $schedule = new schedule;
-        $schedule->id = $request->input('eventName');
-        $schedule->date = $request->input('startDatetime');
-        $schedule->time = $request->input('endDatetime');
-        $schedule->save();
+    // public function displayProjectManager()
+    // {
+    //     try {
+    //         $projectmanagers = ProjectManager::all();
 
-        return response()->json(['message' => 'Schedule added successfully']);
-    }
+    //         return response()->json([
+    //             'success' => true,
+    //             'data' => $projectmanagers,
+    //         ]);
+
+    // } catch (\Exception $e) {
+    //     return response()->json([
+    //         'success' => false,
+    //         'message' => 'Failed to fetch project manager records',
+    //         'error' => $e->getMessage(),
+    //     ], 500);
+    // }
+    // }
+    public function displayProjectManagerProfile(Request $request)
+        {
+            $token = $request->header('Authorization');
+
+            $projectmanager = ProjectManager::where('email', $token)->first();
+
+            if(!$projectmanager) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $token,
+                ], 401);
+            }
+
+            return response()->json([
+                'success' => true,
+                'data' => $projectmanager,
+                ]);
+            }
 }

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\PMController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,10 +23,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:api');
+
 Route::get('displaystudents', [StudentController::class, 'displayStudents']);
 Route::get('displayStudentProfile', [StudentController::class, 'displayStudentProfile']);
+
 Route::get('displaylecturers', [LecturerController::class, 'displayLecturers']);
-Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile'], );
-Route::post('addSchedule', [LecturerController::class, 'addSchedule'], );
 Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile']);
 
+Route::get('displayProjectManagerProfile', [PMController::class, 'displayProjectManagerProfiel']);
