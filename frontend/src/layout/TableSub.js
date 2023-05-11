@@ -1,5 +1,5 @@
 import style from '@/styles/Home.module.css'
-import { getStudents } from '@/pages/api/api';
+import { getAllResults } from '@/pages/api/api';
 import { useEffect, useState } from 'react'
 
 export default function Home() {  
@@ -9,7 +9,7 @@ export default function Home() {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const students = await getStudents();
+          const students = await getAllResults();
           setData(students);
           console.log(students);
         } catch (error) {
