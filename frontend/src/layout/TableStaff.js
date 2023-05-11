@@ -8,7 +8,8 @@ export default function TableStaff() {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const lecturers = await getPMStaff();
+          const token = localStorage.getItem('token');
+          const lecturers = await getPMStaff(token);
           setData(lecturers);
         } catch (error) {
           console.log('Error fetching data: ', error);
