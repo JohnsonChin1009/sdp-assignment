@@ -8,8 +8,7 @@ import { getStudents } from '@/pages/api/api';
 import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
-export default function Home() {
-  const[selectedStudent, setSelectedStudent] = useState(null);
+export default function Home() { 
     const[searchTerm, setSearchTerm] = useState('');    
     const [data, setData] = useState([]);
     
@@ -30,7 +29,7 @@ export default function Home() {
   
   
   const handleSearch = () => {
-    setSearchTerm('');
+    
   };
   return (
     <>    
@@ -76,7 +75,7 @@ export default function Home() {
       </div>
       <div className={styles.contentbox2a}>      
           <input type="text" name="Search" placeholder="Search by name" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)}/>
-          <button type="submit" onClick={handleSearch}><Image
+          <button type="submit" onClick={handleSearch} ><Image
                             src="/search_icon.png"
                             alt="Search"
                             className={styles.vercelLogo}
@@ -85,7 +84,7 @@ export default function Home() {
                             priority            
                             /></button>      
       </div><br /><br /><br /><br />
-      {selectedStudent &&(
+    
         <>
          {data.map((item) => (
             <div className={styles.row1} key={item.id}>
@@ -97,7 +96,7 @@ export default function Home() {
             </div>
           ))}
         </>
-      )}                      
+                        
       
       <Table />  
         
