@@ -32,7 +32,7 @@ Route::get('displayStudentProfile', [StudentController::class, 'displayStudentPr
 Route::get('displaylecturers', [LecturerController::class, 'displayLecturers']);
 Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile']);
 
-Route::get('displayProjectManagerProfile', [PMController::class, 'displayProjectManagerProfiel']);
+Route::get('displayPMProfile', [PMController::class, 'displayPMProfile']);
 Route::delete('delete/{tp_number}', [PMController::class, 'delete']);
 
 Route::post('addSchedule', [EventController::class, 'addSchedule']);

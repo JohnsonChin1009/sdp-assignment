@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\ProjectManager;
 use Illuminate\Http\Request;
-use App\Models\Student;
 
 class PMController extends Controller
 {
@@ -26,10 +25,10 @@ class PMController extends Controller
     //     ], 500);
     // }
     // }
-    public function displayProjectManagerProfile(Request $request)
+    public function displayPMProfile(Request $request)
         {
             $token = $request->header('Authorization');
-
+            $token = str_replace('Bearer', "", $token);
             $projectmanager = ProjectManager::where('email', $token)->first();
 
             if(!$projectmanager) {
@@ -44,20 +43,9 @@ class PMController extends Controller
                 'data' => $projectmanager,
                 ]);
             }
-   
 
-
-    public function delete($tpNumber)
+    public function displayPMOwnStudents(Request $request)
     {
-        $student = Student::where('tp_number', $tpNumber)->first();
 
-        if (!$student) {
-            return response()->json(['message' => 'Student not found'], 404);
-        }
-
-        $student->delete();
-
-        return response()->json(['message' => 'Student deleted']);
     }
-
 }

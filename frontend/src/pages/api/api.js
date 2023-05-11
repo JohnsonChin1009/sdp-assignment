@@ -138,6 +138,7 @@ export const addEvent = async (EventName, startDatetime, endtime) => {
     );
   }
 };
+
 export const fetchSlides = async () => {
   try{
     const response = await axios.get(`${API_URL}/displayslides`);
@@ -217,8 +218,6 @@ export const AssignLecturers= async (token, value1, value2)=>{
 }
 
 export const deleteStudent = async (tp_number) => {
-  console.log(deleteStudent)
-  console.log(tp_number)
   try {
     const response = await axios.delete(`${API_URL}/delete/${tp_number}`);
     return response.data;
