@@ -12,11 +12,6 @@ class StudentController extends Controller
     {
         try {
             $students = Student::all();
-            // dd($students);
-            // foreach ($students as $student) {
-            //     // Log the tp_number to verify its value
-            //     Log::info($student->tp_number);
-            // }
             return response()->json([
                 'success' => true,
                 'data' => $students,
@@ -34,6 +29,8 @@ class StudentController extends Controller
         {
             $token = $request->header("Authorization");
 
+            $token = str_replace("Bearer ", " ", $token);
+        
             $student = Student::where('email', $token)->first();
             
             if (!$student) {
