@@ -16,6 +16,9 @@ class Student extends Model
         'specialism',
         'email',
         'title',
+        'projectmanager',
+        'supervisor',
+        'secondmarker'
     ];
 
     public function user()

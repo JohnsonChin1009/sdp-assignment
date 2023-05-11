@@ -17,12 +17,11 @@ return new class extends Migration
             $table->string('field_of_study');
             $table->string('specialism');
             $table->string('email');
-            $table->string('fyp_title');
-
-            $table->string('lecturerid');
-            $table->string('lecturername');
+            $table->string('title');
+            $table->string('projectmanager');
+            $table->string('supervisor');
+            $table->string('secondmarker');
             
-            $table->primary('tp_number');
 
 
         });

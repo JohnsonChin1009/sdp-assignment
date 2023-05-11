@@ -45,7 +45,7 @@ class PMTableSeeder extends Seeder
             [
                 'id' => 'STAFF005',
                 'name' => 'YEEWENG CHEONG',
-                'field_of_study' => 'FINANCE AND BANKING',
+                'field_of_study' => 'BANKING AND FINANCE',
                 'email' => 'yeewengcheong05@apu.edu.my',
             ],
 
