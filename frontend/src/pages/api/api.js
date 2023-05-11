@@ -65,10 +65,10 @@ export const getLecturerProfile = async (token) => {
     }
     console.log(config);
     const response = await axios.get(`${API_URL}/displayLecturerProfile`, config);
-    const students = response.data.data;
+    const lecturers = response.data.data;
     console.log(lecturers);
 
-    return students;
+    return lecturers;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
@@ -86,6 +86,7 @@ export const getNewEvent = async () => {
 
 export const addEvent = async (EventName, startDatetime, endtime) => {
   try {
+    
     console.log(EventName, startDatetime, endtime);
     const eventData = {
       title: EventName,
@@ -104,6 +105,20 @@ export const addEvent = async (EventName, startDatetime, endtime) => {
 export const fetchSlides = async () => {
   try{
     const response = await axios.get(`${API_URL}/displayslides`);
+    return response.data;
+  }catch(error){
+    
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}
+export const UpdateProfile = async (token) =>{
+  try{
+    const config = {
+      headers: {
+        Authorization: 'Bearer' + token
+      }
+    }
+    const response = await axios.get(`${API_URL}/updateprofilestu`,config);
     return response.data;
   }catch(error){
     throw new Error(error.response?.data?.message || 'An error occurred');
