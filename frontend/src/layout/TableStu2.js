@@ -25,8 +25,8 @@ export default function Home() {
         {data.map((item) => (
           <div className={style.row1} key={item.id}>
             <div className={style.image}></div>
-            <div>{item.name}<br/>{item.tp_number}<br/>{item.field_of_study}</div>
-            <div><b>{item.title}</b><br/><br/>{item.supervisor}<br/>{item.secondmarker}</div>
+            <a href="http://localhost:3000/ProfileStuAssign"><div>{item.name}<br/>{item.tp_number}<br/>{item.field_of_study}</div>
+            <div><b>{item.title}</b><br/><br/>{item.supervisor}<br/>{item.secondmarker}</div></a>
           </div>
         ))}
       </div>

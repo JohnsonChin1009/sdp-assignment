@@ -55,6 +55,10 @@ export default function Home() {
                             <table>
                                 <tbody>
                                     <tr>
+                                        <td>Project Manager</td>
+                                        <td>: {item.projectmanager}</td>
+                                    </tr>
+                                    <tr>
                                         <td>Supervisor</td>
                                         <td>: {item.supervisor}</td>
                                     </tr>
