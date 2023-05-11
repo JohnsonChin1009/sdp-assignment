@@ -101,7 +101,7 @@ export const getPMOwnStudents = async (token) => {
       }
     }
     console.log(config);
-    const response = await axios.get(`${API_URL}/displayPMOwnsStudent`, config);
+    const response = await axios.get(`${API_URL}/displayPMOwnStudent`, config);
     const PM = response.data.data;
     console.log(PM);
 
