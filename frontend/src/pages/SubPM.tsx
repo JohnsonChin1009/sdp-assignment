@@ -4,10 +4,33 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import Table from '@/layout/TableSub.js'
-
+import { getStudents } from '@/pages/api/api';
+import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
-export default function Home() {
+export default function Home() { 
+    const[searchTerm, setSearchTerm] = useState('');    
+    const [data, setData] = useState([]);
+    
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const students = await getStudents();
+          setData(students);
+          console.log(students);
+        } catch (error) {
+          console.log('Error fetching data: ', error);
+        }
+      };
+    
+      fetchData();
+    }, []);
+  
+  
+  const handleSearch = () => {
+    
+  };
   return (
     <>    
       <Head>
@@ -50,20 +73,30 @@ export default function Home() {
           </div>
           </a>  <br />
       </div>
-      <div className={styles.contentbox2a}>
-      <form action="">
-          <input type="text" name="Search"/>
-          <button type="submit"><Image
+      <div className={styles.contentbox2a}>      
+          <input type="text" name="Search" placeholder="Search by name" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)}/>
+          <button type="submit" onClick={handleSearch} ><Image
                             src="/search_icon.png"
                             alt="Search"
                             className={styles.vercelLogo}
                             width={20}
                             height={10}
                             priority            
-                            /></button>
-      </form>
+                            /></button>      
       </div><br /><br /><br /><br />
-                                   
+    
+        <>
+         {data.map((item) => (
+            <div className={styles.row1} key={item.id}>
+            <div className={styles.image}></div>
+            <div><br/>{item.name} <br/>{item.tp_number}</div>
+            <div><br/>{item.title}<br/><br/>Supervisor: {item.supervisor}<br/>SecondMarker: {data.secondmarker}</div>
+            <div><br/>Documentation: <br/>Presentation: <br/>Final Mark: <br/></div>                                        
+            <div><br/><br/><div className={styles.button7}><a href=""><button>Edit</button></a></div></div>
+            </div>
+          ))}
+        </>
+                        
       
       <Table />  
         

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 export default function Home() {  
     const [data, setData] = useState([]);
+    
 
     useEffect(() => {
       const fetchData = async () => {
@@ -18,14 +19,15 @@ export default function Home() {
     
       fetchData();
     }, []);
+    
     return (
         
               <div className={style.container1}>
                 {data.map((row) => (
                   <div className={style.row1} key={row.id}>
                     <div className={style.image}></div>
-                    <div><br/>{row.name} <br/>TP<br/>UCDF</div>
-                    <div><br/>{row.title}<br/><br/>Supervisor: {row.supervisor}</div>
+                    <div><br/>{row.name} <br/>{row.tp_number}</div>
+                    <div><br/><b>{row.title}</b><br/><br/>Supervisor: {row.supervisor}<br/>SecondMarker: {row.secondmarker}</div>
                     <div><br/>Documentation: <br/>Presentation: <br/>Final Mark: <br/></div>                                        
                     <div><br/><br/><div className={style.button7}><a href=""><button>Edit</button></a></div></div>
                   </div>

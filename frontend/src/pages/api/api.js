@@ -76,7 +76,7 @@ export const getLecturerProfile = async (token) => {
 
 export const getNewEvent = async () => {
   try{
-    const response = await axios.post(`${API_URL}/schedule`);
+    const response = await axios.post(`${API_URL}/addSchedule`);
     return response.data;
     
   }catch(error){
