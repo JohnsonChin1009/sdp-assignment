@@ -49,20 +49,7 @@ export default function Home() {
           Back 
         </div>
         </a>
-      </div>                               
-      <div className={styles.contentbox2}>
-        <form action="">
-          <select name="field">
-            <option value="-">All</option>
-            <option value="IT">IT</option>
-            <option value="BUS">Business</option>
-            <option value="ENG">Engineering</option>
-          </select>
-          <select name="Specialize">
-            <option value="-">-</option>
-          </select>
-        </form>
-      </div>
+      </div>                                     
       <div className={styles.contentbox2a}>
       <form action="">
           <input type="text" name="Search"/>

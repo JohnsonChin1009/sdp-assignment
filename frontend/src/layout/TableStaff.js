@@ -1,6 +1,6 @@
 import style from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react'
-import { getLecturers } from '@/pages/api/api';
+import { getPMStaff } from '@/pages/api/api';
 
 export default function TableStaff() {
   const [data, setData] = useState([]);
@@ -8,7 +8,7 @@ export default function TableStaff() {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const lecturers = await getLecturers();
+          const lecturers = await getPMStaff();
           setData(lecturers);
         } catch (error) {
           console.log('Error fetching data: ', error);
