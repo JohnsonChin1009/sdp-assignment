@@ -115,7 +115,7 @@ export default function Home() {
             Date:
             <br />
             <input type="datetime-local" required value={startDatetime} onChange={(event) => setStartDatetime(event.target.value)} />
-               to
+               to 
             <input type="time"  required value={endtime} onChange={(event) => setEndtime(event.target.value)} /><br />
             <button type="submit" className={styles.button6}>Add</button>
           </form>

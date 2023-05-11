@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class Schedule extends Model
 {
     protected $fillable = [
-        'meetingid',
+        'id',
         'name',
         'start',
         'end',
