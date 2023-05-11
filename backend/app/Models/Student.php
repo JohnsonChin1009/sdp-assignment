@@ -7,6 +7,7 @@ class Student extends Model
 {
     protected $table = 'students';
     protected $primaryKey = 'tp_number';
+    protected $keyType = 'string';
     
     protected $fillable = [
         'tp_number',

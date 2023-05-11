@@ -11,6 +11,7 @@ export default function Home() {
         try {
           const students = await getStudents();
           setData(students);
+          console.log(students);
         } catch (error) {
           console.log('Error fetching data: ', error);
         }
