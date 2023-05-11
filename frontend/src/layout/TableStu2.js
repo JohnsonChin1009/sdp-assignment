@@ -26,8 +26,8 @@ export default function Home() {
         {data&& (
           <div className={style.row1} key={data.id}>
             <div className={style.image}></div>
-            <a href="http://localhost:3000/ProfileStuAssign"><div>{item.name}<br/>{item.tp_number}<br/>{item.field_of_study}</div>
-            <div><b>{data.title}</b><br/><br/>{data.supervisor}<br/>{item.secondmarker}</div></a>
+            <a href="http://localhost:3000/ProfileStuAssign"><div>{data.name}<br/>{data.tp_number}<br/>{data.field_of_study}</div>
+            <div><b>{data.title}</b><br/><br/>{data.supervisor}<br/>{data.secondmarker}</div></a>
           </div>
         )}
       </div>
