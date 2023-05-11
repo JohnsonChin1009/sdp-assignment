@@ -24,8 +24,8 @@ export default function TableStaff() {
                 {data.map((item) => (
                   <div className={style.row1} key={item.id}>
                     <div className={style.image}></div>
-                    <div><br/>{item.name} <br/>{item.field_of_study}</div>                                        
-                  </div>
+                    <div><a href="http://localhost:3000/StuSupProfile">{item.name}<br/><br/>{item.field_of_study}</a></div>                                      
+                    </div>
                 ))}
               </div>
             

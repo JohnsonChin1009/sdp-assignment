@@ -911,11 +911,7 @@
     grid-template-columns: repeat(1,1fr);
     gap: 20px;
   }
-  .row1{
-    display:grid;
-    grid-template-columns: repeat(4,1fr);
-    gap:100px;
-  }
+  
   .row{
     display:grid;
     grid-template-columns: repeat(5,1fr);
@@ -924,9 +920,9 @@
   }
   .row1{
     display:grid;
-    grid-template-columns: repeat(5,1fr);
-    gap: 40px;
-    margin-left: 0px;
+    grid-template-columns: repeat(5, 2fr);
+    gap: 40px;    
+    overflow-wrap: break-word;
   }
   .box11{  
     float: left;
