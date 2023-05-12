@@ -38,8 +38,8 @@ update whether you are using a bug to reduce redundancy.</i>
     </tr>
     <tr>
       <td>2</td>
-      <td></td>
-      <td></td>
+      <td>Announcement table haven't been created</td>
+      <td>Johnson</td>
       <td></td>
       <td></td>
     </tr>
