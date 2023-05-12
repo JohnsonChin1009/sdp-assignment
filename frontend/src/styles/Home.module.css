@@ -522,6 +522,16 @@
   margin-left: 30px;
 }
 
+.textbox{
+  width:500px;
+  height: 40px;
+  font-size: 20px;
+}
+.topicbox2{
+  margin: 20px;
+  padding-top: 10px;
+  float: left;
+}
 
 /*Student*/
 .subhead{

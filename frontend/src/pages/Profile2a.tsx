@@ -75,21 +75,22 @@ const updateValue = async()=>{
       </div>  
       <div className={styles.contentbox3}>
         <div className={styles.image}></div>
-        {data.map((item) => (<>
-        <div className={styles.namebox1} key={item.tp_number}>
-            <h2>{item.name}</h2>
-            <h3>{item.tp_number}</h3>
-        </div>
-        <div className={styles.line2}></div>
-        <form><div className={styles.topicbox}>
+        {data && (
+          <><div className={styles.namebox1} key={data.tp_number}>
+            <h2>{data.name}</h2>
+            <h3>{data.tp_number}</h3>
+          </div><br /><br /><br /><br /><form><div className={styles.topicbox2}>
             <h4>Final Year Project Title</h4><br />
-            <input type="text" value={newValue} onChange={(e=> setNewValue(e.target.value))}/>
-            <button type="submit" onClick={updateValue}>Done</button>
-        </div></form></>))}
+            <input type="text" value={data.title} onChange={(e => setNewValue(e.target.value))} className={styles.textbox}/><br/><br/>
+            <button className={styles.button6} type="submit" onClick={updateValue}>Done</button>
+          </div></form></>
+
+        )}
+        
         
       </div>
       <div className={styles.contentbox3}>
-      <br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br />
       </div>
       
       <br /><br /><br />
