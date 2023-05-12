@@ -99,7 +99,7 @@ export default function StudentPM() {
             </div>
             <div className={styles.container}>
                 {data && (
-                    <><div className={styles.contentbox3a}>
+                    <><div className={styles.contentbox3}>
                         <div className={styles.contentbox3}>
                             <div className={styles.image}></div>
                             <div className={styles.namebox1} key={data.tp_number}>
