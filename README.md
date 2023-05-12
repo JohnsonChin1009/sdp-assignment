@@ -50,6 +50,27 @@ update whether you are using a bug to reduce redundancy.</i>
       <td></td>
       <td></td>
     </tr>
+    <tr>
+      <td>4</td>
+      <td>Submission havent do</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Search function havent do</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Slider announcement only appear for milisecond</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
     <!-- Add more rows as needed -->
   </tbody>
 </table>
