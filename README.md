@@ -65,9 +65,16 @@ update whether you are using a bug to reduce redundancy.</i>
       <td></td>
     </tr>
     <tr>
-      <td>5</td>
+      <td>6</td>
       <td>Slider announcement only appear for milisecond</td>
       <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Check staff for students haven't done yet</td>
+      <td>Johnson</td>
       <td></td>
       <td></td>
     </tr>
