@@ -8,7 +8,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import {addSupEvent} from '@/pages/api/api';
 import { useEffect, useState } from 'react'
 import { getLecturerProfile } from '@/pages/api/api';
-import { getLecturerSchedule } from '@/pages/api/api';
+import { getSupSchedule } from '@/pages/api/api';
 const inter = Inter({ subsets: ['latin'] })
 
 //Calendar
@@ -25,14 +25,13 @@ const Calendar = () => {
   useEffect(() => {
     const fetchScheduleData = async () => {
       try {
-        const token = localStorage.getItem('token'); //Retrieving token from local storage)
-        console.log(token)
+        const token = localStorage.getItem('id'); //Retrieving token from local storage)
         if (!token) {
           throw new Error('No token found');
         }
 
-        const lecturers = await getLecturerSchedule(token);
-
+        const lecturers = await getSupSchedule(token);
+        console.log(lecturers);
         const scheduleEvents = lecturers.map((lecturer: Lecturer) => ({
           title: lecturer.name,
           start: lecturer.start_date,
