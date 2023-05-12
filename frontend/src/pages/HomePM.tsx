@@ -5,7 +5,15 @@ import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import Slides from '@/layout/Slider.js'
 const inter = Inter({ subsets: ['latin'] })
+import{logout} from '@/pages/api/api'
 export default function Home() {
+  const handleLogout = async()=>{
+    try{
+      await logout();
+    }catch(error){
+      console.error('Error.logging out: ', error);
+    }
+  };
   return (
     <>
       <Head>
@@ -36,13 +44,13 @@ export default function Home() {
                         <td><a href="http://localhost:3000/SubPM" className={styles.button2}>Submission</a></td>
                         <td> <br/></td>
                         <td><br/></td>
-                        <td><a href="http://localhost:3000" className={styles.box3}><u>Logout</u></a></td>
+                        <td><a href="http://localhost:3000" className={styles.box3} onClick={handleLogout}><u>Logout</u></a></td>
                     </tr>
                 </tbody>                
             </table>                                                          
       </main> 
       <div className={styles.content1}>
-        {/* <Slides/> */}
+        <Slides/>
       </div>
       <div className={styles.content2}>
         <a href="http://localhost:3000/ProfilePM">

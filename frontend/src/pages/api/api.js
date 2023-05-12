@@ -13,6 +13,15 @@ export const login = async (email, password) => {
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 };
+//logout
+export const logout = async () =>{
+  try{
+    const response = await axios.get(`${API_URL}/logout`);
+    return response.data;    
+  }catch(error){
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching student records');
+  }
+}
 //Display All
 export const getStudents = async () => {
   try {
@@ -252,15 +261,7 @@ export const getLecturerProfile = async (token) => {
 
 
 //Events
-export const getEvent = async () => {
-  try{
-    const response = await axios.post(`${API_URL}/displaySchedule`);
-    return response.data;
-    
-  }catch(error){
-    throw new Error(error.response?.data?.message || 'An error occurred');
-  }
-}
+
 
 export const addSupEvent = async (token, EventName, startDatetime, endtime) => {
   try { 
