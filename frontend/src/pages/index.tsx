@@ -11,6 +11,7 @@ import { useRouter } from 'next/router.js'
 
 const inter = Inter({ subsets: ['latin'] })
 
+
 export default function Login() {
   const router = useRouter()
   const [email, setEmail] = useState('');
@@ -34,6 +35,7 @@ export default function Login() {
 
       switch (role_type) { 
         case 'projectmanager':
+          <Notification />
           router.push('/HomePM');
           break;
         case 'lecturer':
@@ -76,7 +78,7 @@ export default function Login() {
                 Email <br />
                 <input type="text" required  value ={email} onChange={(event)=>setEmail(event.target.value)}name="email"/><br /><br />
                 Password <br />
-                <input type="password"required value={password} onChange={(event)=>setPassword(event.target.value)} name="password"/><br /><br />
+                <input type="password"required value={password} onChange={(event)=>setPassword(event.target.value)} name="password" /><br /><br />                
                 <button type="submit" value="login" name="login" className={styles.box2button}>LOGIN</button>
               </form> <br />
               {error && <p className={styles.word5}><i>**{errorMessage}</i></p>}
