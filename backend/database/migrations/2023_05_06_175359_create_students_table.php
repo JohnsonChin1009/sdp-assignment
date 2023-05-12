@@ -21,9 +21,7 @@ return new class extends Migration
             $table->string('projectmanager');
             $table->string('supervisor');
             $table->string('secondmarker');
-            
-
-
+            $table->string('intake_code');
         });
     }
 

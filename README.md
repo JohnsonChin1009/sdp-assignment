@@ -13,24 +13,10 @@ System Requirements
 ✅PHP version 8.1.6
 ✅Next.js v13.2.4
 
-Steps to start
-1. Open command prompt/git bash/terminal
-2. Change directory to the repository
-3. Change dir to frontend/backend based on your choice
+<h3>BUG LIST<h3>
+<i font-size="12px">To ensure that we work as efficient as possible, please post bugs found here and also<br>
+update whether you are using a bug to reduce redundancy.</i>
 
-To start frontend
-- npm run dev
-
-it will start at localhosts:3000
-
-if cannot find the files, means you are in the wrong directory
-if it displays a lot of errors, means that you don't have npm installed
-
-Run npm install
-
-To start backend
-- php artisan serve
-
-It will start at localhost:8000
-
-Change id in schedules into meeting idd
+<td>
+    
+</td>
