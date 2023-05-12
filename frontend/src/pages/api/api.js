@@ -144,6 +144,23 @@ export const getPMStaff = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+export const getPMLecturerProfile = async (token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    console.log(config);
+    const response = await axios.get(`${API_URL}/displayPMLecturerProfile`, config);
+    const PM = response.data.data;
+    console.log(PM);
+
+    return PM;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+  }
+}
 //Update
 export const getUpdatedStudent = async (token, selectSupervisor, selectSecondMarker) => {
   try {
