@@ -25,13 +25,16 @@ export default function SliderComponent() {
       }    
       return(
         <Slider {...settings}>
-            {slides && (
-                <div key={slides.id}>
-                    <div>{slides.title}</div>
-                    <div>{slides.description}</div>
-                    <div>{slides.projectmanagername}</div>
-                    <div>{slides.date}</div>
-                </div>
+            {slides.map((slide)=>(
+              <div key={slide.id}>
+              <div>{slide.title}</div>
+              <div>{slide.description}</div>
+              <div>{slide.projectmanager}</div>
+              <div>{slide.date}</div>
+              <div>{slide.time}</div>
+          </div>
+            )
+                
             )}
         </Slider>
       )
