@@ -66,16 +66,12 @@ export const UpdateProfileStu = async (token, newValue) =>{
   try{
     const config = {
       headers: {
-        Authorization: 'Bearer ' + token
+        Authorization: 'Bearer ' + token + " " + newValue
       }
-    }
-    const payload = {
-      newValue,
-    }
+    }    
     const response = await axios.put(`${API_URL}/updateprofilestu`,config);
     const update = response.data.data;
-    console.log(update);
-    console.log(payload)
+    console.log(update);    
     return update;
   }catch(error){
     throw new Error(error.response?.data?.message || 'An error occurred');

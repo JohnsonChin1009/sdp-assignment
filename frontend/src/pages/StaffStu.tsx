@@ -83,16 +83,16 @@ export default function Home() {
         <div className={styles.content6}>
           {data &&(
             <><div className={styles.box10}>
-              <a href='http://localhost:3000/Profile1'><div className={styles.text}>Project Manager</div>
-                <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
+              <a href='http://localhost:3000/Profile1'><div className={styles.text}>Project Manager</div><br />
+                <div className={styles.image2}></div><br /><br /><br /><br /><br /><br /><br />
                 <div className={styles.text}><b>{data.projectmanager}</b></div></a>
             </div><div className={styles.line3}></div><div className={styles.box10}>
-                <div className={styles.text1}>Supervisor</div>
-                <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
+                <div className={styles.text1}>Supervisor</div><br />
+                <div className={styles.image2}></div><br /><br /><br /><br /><br /><br /><br />
                 <div className={styles.text}><b>{data.supervisor}</b></div>
               </div><div className={styles.line3}></div><div className={styles.box10}>
-                <div className={styles.text}>Second Marker</div>
-                <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
+                <div className={styles.text}>Second Marker</div><br />
+                <div className={styles.image2}></div><br /><br /><br /><br /><br /><br /><br />
                 <div className={styles.text}><b>{data.secondmarker}</b></div>
               </div></>
           )}
