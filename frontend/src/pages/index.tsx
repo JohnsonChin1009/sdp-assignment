@@ -34,8 +34,7 @@ export default function Login() {
       }
 
       switch (role_type) { 
-        case 'projectmanager':
-          <Notification />
+        case 'projectmanager':          
           router.push('/HomePM');
           break;
         case 'lecturer':
