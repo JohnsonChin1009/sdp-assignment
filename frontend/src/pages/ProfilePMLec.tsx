@@ -6,23 +6,13 @@ import Footer from '@/layout/Footer.js'
 import Table from '@/layout/TableStu3.js'
 import { getPMLecturerProfile } from './api/api'
 import { useEffect, useState } from 'react'
-interface Lecturer {
+interface LecturerData {
   id: string;
   name: string;
   email: string;
   field_of_study: string;
 }
-interface StudentData {
-  name: string;
-  tp_number: string;
-  title: string;
-  field_of_study: string;
-  supervisor: string;
-  secondmarker: string;
-  specialism: string;
-  email: string;
-  lecturers: Lecturer[];
-}
+
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
