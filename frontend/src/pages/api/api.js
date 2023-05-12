@@ -47,7 +47,7 @@ export const getPMStudentProfile = async (token) => {
   try {
     const config = {
       headers: {
-        Authorization: 'Bearer' + token
+        Authorization: 'Bearer ' + token
       }
     }
     console.log(config);
@@ -76,7 +76,7 @@ export const getLecturerProfile = async (token) => {
     
     const config = {
       headers: {
-        Authorization: 'Bearer' + token
+        Authorization: 'Bearer ' + token
       }
     }
     console.log(config);
@@ -131,7 +131,7 @@ export const getLecturerOwnStudents = async (token) => {
     
     const config = {
       headers: {
-        Authorization: 'Bearer' + token
+        Authorization: 'Bearer ' + token
       }
     }
     console.log(config);
@@ -149,7 +149,7 @@ export const getUpdatedStudent = async (token, selectSupervisor, selectSecondMar
     
     const config = {
       headers: {
-        Authorization: 'Bearer' + token
+        Authorization: 'Bearer ' + token
       }
     }
     const values = {
