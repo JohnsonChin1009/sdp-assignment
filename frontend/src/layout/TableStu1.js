@@ -28,6 +28,7 @@ export default function Home() {
             <div className={style.namebox1}>
               <h2>{data.name}</h2>
               <h3>{data.tp_number}</h3>
+              {data.ucdf}
             </div>
             <div className={style.line2}></div>
             <div className={style.topicbox}>
