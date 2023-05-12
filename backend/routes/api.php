@@ -44,6 +44,7 @@ Route::get('displayPMStaff', [PMController::class, 'displayPMStaff']);
 Route::get('displayPMLecturerProfile', [PMController::class, 'displayPMLecturerProfile']);
 Route::get('updateStudentInfo', [PMController::class, 'updateStudentInfo']);
 Route::delete('deleteStuSup/{tp_number}', [PMController::class, 'deleteStuSup']);
+Route::get('SearchPM', [PMController::class, 'SearchPM']);
 
 
 Route::post('addSupSchedule', [EventController::class, 'addSupSchedule']);

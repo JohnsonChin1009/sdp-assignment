@@ -187,4 +187,24 @@ class PMController extends Controller
         return response()->json(['message' => 'Student deleted']);
 
     }
+
+
+    public function SearchPM(Request $request)
+    {
+        $name = $request->input('result');
+        $result = Lecturer::where('name', 'like', '%' . $name . '%')->get();
+
+        if (!$result) {
+            return response()->json([
+                'success' => false,
+                'message' => 'The Project Manager name cannot be found',
+            ]);
+        }
+
+        return response()->json([
+            'success' => true,
+            'data' => $result,
+        ]);
+    }
+
 }

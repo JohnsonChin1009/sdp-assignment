@@ -3,11 +3,29 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
-import Table from '@/layout/TableStaff.js'
-
+import TableStaff from '@/layout/TableStaff.js'
+import { useState } from 'react';
+import {SearchPM} from '@/pages/api/api';
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
+
+  const [search, setSearch] = useState('');
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+      try {
+        console.log(search);
+        const response = await SearchPM(search);
+      } catch (error) {
+        setError(true);
+        setErrorMessage('Error searching')
+      }
+    };
+
+
   return (
     <>    
       <Head>
@@ -51,8 +69,8 @@ export default function Home() {
         </a>
       </div>                                     
       <div className={styles.contentbox2a}>
-      <form action="">
-          <input type="text" name="Search"/>
+      <form onSubmit={handleSearch}>
+        <input type="text" name="Search" value={search} onChange={(event) => setSearch(event.target.value)} />
           <button type="submit"><Image
                             src="/search_icon.png"
                             alt="Search"
@@ -65,7 +83,7 @@ export default function Home() {
       </div>
       <br /><br /><br />    <br /><br /><br />                          
       
-      <Table />                                      
+      <TableStaff search={search} />                                     
              
       <br /><br /><br />
       <Footer />

@@ -411,3 +411,21 @@ export const getStudentLec = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occured while fetching lecturers assigned for this student');
   }
 }
+
+export const SearchPM = async (search) => {
+  try {
+
+    
+    const response = await axios.get(`${API_URL}/SearchPM`, {
+      params: {
+        result: search,
+      },
+    });
+    const data = response.data.data;
+    console.log(response.data); 
+    return data;
+  } catch (error)
+  {
+    throw new Error(error.response?.data?.message || 'An error occured while fetching Project Manager info');
+  }
+};
