@@ -71,6 +71,7 @@ class PMController extends Controller
         $data = [
             'name' => $student->name,
             'tp_number' => $student->tp_number,
+            'title' => $student->title,
             'field_of_study' => $student->field_of_study,
             'specialism' => $student->specialism,
             'email' => $student->email,
