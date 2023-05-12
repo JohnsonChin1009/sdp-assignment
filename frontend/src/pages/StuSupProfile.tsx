@@ -5,6 +5,7 @@ import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import Table from '@/layout/TableStu3.js'
 import { getPMLecturerProfile } from './api/api'
+import { useEffect, useState } from 'react'
 interface Lecturer {
   id: string;
   name: string;
@@ -25,6 +26,21 @@ interface StudentData {
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
+  const [lecturer, setData] = useState<LecturerData | null>(null);
+    
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const token = localStorage.getItem('id');
+                console.log(token);
+                const student = await getPMLecturerProfile(token);
+                setData(student);
+            } catch (error) {
+                console.log('Error fetching data: ', error);
+            }
+        };
+        fetchData();
+    }, []);
   return (
     <>    
       <Head>
@@ -67,11 +83,14 @@ export default function Home() {
         </div>
         </a>
       </div>  
-      <div>
-      <div className={styles.image3}></div>
       
-        <div className={styles.box11a} >{lecturer.name}<br /> {lecturer.field_of_study} <br />{lecturer.email}</div>
-        </div>                        
+      <div className={styles.image3}></div>
+      {lecturer && (
+      <>
+      <div className={styles.box11a} >{lecturer.name}<br /> {lecturer.field_of_study} <br />{lecturer.email}</div>
+      </>
+        )}
+                                
       <br /><br /><br />    <br /><br /><br />                          
       
       <Table />                                      
