@@ -22,8 +22,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'tp074070@mail.apu.edu.my', 
                     'title' => 'Quality-focused fresh-thinking analyzer', 
                     'projectmanager' => 'STAFF001', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -34,8 +34,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'wclamp1@pen.io', 
                     'title' => 'Optional homogeneous synergy', 
                     'projectmanager' => 'STAFF001', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -46,8 +46,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'pscuffham2@vistaprint.com', 
                     'title' => 'Reduced real-time functionalities', 
                     'projectmanager' => 'STAFF001', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -58,8 +58,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'jgoater3@webs.com', 
                     'title' => 'Realigned 3rd generation workforce', 
                     'projectmanager' => 'STAFF001', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -70,8 +70,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'espriggen4@desdev.cn', 
                     'title' => 'Fundamental responsive info-mediaries', 
                     'projectmanager' => 'STAFF001', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -82,8 +82,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'rwhymark5@technorati.com', 
                     'title' => 'Visionary heuristic application', 
                     'projectmanager' => 'STAFF001', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -94,8 +94,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'sfishlee6@phoca.cz', 
                     'title' => 'Intuitive motivating time-frame', 
                     'projectmanager' => 'STAFF001', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -106,8 +106,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'mmabson7@gnu.org', 
                     'title' => 'Multi-layered zero tolerance website', 
                     'projectmanager' => 'STAFF001', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => '', 
+                    'secondmarker' => '', 
                  ],
                  
                  [
@@ -118,8 +118,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'jelks8@pagesperso-orange.fr', 
                     'title' => 'Multi-lateral dynamic conglomeration', 
                     'projectmanager' => 'STAFF001', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -130,8 +130,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'ceytel9@purevolume.com', 
                     'title' => 'Multi-tiered eco-centric infrastructure', 
                     'projectmanager' => 'STAFF001', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -142,8 +142,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'ebecconsall0@tripod.com', 
                     'title' => 'Up-sized static customer loyalty', 
                     'projectmanager' => 'STAFF002', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -154,8 +154,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'dfiddiman1@1688.com', 
                     'title' => 'Total neutral time-frame', 
                     'projectmanager' => 'STAFF002', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -166,8 +166,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'ebeckingham2@ox.ac.uk', 
                     'title' => 'Total foreground task-force', 
                     'projectmanager' => 'STAFF002', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -178,8 +178,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'etalkington3@indiegogo.com', 
                     'title' => 'Multi-layered asynchronous capacity', 
                     'projectmanager' => 'STAFF002', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -190,8 +190,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'raddington4@reverbnation.com', 
                     'title' => 'Multi-channelled zero tolerance matrices', 
                     'projectmanager' => 'STAFF002', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -202,8 +202,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'hclowley5@weebly.com', 
                     'title' => 'Adaptive methodical moratorium', 
                     'projectmanager' => 'STAFF002', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -214,8 +214,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'dheintzsch6@surveymonkey.com', 
                     'title' => 'Down-sized well-modulated access', 
                     'projectmanager' => 'STAFF002', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -226,8 +226,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'darmatidge7@google.pl', 
                     'title' => 'Public-key empowering internet solution', 
                     'projectmanager' => 'STAFF002', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -238,8 +238,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'ttommei8@tuttocitta.it', 
                     'title' => 'Streamlined client-server capability', 
                     'projectmanager' => 'STAFF002', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -250,8 +250,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'lspurge9@state.tx.us', 
                     'title' => 'Organized zero administration open system', 
                     'projectmanager' => 'STAFF002', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -262,8 +262,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'tstuchberry0@51.la', 
                     'title' => 'Persevering multimedia benchmark', 
                     'projectmanager' => 'STAFF003', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -274,8 +274,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'bsword1@tiny.cc', 
                     'title' => 'User-centric mission-critical definition', 
                     'projectmanager' => 'STAFF003', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -286,8 +286,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'bwyllt2@tripadvisor.com', 
                     'title' => 'Switchable intangible local area network', 
                     'projectmanager' => 'STAFF003', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -298,8 +298,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'wbingley3@dell.com', 
                     'title' => 'Multi-layered contextually-based software', 
                     'projectmanager' => 'STAFF003', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -310,8 +310,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'vdilliston4@yahoo.co.jp', 
                     'title' => 'Total multimedia database', 
                     'projectmanager' => 'STAFF003', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -322,8 +322,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'vslyford5@wufoo.com', 
                     'title' => 'Innovative interactive artificial intelligence', 
                     'projectmanager' => 'STAFF003', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -334,8 +334,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'byeomans6@va.gov', 
                     'title' => 'Monitored coherent framework', 
                     'projectmanager' => 'STAFF003', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -346,8 +346,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'aloughren7@sphinn.com', 
                     'title' => 'Distributed didactic model', 
                     'projectmanager' => 'STAFF003', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -358,8 +358,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'rlodovichi8@hc360.com', 
                     'title' => 'Proactive attitude-oriented migration', 
                     'projectmanager' => 'STAFF003', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -370,8 +370,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'mchinnock9@usgs.gov', 
                     'title' => 'De-engineered exuding functionalities', 
                     'projectmanager' => 'STAFF003', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -382,8 +382,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'spykett0@yandex.ru', 
                     'title' => 'Team-oriented context-sensitive array', 
                     'projectmanager' => 'STAFF004', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -394,8 +394,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'lbiaggioni1@reuters.com', 
                     'title' => 'Multi-channelled local strategy', 
                     'projectmanager' => 'STAFF004', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -406,8 +406,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'twilbud2@ucoz.com', 
                     'title' => 'Networked directional matrix', 
                     'projectmanager' => 'STAFF004', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -418,8 +418,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'mlargan3@elegantthemes.com', 
                     'title' => 'Fundamental local contingency', 
                     'projectmanager' => 'STAFF004', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -430,8 +430,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'elorne4@europa.eu', 
                     'title' => 'Innovative fault-tolerant matrix', 
                     'projectmanager' => 'STAFF004', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -442,8 +442,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'jtidmarsh5@si.edu', 
                     'title' => 'Enhanced national neural-net', 
                     'projectmanager' => 'STAFF004', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -454,8 +454,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'mdelucia6@nymag.com', 
                     'title' => 'Intuitive 4th generation focus group', 
                     'projectmanager' => 'STAFF004', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -466,8 +466,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'spretsell7@omniture.com', 
                     'title' => 'Cross-group secondary portal', 
                     'projectmanager' => 'STAFF004', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -478,8 +478,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'ykeppy8@domainmarket.com', 
                     'title' => 'Triple-buffered object-oriented portal', 
                     'projectmanager' => 'STAFF004', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -490,8 +490,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'ccuxson9@baidu.com', 
                     'title' => 'Polarised national knowledge user', 
                     'projectmanager' => 'STAFF004', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -502,8 +502,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'ekeele0@sphinn.com', 
                     'title' => 'Implemented logistical project', 
                     'projectmanager' => 'STAFF005', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -514,8 +514,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'nspedroni1@rambler.ru', 
                     'title' => 'Centralized interactive archive', 
                     'projectmanager' => 'STAFF005', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -526,8 +526,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'aantrum2@xing.com', 
                     'title' => 'Mandatory attitude-oriented open system', 
                     'projectmanager' => 'STAFF005', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -538,8 +538,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'abayne3@psu.edu', 
                     'title' => 'Multi-lateral 24/7 data-warehouse', 
                     'projectmanager' => 'STAFF005', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -550,8 +550,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'zletchford4@vk.com', 
                     'title' => 'Configurable 4th generation contingency', 
                     'projectmanager' => 'STAFF005', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -562,8 +562,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'gkabsch5@tinypic.com', 
                     'title' => 'Customer-focused static solution', 
                     'projectmanager' => 'STAFF005', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -574,8 +574,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'jrowthorn6@washingtonpost.com', 
                     'title' => 'Expanded demand-driven software', 
                     'projectmanager' => 'STAFF005', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -586,8 +586,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'mwhitfield7@usa.gov', 
                     'title' => 'Innovative user-facing service-desk', 
                     'projectmanager' => 'STAFF005', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -598,8 +598,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'egantley8@jimdo.com', 
                     'title' => 'Expanded secondary contingency', 
                     'projectmanager' => 'STAFF005', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -610,8 +610,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'emulcock9@huffingtonpost.com', 
                     'title' => 'Profound grid-enabled project', 
                     'projectmanager' => 'STAFF005', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -622,8 +622,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'bfredi0@friendfeed.com', 
                     'title' => 'Total explicit archive', 
                     'projectmanager' => 'STAFF006', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -634,8 +634,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'ftop1@plala.or.jp', 
                     'title' => 'Compatible zero tolerance support', 
                     'projectmanager' => 'STAFF006', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -646,8 +646,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'wlaw2@un.org', 
                     'title' => 'Adaptive secondary attitude', 
                     'projectmanager' => 'STAFF006', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -658,8 +658,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'rmundie3@posterous.com', 
                     'title' => 'Self-enabling user-facing info-mediaries', 
                     'projectmanager' => 'STAFF006', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -670,8 +670,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'bgallichan4@pen.io', 
                     'title' => 'Virtual directional time-frame', 
                     'projectmanager' => 'STAFF006', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -682,8 +682,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'ntimeby5@amazon.co.jp', 
                     'title' => 'Multi-tiered homogeneous analyzer', 
                     'projectmanager' => 'STAFF006', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -694,8 +694,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'tsevior6@studiopress.com', 
                     'title' => 'Expanded leading edge moratorium', 
                     'projectmanager' => 'STAFF006', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -706,8 +706,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'gstenett7@opensource.org', 
                     'title' => 'Decentralized eco-centric hierarchy', 
                     'projectmanager' => 'STAFF006', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -718,8 +718,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'baime8@digg.com', 
                     'title' => 'Digitized uniform Graphical User Interface', 
                     'projectmanager' => 'STAFF006', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
                  
                  [
@@ -730,8 +730,8 @@ class StudentsTableSeeder extends Seeder
                     'email' => 'mrenzo9@wikimedia.org', 
                     'title' => 'Balanced optimizing orchestration', 
                     'projectmanager' => 'STAFF006', 
-                    'supervisor' => '$supervisor', 
-                    'secondmarker' => '$secondmarker', 
+                    'supervisor' => 'Not Assigned', 
+                    'secondmarker' => 'Not Assigned', 
                  ],
             ];
         DB::table('students')->insert($Student);

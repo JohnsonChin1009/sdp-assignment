@@ -1,8 +1,11 @@
 import style from '@/styles/Home.module.css';
 import { useEffect, useState } from 'react';
 import { getPMOwnStudents } from '@/pages/api/api';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
+
 export default function Home() {
+  const router = useRouter();
+
   const DataList = () => {
     const [data, setData] = useState([]);
 
@@ -21,10 +24,19 @@ export default function Home() {
       fetchData();
     }, []);
 
+    const handleClick = (tpNumber) => {
+      localStorage.setItem('tp_number', tpNumber);
+      router.push('/ProfileStuAssign');
+    };
+
     return (
       <div className={style.container}>
         {data.map((student) => (
-          <div className={style.row1} key={student.tp_number}>
+          <div
+            className={style.row1}
+            key={student.tp_number}
+            onClick={() => handleClick(student.tp_number)} // Add onClick event handler
+          >
             <div className={style.image}></div>
             <a href="http://localhost:3000/ProfileStuAssign">
               <div>
@@ -48,5 +60,6 @@ export default function Home() {
       </div>
     );
   };
+
   return <DataList />;
 }

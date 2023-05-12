@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lecturer;
 use App\Models\ProjectManager;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use TheSeer\Tokenizer\Exception;
 
 
 class PMController extends Controller
@@ -53,29 +55,34 @@ class PMController extends Controller
     public function displayPMStudentProfile(Request $request)
     {
         $token = $request->header('Authorization');
-        $token = str_replace('Bearer', "", $token);
-        $projectmanager = ProjectManager::where('email', $token)->first();
-
-        if (!$projectmanager) {
+        $token = str_replace('Bearer ', "", $token);
+        $student = Student::where('tp_number', $token)->first();
+        if(!$student) {
             return response()->json([
                 'success' => false,
-                'message' => $token,
-            ], 401);
+                'message' => 'Error finding student record',    
+            ]);
         }
 
-        $tpNumber = $request->input('tp_number');
-        $students = Student::where('tp_number', $tpNumber)->where('field_of_study', $projectmanager->field_of_study)->first();
+        $supervisor = $student->supervisor ? $student->supervisor : 'Not assigned';
+        $secondMarker = $student->second_marker ? $student->second_marker : 'Not assigned';
 
-        if (!$students) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Student not found',
-            ], 404);
-        }
+        $lecturers = Lecturer::where('field_of_study', $student->field_of_study)->get(['name', 'id']);
+        
+        $data = [
+            'name' => $student->name,
+            'tp_number' => $student->tp_number,
+            'field_of_study' => $student->field_of_study,
+            'specialism' => $student->specialism,
+            'email' => $student->email,
+            'supervisor' => $supervisor,
+            'second_marker' => $secondMarker,
+            'lecturers' => $lecturers,
+        ];
 
         return response()->json([
             'success' => true,
-            'data' => $students,
+            'data' => $data,
         ]);
     }
 

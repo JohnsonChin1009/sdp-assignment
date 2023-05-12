@@ -30,7 +30,7 @@ export const getStudentProfile = async (token) => {
     
     const config = {
       headers: {
-        Authorization: 'Bearer' + token
+        Authorization: 'Bearer ' + token
       }
     }
     console.log(config);
@@ -45,10 +45,9 @@ export const getStudentProfile = async (token) => {
 };
 export const getPMStudentProfile = async (token) => {
   try {
-    
     const config = {
       headers: {
-        Authorization: 'Bearer' + token
+        Authorization: 'Bearer ' + token
       }
     }
     console.log(config);
@@ -77,7 +76,7 @@ export const getLecturerProfile = async (token) => {
     
     const config = {
       headers: {
-        Authorization: 'Bearer' + token
+        Authorization: 'Bearer ' + token
       }
     }
     console.log(config);
@@ -96,7 +95,7 @@ export const getPMProfile = async (token) => {
     
     const config = {
       headers: {
-        Authorization: 'Bearer' + token
+        Authorization: 'Bearer ' + token
       }
     }
     console.log(config);
@@ -114,7 +113,7 @@ export const getPMOwnStudents = async (token) => {
     
     const config = {
       headers: {
-        Authorization: 'Bearer' + token
+        Authorization: 'Bearer ' + token
       }
     }
     console.log(config);
@@ -132,7 +131,7 @@ export const getPMStaff = async (token) => {
     
     const config = {
       headers: {
-        Authorization: 'Bearer' + token
+        Authorization: 'Bearer ' + token
       }
     }
     console.log(config);
@@ -161,7 +160,7 @@ export const addSupEvent = async (token, EventName, startDatetime, endtime) => {
   try { 
       const config = {
         headers: {
-          Authorization: 'Bearer' + token
+          Authorization: 'Bearer ' + token
         }
       }
     
@@ -206,7 +205,7 @@ export const getResultStu = async(token)=>{
     
     const config = {
       headers: {
-        Authorization: 'Bearer' + token
+        Authorization: 'Bearer ' + token
       }
     }
     console.log(config);
@@ -224,7 +223,7 @@ export const UpdateProfileStu = async (token, newValue) =>{
   try{
     const config = {
       headers: {
-        Authorization: 'Bearer' + token
+        Authorization: 'Bearer ' + token
       }
     }
     const payload = {
@@ -244,7 +243,7 @@ export const AssignLecturers= async (token, value1, value2)=>{
   try{
     const config = {
       headers: {
-        Authorization: 'Bearer' + token
+        Authorization: 'Bearer ' + token
       }
     }
     const payload = {
@@ -277,7 +276,7 @@ export const addPMEvent = async (token, EventName, startDatetime, endtime) => {
   try { 
       const config = {
         headers: {
-          Authorization: 'Bearer' + token
+          Authorization: 'Bearer ' + token
         }
       }
     
