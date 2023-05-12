@@ -16,7 +16,7 @@ System Requirements
 <h3>BUG LIST<h3>
 <i font-size="12px">To ensure that we work as efficient as possible, please post bugs found here and also<br>
 update whether you are using a bug to reduce redundancy.</i>
-
+<br><br>
 <table>
   <thead>
     <tr>
