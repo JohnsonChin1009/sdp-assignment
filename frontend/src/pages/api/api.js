@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_URL = 'http://localhost:8000/api'; // Replace with your Laravel API endpoint
-
+//login
 export const login = async (email, password) => {
   try {
     console.log(email, password);
@@ -13,7 +13,7 @@ export const login = async (email, password) => {
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 };
-
+//Display All
 export const getStudents = async () => {
   try {
     const response = await axios.get(`${API_URL}/displaystudents`);
@@ -24,7 +24,17 @@ export const getStudents = async () => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching student records');
   }
 };
+export const getLecturers = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/displaylecturers`);
+    const lecturers = response.data.data;
 
+    return lecturers;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecture records');
+  }
+};
+//STUDENT
 export const getStudentProfile = async (token) => {
   try {
     
@@ -43,53 +53,7 @@ export const getStudentProfile = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching student profile' || token);
   }
 };
-export const getPMStudentProfile = async (token) => {
-  try {
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-    console.log(config);
-    const response = await axios.get(`${API_URL}/displayPMStudentProfile`, config);
-    const PM = response.data.data;
-    console.log(PM);
-
-    return PM;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
-  }
-}
-export const getLecturers = async () => {
-  try {
-    const response = await axios.get(`${API_URL}/displaylecturers`);
-    const lecturers = response.data.data;
-
-    return lecturers;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecture records');
-  }
-};
-
-export const getLecturerProfile = async (token) => {
-  try {
-    
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-    console.log(config);
-    const response = await axios.get(`${API_URL}/displayLecturerProfile`, config);
-    const lecturers = response.data.data;
-    console.log(lecturers);
-
-    return lecturers;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
-  }
-}
-
+//PM
 export const getPMProfile = async (token) => {
   try {
     
@@ -100,6 +64,23 @@ export const getPMProfile = async (token) => {
     }
     console.log(config);
     const response = await axios.get(`${API_URL}/displayPMProfile`, config);
+    const PM = response.data.data;
+    console.log(PM);
+
+    return PM;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+  }
+}
+export const getPMStudentProfile = async (token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    console.log(config);
+    const response = await axios.get(`${API_URL}/displayPMStudentProfile`, config);
     const PM = response.data.data;
     console.log(PM);
 
@@ -126,44 +107,6 @@ export const getPMOwnStudents = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
-export const getLecturerOwnStudents = async (token) => {
-  try {
-    
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-    console.log(config);
-    const response = await axios.get(`${API_URL}/displayLecturerOwnStudents`, config);
-    const PM = response.data.data;
-    console.log(PM);
-
-    return PM;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
-  }
-}
-export const getUpdatedStudent = async (token, selectSupervisor, selectSecondMarker) => {
-  try {
-    
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token + " " + selectSupervisor + " " + selectSecondMarker
-      }
-    }
-    
-    console.log(config);
-    const response = await axios.get(`${API_URL}/updateStudentInfo`, config);
-    const Updated = response.data.data;
-    console.log(values);
-    console.log(Updated);
-
-    return Updated;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
-  }
-}
 export const getPMStaff = async (token) => {
   try {
     
@@ -182,8 +125,67 @@ export const getPMStaff = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+//Update
+export const getUpdatedStudent = async (token, selectSupervisor, selectSecondMarker) => {
+  try {
+    
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token + " " + selectSupervisor + " " + selectSecondMarker
+      }
+    }
+    
+    console.log(config);
+    const response = await axios.get(`${API_URL}/updateStudentInfo`, config);
+    const Updated = response.data.data;    
+    console.log(Updated);
+
+    return Updated;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+  }
+}
+//Lecturers
+export const getLecturerProfile = async (token) => {
+  try {
+    
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    console.log(config);
+    const response = await axios.get(`${API_URL}/displayLecturerProfile`, config);
+    const lecturers = response.data.data;
+    console.log(lecturers);
+
+    return lecturers;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+  }
+}
+export const getLecturerOwnStudents = async (token) => {
+  try {
+    
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    console.log(config);
+    const response = await axios.get(`${API_URL}/displayLecturerOwnStudents`, config);
+    const PM = response.data.data;
+    console.log(PM);
+
+    return PM;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+  }
+}
 
 
+
+//Events
 export const getEvent = async () => {
   try{
     const response = await axios.post(`${API_URL}/displaySchedule`);
@@ -219,7 +221,7 @@ export const addSupEvent = async (token, EventName, startDatetime, endtime) => {
     );
   }
 };
-
+//Anouncement
 export const fetchSlides = async () => {
   try{
     const response = await axios.get(`${API_URL}/displayslides`);

@@ -97,9 +97,9 @@ export default function StudentPM() {
                     </div>
                 </a>
             </div>
-            <div className={styles.container}>
+            <div className={styles.contentbox3}>
                 {data && (
-                    <><div className={styles.contentbox3}>
+                    <>
                         <div className={styles.contentbox3}>
                             <div className={styles.image}></div>
                             <div className={styles.namebox1} key={data.tp_number}>
@@ -147,7 +147,7 @@ export default function StudentPM() {
                                                         if (!isSecondMarker) {
                                                         return (
                                                             <option key={lecturer.id} value={lecturer.id}>
-                                                            {lecturer.name}
+                                                            {lecturer.name ? lecturer.name: ""}
                                                             </option>
                                                         );
                                                         }
@@ -167,7 +167,7 @@ export default function StudentPM() {
                                                         if (!isSupervisor) {
                                                             return (
                                                               <option key={lecturer.id} value={lecturer.id}>
-                                                                {lecturer.name}
+                                                                {lecturer.name ? lecturer.name: ""}
                                                               </option>
                                                             );
                                                           }
@@ -183,7 +183,7 @@ export default function StudentPM() {
                                 </table>
                             </div>
                         </div>
-                    </div>
+                    
                     </>
                 )}
             </div>
