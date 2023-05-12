@@ -22,9 +22,6 @@ return new class extends Migration
             $table->string('supervisor');
             $table->string('secondmarker');
             $table->string('intake_code');
-            
-
-
         });
     }
 
