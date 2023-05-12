@@ -289,15 +289,6 @@ export const addSupEvent = async (token, EventName, startDatetime, endtime) => {
   }
 };
 //Anouncement
-export const fetchSlides = async () => {
-  try{
-    const response = await axios.get(`${API_URL}/displayslides`);
-    return response.data;
-  }catch(error){
-    
-    throw new Error(error.response?.data?.message || 'An error occurred');
-  }
-}
 export const getAllResults = async()=>{
   try{
     const response = await axios.post(`${API_URL}/displayresults`);
@@ -371,7 +362,7 @@ export const getSupSchedule = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
-
+//Anouncement
 export const getAnnouncements = async (token) => {
   try {
     const config = {
@@ -379,10 +370,10 @@ export const getAnnouncements = async (token) => {
         Authorization: 'Bearer ' + token
       }
     }
-    const resposne = await axios.get(`${API_URL}/getAnnouncements`, config);
+    const response = await axios.get(`${API_URL}/getAnnouncements`, config);
     const data = response.data.data;
 
-    return response.data;
+    return data;
   } catch (error)
   {
     throw new Error(error.response?.data?.message || 'An error occured while fetching announcements');
