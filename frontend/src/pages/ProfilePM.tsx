@@ -19,7 +19,7 @@ const Calendar = () => {
   useEffect(()=>{
     
     try{
-      const eventsData = await getEvent();
+      const eventsData = getEvent();
       setEvents(eventsData);
     }catch(error){
       console.log('Error fetching data: ', error);
