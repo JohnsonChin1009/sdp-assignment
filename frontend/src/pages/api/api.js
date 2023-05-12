@@ -372,7 +372,7 @@ export const getAnnouncements = async (token) => {
     }
     const response = await axios.get(`${API_URL}/getAnnouncements`, config);
     const data = response.data.data;
-
+    console.log(data);
     return data;
   } catch (error)
   {
