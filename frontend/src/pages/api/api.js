@@ -149,15 +149,12 @@ export const getUpdatedStudent = async (token, selectSupervisor, selectSecondMar
     
     const config = {
       headers: {
-        Authorization: 'Bearer ' + token
+        Authorization: 'Bearer ' + token + selectSupervisor +selectSecondMarker
       }
     }
-    const values = {
-      supervisor: selectSupervisor,
-      secondmarker: selectSecondMarker,
-    }
+    
     console.log(config);
-    const response = await axios.get(`${API_URL}/displayUpdatedStudent`, values, config);
+    const response = await axios.get(`${API_URL}/updateStudentInfo`, config);
     const Updated = response.data.data;
     console.log(values);
     console.log(Updated);
