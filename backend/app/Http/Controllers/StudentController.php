@@ -77,4 +77,10 @@ class StudentController extends Controller
             'data' => $data,
         ]);
     }
+
+    public function updateprofilestu(Request $request)
+    {
+        $token = $request->header('Authorization');
+        $token = str_replace('Bearer ', "", $token);
+    }
 }
