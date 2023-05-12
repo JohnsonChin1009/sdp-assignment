@@ -1,10 +1,11 @@
 import style from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react'
 import { getPMStaff } from '@/pages/api/api';
+import { useRouter } from 'next/router';
 
 export default function TableStaff() {
   const [data, setData] = useState([]);
-
+  const router = useRouter();
     useEffect(() => {
       const fetchData = async () => {
         try {
@@ -18,14 +19,18 @@ export default function TableStaff() {
 
       fetchData();
     }, []);
+    const handleClick = (id) => {
+      localStorage.setItem('id', id);
+      router.push('/StuSupProfile');
+    };
 
     return (
         
               <div className={style.container}>
-                {data.map((item) => (
-                  <div className={style.row1} key={item.id}>
+                {data.map((staff) => (
+                  <div className={style.row1} key={staff.id} onClick={() => handleClick(staff.id)}>
                     <div className={style.image}></div>
-                    <div><a href="http://localhost:3000/StuSupProfile">{item.name}<br/><br/>{item.field_of_study}</a></div>                                      
+                    <div><a href="http://localhost:3000/StuSupProfile">{staff.name}<br/><br/>{staff.field_of_study}</a></div>                                      
                     </div>
                 ))}
               </div>

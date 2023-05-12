@@ -53,6 +53,25 @@ export const getStudentProfile = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching student profile' || token);
   }
 };
+export const UpdateProfileStu = async (token, newValue) =>{
+  try{
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    const payload = {
+      newValue,
+    }
+    const response = await axios.put(`${API_URL}/updateprofilestu`,config);
+    const update = response.data.data;
+    console.log(update);
+    console.log(payload)
+    return update;
+  }catch(error){
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}
 //PM
 export const getPMProfile = async (token) => {
   try {
@@ -145,6 +164,38 @@ export const getUpdatedStudent = async (token, selectSupervisor, selectSecondMar
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+export const AssignLecturers= async (token, value1, value2)=>{
+  try{
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    const payload = {
+      value1,
+      value2,
+    }
+    const response = await axios.put(`${API_URL}/assignlecturers`,config);
+    const update = response.data.data;
+    console.log(update);
+    console.log(payload)
+    return update;
+  }catch(error){
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}
+
+export const deleteStudent = async (tp_number) => {
+  try {
+    const response = await axios.delete(`${API_URL}/deleteStuSup/${tp_number}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message ||
+        "Error delete Event"
+    );
+  }
+};
 //Lecturers
 export const getLecturerProfile = async (token) => {
   try {
@@ -259,58 +310,7 @@ export const getResultStu = async(token)=>{
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 }
-export const UpdateProfileStu = async (token, newValue) =>{
-  try{
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-    const payload = {
-      newValue,
-    }
-    const response = await axios.put(`${API_URL}/updateprofilestu`,config);
-    const update = response.data.data;
-    console.log(update);
-    console.log(payload)
-    return update;
-  }catch(error){
-    throw new Error(error.response?.data?.message || 'An error occurred');
-  }
-}
 
-export const AssignLecturers= async (token, value1, value2)=>{
-  try{
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-    const payload = {
-      value1,
-      value2,
-    }
-    const response = await axios.put(`${API_URL}/assignlecturers`,config);
-    const update = response.data.data;
-    console.log(update);
-    console.log(payload)
-    return update;
-  }catch(error){
-    throw new Error(error.response?.data?.message || 'An error occurred');
-  }
-}
-
-export const deleteStudent = async (tp_number) => {
-  try {
-    const response = await axios.delete(`${API_URL}/deleteStuSup/${tp_number}`);
-    return response.data;
-  } catch (error) {
-    throw new Error(
-      error.response?.data?.message ||
-        "Error delete Event"
-    );
-  }
-};
 
 export const addPMEvent = async (token, EventName, startDatetime, endtime) => {
   try { 
