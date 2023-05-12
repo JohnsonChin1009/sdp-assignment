@@ -8,19 +8,50 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import {addSupEvent} from '@/pages/api/api';
 import { useEffect, useState } from 'react'
 import { getLecturerProfile } from '@/pages/api/api';
+import { getLecturerSchedule } from '@/pages/api/api';
 const inter = Inter({ subsets: ['latin'] })
 
 //Calendar
+
+interface Lecturer {
+  name: string;
+  start_date: string;
+  end_date: string;
+}
+
 const Calendar = () => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchScheduleData = async () => {
+      try {
+        const token = localStorage.getItem('token'); //Retrieving token from local storage)
+        const lecturers = await getLecturerSchedule(token);
+
+        
+        console.log(lecturers)
+        console.log(lecturers)
+
+        const scheduleEvents = lecturers.map((lecturer: Lecturer) => ({
+          title: lecturer.name,
+          start: lecturer.start_date,
+          end: lecturer.end_date,
+         }));
+        setEvents(scheduleEvents);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchScheduleData();
+  }, []);
+
   return (
     <div className={styles.Ccontentbox}>
       <FullCalendar
         plugins={[ dayGridPlugin ]}
         initialView="dayGridMonth"
-        events={[
-          { title: 'Event 1', date: '2023-05-01' },
-          { title: 'Event 2', date: '2023-05-02' }
-        ]}
+        events={events}
       />
     </div>
   );

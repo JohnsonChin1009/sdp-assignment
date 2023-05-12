@@ -354,3 +354,26 @@ export const addPMEvent = async (token, EventName, startDatetime, endtime) => {
     );
   }
 };
+
+export const getLecturerSchedule = async (token) => {
+  try {
+    
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    console.log(config);
+    const response = await axios.get(`${API_URL}/displayLecturerSchedule`, config);
+    const lecturers = response.data.data;
+    console.log(lecturers);
+    console.log(getlecturerSchedule)
+
+    return lecturers;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+  }
+}
+
+
+

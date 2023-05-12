@@ -12,7 +12,7 @@ class EventController extends Controller
     public function addSupSchedule(Request $request)
     {
         $token = $request->header("Authorization");
-        $token = str_replace('Bearer', "", $token);
+        $token = str_replace('Bearer ', "", $token);
         $lecturer = Lecturer::where('email', $token)->first();
     
         if (!$lecturer) {
@@ -34,7 +34,7 @@ class EventController extends Controller
     public function addPMSchedule(Request $request)
     {
         $token = $request->header("Authorization");
-        $token = str_replace('Bearer', "", $token);
+        $token = str_replace('Bearer ', "", $token);
         $projectmanager = ProjectManager::where('email', $token)->first();
     
         if (!$projectmanager) {
@@ -51,6 +51,23 @@ class EventController extends Controller
 
     
         return response()->json(['message' => 'Event added successfully']);
+    }
+
+    public function displayLecturerSchedule(Request $request)
+    {
+        $token = $request->header('Authorization');
+        $token = str_replace('Bearer ', "", $token);
+        $lecturer = Lecturer::where('email', $token)->first();
+
+        if (!$lecturer) {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+
+        $lecturerid = $lecturer->id;
+
+        $schedules = Schedule::where('lecturerid', $lecturerid)->get();
+
+        return response()->json($schedules);
     }
 
 
