@@ -14,7 +14,7 @@ class PMController extends Controller
     public function displayPMProfile(Request $request)
         {
             $token = $request->header('Authorization');
-            $token = str_replace('Bearer', "", $token);
+            $token = str_replace('Bearer ', "", $token);
             $projectmanager = ProjectManager::where('email', $token)->first();
 
             if(!$projectmanager) {
@@ -33,7 +33,7 @@ class PMController extends Controller
     public function displayPMOwnStudents(Request $request)
     {
         $token = $request->header('Authorization');
-        $token = str_replace('Bearer', "", $token);
+        $token = str_replace('Bearer ', "", $token);
         $projectmanager = ProjectManager::where('email', $token)->first();
 
         if (!$projectmanager) {
