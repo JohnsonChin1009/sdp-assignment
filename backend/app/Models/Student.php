@@ -24,7 +24,8 @@ class Student extends Model
         'title',
         'projectmanager',
         'supervisor',
-        'secondmarker'
+        'secondmarker',
+        'intake_code',
     ];
 
     public function user()
