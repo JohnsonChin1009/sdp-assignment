@@ -21,7 +21,7 @@ export default function Home() {
     }, []);
     return (
         <main>
-      <div className={style.container}>
+      <div className={style.contentbox3}>
         {data && (
           <div className={style.contentbox3a} key={data.tp_number}>
             <div className={style.image}></div>

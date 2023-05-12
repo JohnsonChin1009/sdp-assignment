@@ -53,9 +53,9 @@ export default function Profile() {
       <div className={styles.button7}><a href="http://localhost:3000/Profile2a"><button>Edit</button></a></div>
       <br />  
       
-      <div className={styles.contentbox3}>
+      
             <Table /><br />
-      </div>
+      
       
       <br /><br /><br />
       <Footer />

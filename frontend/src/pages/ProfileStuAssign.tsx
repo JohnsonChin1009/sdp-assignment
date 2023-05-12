@@ -5,7 +5,7 @@ import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import { getPMStudentProfile } from './api/api'
 import { useEffect, useState } from 'react'
-
+import { getUpdatedStudent } from './api/api'
 const inter = Inter({ subsets: ['latin'] })
 
 interface Lecturer {
@@ -43,6 +43,17 @@ export default function StudentPM() {
         };
         fetchData();
     }, []);
+    const AssignLecturers = async()=>{
+        try {
+            const token = localStorage.getItem('tp_number');
+            console.log(token);
+            const updatedstudent = await getUpdatedStudent(token, selectedSupervisorId,selectedSecondMarkerId);
+            setData(updatedstudent);
+        } catch (error) {
+            console.log('Error fetching data: ', error);
+        }
+    };
+    
     
     return (
         <>
@@ -166,7 +177,7 @@ export default function StudentPM() {
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><button type="submit">Assign</button></td>
+                                            <td><button type="submit" onClick={AssignLecturers}>Assign</button></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -176,6 +187,8 @@ export default function StudentPM() {
                     </>
                 )}
             </div>
+            <Footer/>
         </>
+        
     );
 }

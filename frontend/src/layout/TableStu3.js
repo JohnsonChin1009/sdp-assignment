@@ -1,6 +1,6 @@
 import style from '@/styles/Home.module.css'
 import{ useEffect, useState } from 'react'
-import { getStudents } from '@/pages/api/api';
+import { getLecturerOwnStudents } from '@/pages/api/api';
 import { deleteStudent } from '@/pages/api/api';
 
 export default function Table() {
@@ -10,7 +10,7 @@ export default function Table() {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const students = await getStudents();
+          const students = await getLecturerOwnStudents();
           setData(students);
         } catch (error) {
           console.log('Error fetching data: ', error);
@@ -46,13 +46,13 @@ export default function Table() {
                   <div className={style.row1} key={item.id}>
                     <div className={style.image}></div>
                     <div>{item.name} <br/>{item.tp_number}</div>
-                    <div>{item.title}<br/><br/>{item.supervisor}<br/>{item.secondmarker}</div>
+                    <div><b>{item.title}</b><br/><br/>{item.supervisor}<br/>{item.secondmarker}</div>
                     <div><button onClick={() => handleRemoveStudent(item.tp_number)}>
                       Remove</button></div>
                   </div>
                 ))}
                 <br/>
-                <div><button className={style.button8} >+</button></div>
+                
               </div>
               
             

@@ -126,6 +126,47 @@ export const getPMOwnStudents = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+export const getLecturerOwnStudents = async (token) => {
+  try {
+    
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    console.log(config);
+    const response = await axios.get(`${API_URL}/displayLecturerOwnStudents`, config);
+    const PM = response.data.data;
+    console.log(PM);
+
+    return PM;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+  }
+}
+export const getUpdatedStudent = async (token, selectSupervisor, selectSecondMarker) => {
+  try {
+    
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    const values = {
+      supervisor: selectSupervisor,
+      secondmarker: selectSecondMarker,
+    }
+    console.log(config);
+    const response = await axios.get(`${API_URL}/displayUpdatedStudent`, values, config);
+    const Updated = response.data.data;
+    console.log(values);
+    console.log(Updated);
+
+    return Updated;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+  }
+}
 export const getPMStaff = async (token) => {
   try {
     
