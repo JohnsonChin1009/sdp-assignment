@@ -3,16 +3,11 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
-<<<<<<< Updated upstream
 import { getStudentLec } from '@/pages/api/api.js'
-=======
-import { getStudentStaff } from './api/api'
->>>>>>> Stashed changes
 import { useEffect, useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-<<<<<<< Updated upstream
   const [data, setData] = useState('');
   useEffect(() => {
     const fetchData = async () => {
@@ -28,23 +23,7 @@ export default function Home() {
     
   })
   
-=======
-  const [data, setData] = useState([]);
-    
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const token = localStorage.getItem('token');
-                console.log(token);
-                const lecturer = await getStudentStaff(token);
-                setData(lecturer);
-            } catch (error) {
-                console.log('Error fetching data: ', error);
-            }
-        };
-        fetchData();
-    }, []);
->>>>>>> Stashed changes
+
     return (
       <>
         <Head>
@@ -101,23 +80,22 @@ export default function Home() {
       </form>
       </div> <br /><br /><br /><br />
         <div className={styles.content6}>
-          <div className={styles.box10}>
-            <a href='http://localhost:3000/Profile1'><div className={styles.text}>Project Manager</div>
-            <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
-            <div className={styles.text}><b>Name</b></div></a>
-          </div>
-          <div className={styles.line3}></div>
-          <div className={styles.box10}>
-            <div className={styles.text1}>Supervisor</div>
-            <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
-            <div className={styles.text}><b>Name</b></div>
-          </div>          
-          <div className={styles.line3}></div>
-          <div className={styles.box10}>
-            <div className={styles.text}>Second Marker</div>
-            <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
-            <div className={styles.text}><b>Name</b></div>      
-          </div>
+          {data &&(
+            <><div className={styles.box10}>
+              <a href='http://localhost:3000/Profile1'><div className={styles.text}>Project Manager</div>
+                <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
+                <div className={styles.text}><b>{data.projectmanager}</b></div></a>
+            </div><div className={styles.line3}></div><div className={styles.box10}>
+                <div className={styles.text1}>Supervisor</div>
+                <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
+                <div className={styles.text}><b>{data.supervisor}</b></div>
+              </div><div className={styles.line3}></div><div className={styles.box10}>
+                <div className={styles.text}>Second Marker</div>
+                <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
+                <div className={styles.text}><b>{data.secondmarker}</b></div>
+              </div></>
+          )}
+          
           
         </div>
         <br /><br /><br />
