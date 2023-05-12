@@ -82,7 +82,7 @@ update whether you are using a bug to reduce redundancy.</i>
       <td>8</td>
       <td>Display Staff information from Students side</td>
       <td></td>
-      <td>/td>
+      <td></td>
       <td></td>
     </tr>
     <!-- Add more rows as needed -->
