@@ -21,7 +21,7 @@ export default function TableStaff() {
     }, []);
     const handleClick = (id) => {
       localStorage.setItem('id', id);
-      router.push('/StuSupProfile');
+      router.push('/ProfilePMLec');
     };
 
     return (
@@ -30,7 +30,7 @@ export default function TableStaff() {
                 {data.map((staff) => (
                   <div className={style.row1} key={staff.id} onClick={() => handleClick(staff.id)}>
                     <div className={style.image}></div>
-                    <div><a href="http://localhost:3000/StuSupProfile">{staff.name}<br/><br/>{staff.field_of_study}</a></div>                                      
+                    <div><a href="http://localhost:3000/ProfilePMLec">{staff.name}<br/><br/>{staff.field_of_study}</a></div>                                      
                     </div>
                 ))}
               </div>
