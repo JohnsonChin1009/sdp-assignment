@@ -6,7 +6,7 @@ import Footer from '@/layout/Footer.js'
 import React from 'react'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import {getEvent} from '@/pages/api/api'
+import {getSupSchedule} from '@/pages/api/api'
 import { addPMEvent } from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 import { getPMProfile } from '@/pages/api/api';
@@ -19,7 +19,7 @@ const Calendar = () => {
   useEffect(()=>{
     
     try{
-      const eventsData = getEvent();
+      const eventsData = getSupSchedule();
       setEvents(eventsData);
     }catch(error){
       console.log('Error fetching data: ', error);

@@ -4,7 +4,7 @@ import styles from '@/styles/Home.module.css'
 import{useEffect, useState} from 'react'
 import{fetchSlide} from '@/pages/api/api';
 
-export default function Slider() {
+export default function SliderComponent() {
     const[slides, setSlides] = useState([]);
 
     useEffect(() => {
