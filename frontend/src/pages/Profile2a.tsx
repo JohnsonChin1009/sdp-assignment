@@ -19,6 +19,7 @@ export default function Home() {
     try {
       const token = localStorage.getItem('token'); //Retrieving token from local storage)
       const student = await getStudentProfile(token);
+      console.log(newValue);
       setData(student);
 } catch (error) {
   console.log('Error fetching data: ', error);
@@ -79,12 +80,12 @@ const updateValue = async()=>{
           <><div className={styles.namebox1} key={data.tp_number}>
             <h2>{data.name}</h2>
             <h3>{data.tp_number}</h3>
-          </div><br /><br /><br /><br /><form><div className={styles.topicbox2}>
+          </div><br /><br /><br /><br /><div className={styles.topicbox2}>
             <h4>Final Year Project Title</h4><br />
             <input type="text" value={data.title} className={styles.textbox} readOnly/><br/><br/>
-            <input type="text"  onChange={(e => setNewValue(e.target.value))} className={styles.textbox}/><br/><br/>
-            <button className={styles.button6} type="submit" onClick={updateValue}>Done</button>
-          </div></form></>
+            <input type="text"  value={newValue}onChange={(e => setNewValue(e.target.value))} className={styles.textbox}/><br/><br/>
+            <button className={styles.button6} onClick={updateValue}>Done</button>
+          </div></>
 
         )}
         

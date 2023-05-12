@@ -67,9 +67,9 @@ update whether you are using a bug to reduce redundancy.</i>
     <tr>
       <td>6</td>
       <td>Slider announcement only appear for milisecond</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>Tung En</td>
+      <td>Tung En</td>
+      <td>Can be seen now but the problem is all data display in one slide and other slides are empty</td>
     </tr>
     <tr>
       <td>7</td>
@@ -95,6 +95,13 @@ update whether you are using a bug to reduce redundancy.</i>
     <tr>
       <td>10</td>
       <td>Make JSON array for lecturers to take down not more than 5 students</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Announcement now need to make adjustments - allow one data in one slide</td>
       <td></td>
       <td></td>
       <td></td>

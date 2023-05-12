@@ -69,6 +69,7 @@ export const UpdateProfileStu = async (token, newValue) =>{
         Authorization: 'Bearer ' + token + " " + newValue
       }
     }    
+    console.log(config);
     const response = await axios.put(`${API_URL}/updateprofilestu`,config);
     const update = response.data.data;
     console.log(update);    

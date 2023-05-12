@@ -24,7 +24,8 @@ export default function SliderComponent() {
         infinite: false,
         speed:500,
         slidesToShow:1,
-        slidesToScroll:1
+        slidesToScroll:1,
+        vertical: false
 
       }    
       return(
