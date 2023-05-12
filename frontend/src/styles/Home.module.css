@@ -150,9 +150,12 @@
 }
 .row1{
   display:grid;
-  grid-template-columns: repeat(5,1fr);
-  gap: 80px;  
-  
+  grid-template-columns: repeat(3,min-content);
+  grid-column-gap:40px; 
+}
+.row1>div{
+  white-space:nowrap;
+  word-break: break-all;
 }
 
 /*Login*/

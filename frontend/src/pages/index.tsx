@@ -6,10 +6,14 @@ import Footer from '@/layout/Footer.js'
 import {useState, useEffect} from 'react'
 import { login } from '../pages/api/api.js'
 import { useRouter } from 'next/router.js'
-
-
+import{ToastContainer} from 'react-toastify'
+//import 'react-toastify/dist/Reactoastify.css'
 
 const inter = Inter({ subsets: ['latin'] })
+const Notification =()=>{
+  return <ToastContainer/>;
+};
+
 
 export default function Login() {
   const router = useRouter()
@@ -34,6 +38,7 @@ export default function Login() {
 
       switch (role_type) { 
         case 'projectmanager':
+          <Notification />
           router.push('/HomePM');
           break;
         case 'lecturer':
@@ -76,7 +81,7 @@ export default function Login() {
                 Email <br />
                 <input type="text" required  value ={email} onChange={(event)=>setEmail(event.target.value)}name="email"/><br /><br />
                 Password <br />
-                <input type="password"required value={password} onChange={(event)=>setPassword(event.target.value)} name="password"/><br /><br />
+                <input type="password"required value={password} onChange={(event)=>setPassword(event.target.value)} name="password" /><br /><br />                
                 <button type="submit" value="login" name="login" className={styles.box2button}>LOGIN</button>
               </form> <br />
               {error && <p className={styles.word5}><i>**{errorMessage}</i></p>}
