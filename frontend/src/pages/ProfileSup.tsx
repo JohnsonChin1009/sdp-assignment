@@ -26,11 +26,12 @@ const Calendar = () => {
     const fetchScheduleData = async () => {
       try {
         const token = localStorage.getItem('token'); //Retrieving token from local storage)
-        const lecturers = await getLecturerSchedule(token);
+        console.log(token)
+        if (!token) {
+          throw new Error('No token found');
+        }
 
-        
-        console.log(lecturers)
-        console.log(lecturers)
+        const lecturers = await getLecturerSchedule(token);
 
         const scheduleEvents = lecturers.map((lecturer: Lecturer) => ({
           title: lecturer.name,
@@ -61,6 +62,7 @@ const Calendar = () => {
 
 //Navigation bar
 export default function Home() {
+  
   const [data, setData] = useState([]);
     
     

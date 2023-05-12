@@ -357,19 +357,17 @@ export const addPMEvent = async (token, EventName, startDatetime, endtime) => {
 
 export const getLecturerSchedule = async (token) => {
   try {
-    
     const config = {
       headers: {
         Authorization: 'Bearer ' + token
       }
     }
-    console.log(config);
-    const response = await axios.get(`${API_URL}/displayLecturerSchedule`, config);
+    console.log(config)
+    const response = await axios.get(`${API_URL}/getLSchedule`, config);
     const lecturers = response.data.data;
-    console.log(lecturers);
-    console.log(getlecturerSchedule)
 
-    return lecturers;
+
+    return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
