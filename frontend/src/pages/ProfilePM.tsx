@@ -15,17 +15,27 @@ const inter = Inter({ subsets: ['latin'] })
 
 //Calendar
 const Calendar = () => {
+  const[events, setEvents] =useState([]);
+  useEffect(()=>{
+    
+    try{
+      const eventsData = await getEvent();
+      setEvents(eventsData);
+    }catch(error){
+      console.log('Error fetching data: ', error);
+    }
+  },[]);
+
   return (
     <div className={styles.Ccontentbox}>
       <FullCalendar
         plugins={[ dayGridPlugin ]}
         initialView="dayGridMonth"        
-        // events={[events.map((event) =>({
-        //   title:event.name,
-        //   start: event.date
-        // }))
-          
-        //]}   
+        events={events &&[{
+          title: events.name,
+          start: events.date
+        }]                             
+        }   
         selectable={true}  
       />
     </div>
