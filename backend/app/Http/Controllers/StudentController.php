@@ -29,7 +29,7 @@ class StudentController extends Controller
     public function displayStudentProfile(Request $request)
     {
         $token = $request->header("Authorization");
-        $token = str_replace('Bearer', "", $token);
+        $token = str_replace('Bearer ', "", $token);
         $student = Student::where('email', $token)->first();
             
         if (!$student) {

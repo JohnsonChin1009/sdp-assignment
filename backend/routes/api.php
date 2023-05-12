@@ -33,6 +33,7 @@ Route::get('displaystudents', [StudentController::class, 'displayStudents']);
 Route::get('displayStudentProfile', [StudentController::class, 'displayStudentProfile']);
 Route::get('displayFieldStudent', [StudentController::class, 'displayFieldStudent']);
 Route::get('displayStudentLec', [StudentController::class, 'displayStudentLec']);
+
 Route::get('displayLecturers', [LecturerController::class, 'displayLecturers']);
 Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile']);
 
@@ -41,7 +42,6 @@ Route::get('displayPMOwnStudents', [PMController::class, 'displayPMOwnStudents']
 Route::get('displayPMStudentProfile', [PMController::class, 'displayPMStudentProfile']);
 Route::get('displayPMStaff', [PMController::class, 'displayPMStaff']);
 Route::get('displayPMLecturerProfile', [PMController::class, 'displayPMLecturerProfile']);
-
 Route::get('updateStudentInfo', [PMController::class, 'updateStudentInfo']);
 Route::delete('deleteStuSup/{tp_number}', [PMController::class, 'deleteStuSup']);
 
