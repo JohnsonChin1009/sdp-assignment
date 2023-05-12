@@ -166,6 +166,8 @@ class PMController extends Controller
         $student->secondmarker = $secondMarker;
         $student->save();
 
+        
+
         return response()->json([
             'success' => true,
             'message' => 'Updated Student Record Successfully!',

@@ -45,7 +45,7 @@ Route::delete('deleteStuSup/{tp_number}', [PMController::class, 'deleteStuSup'])
 
 Route::post('addSupSchedule', [EventController::class, 'addSupSchedule']);
 Route::post('addPMSchedule', [EventController::class, 'addPMSchedule']);
-Route::get('getLSchedule', [EventController::class, 'getLSchedule']);
+Route::get('getSupSchedule', [EventController::class, 'getSupSchedule']);
 
 
 //User:PM at LecturerPage -> call Lecturer -> filter based on field_of_study -> when pressed on lecturer -> display assigned students

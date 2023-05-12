@@ -53,26 +53,24 @@ class EventController extends Controller
         return response()->json(['message' => 'Event added successfully']);
     }
 
-    public function getLSchedule(Request $request)
+    public function getSupSchedule(Request $request)
     {
-
-        $token = $request->header("Authorization");
-        dd($token);
+        $token = $request->header('Authorization');
         $token = str_replace('Bearer ', "", $token);
-        $lecturer = Lecturer::where('email', $token)->first();
+        $lecturer = Schedule::where('lecturerid', $token)->first();
+
         if (!$lecturer) {
             return response()->json([
                 'success' => false,
-                'message' => 'Unauthorized'], 401);
-        }
+                'message' => 'Lecturer does not have any event records',
+            ]
+            );}
 
-        $id = $lecturer->id;
-
-        $data = Schedule::where('lecturerid', $id)->get();
+        $schedule = Schedule::where('lecturerid', $token)->get();
 
         return response()->json([
             'success' => true,
-            'data' => $data,
+            'data' => $schedule,
         ]);
     }
 

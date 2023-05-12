@@ -222,7 +222,6 @@ export const getLecturerProfile = async (token) => {
         Authorization: 'Bearer ' + token
       }
     }
-    console.log(config);
     const response = await axios.get(`${API_URL}/displayLecturerProfile`, config);
     const lecturers = response.data.data;
     console.log(lecturers);
@@ -355,7 +354,7 @@ export const addPMEvent = async (token, EventName, startDatetime, endtime) => {
   }
 };
 
-export const getLecturerSchedule = async (token) => {
+export const getSupSchedule = async (token) => {
   try {
     const config = {
       headers: {
@@ -363,7 +362,7 @@ export const getLecturerSchedule = async (token) => {
       }
     }
     console.log(config)
-    const response = await axios.get(`${API_URL}/getLSchedule`, config);
+    const response = await axios.get(`${API_URL}/getSupSchedule`, config);
     const lecturers = response.data.data;
 
 
