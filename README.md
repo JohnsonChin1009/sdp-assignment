@@ -92,6 +92,13 @@ update whether you are using a bug to reduce redundancy.</i>
       <td></td>
       <td>Error code {data map is not a function}</td>
     </tr>
+    <tr>
+      <td>10</td>
+      <td>Make JSON array for lecturers to take down not more than 5 students</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
     <!-- Add more rows as needed -->
   </tbody>
 </table>
