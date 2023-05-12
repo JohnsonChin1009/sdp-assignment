@@ -113,7 +113,7 @@ export const getPMOwnStudents = async (token) => {
     
     const config = {
       headers: {
-        Authorization: 'Bearer' + token
+        Authorization: 'Bearer ' + token
       }
     }
     console.log(config);
