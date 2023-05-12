@@ -69,6 +69,7 @@ export default function Home() {
       const fetchData = async () => {
           try {
                 const token = localStorage.getItem('token'); //Retrieving token from local storage)
+                console.log(token);
                 const lecturer = await getLecturerProfile(token);
                 setData(lecturer);
         } catch (error) {

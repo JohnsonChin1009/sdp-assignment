@@ -216,7 +216,6 @@ export const deleteStudent = async (tp_number) => {
 //Lecturers
 export const getLecturerProfile = async (token) => {
   try {
-    
     const config = {
       headers: {
         Authorization: 'Bearer ' + token
