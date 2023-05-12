@@ -85,6 +85,13 @@ update whether you are using a bug to reduce redundancy.</i>
       <td></td>
       <td></td>
     </tr>
+    <tr>
+      <td>9</td>
+      <td>Unable to edit student profile</td>
+      <td></td>
+      <td></td>
+      <td>Error code {data map is not a function}</td>
+    </tr>
     <!-- Add more rows as needed -->
   </tbody>
 </table>
