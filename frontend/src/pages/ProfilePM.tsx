@@ -6,7 +6,7 @@ import Footer from '@/layout/Footer.js'
 import React from 'react'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import {getNewEvent} from '@/pages/api/api'
+import {getEvent} from '@/pages/api/api'
 import { addPMEvent } from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 import { getPMProfile } from '@/pages/api/api';
@@ -25,7 +25,8 @@ const Calendar = () => {
         //   start: event.date
         // }))
           
-        //]}      
+        //]}   
+        selectable={true}  
       />
     </div>
   );
@@ -33,11 +34,6 @@ const Calendar = () => {
 
 
 export default function Home() {
-  // const [eventName, setEventName] = useState('');
-  // const[events,setEvents] = useState([]);
-  // useEffect(()=>{
-  //   getNewEvent();
-  // },[]);
   const [data, setData] = useState([]);
     
     
