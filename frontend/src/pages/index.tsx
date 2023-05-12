@@ -6,13 +6,10 @@ import Footer from '@/layout/Footer.js'
 import {useState, useEffect} from 'react'
 import { login } from '../pages/api/api.js'
 import { useRouter } from 'next/router.js'
-import{ToastContainer} from 'react-toastify'
-//import 'react-toastify/dist/Reactoastify.css'
+
+
 
 const inter = Inter({ subsets: ['latin'] })
-const Notification =()=>{
-  return <ToastContainer/>;
-};
 
 
 export default function Login() {
