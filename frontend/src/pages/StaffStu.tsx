@@ -3,10 +3,26 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
-
+import { getStudentLec } from '@/pages/api/api.js'
+import { useEffect, useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [data, setData] = useState('');
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        console.log(token);
+        const data = await getStudentLec(token);
+        setData(data);
+      } catch (error) {
+        console.log("Error fetching data: ", error);
+      }
+    }
+    
+  })
+  
     return (
       <>
         <Head>

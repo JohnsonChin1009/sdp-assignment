@@ -73,9 +73,16 @@ update whether you are using a bug to reduce redundancy.</i>
     </tr>
     <tr>
       <td>7</td>
-      <td>Check staff for students haven't done yet</td>
+      <td>Fetch staff API for students haven't done yet</td>
       <td>Johnson</td>
+      <td>Johnson</td>
+      <td>Awaiting test by frontend (StaffStu.tsx)</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Display Staff information from Students side</td>
       <td></td>
+      <td>/td>
       <td></td>
     </tr>
     <!-- Add more rows as needed -->

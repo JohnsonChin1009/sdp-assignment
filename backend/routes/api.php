@@ -32,7 +32,7 @@ Route::get('getAnnouncements', [AnnouncementController::class, 'getAnnouncements
 Route::get('displaystudents', [StudentController::class, 'displayStudents']);
 Route::get('displayStudentProfile', [StudentController::class, 'displayStudentProfile']);
 Route::get('displayFieldStudent', [StudentController::class, 'displayFieldStudent']);
-
+Route::get('displayStudentLec', [StudentController::class, 'displayStudentLec']);
 Route::get('displayLecturers', [LecturerController::class, 'displayLecturers']);
 Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile']);
 
@@ -52,3 +52,4 @@ Route::get('getSupSchedule', [EventController::class, 'getSupSchedule']);
 
 
 //User:PM at LecturerPage -> call Lecturer -> filter based on field_of_study -> when pressed on lecturer -> display assigned students
+?>
