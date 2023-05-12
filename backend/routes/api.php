@@ -36,7 +36,7 @@ Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecture
 Route::get('displayPMProfile', [PMController::class, 'displayPMProfile']);
 Route::get('displayPMOwnStudents', [PMController::class, 'displayPMOwnStudents']);
 Route::get('displayPMStudentProfile', [PMController::class, 'displayPMStudentProfile']);
-Route::get('dispalyPMStaff', [PMController::class, 'displayPMStaff']);
+Route::get('displayPMStaff', [PMController::class, 'displayPMStaff']);
 
 Route::get('updateStudentInfo', [PMController::class, 'updateStudentInfo']);
 Route::delete('deleteStuSup/{tp_number}', [PMController::class, 'deleteStuSup']);

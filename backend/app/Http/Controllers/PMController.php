@@ -67,6 +67,28 @@ class PMController extends Controller
         ]);
     }
 
+    public function displayPMStaff(Request $request)
+    {
+        $token = $request->header('Authorization');
+        $token = str_replace('Bearer ', "", $token);
+        $projectmanager = ProjectManager::where('email', $token)->first();
+
+        if (!$projectmanager) {
+            return response()->json([
+                'success' => false,
+                'message' => $token,
+            ], 401);
+        }
+
+        $field_of_study = $projectmanager->field_of_study;
+        $data = Lecturer::where('field_of_study', $field_of_study)->get();
+        
+        return response()->json([
+            'success' => true,
+            'data' => $data,
+        ]);
+    }
+
     public function displayPMStudentProfile(Request $request)
     {
         $token = $request->header('Authorization');
@@ -80,7 +102,7 @@ class PMController extends Controller
         }
 
         $supervisor = $student->supervisor ? $student->supervisor : 'Not assigned';
-        $secondMarker = $student->second_marker ? $student->second_marker : 'Not assigned';
+        $secondmarker = $student->second_marker ? $student->second_marker : 'Not assigned';
 
         $lecturers = Lecturer::where('field_of_study', $student->field_of_study)->get(['name', 'id']);
         
@@ -92,7 +114,7 @@ class PMController extends Controller
             'specialism' => $student->specialism,
             'email' => $student->email,
             'supervisor' => $supervisor,
-            'second_marker' => $secondMarker,
+            'second_marker' => $secondmarker,
             'lecturers' => $lecturers,
         ];
 
@@ -100,7 +122,7 @@ class PMController extends Controller
             'success' => true,
             'data' => $data,
         ]);
-    }
+    } 
 
     public function updateStudentInfo(Request $request)
     {
