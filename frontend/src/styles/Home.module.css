@@ -40,7 +40,12 @@
   padding-left: 60px;
 }
 
-
+/*Slides*/
+.slide{
+  margin: 20px;
+  background-color: #ffffff;
+  height: 100px;
+}
 /*Content*/
 .content{
   padding: 45px;

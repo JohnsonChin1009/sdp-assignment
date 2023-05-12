@@ -4,5 +4,8 @@
     "next.js": "^1.0.3",
     "react-slick": "^0.29.0",
     "react-toastify": "^9.1.2"
+  },
+  "devDependencies": {
+    "@types/react-slick": "^0.23.10"
   }
 }
