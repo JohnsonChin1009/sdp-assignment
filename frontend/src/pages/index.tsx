@@ -19,7 +19,8 @@ export default function Login() {
   const [role_type, setRoleType] = useState('');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
+  
+   const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
@@ -77,7 +78,7 @@ export default function Login() {
                 Email <br />
                 <input type="text" required  value ={email} onChange={(event)=>setEmail(event.target.value)}name="email"/><br /><br />
                 Password <br />
-                <input type="password"required value={password} onChange={(event)=>setPassword(event.target.value)} name="password" /><br /><br />                
+                <input type="password"required value={password} onChange={(event)=>setPassword(event.target.value)} name="password" /><br /><br />                   
                 <button type="submit" value="login" name="login" className={styles.box2button}>LOGIN</button>
               </form> <br />
               {error && <p className={styles.word5}><i>**{errorMessage}</i></p>}
