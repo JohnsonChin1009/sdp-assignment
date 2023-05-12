@@ -372,5 +372,19 @@ export const getSupSchedule = async (token) => {
   }
 }
 
+export const getAnnouncements = async (token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    const resposne = await axios.get(`${API_URL}/getAnnouncements`, config);
+    const data = response.data.data;
 
-
+    return response.data;
+  } catch (error)
+  {
+    throw new Error(error.response?.data?.message || 'An error occured while fetching announcements');
+  }
+  }

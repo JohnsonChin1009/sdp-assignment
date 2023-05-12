@@ -28,7 +28,6 @@ export default function Login() {
       const { token, role_type } = response;
 
       setRoleType(role_type);
-      // Handle successful login response here
       console.log('Login successful:', response);
       if (typeof window !== 'undefined') {
         localStorage.setItem('token', token);

@@ -40,8 +40,8 @@ update whether you are using a bug to reduce redundancy.</i>
       <td>2</td>
       <td>Announcement table haven't been created</td>
       <td>Johnson</td>
-      <td></td>
-      <td></td>
+      <td>Johnson</td>
+      <td>Waiting for frontend to create table to test</td>
     </tr>
     <!-- Add more rows as needed -->
   </tbody>
