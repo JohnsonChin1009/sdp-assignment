@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('field_of_study');
             $table->string('email');
+            $table->json('student_list');
         });
     }
 

@@ -124,6 +124,25 @@ class PMController extends Controller
         ]);
     } 
 
+    public function displayPMLecturerProfile(Request $request)
+    {
+        $token = $request->header('Authorization');
+        $token = str_replace('Bearer ', "", $token);
+        $lecturer = Lecturer::where('id', $token)->first();
+
+        if(!$lecturer) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error finding student record',    
+            ]);
+        }
+
+        return response()->json([
+            'success' => true,
+            'lecturer' => $lecturer,
+        ]);
+    }
+
     public function updateStudentInfo(Request $request)
     {
         $token = $request->header('Authorization');

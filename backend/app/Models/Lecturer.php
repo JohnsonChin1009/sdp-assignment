@@ -11,6 +11,7 @@ class Lecturer extends Model
         'name',
         'field_of_study',
         'email',
+        'student_list',
     ];
 
     protected $primaryKey = 'id';
