@@ -33,7 +33,7 @@ Route::get('displaystudents', [StudentController::class, 'displayStudents']);
 Route::get('displayStudentProfile', [StudentController::class, 'displayStudentProfile']);
 Route::get('displayFieldStudent', [StudentController::class, 'displayFieldStudent']);
 Route::get('displayStudentLec', [StudentController::class, 'displayStudentLec']);
-Route::get('updateprofilestu', [StudentController::class, 'updateprofilestu']);
+Route::put('updatestutitle', [StudentController::class, 'updatestutitle']);
 
 Route::get('displayLecturers', [LecturerController::class, 'displayLecturers']);
 Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile']);

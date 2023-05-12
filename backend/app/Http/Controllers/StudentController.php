@@ -77,10 +77,37 @@ class StudentController extends Controller
             'data' => $data,
         ]);
     }
-
-    public function updateprofilestu(Request $request)
+    public function updatestutitle(Request $request)
     {
-        $token = $request->header('Authorization');
+        $token = $request->header("Authorization");
         $token = str_replace('Bearer ', "", $token);
+
+        $email = substr($token, 0, strpos($token, ' '));
+        $newtitle = substr($token, strpos($token, ' ') + 1);
+
+        $student = Student::where('email', $email)->first();
+
+        if(!$student)
+        {
+            return response()->json([
+                'success' => false,
+                'message' => 'Student not found in database',
+            ]);
+        }
+
+        if ($newtitle === '') {
+            return response()->json([
+                'success' => false,
+                'message' => 'Title is empty',
+            ]);
+        }
+        
+        $student->title = $newtitle;
+        $student->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Student title updated successfully',
+        ]);
     }
 }
