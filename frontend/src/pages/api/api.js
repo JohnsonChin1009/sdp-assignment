@@ -149,7 +149,7 @@ export const getUpdatedStudent = async (token, selectSupervisor, selectSecondMar
     
     const config = {
       headers: {
-        Authorization: 'Bearer ' + token + selectSupervisor +selectSecondMarker
+        Authorization: 'Bearer ' + token + " " + selectSupervisor + " " + selectSecondMarker
       }
     }
     

@@ -34,20 +34,36 @@ class PMController extends Controller
         $token = $request->header('Authorization');
         $token = str_replace('Bearer ', "", $token);
         $projectmanager = ProjectManager::where('email', $token)->first();
-
+                    
         if (!$projectmanager) {
             return response()->json([
                 'success' => false,
                 'message' => $token,
             ], 401);
         }
-
-        $fieldOfStudy = $projectmanager->field_of_study;
-        $students = Student::where('field_of_study', $fieldOfStudy)->get();
+                    
+        $field_of_study = $projectmanager->field_of_study;
+        $students = Student::where('field_of_study', $field_of_study)->get();
         
+        $data = $students->map(function ($student) {
+            $supervisor = Lecturer::find($student->supervisor);
+            $secondMarker = Lecturer::find($student->secondmarker);
+    
+            return [
+                'name' => $student->name,
+                'tp_number' => $student->tp_number,
+                'title' => $student->title,
+                'field_of_study' => $student->field_of_study,
+                'specialism' => $student->specialism,
+                'email' => $student->email,
+                'supervisor' => $supervisor ? $supervisor->name : null,
+                'second_marker' => $secondMarker ? $secondMarker->name : null,
+            ];
+        });
+    
         return response()->json([
             'success' => true,
-            'data' => $students,
+            'data' => $data,
         ]);
     }
 
@@ -83,6 +99,35 @@ class PMController extends Controller
         return response()->json([
             'success' => true,
             'data' => $data,
+        ]);
+    }
+
+    public function updateStudentInfo(Request $request)
+    {
+        $token = $request->header('Authorization');
+        $token = str_replace('Bearer ', "", $token);
+
+        $tokenValues = explode(' ', $token);
+        $tp_number = $tokenValues[0];
+        $supervisor = $tokenValues[1];
+        $secondMarker = $tokenValues[2];
+
+        $student = Student::where('tp_number', $tp_number)->first();
+
+        if (!$student) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Student record not found',
+            ]);
+        }
+
+        $student->supervisor = $supervisor;
+        $student->secondmarker = $secondMarker;
+        $student->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Updated Student Record Successfully!',
         ]);
     }
 

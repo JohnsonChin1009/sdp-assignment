@@ -29,30 +29,30 @@ export default function Home() {
       router.push('/ProfileStuAssign');
     };
 
-    return (
-      <div className={style.container}>
-        {data.map((student) => (
-          <div
-            className={style.row1}
-            key={student.tp_number}
-            onClick={() => handleClick(student.tp_number)} // Add onClick event handler
-          >
-            <div className={style.image}></div>
-            <a href="http://localhost:3000/ProfileStuAssign">
-              <div>{student.name}<br />{student.tp_number}<br />{student.field_of_study}
-              </div></a><br/>
-              <div><a href="http://localhost:3000/ProfileStuAssign">
-                <b>{student.title}</b>
-                <br/>
-                <br />
-                {student.supervisor}
-                <br />
-                {student.secondmarker}</a>
-              </div>
-              
-          </div>
+  return (
+    <div className={style.container}>
+      {data.map((student) => (
+        <div
+          className={style.row1}
+          key={student.tp_number}
+          onClick={() => handleClick(student.tp_number)} // Add onClick event handler
+        >
+          <div className={style.image}></div>
+          <a href="http://localhost:3000/ProfileStuAssign">
+            <div>{student.name}<br />{student.tp_number}<br />{student.field_of_study}
+            </div></a><br/>
+            <div><a href="http://localhost:3000/ProfileStuAssign">
+              <b>{student.title}</b>
+              <br/>
+              <br />
+              {student.supervisor_name || student.supervisor}
+              <br />
+              {student.second_marker_name || student.second_marker}</a>
+            </div>
+            
+        </div>
         ))}
-      </div>
+    </div>
     );
   };
 
