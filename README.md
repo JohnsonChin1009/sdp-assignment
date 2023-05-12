@@ -17,6 +17,32 @@ System Requirements
 <i font-size="12px">To ensure that we work as efficient as possible, please post bugs found here and also<br>
 update whether you are using a bug to reduce redundancy.</i>
 
-<td>
-    
-</td>
+<table>
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Issue Encountered</th>
+      <th>Debugging by</th>
+      <th>Debugged by</th>
+      <th>Extra Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Add table rows here -->
+    <tr>
+      <td>1</td>
+      <td>Assign student function doesn't work</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <!-- Add more rows as needed -->
+  </tbody>
+</table>
