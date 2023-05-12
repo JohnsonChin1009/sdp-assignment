@@ -13,8 +13,8 @@ System Requirements
 ✅PHP version 8.1.6
 ✅Next.js v13.2.4
 
-<h1>BUG LIST<h1>
-<i>To ensure that we work as efficient as possible, please post bugs found here and also<br>
+<h3>BUG LIST<h3>
+<i font-size="12px">To ensure that we work as efficient as possible, please post bugs found here and also<br>
 update whether you are using a bug to reduce redundancy.</i>
 
 <td>
