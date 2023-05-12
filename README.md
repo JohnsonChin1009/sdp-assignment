@@ -81,9 +81,9 @@ update whether you are using a bug to reduce redundancy.</i>
     <tr>
       <td>8</td>
       <td>Display Staff information from Students side</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>TungEn</td>
+      <td>TungEn</td>
+      <td>Completed</td>
     </tr>
     <tr>
       <td>9</td>
