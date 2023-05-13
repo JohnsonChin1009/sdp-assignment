@@ -2,7 +2,7 @@
 import Slider from "react-slick";
 import styles from '@/styles/Home.module.css'
 import{useEffect, useState} from 'react'
-import{getAnnouncements} from '@/pages/api/api';
+import{getAllAnnouncements} from '@/pages/api/api';
 
 export default function SliderComponent() {
     const[slides, setSlides] = useState([]);
@@ -10,7 +10,7 @@ export default function SliderComponent() {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const sliders = await getAnnouncements();
+            const sliders = await getAllAnnouncements();
             setSlides(sliders);
           } catch (error) {
             console.log('Error fetching slide: ', error);
@@ -57,7 +57,7 @@ export default function SliderComponent() {
               ))}
               
               </Slider>
-           
+              <div className={styles.button7}><button>Done</button></div>                         
         </div>
         </>
       )

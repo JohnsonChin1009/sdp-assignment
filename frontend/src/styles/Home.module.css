@@ -41,11 +41,18 @@
 }
 
 /*Slides*/
-.slide{
-  margin: 20px;
-  background-color: #ffffff;
-  height: 100px;
+.slider{
+  width: auto;
+  height: 300px;
+  padding-top:20px;
+  border-radius:10px;
+  overflow: hidden;
 }
+.slide{
+  width: 100%;
+  transition: 2s;
+}
+
 /*Content*/
 .content{
   padding: 45px;

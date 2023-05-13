@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
-import Slides from '@/layout/Slider.js'
+import Slides from '@/layout/SlidesEdit.js'
 const inter = Inter({ subsets: ['latin'] })
 import{logout} from '@/pages/api/api'
 export default function Home() {
@@ -50,68 +50,13 @@ export default function Home() {
             </table>                                                          
       </main> 
       <div className={styles.content1}>
-      <div className={styles.button7}><button>Edit</button></div>
-      <br />
-        <Slides/>
-        
+        <Slides/>        
       </div>
-      <div className={styles.content2}>
-        <a href="http://localhost:3000/ProfilePM">
-          <div className={styles.box4}>          
-            <Image 
-            src="/profile.png"
-            alt="profile"
-            className={styles.image1}
-            width={100}
-            height={100}        
-            priority
-            />
-            <p>Profile</p>
-          </div>
-        </a>
-        <a href="http://localhost:3000/StudentPM">
-        <div className={styles.box5}>          
-            <Image 
-            src="/student.png"
-            alt="student"
-            className={styles.image1}
-            width={100}
-            height={100}        
-            priority
-            />
-            <p className={styles.word1}>Student</p>
-          </div> 
-        </a>
-        <a href="http://localhost:3000/StaffPM">
-        <div className={styles.box5}>          
-            <Image 
-            src="/staff.png"
-            alt="staff"
-            className={styles.image1}
-            width={100}
-            height={100}        
-            priority
-            />
-            <p className={styles.word1}>Lecturer</p>
-          </div>
-        </a>
-        <a href="http://localhost:3000/SubPM">
-        <div className={styles.box5}>          
-            <Image 
-            src="/submission.png"
-            alt="submission"
-            className={styles.image1}
-            width={100}
-            height={100}        
-            priority
-            />
-            <p className={styles.word2}>Submission</p>
-          </div>
-        </a>
-       
-        
+      <div className={styles.content1}>
+
       </div>
-      <br /><br /><br />
+      
+      
       <Footer />
       </>
   )
