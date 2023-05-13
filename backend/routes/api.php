@@ -28,6 +28,8 @@ Route::post('login', [AuthController::class, 'login']);
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:api');
 
 Route::get('getAnnouncements', [AnnouncementController::class, 'getAnnouncements']);
+Route::get('getAllAnnouncements', [AnnouncementController::class, 'getAllAnnouncements']);
+Route::get('addAnnouncements', [AnnouncementController::class, 'addAnnouncements']);
 
 Route::get('displaystudents', [StudentController::class, 'displayStudents']);
 Route::get('displayStudentProfile', [StudentController::class, 'displayStudentProfile']);
