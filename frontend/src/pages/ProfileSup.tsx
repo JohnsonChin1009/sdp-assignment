@@ -8,19 +8,40 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import {addSupEvent} from '@/pages/api/api';
 import { useEffect, useState } from 'react'
 import { getLecturerProfile } from '@/pages/api/api';
-const inter = Inter({ subsets: ['latin'] })
+import{getLecSchedule} from '@/pages/api/api';
+import { deleteEvent } from '@/pages/api/api';
 
+const inter = Inter({ subsets: ['latin'] })
 //Calendar
 const Calendar = () => {
+  const[events, setEvents] =useState([]);
+
+  useEffect(()=>{
+    const fetchData = async () => {
+      try{
+        const token = localStorage.getItem('token');
+        console.log(token);
+        const eventsData = await getLecSchedule(token);
+        setEvents(eventsData);
+      }catch(error){
+        console.log('Error fetching data: ', error);
+      }
+    };
+    fetchData();
+
+  }, []);
+  
   return (
     <div className={styles.Ccontentbox}>
       <FullCalendar
         plugins={[ dayGridPlugin ]}
-        initialView="dayGridMonth"
-        events={[
-          { title: 'Event 1', date: '2023-05-01' },
-          { title: 'Event 2', date: '2023-05-02' }
-        ]}
+        initialView="dayGridMonth"        
+        events={events.map((event) => ({
+          title: event.name,
+          start: event.start,
+          end: event.end
+        }))} 
+        selectable={true}  
       />
     </div>
   );
@@ -31,8 +52,22 @@ const Calendar = () => {
 //Navigation bar
 export default function Home() {
   const [data, setData] = useState([]);
+  const[events, setEvents] =useState([]);
     
-    
+  useEffect(()=>{
+    const fetchData = async () => {
+      try{
+        const token = localStorage.getItem('token');
+        console.log(token);
+        const eventsData = await getLecSchedule(token);
+        setEvents(eventsData);
+      }catch(error){
+        console.log('Error fetching data: ', error);
+      }
+    };
+    fetchData();
+
+  }, []);
     useEffect(() => {
       const fetchData = async () => {
           try {
@@ -60,6 +95,14 @@ export default function Home() {
       } catch (error) {
         setError(true);
         setErrorMessage('Error adding Event')
+      }
+    };
+    const handleDeleteEvent = async (id) => {
+      try {
+        const response = await deleteEvent(id);
+        setData(data.filter((event) => event.id !== id));
+      } catch (error) {
+        console.log('Error deleting event: ', error);
       }
     };
 
@@ -128,8 +171,35 @@ export default function Home() {
          
                                              
           </>  )}
-      </div>
-
+          <br />
+          <div className={styles.infobox3}>
+          <h3>Events happening:  </h3>
+          <br />
+          Events <br />
+          {events.map((events)=>  (
+            <table className={styles.eventTable} key={events.id}>            
+            <tbody>
+             
+              <tr></tr>
+              <><tr >
+                  <td>{events.name}</td>                
+                    <td>{events.start}</td>
+                    <td><br /></td>
+                    <td>{events.end}</td>
+                    <td><button className={styles.button6} onClick={() => handleDeleteEvent(events.id)}>Remove</button></td>
+                  </tr></>   
+                                                
+            </tbody>
+                                          
+          </table>
+         ))}  
+          
+          
+          </div>                         
+           
+        </div>
+        
+        <div className={styles.contentbox3}></div>
         
         <Footer />
 
