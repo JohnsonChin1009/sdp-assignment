@@ -5,7 +5,9 @@ import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import Table from '@/layout/TableStu3.js'
 import { getPMLecturerProfile } from './api/api'
+
 import { useEffect, useState } from 'react'
+
 interface LecturerData {
   id: string;
   name: string;

@@ -52,7 +52,7 @@ const Calendar = () => {
 
 export default function Home() {
   const [data, setData] = useState([]);
-  const[events, setEvents] =useState('');
+  const[events, setEvents] =useState([]);
 
   useEffect(()=>{
     const fetchData = async () => {
@@ -176,25 +176,26 @@ export default function Home() {
           <br />
           <div className={styles.infobox3}>
           <h3>Events happening:  </h3>
-         <br />
-            <table className={styles.eventTable} >
+          <br />
+          {events.map((events)=>  (
+            <table className={styles.eventTable} key={events.id}>            
             <tbody>
               <tr>
                 <td>Events </td>                
-              </tr><br />
-              {events.map((events) => (
-              <><tr key={events.id}>
+              </tr>
+              <tr></tr>
+              <><tr >
                   <td>{events.name}</td>                
                     <td>{events.start}</td>
                     <td><br /></td>
                     <td>{events.end}</td>
                     <td><button className={styles.button6}>Remove</button></td>
                   </tr></>   
-              ))}                                    
+                                                
             </tbody>
                                           
           </table>
-          
+         ))}  
           
           
           </div>                         
