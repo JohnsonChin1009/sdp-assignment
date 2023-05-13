@@ -54,35 +54,38 @@ const Calendar = () => {
 export default function Home() {
   const [data, setData] = useState([]);
   const[events, setEvents] =useState([]);
+  
 
   useEffect(()=>{
-    const fetchData = async () => {
-      try{
-        const token = localStorage.getItem('token');
-        console.log(token);
-        const eventsData = await getPMSchedule(token);
-        setEvents(eventsData);
-      }catch(error){
-        console.log('Error fetching data: ', error);
-      }
-    };
+    
     fetchData();
 
   }, []);
-    
+  const fetchData = async () => {
+    try{
+      const token = localStorage.getItem('token');
+      console.log(token);
+      const eventsData = await getPMSchedule(token);
+      setEvents(eventsData);
+    }catch(error){
+      console.log('Error fetching data: ', error);
+    }
+  };
     useEffect(() => {
-      const fetchData = async () => {
-          try {
-                const token = localStorage.getItem('token'); //Retrieving token from local storage)
-                const lecturer = await getPMProfile(token);
-              setData(lecturer);
-        } catch (error) {
-            console.log('Error fetching data: ', error);
-        }
-      };
-        fetchData();
+      const fetchData1 = async () => {
+        try {
+              const token = localStorage.getItem('token'); //Retrieving token from local storage)
+              const lecturer = await getPMProfile(token);
+            setData(lecturer);
+      } catch (error) {
+          console.log('Error fetching data: ', error);
+      }
+    };
+      
+        fetchData1();
 
     }, []);
+    
 
     const [eventName, setEventName] = useState('');
     const [startDatetime, setStartDatetime] = useState('');
@@ -95,6 +98,8 @@ export default function Home() {
         try {
           const token = localStorage.getItem('token');
           const response = await addPMEvent(token, eventName, startDatetime, endtime);
+          fetchData();
+          window.location.reload();
         } catch (error) {
           setError(true);
           setErrorMessage('Error adding Event')
@@ -106,6 +111,8 @@ export default function Home() {
       try {
         const response = await deleteEvent(id);
         setData(data.filter((event) => event.id !== id));
+        fetchData();
+        window.location.reload();
       } catch (error) {
         console.log('Error deleting event: ', error);
       }
@@ -198,7 +205,7 @@ export default function Home() {
                     <td>{events.start}</td>
                     <td><br /></td>
                     <td>{events.end}</td>
-                    <td><button className={styles.button6} onClick={() => handleDeleteEvent(events.id)}>Remove</button></td>
+                    <td> <button className={styles.button6} onClick={() => handleDeleteEvent(events.id)}>Remove</button></td>
                   </tr></>   
                                                 
             </tbody>

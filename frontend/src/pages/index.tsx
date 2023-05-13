@@ -17,6 +17,7 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role_type, setRoleType] = useState('');
+  const[message, setMessage] = useState('');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   
@@ -29,6 +30,7 @@ export default function Login() {
 
       setRoleType(role_type);
       console.log('Login successful:', response);
+      setMessage('Successful, Loading...')
       if (typeof window !== 'undefined') {
         localStorage.setItem('token', token);
       }
@@ -80,6 +82,7 @@ export default function Login() {
                 <input type="password"required value={password} onChange={(event)=>setPassword(event.target.value)} name="password" /><br /><br />                   
                 <button type="submit" value="login" name="login" className={styles.box2button}>LOGIN</button>
               </form> <br />
+              {message && <p><i>Successful Login, Loading...</i></p>}
               {error && <p className={styles.word5}><i>**{errorMessage}</i></p>}
             </div>
         </div>
