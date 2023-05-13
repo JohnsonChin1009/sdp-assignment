@@ -50,18 +50,11 @@ class AnnouncementController extends Controller
 
     public function addAnnouncements(Request $request)
     {
-        $token = $request->header("Authorization");
-        $token = str_replace('Bearer ', "", $token);
-        $PM = ProjectManager::where('email', $token)->first();
-    
-        if (!$PM) {
-            return response()->json(['message' => 'Unauthorized'], 401);
-        }
-    
+
         $Announcement = new Announcement;
-        $Announcement->name = $request->input('title');
+        $Announcement->title = $request->input('title');
         $Announcement->description = $request->input('description');
-        $Announcement->projectmanager = $PM->name;
+        $Announcement->projectmanager = $request->input('name');
         $Announcement->date = $request->input('date');
         $Announcement->time = $request->input('time');
         $Announcement->show = $request->input('show');

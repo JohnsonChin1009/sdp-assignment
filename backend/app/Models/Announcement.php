@@ -15,4 +15,6 @@ class Announcement extends Model
         'time',
         'show',
     ];
+
+    public $timestamps = false;
 }
