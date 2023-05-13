@@ -118,13 +118,18 @@ export default function Home() {
       try {
         const response = await deleteEvent(id);
         setData(data.filter((event) => event.id !== id));
-        fetchData();
-        window.location.reload();
+        fetchData();        
       } catch (error) {
         console.log('Error deleting event: ', error);
       }
     };
-
+    const handleLogout = async()=>{
+      try{
+        await logout();
+      }catch(error){
+        console.error('Error.logging out: ', error);
+      }
+    };
   return (
     <>    
       <Head>
