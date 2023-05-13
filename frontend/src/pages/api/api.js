@@ -131,22 +131,6 @@ export const getPMProfile = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
-export const UpdateProfilePM = async (token, newName, newField, newEmail) =>{
-  try{
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token + " " + newName + " " + newField +" " + newEmail
-      }
-    }    
-    console.log(config);
-    const response = await axios.put(`${API_URL}/updateprofilePM`, {}, config);
-    const update = response.data.message;
-    console.log(update);    
-    return update;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred');
-  }
-}
 export const getPMStudentProfile = async (token) => {
   try {
     const config = {
@@ -286,6 +270,7 @@ export const getLecturerProfile = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+
 export const UpdateProfileLec = async (token, newName, newField, newEmail) =>{
   try{
     const config = {
@@ -302,6 +287,7 @@ export const UpdateProfileLec = async (token, newName, newField, newEmail) =>{
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 }
+
 export const getLecturerStudentProfile = async (token) => {
   try {
     const config = {
@@ -318,23 +304,24 @@ export const getLecturerStudentProfile = async (token) => {
   } catch (error) {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }}
-export const getLecturerOwnStudents = async (token) => {
-  try {
-    
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-    console.log(config);
-    const response = await axios.get(`${API_URL}/displayLecturerOwnStudents`, config);
-    const PM = response.data.data;
-    console.log(PM);
 
-    return PM;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+export const getLecturerOwnStudents = async (token) => {
+  try {   
+
+    const config = {
+    headers: {
+      Authorization: 'Bearer ' + token
+    }
   }
+  console.log(config);
+  const response = await axios.get(`${API_URL}/displayLecturerOwnStudents`, config);
+  const PM = response.data.data;
+  console.log(PM);
+
+  return PM;
+} catch (error) {
+  throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+}
 }
 
 
@@ -387,9 +374,7 @@ export const addSupEvent = async (token, EventName, startDatetime, endtime) => {
 
 export const deleteEvent = async (id) => {
   try {
-    console.log(id);
     const response = await axios.delete(`${API_URL}/deleteEvent/${id}`);
-    console.log(response)
     return response.data;
   } catch (error) {
     throw new Error(
@@ -398,6 +383,38 @@ export const deleteEvent = async (id) => {
     );
   }
 };
+
+//Anouncement
+export const getAllResults = async()=>{
+  try{
+    const response = await axios.post(`${API_URL}/displayresults`);
+    return response.data;
+    
+  }catch(error){
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}
+export const getResultStu = async(token)=>{
+  try {
+    
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    console.log(config);
+    const response = await axios.get(`${API_URL}/displayresults`, config);
+    const results = response.data.data;
+    console.log(results);
+
+    return results;
+  }catch(error){
+    
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}
+
+
 export const addPMEvent = async (token, EventName, startDatetime, endtime) => {
   try { 
       const config = {
@@ -575,3 +592,19 @@ export const SearchStu = async (search) => {
   }
 };
 
+export const UpdateProfilePM = async (token, newName, newField, newEmail) =>{
+  try{
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token + " " + newName + " " + newField +" " + newEmail
+      }
+    }    
+    console.log(config);
+    const response = await axios.put(`${API_URL}/updateprofilePM`, {}, config);
+    const update = response.data.message;
+    console.log(update);    
+    return update;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}
