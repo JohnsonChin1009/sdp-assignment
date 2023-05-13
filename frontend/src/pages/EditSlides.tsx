@@ -7,7 +7,7 @@ import Slides from '@/layout/SlidesEdit.js'
 const inter = Inter({ subsets: ['latin'] })
 import{logout} from '@/pages/api/api'
 import { useEffect, useState } from 'react'
-import{getAllAnnouncements} from '@/pages/api/api';
+import{getAnnouncements} from '@/pages/api/api';
 import { UpdateAnnouncements } from '@/pages/api/api';
 
 export default function Home() {
@@ -18,22 +18,24 @@ export default function Home() {
     const [newTime, setNewTime] = useState('');
     const [newStatus, setNewStatus] = useState('');
     const[slides, setSlides] = useState([]);
-    const[message, setMessage] = useState('');
-    const [error, setError] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');
+    const[message, setMessage] = useState('');    
     useEffect(() => {
       
 
       fetchData();
     }, []);
-    const fetchData = async () => {
-      try {
-        const sliders = await getAllAnnouncements();
-        setSlides(sliders);
-      } catch (error) {
-        console.log('Error fetching slide: ', error);
-      }
-    };
+   
+        const fetchData = async () => {
+            try {
+                const token = localStorage.getItem('id');
+                console.log(token);
+                const student = await getAnnouncements(token);
+                setSlides(student);
+            } catch (error) {
+                console.log('Error fetching data: ', error);
+            }
+        };
+        
   const handleLogout = async()=>{
     try{
       await logout();
@@ -89,13 +91,13 @@ export default function Home() {
        
       
       <div className={styles.content3}>
-        <a href="http://localhost:3000/HomePM">
+        <a href="http://localhost:3000/EditAnnouncement">
           <div className={styles.button5}>
             Back 
           </div>
         </a>     
       </div><br />
-        <Slides/>        
+         
       
       <div className={styles.content1}>        
         <h3><u>Edit Announcements</u></h3>
@@ -122,9 +124,9 @@ export default function Home() {
             <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("0"))} />Hidden
             <br />
              <button onClick={updateValue}>Update</button>
-            {message && <p className={styles.word6}>Successfully Update.</p>}
+            
             </div> ))}
-      </div>
+      </div>{message && <p className={styles.word6}>Successfully Update.</p>}
       
       
       <Footer />

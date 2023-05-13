@@ -109,9 +109,9 @@ update whether you are using a bug to reduce redundancy.</i>
     <tr>
       <td>12</td>
       <td>Edit Announcements - get all anouncements including those are not shown</td>
-      <td></td>
-      <td></td>
-      <td>Pls help to add the api for all slides (getAllAnouncements, addAnouncements, updateAnnouncements)</td>
+      <td>Tung En, Zi Ming</td>
+      <td>Tung En, Zi Ming</td>
+      <td>Done for getAllAnouncements, addAnouncements,, still need -displayAnnouncements (EditSlides.tsx) (need to call specific announcements to edit, id pass as token and -updateAnnouncements (EditSlides.tsx)</td>
     </tr>
     <tr>
       <td>13</td>
@@ -120,13 +120,7 @@ update whether you are using a bug to reduce redundancy.</i>
       <td></td>
       <td>api (displayLecturerOwnStudents)</td>
     </tr>
-    <tr>
-      <td>12</td>
-      <td>Edit Announcements - get all anouncements including those are not shown</td>
-      <td></td>
-      <td></td>
-      <td>Pls help to add the api for all slides (getAllAnouncements, addAnouncements, updateAnnouncements)</td>
-    </tr>
+    
     <!-- Add more rows as needed -->
   </tbody>
 </table>
