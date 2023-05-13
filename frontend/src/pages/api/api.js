@@ -420,7 +420,7 @@ export const UpdateAnnouncements = async ( newTitle, newDescription, newName, ne
       }
     }    
     console.log(config);
-    const response = await axios.put(`${API_URL}/updateannouncements`, {}, config);
+    const response = await axios.put(`${API_URL}/updateAnnouncements`, {}, config);
     const update = response.data.message;
     console.log(update);    
     return update;
@@ -445,7 +445,7 @@ export const addNewAnnouncements = async (newTitle, newDescription, newName, new
       time: newTime,
       show: newStatus,
     };
-    const response = await axios.post(`${API_URL}/addAddAnouncements`, AnnouncementData, config);
+    const response = await axios.post(`${API_URL}/addAnouncements`, AnnouncementData, config);
     console.log(config)
 
     return response.data;
