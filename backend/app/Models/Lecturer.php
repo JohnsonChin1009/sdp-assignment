@@ -18,4 +18,5 @@ class Lecturer extends Model
     protected $primaryKey = 'id';
     protected $keyType = 'string';
 
+    public $timestamps = false;
 }
