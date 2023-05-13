@@ -144,6 +144,11 @@
 /*Table*/
 .table1{
   width: 200px;
+  border-collapse: collapse;
+  width: 100%;
+}
+.table1 td{
+  white-space: nowrap;
 }
 .eventsTable {
   border-collapse: collapse;  
