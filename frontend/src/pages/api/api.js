@@ -539,7 +539,7 @@ export const addNewAnnouncements = async (newTitle, newDescription, newName, new
       time: newTime,
       show: newStatus,
     };
-    const response = await axios.post(`${API_URL}/addAnouncements`, AnnouncementData, config);
+    const response = await axios.post(`${API_URL}/addAnnouncements`, AnnouncementData, config);
     console.log(config)
 
     return response.data;
