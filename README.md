@@ -48,7 +48,7 @@ update whether you are using a bug to reduce redundancy.</i>
       <td>Calendar not working</td>
       <td></td>
       <td></td>
-      <td></td>
+      <td>Cannot display full details and the data can be press</td>
     </tr>
     <tr>
       <td>4</td>
