@@ -497,7 +497,7 @@ export const getAllAnnouncements = async (token) => {
         Authorization: 'Bearer ' + token
       }
     }
-    const response = await axios.get(`${API_URL}/getAllAnnouncements`, config);
+    const response = await axios.post(`${API_URL}/getAllAnnouncements`, config);
     const data = response.data.data;
     console.log(data);
     return data;

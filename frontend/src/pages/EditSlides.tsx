@@ -41,19 +41,15 @@ export default function Home() {
       console.error('Error.logging out: ', error);
     }
   };
-  const submit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-      try {
-        const token = localStorage.getItem('token');
-        const response = await addNewAnnouncements(newTitle, newDes, newName, newDate, newTime, newStatus);
-        fetchData();
-        setMessage("Successfully add.");
-      } catch (error) {
-        setError(true);
-        setErrorMessage('Error adding Announcements')
+  const updateValue = async()=>{
+        try{
+        //   const token = localStorage.getItem('token'); //Retrieving token from local storage)
+          const update1 = await UpdateAnnouncements(newTitle, newDes, newName, newDate, newTime, newStatus )
+          setSlides(update1);
+        }catch(error){
+          console.log('Error updating value: ', error);
+        }
       }
-    };
   return (
     <>
       <Head>
@@ -119,8 +115,8 @@ export default function Home() {
             <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("1"))} />Show <br />
             <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("0"))} />Hidden
             <br />
-            <button type="submit" className={styles.button6} onClick={submit}>Add</button>
-            {message && <p className={styles.word6}>Successfully add.</p>}
+             <button onClick={updateValue}>Update</button>
+            {message && <p className={styles.word6}>Successfully Update.</p>}
         </form>
       </div>
       
