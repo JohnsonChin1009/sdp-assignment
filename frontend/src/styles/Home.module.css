@@ -158,11 +158,10 @@
 
 .eventsTable td {
   white-space: nowrap;
+  text-align: left;  
 }
 
-.eventsTable td button {
-  padding: 4px 8px;
-}
+
 .container{
   display: grid;
   grid-template-columns: repeat(2,1fr);
@@ -1002,7 +1001,7 @@
     margin-top:50px;
     margin-left:20px;
     height: 50px;
-    width: 500px;
+    width: 550px;
   }
   .box2 form input{
     width: 450px;

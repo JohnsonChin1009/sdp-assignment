@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import { getLecturerProfile } from '@/pages/api/api';
 import{getLecSchedule} from '@/pages/api/api';
 import { deleteEvent } from '@/pages/api/api';
+import{logout} from '@/pages/api/api'
 
 const inter = Inter({ subsets: ['latin'] })
 //Calendar
@@ -30,7 +31,13 @@ const Calendar = () => {
     fetchData();
 
   }, []);
-  
+  const handleLogout = async()=>{
+    try{
+      await logout();
+    }catch(error){
+      console.error('Error.logging out: ', error);
+    }
+  };
   return (
     <div className={styles.Ccontentbox}>
       <FullCalendar
@@ -132,7 +139,7 @@ export default function Home() {
               <td><a href="http://localhost:3000/SubSup" className={styles.button2}>Submission</a></td>
               <td> <br /></td>
               <td><br /></td>
-              <td><a href="http://localhost:3000" className={styles.box3}><u>Logout</u></a></td>
+              <td><a href="http://localhost:3000" className={styles.box3} onClick={handleLogout}><u>Logout</u></a></td>
             </tr>
           </tbody>
         </table>
@@ -164,7 +171,7 @@ export default function Home() {
                   <input type="datetime-local" required value={startDatetime} onChange={(event) => setStartDatetime(event.target.value)} />
                   to
                   <input type="time" required value={endtime} onChange={(event) => setEndtime(event.target.value)} /><br />
-                  <button type="submit" className={styles.button6}>Add</button>
+                  <a href=""><button type="submit" className={styles.button6}>Add</button></a>
                 </form>
 
               </div> 

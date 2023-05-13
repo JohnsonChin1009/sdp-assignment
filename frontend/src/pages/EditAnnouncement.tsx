@@ -9,6 +9,7 @@ import{logout} from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 import { addNewAnnouncements } from '@/pages/api/api'
 
+
 export default function Home() {
     const [newTitle, setNewTitle] = useState('');
     const [newDes, setNewDescription] = useState('');

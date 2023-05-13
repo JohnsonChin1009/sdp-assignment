@@ -7,6 +7,7 @@ import { getStudentLec } from '@/pages/api/api.js'
 import { useEffect, useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 import { useRouter } from 'next/router';
+import{logout} from '@/pages/api/api'
 
 export default function Home() {
   const [data, setData] = useState('');
@@ -25,6 +26,13 @@ export default function Home() {
     
     fetchData();
   }, []);
+  const handleLogout = async()=>{
+    try{
+      await logout();
+    }catch(error){
+      console.error('Error.logging out: ', error);
+    }
+  };
   const handleClick = (id) => {
     localStorage.setItem('id', id);
     router.push('/Profile1');
@@ -59,7 +67,7 @@ export default function Home() {
                           <td><a href="http://localhost:3000/StaffStu" className={styles.button3}>Staff</a></td>
                           <td> <br/></td>
                           <td><br/></td>
-                          <td><a href="http://localhost:3000" className={styles.box6}><u>Logout</u></a></td>
+                          <td><a href="http://localhost:3000" className={styles.box6} onClick={handleLogout}><u>Logout</u></a></td>
                       </tr>
                   </tbody>                
               </table>                                                              
@@ -72,19 +80,7 @@ export default function Home() {
           </div>
           </a>  <br />
       </div>
-      <div className={styles.contentbox2a}>
-      <form action="">
-          <input type="text" name="Search"/>
-          <button type="submit"><Image
-                            src="/search_icon.png"
-                            alt="Search"
-                            className={styles.vercelLogo}
-                            width={20}
-                            height={10}
-                            priority            
-                            /></button>
-      </form>
-      </div> <br /><br /><br /><br />
+       <br /><br /><br /><br />
         <div className={styles.content6}>
           {data &&(
             <><div className={styles.box10}>
@@ -104,7 +100,7 @@ export default function Home() {
           
           
         </div>
-        <br /><br /><br />
+        <br /><br /><br /><br /><br /><br />
         <Footer />
         </>
   )

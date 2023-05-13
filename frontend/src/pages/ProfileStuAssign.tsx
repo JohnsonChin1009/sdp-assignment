@@ -7,6 +7,7 @@ import { getPMStudentProfile } from './api/api'
 import { useEffect, useState } from 'react'
 import { getUpdatedStudent } from './api/api'
 const inter = Inter({ subsets: ['latin'] })
+import{logout} from '@/pages/api/api'
 
 interface Lecturer {
     id: string;
@@ -54,7 +55,13 @@ export default function StudentPM() {
             console.log('Error fetching data: ', error);
         }
     };
-    
+    const handleLogout = async()=>{
+        try{
+          await logout();
+        }catch(error){
+          console.error('Error.logging out: ', error);
+        }
+      };
     
     return (
         <>
@@ -86,7 +93,7 @@ export default function StudentPM() {
                             <td><a href="http://localhost:3000/SubPM" className={styles.button2}>Submission</a></td>
                             <td> <br /></td>
                             <td><br /></td>
-                            <td><a href="http://localhost:3000" className={styles.box3}><u>Logout</u></a></td>
+                            <td><a href="http://localhost:3000" className={styles.box3} onClick={handleLogout}><u>Logout</u></a></td>
                         </tr>
                     </tbody>
                 </table>

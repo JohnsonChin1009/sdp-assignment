@@ -7,6 +7,7 @@ import Table from '@/layout/TableSub.js'
 import { getStuResults } from '@/pages/api/api';
 import { useEffect, useState } from 'react'
 import {SearchStu} from '@/pages/api/api';
+import{logout} from '@/pages/api/api'
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home() { 
@@ -42,6 +43,13 @@ export default function Home() {
           setErrorMessage('Error searching')
         }
       };
+      const handleLogout = async()=>{
+        try{
+          await logout();
+        }catch(error){
+          console.error('Error.logging out: ', error);
+        }
+      };
   
   return (
     <>    
@@ -73,7 +81,7 @@ export default function Home() {
                         <td><a href="http://localhost:3000/SubPM" className={styles.button4}>Submission</a></td>
                         <td> <br/></td>
                         <td><br/></td>
-                        <td><a href="http://localhost:3000" className={styles.box3}><u>Logout</u></a></td>
+                        <td><a href="http://localhost:3000" className={styles.box3} onClick={handleLogout}><u>Logout</u></a></td>
                     </tr>
                 </tbody>                
             </table>                                                          
