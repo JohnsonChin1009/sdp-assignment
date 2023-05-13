@@ -53,6 +53,16 @@ export default function Home() {
       <a href="http://localhost:3000/EditAnnouncement"><div className={styles.button7}><button>Edit</button></div></a>
       <br />
         <Slides/>
+        <div>
+      <Image 
+        src="/design-lamp1.png"
+        alt="profile"
+        className={styles.image4}
+        width={100}
+        height={100}               
+        priority
+      />
+      </div>
         
       </div>
       <div className={styles.content2}>

@@ -6,7 +6,7 @@ import{getAnnouncements} from '@/pages/api/api';
 
 export default function SliderComponent() {
     const[slides, setSlides] = useState([]);
-    const[activeSlide, setActiveSlide] = useState(0);
+    
     useEffect(() => {
         const fetchData = async () => {
           try {

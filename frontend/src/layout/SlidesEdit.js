@@ -36,30 +36,32 @@ export default function SliderComponent() {
         }
       }
       return(
-        <><div className={styles.slider}>                            
+        <> <div className={styles.container3}>
               {slides.filter((slide)=> slide.title || slide.description).map((slide)=>(
+
                   <div key={slide.id}>
-                  <div className={styles.slide} alt={slide.id}>
+                  <div  className={styles.slide1} alt={slide.id}>
                     <h3>{slide.title}</h3><br/>
-                    <input type="text" value={newTitle} onChange={(e => setNewTitle(e.target.value))}/><br/>
+                    {/* <input type="text" value={newTitle} onChange={(e => setNewTitle(e.target.value))}/><br/> */}
                     <p>{slide.description} <br />by {slide.projectmanager}</p><br/>
                     Description:<br/>
-                    <input type="text" value={newDes} onChange={(e => setNewDescription(e.target.value))}/><br/>
+                    {/* <input type="text" value={newDes} onChange={(e => setNewDescription(e.target.value))}/><br/> */}
                     Editor: by <br/>
-                    <input type="text" value={newName} onChange={(e => setNewName(e.target.value))}/>
+                    {/* <input type="text" value={newName} onChange={(e => setNewName(e.target.value))}/> */}
                     <div>{slide.date} {slide.time}</div><br/>
-                    <input type="date" value={newDate} onChange={(e => setNewDate(e.target.value))}/><br/>
-                    <input type="time" value={newTime} onChange={(e => setNewTime(e.target.value))}/><br/>
+                    {/* <input type="date" value={newDate} onChange={(e => setNewDate(e.target.value))}/><br/> */}
+                    {/* <input type="time" value={newTime} onChange={(e => setNewTime(e.target.value))}/><br/> */}
                     Current status (1=Show, 0=Hidden): <div>{slide.show}</div><br/>
-                    <input type="checkbox" value={newShow} onChange={(e => setNewStatus("1"))}>Show</input><br/>
-                    <input type="checkbox" value={newShow} onChange={(e => setNewStatus("0"))}>Hidden</input><br/>
-                    <button onClick={updateValue}>Update</button>
+                    {/* <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("1"))}>Show</input><br/> */}
+                    {/* <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("0"))}>Hidden</input><br/> */}
+                    <button>Edit</button>
+                    {/* <button onClick={updateValue}>Update</button> */}
                   </div>
                   </div>
               ))}
               
               
-              <a href="http://localhost:3000/HomePM"><div className={styles.button7}><button >Done</button></div></a>
+              <a href="http://localhost:3000/HomePM"><div className={styles.button10}><button >Done</button></div></a>
         </div>
         </>
       )

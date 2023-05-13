@@ -7,9 +7,8 @@ import Slides from '@/layout/SlidesEdit.js'
 const inter = Inter({ subsets: ['latin'] })
 import{logout} from '@/pages/api/api'
 import { useEffect, useState } from 'react'
-import { addNewAnnouncements } from '@/pages/api/api'
 import{getAllAnnouncements} from '@/pages/api/api';
-
+import { UpdateAnnouncements } from '@/pages/api/api';
 
 export default function Home() {
     const [newTitle, setNewTitle] = useState('');

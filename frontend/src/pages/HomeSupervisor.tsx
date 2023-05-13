@@ -51,6 +51,16 @@ export default function Home() {
       </main>
       <div className={styles.content1}>
       <Slides/>
+      <div>
+      <Image 
+        src="/design-lamp1.png"
+        alt="profile"
+        className={styles.image4}
+        width={100}
+        height={100}               
+        priority
+      />
+      </div>
       </div>
       <div className={styles.content2}>
         <a href="http://localhost:3000/ProfileSup">
