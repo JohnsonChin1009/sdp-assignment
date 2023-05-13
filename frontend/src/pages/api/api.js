@@ -156,10 +156,8 @@ export const getPMOwnStudents = async (token) => {
         Authorization: 'Bearer ' + token
       }
     }
-    console.log(config);
     const response = await axios.get(`${API_URL}/displayPMOwnStudents`, config);
     const PM = response.data.data;
-    console.log(PM);
 
     return PM;
   } catch (error) {
@@ -574,6 +572,7 @@ export const SearchPM = async (search) => {
     throw new Error(error.response?.data?.message || 'An error occured while fetching Project Manager info');
   }
 };
+
 export const SearchStu = async (search) => {
   try {
 
@@ -583,12 +582,13 @@ export const SearchStu = async (search) => {
         result: search,
       },
     });
+    console.log(response);
     const data = response.data.data;
-    console.log(response.data); 
+    console.log(data); 
     return data;
   } catch (error)
   {
-    throw new Error(error.response?.data?.message || 'An error occured while fetching Project Manager info');
+    throw new Error(error.response?.data?.message || 'An error occured while fetching Student info');
   }
 };
 

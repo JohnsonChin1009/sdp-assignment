@@ -242,6 +242,22 @@ class PMController extends Controller
         ]);
     }
 
+    public function SearchStu(Request $request)
+    {
+        $name = $request->input('result');
+        $result = Student::where('name', 'like', '%' . $name . '%')->get();
 
+        if (!$result) {
+            return response()->json([
+                'success' => false,
+                'message' => 'The Student name cannot be found',
+            ]);
+        }
+
+        return response()->json([
+            'success' => true,
+            'data' => $result,
+        ]);
+    }
 
 }
