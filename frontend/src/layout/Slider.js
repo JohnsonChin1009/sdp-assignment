@@ -21,25 +21,20 @@ export default function SliderComponent() {
         fetchData();
       }, []);
       const settings ={
-        dots: true,
-        infinite:false,
-        speed:800,
+        dots: false,
+        infinite:true,
+        speed:900,
         slidesToShow:1,
         slidesToScroll:1,
-        autoPlay:true,
+        autoplay:true,
+        vertical: true,
         // appendDots:dots =>(
         //   <div style ={{position:'absolute', bottom: '200px'}}>
         //     <ul style={{margin:"0px"}}>{dots}</ul>
         //   </div>
         // ),
 
-        customPaging:(i)=>(
-          <label className={activeSlide === i?styles.dotActive: styles.dot}>
-            <input type="radio" name="slider-dot1" />
-            
-            {/* <input type="radio" name="slider-dot3" checked= {activeSlide === i} onChange={()=>setActiveSlide(i)}/> */}
-          </label>
-        ),
+        
         prevArrow:<div className={styles.prevArrow}/>,
         nextArrow:<div className={styles.nextArrow}/>,
       }    
@@ -47,30 +42,35 @@ export default function SliderComponent() {
       return(
         <><div className={styles.slider}>
               <Slider {...settings}> 
-              {slides.map((slideData, index) => (
-                <div key={index}>
-                  <div className={styles.slide} alt={slideData.id}>
-                    <h3>{slideData.title}</h3>
-                    <p>{slideData.description} <br />by {slideData.projectmanager}</p>
+              {slides.map((sliders, index) => (
+                <><div key={index}>
+                  <table>
+                    <tbody>
+                    <tr> 
+                      <td><h3>{sliders.title}</h3></td>
+                      
+                    </tr>
+                    <tr>
+                      <td><p className={styles.word7}>{sliders.description} <br /></p><p className={styles.word8}>by {sliders.projectmanager}</p></td>
+                      
+                    </tr>
+                    <tr>
+                      <td><div className={styles.word9}>{sliders.date} {sliders.time}</div></td>
+                    </tr>
+                    </tbody>
+                  </table>
+                    <div >
+                     
+                      
+                      <br />
+                      <br />
+                    </div>
 
-                    <div>{slideData.date} {slideData.time}</div>
-                  </div>
 
-
-                </div>
+                  </div></>
               )
 
-              )}
-              {/* {slides.filter((slide)=> slide.title || slide.description).map((slide)=>(
-                  <div key={slide.id}>
-                  <div className={styles.slide} alt={slide.id}>
-                    <h3>{slide.title}</h3>
-                    <p>{slide.description} <br />by {slide.projectmanager}</p>
-
-                    <div>{slide.date} {slide.time}</div>
-                  </div>
-                  </div>
-              ))} */}
+              )}              
               
               </Slider>
            
