@@ -303,6 +303,21 @@ export const addSupEvent = async (token, EventName, startDatetime, endtime) => {
     );
   }
 };
+
+export const deleteEvent = async (id) => {
+  try {
+    console.log(id);
+    const response = await axios.delete(`${API_URL}/deleteEvent/${id}`);
+    console.log(response)
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message ||
+        "Error delete Event"
+    );
+  }
+};
+
 //Anouncement
 export const getAllResults = async()=>{
   try{
@@ -492,3 +507,4 @@ export const SearchPM = async (search) => {
     throw new Error(error.response?.data?.message || 'An error occured while fetching Project Manager info');
   }
 };
+

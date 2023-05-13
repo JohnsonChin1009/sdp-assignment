@@ -82,4 +82,18 @@ class EventController extends Controller
     }
 
 
+    public function deleteEvent($id)
+    {
+        $event = Schedule::where('id', $id)->first();
+
+        if (!$event) {
+            return response()->json(['message' => 'event not found'], 404);
+        }
+
+        $event->delete();
+
+        return response()->json(['message' => 'event deleted']);
+
+    }
+
 }

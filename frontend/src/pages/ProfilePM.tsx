@@ -10,6 +10,7 @@ import {getPMSchedule} from '@/pages/api/api'
 import { addPMEvent } from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 import { getPMProfile } from '@/pages/api/api';
+import { deleteEvent } from '@/pages/api/api';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -101,6 +102,15 @@ export default function Home() {
       };
 
 
+    const handleDeleteEvent = async (id) => {
+      try {
+        const response = await deleteEvent(id);
+        setData(data.filter((event) => event.id !== id));
+      } catch (error) {
+        console.log('Error deleting event: ', error);
+      }
+    };
+
   return (
     <>    
       <Head>
@@ -189,7 +199,7 @@ export default function Home() {
                     <td>{events.start}</td>
                     <td><br /></td>
                     <td>{events.end}</td>
-                    <td><button className={styles.button6}>Remove</button></td>
+                    <td><button className={styles.button6} onClick={() => handleDeleteEvent(events.id)}>Remove</button></td>
                   </tr></>   
                                                 
             </tbody>
