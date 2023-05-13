@@ -46,6 +46,7 @@ export default function Home() {
         //   const token = localStorage.getItem('token'); //Retrieving token from local storage)
           const update1 = await UpdateAnnouncements(newTitle, newDes, newName, newDate, newTime, newStatus )
           setSlides(update1);
+          fetchData();
         }catch(error){
           console.log('Error updating value: ', error);
         }
@@ -97,27 +98,32 @@ export default function Home() {
         <Slides/>        
       
       <div className={styles.content1}>        
-        <h3><u>New Announcements</u></h3>
-        <form>  
+        <h3><u>Edit Announcements</u></h3>
+        {slides.filter((slide)=> slide.title || slide.description).map((slide)=>(
+        <div key={slide.id}> 
             <br />
             Title: <br />
+            <h3>{slide.title}</h3>
             <input type="text"  required value={newTitle} onChange={(event) => setNewTitle(event.target.value)} /><br /><br />
-            Description:<br />
+            <p>{slide.description} <br />by {slide.projectmanager}</p><br/>
+            Description:<br />            
             <textarea name="" id="" cols="50" rows="3"required value={newDes} onChange={(event) => setNewDescription(event.target.value)} ></textarea><br /><br />            
-            Announce by:<br/>
+            Editor: by <br/>
             <input type="text"  required value={newName} onChange={(event) => setNewName(event.target.value)} /><br /><br />
+            <div>{slide.date} {slide.time}</div><br/>
             Date: <br />
-            <input type="date" required  value={newDate} onChange={(e => setNewDate(e.target.value))}/><br/>
+            <input type="date" required  value={newDate} onChange={(event => setNewDate(e.target.value))}/><br/>
             Time: <br/>
-            <input type="time" required value={newTime} onChange={(e => setNewTime(e.target.value))}/><br/>
+            <input type="time" required value={newTime} onChange={(event => setNewTime(e.target.value))}/><br/>
             <br />
+            Current status (1=Show, 0=Hidden): <div>{slide.show}</div><br/>
             Status: <br />            
             <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("1"))} />Show <br />
             <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("0"))} />Hidden
             <br />
              <button onClick={updateValue}>Update</button>
             {message && <p className={styles.word6}>Successfully Update.</p>}
-        </form>
+            </div> ))}
       </div>
       
       

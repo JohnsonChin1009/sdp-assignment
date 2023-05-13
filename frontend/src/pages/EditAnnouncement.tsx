@@ -22,19 +22,17 @@ export default function Home() {
     const[message, setMessage] = useState('');
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    useEffect(() => {
-      
-
+    useEffect(() => {      
       fetchData();
     }, []);
     const fetchData = async () => {
-      try {
-        const sliders = await getAllAnnouncements();
-        setSlides(sliders);
-      } catch (error) {
-        console.log('Error fetching slide: ', error);
-      }
-    };
+        try {
+          const sliders = await getAllAnnouncements();
+          setSlides(sliders);
+        } catch (error) {
+          console.log('Error fetching slide: ', error);
+        }
+      };
   const handleLogout = async()=>{
     try{
       await logout();

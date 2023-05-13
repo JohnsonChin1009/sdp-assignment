@@ -3,16 +3,12 @@
 import styles from '@/styles/Home.module.css'
 import{useEffect, useState} from 'react'
 import{getAllAnnouncements} from '@/pages/api/api';
-import { UpdateAnnouncements } from '@/pages/api/api';
+import { useRouter } from 'next/router';
 
 export default function SliderComponent() {
     const[slides, setSlides] = useState([]);
-    const [newTitle, setNewTitle] = useState('');
-    const [newDes, setNewDescription] = useState('');
-    const [newName, setNewName] = useState('');
-    const [newDate, setNewDate] = useState('');
-    const [newTime, setNewTime] = useState('');
-    const [newStatus, setNewStatus] = useState('');
+    const router = useRouter();
+   
     useEffect(() => {
         const fetchData = async () => {
           try {
@@ -25,16 +21,10 @@ export default function SliderComponent() {
   
         fetchData();
       }, []);
+      const handleClick = () => {        
+        router.push('/EditSlides');
+      };
       
-      const updateValue = async()=>{
-        try{
-        //   const token = localStorage.getItem('token'); //Retrieving token from local storage)
-          const update1 = await UpdateAnnouncements(newTitle, newDes, newName, newDate, newTime, newStatus )
-          setData(update1);
-        }catch(error){
-          console.log('Error updating value: ', error);
-        }
-      }
       return(
         <> <div className={styles.container3}>
               {slides.filter((slide)=> slide.title || slide.description).map((slide)=>(
@@ -42,20 +32,11 @@ export default function SliderComponent() {
                   <div key={slide.id}>
                   <div  className={styles.slide1} alt={slide.id}>
                     <h3>{slide.title}</h3><br/>
-                    {/* <input type="text" value={newTitle} onChange={(e => setNewTitle(e.target.value))}/><br/> */}
-                    <p>{slide.description} <br />by {slide.projectmanager}</p><br/>
-                    Description:<br/>
-                    {/* <input type="text" value={newDes} onChange={(e => setNewDescription(e.target.value))}/><br/> */}
-                    Editor: by <br/>
-                    {/* <input type="text" value={newName} onChange={(e => setNewName(e.target.value))}/> */}
-                    <div>{slide.date} {slide.time}</div><br/>
-                    {/* <input type="date" value={newDate} onChange={(e => setNewDate(e.target.value))}/><br/> */}
-                    {/* <input type="time" value={newTime} onChange={(e => setNewTime(e.target.value))}/><br/> */}
-                    Current status (1=Show, 0=Hidden): <div>{slide.show}</div><br/>
-                    {/* <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("1"))}>Show</input><br/> */}
-                    {/* <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("0"))}>Hidden</input><br/> */}
-                    <button>Edit</button>
-                    {/* <button onClick={updateValue}>Update</button> */}
+                    Description:
+                    <p>{slide.description} <br />by {slide.projectmanager}</p><br/>                                       
+                    <div>{slide.date} {slide.time}</div><br/>                    
+                    Current status (1=Show, 0=Hidden): <div>{slide.show}</div><br/>                
+                    <button className={styles.button6} onClick={handleClick}>Edit</button>                    
                   </div>
                   </div>
               ))}
