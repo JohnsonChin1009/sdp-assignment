@@ -145,6 +145,19 @@
 .table1{
   width: 200px;
 }
+.eventsTable {
+  border-collapse: collapse;  
+}
+
+.eventsTable td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.eventsTable td button {
+  padding: 4px 8px;
+}
 .container{
   display: grid;
   grid-template-columns: repeat(2,1fr);
@@ -425,8 +438,8 @@
 }
 .contentbox1{
   float: right;
-  margin-right:-300px;
-  margin-top:-50px;
+  margin-right:-350px;
+  
 }
 .contentbox4{  
   margin-top:30px;
@@ -464,18 +477,25 @@
   margin: 15px;
   clear: both;
   float: right;
-  margin-right: 50px;
+  margin-top: 20px;
+  margin-right: 80px;
 }
 .infobox1{
   margin: 15px;
+  width: 400px;
   clear: both;
   float: right;
-  margin-right: -20px;
+  margin-right: -80px;
+  background-color: #b6d3e6;
 }
 .topicbox{
   margin: 20px;
   padding-top: 10px;
   float: left;
+}
+.infobox3{  
+  float: left;
+  margin-left: 30px;
 }
 .line1{
   background-color: black;
@@ -483,7 +503,7 @@
   height:200px;
   float: right;
   margin: 10px;
-  margin-top:-50px;
+ 
   margin-right:500px;
   height:650px;
 }
@@ -882,12 +902,16 @@
     margin: 20px;
     margin-left: 50px;    
   }
-  
+  .infobox3{                        
+    align-items: center; 
+    padding-left: 10px;
+    margin-left: 0px;
+  }
   .infobox{                
     clear: both;      
     align-items: center; 
     justify-content: center; 
-    margin-left: -50px;
+    margin-left: 0px;
   }
   .namebox{
     margin: 20px;
@@ -899,7 +923,7 @@
   .contentbox1{    
     float: left;
     margin-top: 500px;
-    margin-left: 100px;
+    margin-left: 90px;
   }
   .line1{
     background-color: transparent;

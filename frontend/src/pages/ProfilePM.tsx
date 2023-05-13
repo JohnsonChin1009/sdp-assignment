@@ -11,6 +11,7 @@ import { addPMEvent } from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 import { getPMProfile } from '@/pages/api/api';
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 //Calendar
@@ -51,7 +52,22 @@ const Calendar = () => {
 
 export default function Home() {
   const [data, setData] = useState([]);
-    
+  const[events, setEvents] =useState('');
+
+  useEffect(()=>{
+    const fetchData = async () => {
+      try{
+        const token = localStorage.getItem('token');
+        console.log(token);
+        const eventsData = await getPMSchedule(token);
+        setEvents(eventsData);
+      }catch(error){
+        console.log('Error fetching data: ', error);
+      }
+    };
+    fetchData();
+
+  }, []);
     
     useEffect(() => {
       const fetchData = async () => {
@@ -145,6 +161,7 @@ export default function Home() {
               <a href="http://localhost:3000/Profile"><button type="submit" className={styles.button6}>Edit</button></a>
             </div><div className={styles.infobox1}>
                 <form onSubmit={submit}> <br />
+                 <h3> Add New Event </h3><br />
                   Event Name: <br /><input type="text" name="EventName" required value={eventName} onChange={(event) => setEventName(event.target.value)} /><br />
                   Date:
                   <br />
@@ -156,7 +173,31 @@ export default function Home() {
 
             </div></> 
           )}
-                                             
+          <br />
+          <div className={styles.infobox3}>
+          <h3>Events happening:  </h3>
+         <br />
+            <table className={styles.eventTable} >
+            <tbody>
+              <tr>
+                <td>Events </td>                
+              </tr><br />
+              {events.map((events) => (
+              <><tr key={events.id}>
+                  <td>{events.name}</td>                
+                    <td>{events.start}</td>
+                    <td><br /></td>
+                    <td>{events.end}</td>
+                    <td><button className={styles.button6}>Remove</button></td>
+                  </tr></>   
+              ))}                                    
+            </tbody>
+                                          
+          </table>
+          
+          
+          
+          </div>                         
            
         </div>
         
