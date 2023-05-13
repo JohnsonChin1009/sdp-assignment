@@ -168,7 +168,7 @@ export default function Home() {
                   <input type="datetime-local" required value={startDatetime} onChange={(event) => setStartDatetime(event.target.value)} />
                   to
                   <input type="time" required value={endtime} onChange={(event) => setEndtime(event.target.value)} /><br />
-                  <button type="submit" className={styles.button6}>Add</button>
+                  <a href=""><button type="submit" className={styles.button6}>Add</button></a>
                 </form>
 
             </div></> 
@@ -177,12 +177,11 @@ export default function Home() {
           <div className={styles.infobox3}>
           <h3>Events happening:  </h3>
           <br />
+          Events <br />
           {events.map((events)=>  (
             <table className={styles.eventTable} key={events.id}>            
             <tbody>
-              <tr>
-                <td>Events </td>                
-              </tr>
+             
               <tr></tr>
               <><tr >
                   <td>{events.name}</td>                
@@ -202,7 +201,7 @@ export default function Home() {
            
         </div>
         
-        
+        <div className={styles.contentbox3}></div>
       <Footer />
       </>
   )
