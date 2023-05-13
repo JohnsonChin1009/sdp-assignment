@@ -276,7 +276,7 @@ export const getLecturerProfile = async (token) => {
 
 
 //Events
-export const getSupSchedule = async (token) => {
+export const getLecSchedule = async (token) => {
   try {
     const config = {
       headers: {
@@ -285,7 +285,7 @@ export const getSupSchedule = async (token) => {
     }
     console.log(config)
     console.log('Token:', token);
-    const response = await axios.get(`${API_URL}/getSupSchedule`, config);
+    const response = await axios.get(`${API_URL}/getLecSchedule`, config);
     const data = response.data.data;
     console.log(response.data); 
     return data;
