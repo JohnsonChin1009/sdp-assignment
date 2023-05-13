@@ -155,7 +155,7 @@ export default function Home() {
           </div><div className={styles.infobox}>
               Email  : {data.email}<br />              
               <br />
-              <a href="http://localhost:3000/Profile"><button type="submit" className={styles.button6}>Edit</button></a>
+              <a href="http://localhost:3000/Profile2"><button type="submit" className={styles.button6}>Edit</button></a>
             </div> <div className={styles.infobox1}>
                 <form onSubmit={submit}> <br />
                   Event Name: <br /><input type="text" name="EventName" required value={eventName} onChange={(event) => setEventName(event.target.value)} /><br />

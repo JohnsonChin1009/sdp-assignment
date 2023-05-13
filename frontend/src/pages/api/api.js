@@ -270,6 +270,22 @@ export const getLecturerProfile = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+export const UpdateProfileLec = async (token, newName, newField, newEmail) =>{
+  try{
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token + " " + newName + " " + newField +" " + newEmail
+      }
+    }    
+    console.log(config);
+    const response = await axios.put(`${API_URL}/updateprofileLec`, {}, config);
+    const update = response.data.message;
+    console.log(update);    
+    return update;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}
 // export const getLecturerOwnStudents = async (token) => {
 //   try {
     

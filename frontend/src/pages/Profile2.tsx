@@ -5,8 +5,8 @@ import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { getPMProfile } from './api/api'
-import { UpdateProfilePM } from './api/api'
+import { getLecturerProfile } from './api/api'
+import { UpdateProfileLec } from './api/api'
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
@@ -14,26 +14,27 @@ export default function Home() {
   const [newName, setNewName] = useState('');
   const [newField, setNewField] = useState('');
   const [newEmail, setNewEmail] = useState('');  
-  useEffect(()=>{
-    fetchData();
-  },[])
-  const fetchData = async()=>{
-    try {
-      const token = localStorage.getItem('token'); //Retrieving token from local storage)
-      const PM = await getPMProfile(token);
-      console.log(PM);
-      setData(PM);
+  
+useEffect(()=>{
+  fetchData();
+},[])
+const fetchData = async()=>{
+  try {
+    const token = localStorage.getItem('token'); //Retrieving token from local storage)
+    const PM = await getLecturerProfile(token);
+    console.log(PM);
+    setData(PM);
 } catch (error) {
-  console.log('Error fetching data: ', error);
+console.log('Error fetching data: ', error);
 }}
 const updateValue = async()=>{
-  try{
-    const token = localStorage.getItem('token'); //Retrieving token from local storage)
-    const update1 = await UpdateProfilePM(token, newName, newField, newEmail)
-    setData(update1);
-  }catch(error){
-    console.log('Error updating value: ', error);
-  }
+try{
+  const token = localStorage.getItem('token'); //Retrieving token from local storage)
+  const update1 = await UpdateProfileLec(token, newName, newField, newEmail)
+  setData(update1);
+}catch(error){
+  console.log('Error updating value: ', error);
+}
 }
     return (
       <>    
@@ -87,7 +88,7 @@ const updateValue = async()=>{
               <input type="text" placeholder="Field" value={newField}onChange={(e => setNewField(e.target.value))}/>
             </div><div className={styles.infobox2}>
                 Email : {data.email} <br /><br />
-                Email  : <input type="email" value={newEmail}onChange={(e => setNewEmail(e.target.value))}/><br /><br /> <br />               
+                Email  : <input type="email"value={newEmail}onChange={(e => setNewEmail(e.target.value))}/><br /><br /> <br />               
               </div><a href="http://localhost:3000/Profile"><button onClick={updateValue} className={styles.button6}>Done Editing</button></a></>
              
           )}
