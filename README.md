@@ -111,7 +111,7 @@ update whether you are using a bug to reduce redundancy.</i>
       <td>Edit Announcements - get all anouncements including those are not shown</td>
       <td></td>
       <td></td>
-      <td></td>
+      <td>Pls help to add the api for all slides (getAllAnouncements)</td>
     </tr>
     <!-- Add more rows as needed -->
   </tbody>

@@ -19,6 +19,7 @@ export default function Event(){
 
     }, []);
     return (
+        
 <div className={styles.content6}>  
 {data &&(
     <><div className={styles.content7}>
