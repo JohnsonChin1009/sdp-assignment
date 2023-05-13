@@ -6,6 +6,7 @@ use App\Models\Lecturer;
 use App\Models\ProjectManager;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 
 class PMController extends Controller
@@ -206,5 +207,41 @@ class PMController extends Controller
             'data' => $result,
         ]);
     }
+
+    public function updateprofilePM(Request $request)
+    {
+        $token = $request->header('Authorization');
+        Log::info($token);
+        Log::info($request);
+        $token = str_replace('Bearer ', "", $token);
+        Log::info($token);
+        $PM = ProjectManager::where('email', $token)->first();
+
+        if (!$PM) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Project Manager record not found',
+            ]);
+        }
+
+        Log::info($request->input('Name'));
+
+        $PM->name = $request->input('Name');
+        Log::info($request->input('Name'));
+        $PM->field_of_study = $request->input('Field');
+        Log::info($request->input('Field'));
+        $PM->email = $request->input('Email');
+        Log::info($request->input('Email'));
+        $PM->save();
+
+        
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Updated Project Manager Record Successfully!',
+        ]);
+    }
+
+
 
 }

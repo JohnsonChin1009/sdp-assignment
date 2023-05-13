@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lecturer;
+use Illuminate\Support\Facades\Log;
 
 class LecturerController extends Controller
 {
@@ -49,7 +50,9 @@ class LecturerController extends Controller
     {
         $token = $request->header('Authorization');
         $token = str_replace('Bearer ', "", $token);
+        Log::info($token);
         $tokenValues = explode(' ', $token);
+        Log::info($tokenValues);
         $token = $tokenValues[0];
         $newName = $tokenValues[1];
         $newField = $tokenValues[2];
