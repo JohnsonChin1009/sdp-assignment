@@ -96,6 +96,22 @@ export const getStudentStaff = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+export const getStudentLec = async (token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    const response = await axios.get(`${API_URL}/displayStudentLec`, config);
+    const data = response.data.data;
+    console.log(data);
+    return data;
+  } catch (error)
+  {
+    throw new Error(error.response?.data?.message || 'An error occured while fetching lecturers assigned for this student');
+  }
+}
 //PM
 export const getPMProfile = async (token) => {
   try {
@@ -521,23 +537,9 @@ export const addNewAnnouncements = async (newTitle, newDescription, newName, new
 };
 
 
-export const getStudentLec = async (token) => {
-  try {
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-    const response = await axios.get(`${API_URL}/displayStudentLec`, config);
-    const data = response.data.data;
-    console.log(data);
-    return data;
-  } catch (error)
-  {
-    throw new Error(error.response?.data?.message || 'An error occured while fetching lecturers assigned for this student');
-  }
-}
 
+
+//Search
 export const SearchPM = async (search) => {
   try {
 
