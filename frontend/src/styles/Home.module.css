@@ -43,7 +43,7 @@
 /*Slides*/
 .slider{
   width: auto;
-  height: 300px;
+  height: auto;
   padding-top:20px;
   border-radius:10px;
   overflow: hidden;

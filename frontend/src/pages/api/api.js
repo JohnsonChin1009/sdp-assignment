@@ -412,11 +412,11 @@ export const getAllAnnouncements = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occured while fetching announcements');
   }
 }
-export const UpdateAnnouncements = async ( newTitle, newDescription, newName, newDate, newTime) =>{
+export const UpdateAnnouncements = async ( newTitle, newDescription, newName, newDate, newTime, newStatus) =>{
   try{
     const config = {
       headers: {
-        Authorization: 'Bearer ' + newTitle + " " + newDescription + " " + newName + " " + newDate +" " + newTime
+        Authorization: 'Bearer ' + newTitle + " " + newDescription + " " + newName + " " + newDate + " " + newTime + " " + newStatus
       }
     }    
     console.log(config);
@@ -428,6 +428,36 @@ export const UpdateAnnouncements = async ( newTitle, newDescription, newName, ne
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 }
+export const addNewAnnouncements = async (newTitle, newDescription, newName, newDate, newTime, newStatus) => {
+  try { 
+      const config = {
+        headers: {
+          Authorization: 'Bearer ' 
+        }
+      }
+    
+    console.log(newTitle, newDescription, newName, newDate, newTime, newStatus);
+    const AnnouncementData = {
+      title: newTitle,
+      description:newDescription,
+      name: newName,
+      date: newDate,
+      time: newTime,
+      show: newStatus,
+    };
+    const response = await axios.post(`${API_URL}/addAddAnouncements`, AnnouncementData, config);
+    console.log(config)
+
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message ||
+        "Error adding Announcements"
+    );
+  }
+};
+
+
 export const getStudentLec = async (token) => {
   try {
     const config = {

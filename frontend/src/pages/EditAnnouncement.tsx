@@ -49,10 +49,19 @@ export default function Home() {
                 </tbody>                
             </table>                                                          
       </main> 
+       
       <div className={styles.content1}>
+      <div className={styles.content3}>
+        <a href="http://localhost:3000/HomePM">
+          <div className={styles.button5}>
+            Back 
+          </div>
+        </a>     
+      </div><br />
         <Slides/>        
       </div>
       <div className={styles.content1}>        
+      
       </div>
       
       
