@@ -52,8 +52,7 @@ export default function Home() {
       <div className={styles.content1}>
         <Slides/>        
       </div>
-      <div className={styles.content1}>
-
+      <div className={styles.content1}>        
       </div>
       
       

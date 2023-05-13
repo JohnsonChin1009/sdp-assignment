@@ -396,7 +396,38 @@ export const getAnnouncements = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occured while fetching announcements');
   }
 }
-
+export const getAllAnnouncements = async (token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    const response = await axios.get(`${API_URL}/getAllAnnouncements`, config);
+    const data = response.data.data;
+    console.log(data);
+    return data;
+  } catch (error)
+  {
+    throw new Error(error.response?.data?.message || 'An error occured while fetching announcements');
+  }
+}
+export const UpdateAnnouncements = async ( newTitle, newDescription, newName, newDate, newTime) =>{
+  try{
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + newTitle + " " + newDescription + " " + newName + " " + newDate +" " + newTime
+      }
+    }    
+    console.log(config);
+    const response = await axios.put(`${API_URL}/updateannouncements`, {}, config);
+    const update = response.data.message;
+    console.log(update);    
+    return update;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}
 export const getStudentLec = async (token) => {
   try {
     const config = {

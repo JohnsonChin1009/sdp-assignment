@@ -1,5 +1,5 @@
 import styles from '@/styles/Home.module.css'
-import { getSupSchedule } from '@/pages/api/api'
+import { getPMSchedule } from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 export default function Event(){
     const [data, setData] = useState([]);
@@ -9,7 +9,7 @@ export default function Event(){
       const fetchData = async () => {
           try {
                 const token = localStorage.getItem('token'); //Retrieving token from local storage)
-                const lecturer = await getSupSchedule(token);
+                const lecturer = await getPMSchedule(token);
                 setData(lecturer);
         } catch (error) {
             console.log('Error fetching data: ', error);
