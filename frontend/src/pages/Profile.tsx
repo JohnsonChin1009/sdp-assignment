@@ -7,6 +7,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { getPMProfile } from './api/api'
 import { UpdateProfilePM } from './api/api'
+import{logout} from '@/pages/api/api'
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
@@ -36,6 +37,13 @@ const updateValue = async()=>{
     console.log('Error updating value: ', error);
   }
 }
+const handleLogout = async()=>{
+  try{
+    await logout();
+  }catch(error){
+    console.error('Error.logging out: ', error);
+  }
+};
     return (
       <>    
         <Head>
@@ -66,7 +74,7 @@ const updateValue = async()=>{
                           <td><a href="" className={styles.button2}>Submission</a></td>
                           <td> <br/></td>
                           <td><br/></td>
-                          <td><a href="http://localhost:3000" className={styles.box3}><u>Logout</u></a></td>
+                          <td><a href="http://localhost:3000" className={styles.box3} onClick={handleLogout}><u>Logout</u></a></td>
                       </tr>
                   </tbody>                
               </table>

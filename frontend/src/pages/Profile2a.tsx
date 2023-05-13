@@ -6,6 +6,7 @@ import Footer from '@/layout/Footer.js'
 import { useEffect, useState } from 'react'
 import { getStudentProfile } from '@/pages/api/api';
 import { UpdateProfileStu } from '@/pages/api/api';
+import{logout} from '@/pages/api/api'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -34,6 +35,13 @@ const updateValue = async()=>{
     console.log('Error updating value: ', error);
   }
 }
+const handleLogout = async()=>{
+  try{
+    await logout();
+  }catch(error){
+    console.error('Error.logging out: ', error);
+  }
+};
   return (
     <>
       <Head>
@@ -63,7 +71,7 @@ const updateValue = async()=>{
                         <td><a href="http://localhost:3000/StaffStu" className={styles.button2}>Staff</a></td>
                         <td> <br/></td>
                         <td><br/></td>
-                        <td><a href="http://localhost:3000" className={styles.box6}><u>Logout</u></a></td>
+                        <td><a href="http://localhost:3000" className={styles.box6} onClick={handleLogout}><u>Logout</u></a></td>
                     </tr>
                 </tbody>                
             </table>                                                              

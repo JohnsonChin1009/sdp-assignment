@@ -4,9 +4,17 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import Table from '@/layout/TableStu1.js'
+import{logout} from '@/pages/api/api'
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Profile() {
+  const handleLogout = async()=>{
+    try{
+      await logout();
+    }catch(error){
+      console.error('Error.logging out: ', error);
+    }
+  };
   return (
     <>
       <Head>
@@ -37,7 +45,7 @@ export default function Profile() {
                         <td><a href="http://localhost:3000/StaffStu" className={styles.button2}>Staff</a></td>
                         <td> <br/></td>
                         <td><br/></td>
-                        <td><a href="http://localhost:3000" className={styles.box6}><u>Logout</u></a></td>
+                        <td><a href="http://localhost:3000" className={styles.box6} onClick={handleLogout}><u>Logout</u></a></td>
                     </tr>
                 </tbody>                
             </table>

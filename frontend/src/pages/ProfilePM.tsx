@@ -11,6 +11,7 @@ import { addPMEvent } from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 import { getPMProfile } from '@/pages/api/api';
 import { deleteEvent } from '@/pages/api/api';
+import{logout} from '@/pages/api/api'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -33,7 +34,13 @@ const Calendar = () => {
     fetchData();
 
   }, []);
-  
+  const handleLogout = async()=>{
+    try{
+      await logout();
+    }catch(error){
+      console.error('Error.logging out: ', error);
+    }
+  };
   return (
     <div className={styles.Ccontentbox}>
       <FullCalendar
@@ -148,7 +155,7 @@ export default function Home() {
                         <td><a href="" className={styles.button2}>Submission</a></td>
                         <td> <br/></td>
                         <td><br/></td>
-                        <td><a href="http://localhost:3000" className={styles.box3}><u>Logout</u></a></td>
+                        <td><a href="http://localhost:3000" className={styles.box3} onClick={handleLogout}><u>Logout</u></a></td>
                     </tr>
                 </tbody>                
             </table>

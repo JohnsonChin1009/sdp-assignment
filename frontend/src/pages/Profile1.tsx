@@ -7,6 +7,7 @@ import Event from '@/layout/TableEvent.js'
 import {getLecturerProfile } from './api/api'
 import{getPMProfile} from './api/api'
 import{useState,useEffect} from 'react'
+import{logout} from '@/pages/api/api'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -35,6 +36,13 @@ const fetchData1 = async () => {
       setData(lecturer);
   } catch (error) {
       console.log('Error fetching data: ', error);
+  }
+};
+const handleLogout = async()=>{
+  try{
+    await logout();
+  }catch(error){
+    console.error('Error.logging out: ', error);
   }
 };
     return (
@@ -66,7 +74,7 @@ const fetchData1 = async () => {
                           <td><a href="http://localhost:3000/StaffStu" className={styles.button3}>Staff</a></td>
                           <td> <br/></td>
                           <td><br/></td>
-                          <td><a href="http://localhost:3000" className={styles.box6}><u>Logout</u></a></td>
+                          <td><a href="http://localhost:3000" className={styles.box6} onClick={handleLogout}><u>Logout</u></a></td>
                       </tr>
                   </tbody>                
               </table>                                                              
