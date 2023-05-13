@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { getPMOwnStudents } from '@/pages/api/api';
 import { useRouter } from 'next/router';
 
-export default function Home() {
+export default function Home({search}) {
   const router = useRouter();
 
   const DataList = () => {
@@ -15,7 +15,6 @@ export default function Home() {
           const token = localStorage.getItem('token');
           const students = await getPMOwnStudents(token);
           setData(students);
-          console.log(students);
         } catch (error) {
           console.log('Error fetching data: ', error);
         }
@@ -29,9 +28,13 @@ export default function Home() {
       router.push('/ProfileStuAssign');
     };
 
+    const filteredData = data.filter((student) => {
+      return student.name.toLowerCase().includes(search.toLowerCase());
+    });
+
   return (
     <div className={style.container}>
-      {data.map((student) => (
+      {filteredData.map((student) => (
         <div
           className={style.row1}
           key={student.tp_number}
@@ -49,7 +52,6 @@ export default function Home() {
               <br />
               {student.second_marker_name || student.second_marker}</a>
             </div>
-            
         </div>
         ))}
     </div>

@@ -9,7 +9,8 @@ import {SearchStu} from '@/pages/api/api';
 import{logout} from '@/pages/api/api'
 
 const inter = Inter({ subsets: ['latin'] })
-export default function StudentPM() {   
+export default function StudentPM() {  
+
   const [search, setSearch] = useState('');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -73,11 +74,9 @@ export default function StudentPM() {
         </div>
         </a>
       </div>
-      
-      
       <div className={styles.contentbox2a}>
       <form onSubmit={handleSearch}>
-          <input type="text" name="Search" value={search} onChange={(event) => setSearch(event.target.value)}/>
+        <input type="text" name="Search" value={search} onChange={(event) => setSearch(event.target.value)}/>
           <button type="submit" ><Image
                             src="/search_icon.png"
                             alt="Search"
