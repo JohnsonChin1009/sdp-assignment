@@ -39,9 +39,9 @@ update whether you are using a bug to reduce redundancy.</i>
     <tr>
       <td>2</td>
       <td>Announcement table not showing for student home page</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>Tung En</td>
+      <td>Tung En</td>
+      <td>Done</td>
     </tr>
     <tr>
       <td>3</td>

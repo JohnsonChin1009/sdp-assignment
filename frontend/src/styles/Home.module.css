@@ -276,6 +276,14 @@
   background-color: transparent;
   min-height: 20vh;
 }
+.image4{
+  
+  width: 500px;
+  height: 200px;
+  float: right;   
+  margin-top: -100px;
+  margin-right: -20px; 
+}
 /*Menubar*/
 .button1{
   margin-left: 150px;
@@ -1034,7 +1042,33 @@
     float: left;
     margin-left: 20px;
   }
+  .image4{  
+    width: 200px;
+    height: 100px;
+    float: right;   
+    margin-top: 10px;
+    margin-right: -20px; 
+  }
+  .word7{
+    margin-left: 30px;
+    font-size: 20px;
+    color: #2c4051;
+  
+  }
+  .word8{
+    margin-left: 390px;
+    font-size: 10px;
+    color: #497b9c;
+  
+  }
+  .word9{
+    margin-left: 390px;
+    font-size: 10px;
+    color: #2c4051;
+  
+  }
 }
+
 
 
 
