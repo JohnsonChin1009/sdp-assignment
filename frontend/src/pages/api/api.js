@@ -286,6 +286,22 @@ export const UpdateProfileLec = async (token, newName, newField, newEmail) =>{
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 }
+export const getLecturerStudentProfile = async (token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    console.log(config);
+    const response = await axios.get(`${API_URL}/displayLecStudentProfile`, config);
+    const PM = response.data.data;
+    console.log(PM);
+
+    return PM;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+  }
 // export const getLecturerOwnStudents = async (token) => {
 //   try {
     
