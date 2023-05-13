@@ -4,9 +4,37 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import React from 'react'
+import { useEffect, useState } from 'react'
+import { getPMProfile } from './api/api'
+import { UpdateProfilePM } from './api/api'
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
+  const [data, setData] = useState([]);
+  const [newName, setNewName] = useState('');
+  const [newField, setNewField] = useState('');
+  const [newEmail, setNewEmail] = useState('');  
+  useEffect(()=>{
+    fetchData();
+  },[])
+  const fetchData = async()=>{
+    try {
+      const token = localStorage.getItem('token'); //Retrieving token from local storage)
+      const PM = await getPMProfile(token);
+      console.log(PM);
+      setData(PM);
+} catch (error) {
+  console.log('Error fetching data: ', error);
+}}
+const updateValue = async()=>{
+  try{
+    const token = localStorage.getItem('token'); //Retrieving token from local storage)
+    const update1 = await UpdateProfilePM(token, newName, newField, newEmail)
+    setData(update1);
+  }catch(error){
+    console.log('Error updating value: ', error);
+  }
+}
     return (
       <>    
         <Head>
@@ -51,20 +79,19 @@ export default function Home() {
       </div> 
       <div className={styles.contentbox4}>           
           <div className={styles.image} ></div>
-          <form action=""> 
-          <div className={styles.namebox1}>
-          <input type="text" placeholder="Name"/><br /><br/>
-          <input type="text" placeholder="Field"/>
-          </div> 
+          {data && (
+            <><div className={styles.namebox1}>
+              <div>{data.name}</div><br />              
+              <input type="text" placeholder="Name" /><br /><br />
+              <div>{data.field_of_study}</div><br />
+              <input type="text" placeholder="Field" />
+            </div><div className={styles.infobox2}>
+                Email : {data.email} <br /><br />
+                Email  : <input type="email" name="" id="" /><br /><br /> <br />               
+              </div><a href="http://localhost:3000/Profile"><button onClick={updateValue} className={styles.button6}>Done Editing</button></a></>
+             
+          )}
           
-          <div className={styles.infobox2}>
-          
-          Email  : <input type="email" name="" id="" /><br /><br />
-          Tel    : <input type="text" /><br />        <br />       
-          Preferable Platform : <input type="text" />   
-          </div>
-            <a href="http://localhost:3000/Profile"><button type="submit" className={styles.button6}>Done Editing</button></a>
-          </form>  
           <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />                                                    
             <br /><br /><br /><br /><br /><br />
         </div>
