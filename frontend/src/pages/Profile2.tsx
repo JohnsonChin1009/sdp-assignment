@@ -32,6 +32,7 @@ try{
   const token = localStorage.getItem('token'); //Retrieving token from local storage)
   const update1 = await UpdateProfileLec(token, newName, newField, newEmail)
   setData(update1);
+  fetchData();
 }catch(error){
   console.log('Error updating value: ', error);
 }

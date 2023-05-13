@@ -29,6 +29,7 @@ const updateValue = async()=>{
     const token = localStorage.getItem('token'); //Retrieving token from local storage)
     const update1 = await UpdateProfileStu(token, newValue)
     setData(update1);
+    fetchData();
   }catch(error){
     console.log('Error updating value: ', error);
   }
