@@ -183,7 +183,7 @@ export default function Home() {
           <h3>Events happening:  </h3>
           <br />
           Events <br />
-          {events.map((events)=>  (
+          {events.length ===0 ? (<p>No Events to display</p>) :(events.map((events)=>  (
             <table className={styles.eventTable} key={events.id}>            
             <tbody>
              
@@ -199,7 +199,7 @@ export default function Home() {
             </tbody>
                                           
           </table>
-         ))}  
+         )))}  
           
           
           </div>                         

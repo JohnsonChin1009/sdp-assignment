@@ -41,18 +41,15 @@ export default function Home() {
                 <tbody>
                   <tr>
                     <td>Field of Study</td>
-                    <td>: </td>
-                    <td>{data.field_of_study}</td>
+                    <td>: {data.field_of_study}</td>                    
                   </tr>
                   <tr>
                     <td>Specialize</td>
-                    <td>: </td>
-                    <td>{data.specialism}</td>
+                    <td>: {data.specialism}</td>                    
                   </tr>
                   <tr>
                     <td>Email</td>
-                    <td>: </td>
-                    <td>{data.email}</td>
+                    <td>: {data.email}</td>                    
                   </tr>
                 </tbody>
               </table>
@@ -60,19 +57,13 @@ export default function Home() {
               <table>
                 <tbody>
                   <tr>
-                    <td>Project Manager</td>
-                    <td>: </td>
-                    <td>{data.projectmanager}</td>
+                    <td>Project Manager: {data.projectmanager}</td>                             
                   </tr>
                   <tr>
-                    <td>Supervisor</td>
-                    <td>: </td>
-                    <td>{data.supervisor}</td>
+                    <td>Supervisor: {data.supervisor}</td>                                      
                   </tr>
                   <tr>
-                    <td>Second Marker</td>
-                    <td>: </td>
-                    <td>{data.secondmarker}</td>
+                    <td>Second Marker: {data.secondmarker}</td>                    
                   </tr>
                 </tbody>
               </table>
