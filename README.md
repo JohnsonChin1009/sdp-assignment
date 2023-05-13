@@ -38,14 +38,14 @@ update whether you are using a bug to reduce redundancy.</i>
     </tr>
     <tr>
       <td>2</td>
-      <td>Announcement table haven't been created</td>
-      <td>Johnson</td>
-      <td>Johnson</td>
-      <td>Waiting for frontend to create table to test</td>
+      <td>Announcement table not showing for student home page</td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>3</td>
-      <td>Calendar not work</td>
+      <td>Calendar not working</td>
       <td></td>
       <td></td>
       <td></td>
@@ -88,8 +88,8 @@ update whether you are using a bug to reduce redundancy.</i>
     <tr>
       <td>9</td>
       <td>Unable to edit student profile</td>
-      <td></td>
-      <td></td>
+      <td>TungEn, Johnson</td>
+      <td>TungEn, Johnson</td>
       <td>Error code {data map is not a function}</td>
     </tr>
     <tr>

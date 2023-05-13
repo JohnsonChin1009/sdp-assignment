@@ -70,11 +70,11 @@ export const UpdateProfileStu = async (token, newValue) =>{
       }
     }    
     console.log(config);
-    const response = await axios.put(`${API_URL}/updateprofilestu`,config);
-    const update = response.data.data;
+    const response = await axios.put(`${API_URL}/updatestutitle`, {}, config);
+    const update = response.data.message;
     console.log(update);    
     return update;
-  }catch(error){
+  } catch (error) {
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 }
