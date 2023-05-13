@@ -21,7 +21,7 @@ const Calendar = () => {
   const[events, setEvents] =useState([]);
 
   useEffect(()=>{
-    const fetchData = async () => {
+    const fetchData2 = async () => {
       try{
         const token = localStorage.getItem('token');
         console.log(token);
@@ -31,16 +31,9 @@ const Calendar = () => {
         console.log('Error fetching data: ', error);
       }
     };
-    fetchData();
+    fetchData2();
 
   }, []);
-  const handleLogout = async()=>{
-    try{
-      await logout();
-    }catch(error){
-      console.error('Error.logging out: ', error);
-    }
-  };
   return (
     <div className={styles.Ccontentbox}>
       <FullCalendar
@@ -66,6 +59,7 @@ export default function Home() {
   useEffect(()=>{
     
     fetchData();
+    
 
   }, []);
   const fetchData = async () => {
@@ -97,6 +91,7 @@ export default function Home() {
     const [eventName, setEventName] = useState('');
     const [startDatetime, setStartDatetime] = useState('');
     const [endtime, setEndtime] = useState('');
+    const [message, setMesssage] = useState('');
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const submit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -118,7 +113,8 @@ export default function Home() {
       try {
         const response = await deleteEvent(id);
         setData(data.filter((event) => event.id !== id));
-        fetchData();        
+        fetchData();    
+        setMesssage("Successfully deteled.");
       } catch (error) {
         console.log('Error deleting event: ', error);
       }
@@ -217,9 +213,11 @@ export default function Home() {
                     <td>{events.start}</td>
                     <td><br /></td>
                     <td>{events.end}</td>
-                    <td> <button className={styles.button6} onClick={() => handleDeleteEvent(events.id)}>Remove</button></td>
+                    <td><button className={styles.button6} onClick={() => handleDeleteEvent(events.id)}>Remove</button></td>
                   </tr></>   
-                                                
+                <tr>
+                  <td>{message && <p>Successfully deleted!</p>}</td>
+                </tr>                        
             </tbody>
                                           
           </table>

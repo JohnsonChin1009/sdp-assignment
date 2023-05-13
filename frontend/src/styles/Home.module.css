@@ -158,11 +158,10 @@
 
 .eventsTable td {
   white-space: nowrap;
+  text-align: left;  
 }
 
-.eventsTable td button {
-  padding: 4px 8px;
-}
+
 .container{
   display: grid;
   grid-template-columns: repeat(2,1fr);
