@@ -153,7 +153,7 @@ export default function Home() {
                         <td><a href="http://localhost:3000/ProfilePM" className={styles.button3}>Profile</a></td>
                         <td><a href="http://localhost:3000/StudentPM" className={styles.button2}>Student</a></td>
                         <td><a href="http://localhost:3000/StaffPM" className={styles.button2}>Lecturer</a></td>
-                        <td><a href="" className={styles.button2}>Submission</a></td>
+                        <td><a href="http://localhost:3000/SubfPM" className={styles.button2}>Submission</a></td>
                         <td> <br/></td>
                         <td><br/></td>
                         <td><a href="http://localhost:3000" className={styles.box3} onClick={handleLogout}><u>Logout</u></a></td>
@@ -198,12 +198,12 @@ export default function Home() {
 
             </div></> 
           )}
-          <br />
+          <br /><br/>
           <div className={styles.infobox3}>
           <h3>Events happening:  </h3>
           <br />
-          Events <br />
-          {events.map((events)=>  (
+          <u>Events</u> <br />
+          {events.length ===0 ? (<p>No Events to display</p>) :(events.map((events)=>  (
             <table className={styles.eventTable} key={events.id}>            
             <tbody>
              
@@ -221,7 +221,7 @@ export default function Home() {
             </tbody>
                                           
           </table>
-         ))}  
+         )))}  
           
           
           </div>                         

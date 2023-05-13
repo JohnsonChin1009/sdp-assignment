@@ -111,7 +111,7 @@ update whether you are using a bug to reduce redundancy.</i>
       <td>Edit Announcements - get all anouncements including those are not shown</td>
       <td>Tung En, Zi Ming</td>
       <td>Tung En, Zi Ming</td>
-      <td>Done for getAllAnouncements, addAnouncements,, still need -displayAnnouncements (EditSlides.tsx) (need to call specific announcements to edit, id pass as token and -updateAnnouncements (EditSlides.tsx)</td>
+      <td>Done for getAllAnouncements, addAnouncements,, still need -displayAnnouncements (EditSlides.tsx) (need to call specific announcements to edit, id pass as token) and -updateAnnouncements (EditSlides.tsx)</td>
     </tr>
     <tr>
       <td>13</td>
@@ -119,6 +119,13 @@ update whether you are using a bug to reduce redundancy.</i>
       <td></td>
       <td></td>
       <td>api (displayLecturerOwnStudents)</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>update profile for PM and Lecturer has problem in accepting values with space</td>
+      <td></td>
+      <td></td>
+      <td>words with space such as Bob Jones will count the space as anotehr data and written in different column</td>
     </tr>
     
     <!-- Add more rows as needed -->
