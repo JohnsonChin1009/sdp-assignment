@@ -31,13 +31,6 @@ const Calendar = () => {
     fetchData();
 
   }, []);
-  const handleLogout = async()=>{
-    try{
-      await logout();
-    }catch(error){
-      console.error('Error.logging out: ', error);
-    }
-  };
   return (
     <div className={styles.Ccontentbox}>
       <FullCalendar
@@ -110,6 +103,13 @@ export default function Home() {
         setData(data.filter((event) => event.id !== id));
       } catch (error) {
         console.log('Error deleting event: ', error);
+      }
+    };
+    const handleLogout = async()=>{
+      try{
+        await logout();
+      }catch(error){
+        console.error('Error.logging out: ', error);
       }
     };
 

@@ -52,6 +52,58 @@
   width: 100%;
   transition: 2s;
 }
+.prevArrow{
+ position: absolute;
+ top:50%;
+ left: 10px;
+ transform:translateY(-50%);
+ z-index:1;
+ cursor:pointer;
+}
+.nextArrow{
+  position: absolute;
+  top:50%;
+ right: 10px;
+ transform:translateY(-50%);
+ z-index:1;
+ cursor:pointer;
+}
+.content1{
+  padding: 45px;
+  padding-left: 70px;
+  background: var(--blue1);
+  min-height: 50vh;
+}
+.dotsContainer {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: gray;
+  border-radius: 50%;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.dotActive {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: blue;
+  border-radius: 50%;
+  cursor: pointer;
+}
 
 /*Content*/
 .content{
@@ -246,12 +298,6 @@
   color: black;    
 }
 /*Home*/
-.content1{
-  padding: 45px;
-  padding-left: 70px;
-  background: var(--blue1);
-  min-height: 50vh;
-}
 .content2{
   background-color: transparent;
   min-height: 20vh;
