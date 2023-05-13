@@ -360,7 +360,7 @@ export const addPMEvent = async (token, EventName, startDatetime, endtime) => {
   }
 };
 
-export const getSupSchedule = async (token) => {
+export const getPMSchedule = async (token) => {
   try {
     const config = {
       headers: {
@@ -368,15 +368,17 @@ export const getSupSchedule = async (token) => {
       }
     }
     console.log(config)
-    const response = await axios.get(`${API_URL}/getSupSchedule`, config);
-    const lecturers = response.data.data;
-
-
-    return response.data;
+    console.log('Token:', token);
+    const response = await axios.get(`${API_URL}/getPMSchedule`, config);
+    const data = response.data.data;
+    console.log(response.data); 
+    return data;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+
+
 //Anouncement
 export const getAnnouncements = async (token) => {
   try {

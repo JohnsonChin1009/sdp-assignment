@@ -6,7 +6,7 @@ import Footer from '@/layout/Footer.js'
 import React from 'react'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import {getSupSchedule} from '@/pages/api/api'
+import {getPMSchedule} from '@/pages/api/api'
 import { addPMEvent } from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 import { getPMProfile } from '@/pages/api/api';
@@ -16,26 +16,32 @@ const inter = Inter({ subsets: ['latin'] })
 //Calendar
 const Calendar = () => {
   const[events, setEvents] =useState([]);
+
   useEffect(()=>{
-    
-    try{
-      const eventsData = getSupSchedule();
-      setEvents(eventsData);
-    }catch(error){
-      console.log('Error fetching data: ', error);
-    }
-  },[]);
+    const fetchData = async () => {
+      try{
+        const token = localStorage.getItem('token');
+        console.log(token);
+        const eventsData = await getPMSchedule(token);
+        setEvents(eventsData);
+      }catch(error){
+        console.log('Error fetching data: ', error);
+      }
+    };
+    fetchData();
+
+  }, []);
   
   return (
     <div className={styles.Ccontentbox}>
       <FullCalendar
         plugins={[ dayGridPlugin ]}
         initialView="dayGridMonth"        
-        events={events &&[{
-          title: events.name,
-          start: events.date
-        }]                             
-        }   
+        events={events.map((event) => ({
+          title: event.name,
+          start: event.start,
+          end: event.end
+        }))} 
         selectable={true}  
       />
     </div>

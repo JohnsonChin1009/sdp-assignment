@@ -6,6 +6,7 @@ use App\Models\ProjectManager;
 use Illuminate\Http\Request;
 use App\Models\Schedule;
 use App\Models\Lecturer;
+use Illuminate\Support\Facades\Log;
 
 class EventController extends Controller
 {
@@ -53,20 +54,26 @@ class EventController extends Controller
         return response()->json(['message' => 'Event added successfully']);
     }
 
-    public function getSupSchedule(Request $request)
+    public function getPMSchedule(Request $request)
     {
         $token = $request->header('Authorization');
+        Log::info($request->header('Authorization'));
         $token = str_replace('Bearer ', "", $token);
-        $lecturer = Schedule::where('lecturerid', $token)->first();
+        Log::info($token);
+        $PM = ProjectManager::where('email', $token)->first();
+        Log::info($PM);
+        $PMID = $PM->id;
+        Log::info($PMID);
 
-        if (!$lecturer) {
+        if (!$PM) {
             return response()->json([
                 'success' => false,
                 'message' => 'Lecturer does not have any event records',
             ]
             );}
 
-        $schedule = Schedule::where('lecturerid', $token)->get();
+        $schedule = Schedule::where('lecturerid', $PMID)->get();
+        Log::info($schedule);
 
         return response()->json([
             'success' => true,
