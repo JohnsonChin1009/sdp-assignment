@@ -5,7 +5,7 @@ import { deleteStudent } from '@/pages/api/api';
 
 export default function Table() {
   const [data, setData] = useState([]);
-  const [selectedStudents, setSelectedStudents] = useState([]);
+  
 
     useEffect(() => {
       const fetchData = async () => {
@@ -19,17 +19,7 @@ export default function Table() {
 
       fetchData();
     }, []);
-     const handleStudentSelection = (event) =>{
-      const studentID = event.target.value;
-      const isChecked = event.target.checked;
-      if(isChecked){
-        const student = data.find((student)=> data.id === studentID);
-        setSelectedStudents([...selectedStudents,student]);
-      }else{
-        setSelectedStudents(selectedStudents.filter((student)=>data.id!==studentID))
-      }
-     }
-
+     
      const handleRemoveStudent = async (tp_number) => {
       try {
         const response = await deleteStudent(tp_number);
