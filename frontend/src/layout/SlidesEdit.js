@@ -51,14 +51,15 @@ export default function SliderComponent() {
                     <input type="date" value={newDate} onChange={(e => setNewDate(e.target.value))}/><br/>
                     <input type="time" value={newTime} onChange={(e => setNewTime(e.target.value))}/><br/>
                     Current status (1=Show, 0=Hidden): <div>{slide.show}</div><br/>
-                    <input type="checkbox" value={newShow} onChange={(e => setNewStatus(1))}>Show</input><br/>
-                    <input type="checkbox" value={newShow} onChange={(e => setNewStatus(0))}>Hidden</input><br/>
+                    <input type="checkbox" value={newShow} onChange={(e => setNewStatus("1"))}>Show</input><br/>
+                    <input type="checkbox" value={newShow} onChange={(e => setNewStatus("0"))}>Hidden</input><br/>
+                    <button onClick={updateValue}>Update</button>
                   </div>
                   </div>
               ))}
               
               
-              <div className={styles.button7}><button onClick={updateValue}>Done</button></div>                         
+              <a href="http://localhost:3000/HomePM"><div className={styles.button7}><button >Done</button></div></a>
         </div>
         </>
       )

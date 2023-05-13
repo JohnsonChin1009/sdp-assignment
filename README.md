@@ -113,6 +113,13 @@ update whether you are using a bug to reduce redundancy.</i>
       <td></td>
       <td>Pls help to add the api for all slides (getAllAnouncements, addAnouncements, updateAnnouncements)</td>
     </tr>
+    <tr>
+      <td>13</td>
+      <td>The Lecturer to display own students haven't do</td>
+      <td></td>
+      <td></td>
+      <td>api (displayLecturerOwnStudents)</td>
+    </tr>
     <!-- Add more rows as needed -->
   </tbody>
 </table>

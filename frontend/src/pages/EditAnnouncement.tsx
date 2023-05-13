@@ -6,7 +6,18 @@ import Footer from '@/layout/Footer.js'
 import Slides from '@/layout/SlidesEdit.js'
 const inter = Inter({ subsets: ['latin'] })
 import{logout} from '@/pages/api/api'
+import { useEffect, useState } from 'react'
+import { addNewAnnouncements } from '@/pages/api/api'
+
 export default function Home() {
+    const [newTitle, setNewTitle] = useState('');
+    const [newDes, setNewDescription] = useState('');
+    const [newName, setNewName] = useState('');
+    const [newDate, setNewDate] = useState('');
+    const [newTime, setNewTime] = useState('');
+    const [newStatus, setNewStatus] = useState('');
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
   const handleLogout = async()=>{
     try{
       await logout();
@@ -14,6 +25,17 @@ export default function Home() {
       console.error('Error.logging out: ', error);
     }
   };
+  const submit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+      try {
+        const token = localStorage.getItem('token');
+        const response = await addNewAnnouncements(newTitle, newDes, newName, newDate, newTime, newStatus);
+      } catch (error) {
+        setError(true);
+        setErrorMessage('Error adding Announcements')
+      }
+    };
   return (
     <>
       <Head>
@@ -50,7 +72,7 @@ export default function Home() {
             </table>                                                          
       </main> 
        
-      <div className={styles.content1}>
+      
       <div className={styles.content3}>
         <a href="http://localhost:3000/HomePM">
           <div className={styles.button5}>
@@ -59,9 +81,28 @@ export default function Home() {
         </a>     
       </div><br />
         <Slides/>        
-      </div>
-      <div className={styles.content1}>        
       
+      <div className={styles.content1}>        
+        <h3><u>New Announcements</u></h3>
+        <form>  
+            <br />
+            Title: <br />
+            <input type="text"  required value={newTitle} onChange={(event) => setNewTitle(event.target.value)} /><br /><br />
+            Description:<br />
+            <textarea name="" id="" cols="50" rows="3"required value={newDes} onChange={(event) => setNewDescription(event.target.value)} ></textarea><br /><br />            
+            Announce by:<br/>
+            <input type="text"  required value={newName} onChange={(event) => setNewName(event.target.value)} /><br /><br />
+            Date: <br />
+            <input type="date" required  value={newDate} onChange={(e => setNewDate(e.target.value))}/><br/>
+            Time: <br/>
+            <input type="time" required value={newTime} onChange={(e => setNewTime(e.target.value))}/><br/>
+            <br />
+            Status: <br />            
+            <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("1"))} />Show <br />
+            <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("0"))} />Hidden
+            <br />
+            <button type="submit" className={styles.button6}>Add</button>
+        </form>
       </div>
       
       
