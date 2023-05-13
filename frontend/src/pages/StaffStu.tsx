@@ -88,13 +88,13 @@ export default function Home() {
                 <div className={styles.image2}></div><br /><br /><br /><br /><br /><br /><br />
                 <div className={styles.text}><b>{data.projectmanager}</b></div></a>
             </div><div className={styles.line3}></div><div className={styles.box10} onClick={() => handleClick(data.supervisor)}>
-                <div className={styles.text1}>Supervisor</div><br />
+            <a href='http://localhost:3000/Profile1'><div className={styles.text1}>Supervisor</div><br />
                 <div className={styles.image2}></div><br /><br /><br /><br /><br /><br /><br />
-                <div className={styles.text}><b>{data.supervisor}</b></div>
+                <div className={styles.text}><b>{data.supervisor}</b></div></a>
               </div><div className={styles.line3}></div><div className={styles.box10} onClick={() => handleClick(data.secondmarker)}>
-                <div className={styles.text}>Second Marker</div><br />
+              <a href='http://localhost:3000/Profile1'><div className={styles.text}>Second Marker</div><br />
                 <div className={styles.image2}></div><br /><br /><br /><br /><br /><br /><br />
-                <div className={styles.text}><b>{data.secondmarker}</b></div>
+                <div className={styles.text}><b>{data.secondmarker}</b></div></a>
               </div></>
           )}
           

@@ -39,9 +39,9 @@ update whether you are using a bug to reduce redundancy.</i>
     <tr>
       <td>2</td>
       <td>Announcement table not showing for student home page</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>Tung En</td>
+      <td>Tung En</td>
+      <td>Done</td>
     </tr>
     <tr>
       <td>3</td>
@@ -102,9 +102,9 @@ update whether you are using a bug to reduce redundancy.</i>
     <tr>
       <td>11</td>
       <td>Announcement now need to make adjustments - allow one data in one slide</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>Tung En</td>
+      <td>Tung En</td>
+      <td>Done </td>
     </tr>
     <tr>
       <td>12</td>
