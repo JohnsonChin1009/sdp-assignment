@@ -6,9 +6,11 @@ import Footer from '@/layout/Footer.js'
 import { getStudentLec } from '@/pages/api/api.js'
 import { useEffect, useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
+import { useRouter } from 'next/router';
 
 export default function Home() {
   const [data, setData] = useState('');
+  const router = useRouter();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,7 +25,10 @@ export default function Home() {
     
     fetchData();
   }, []);
-  
+  const handleClick = (id) => {
+    localStorage.setItem('id', id);
+    router.push('/Profile1');
+  };
 
     return (
       <>
@@ -83,14 +88,14 @@ export default function Home() {
         <div className={styles.content6}>
           {data &&(
             <><div className={styles.box10}>
-              <a href='http://localhost:3000/Profile1'><div className={styles.text}>Project Manager</div><br />
+              <a href='http://localhost:3000/Profile1'><div className={styles.text} onClick={() => handleClick(data.projectmanager)}>Project Manager</div><br />
                 <div className={styles.image2}></div><br /><br /><br /><br /><br /><br /><br />
                 <div className={styles.text}><b>{data.projectmanager}</b></div></a>
-            </div><div className={styles.line3}></div><div className={styles.box10}>
+            </div><div className={styles.line3}></div><div className={styles.box10} onClick={() => handleClick(data.supervisor)}>
                 <div className={styles.text1}>Supervisor</div><br />
                 <div className={styles.image2}></div><br /><br /><br /><br /><br /><br /><br />
                 <div className={styles.text}><b>{data.supervisor}</b></div>
-              </div><div className={styles.line3}></div><div className={styles.box10}>
+              </div><div className={styles.line3}></div><div className={styles.box10} onClick={() => handleClick(data.secondmarker)}>
                 <div className={styles.text}>Second Marker</div><br />
                 <div className={styles.image2}></div><br /><br /><br /><br /><br /><br /><br />
                 <div className={styles.text}><b>{data.secondmarker}</b></div>

@@ -243,6 +243,9 @@
 .word5{
   color: red;
 }
+.word6{
+  color: black;    
+}
 /*Home*/
 .content1{
   padding: 45px;
@@ -670,7 +673,8 @@
   border-radius: 2000px;
   width: 100px;
   height: 100px;
-  margin-left: 20px;
+  margin-top: 10px;
+  margin-left: 100px;
   background-color: #efefef;
   float: left;  
 }

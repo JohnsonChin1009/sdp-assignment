@@ -39,8 +39,8 @@ export default function Table() {
                 {data.map((row) => (
                   <div className={styles.row} key={row.id}>
                     <div className={styles.image}></div>
-                    <div><br/>Name <br/>TP<br/>UCDF</div>
-                    <div><br/>Title<br/><br/>Supervisor</div>
+                    <div><br/>{row.name}<br/>{row.tp_number}<br/>{row.intake_code}</div>
+                    <div><br/>{row.title}<br/><br/>{row.supervisor}<br/>{row.secondmarker}</div>
                     <div><br/>IR: <br/>Documentation: <br/>Presentation: <br/></div>      
                     <div><br/><br/><div className={styles.button7}><a href=""><button>Edit</button></a></div></div>                                  
                   </div>

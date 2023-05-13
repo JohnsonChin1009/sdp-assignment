@@ -412,7 +412,7 @@ export const getPMSchedule = async (token) => {
 
 
 //Submission Part
-export const getAllResults = async()=>{
+export const getStuResults = async()=>{
   try{
     const response = await axios.post(`${API_URL}/displayresults`);
     return response.data;
@@ -421,25 +421,7 @@ export const getAllResults = async()=>{
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 }
-export const getResultStu = async(token)=>{
-  try {
-    
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-    console.log(config);
-    const response = await axios.get(`${API_URL}/displayresults`, config);
-    const results = response.data.data;
-    console.log(results);
 
-    return results;
-  }catch(error){
-    
-    throw new Error(error.response?.data?.message || 'An error occurred');
-  }
-}
 
 
 
@@ -545,6 +527,23 @@ export const SearchPM = async (search) => {
 
     
     const response = await axios.get(`${API_URL}/SearchPM`, {
+      params: {
+        result: search,
+      },
+    });
+    const data = response.data.data;
+    console.log(response.data); 
+    return data;
+  } catch (error)
+  {
+    throw new Error(error.response?.data?.message || 'An error occured while fetching Project Manager info');
+  }
+};
+export const SearchStu = async (search) => {
+  try {
+
+    
+    const response = await axios.get(`${API_URL}/SearchStu`, {
       params: {
         result: search,
       },

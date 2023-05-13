@@ -50,7 +50,7 @@ export default function Home() {
             </table>                                                          
       </main> 
       <div className={styles.content1}>
-      <div className={styles.button7}><button>Edit</button></div>
+      <a href="http://localhost:3000/EditAnnouncement"><div className={styles.button7}><button>Edit</button></div></a>
       <br />
         <Slides/>
         

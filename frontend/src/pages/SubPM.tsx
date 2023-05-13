@@ -4,19 +4,22 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import Table from '@/layout/TableSub.js'
-import { getAllResults } from '@/pages/api/api';
+import { getStuResults } from '@/pages/api/api';
 import { useEffect, useState } from 'react'
+import {SearchStu} from '@/pages/api/api';
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home() { 
-    const[searchTerm, setSearchTerm] = useState('');    
+    const[search, setSearch] = useState('');    
     const [data, setData] = useState([]);
+    const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
     
 
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const students = await getAllResults();
+          const students = await getStuResults();
           setData(students);
           console.log(students);
         } catch (error) {
@@ -28,9 +31,18 @@ export default function Home() {
     }, []);
   
   
-  const handleSearch = () => {
-    
-  };
+    const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+  
+        try {
+          console.log(search);
+          const searching = await SearchStu(search);        
+        } catch (error) {
+          setError(true);
+          setErrorMessage('Error searching')
+        }
+      };
+  
   return (
     <>    
       <Head>
@@ -74,7 +86,7 @@ export default function Home() {
           </a>  <br />
       </div>
       <div className={styles.contentbox2a}>      
-          <input type="text" name="Search" placeholder="Search by name" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)}/>
+          <input type="text" name="Search" placeholder="Search by name" value={search} onChange={(e)=>setSearch(e.target.value)}/>
           <button type="submit" onClick={handleSearch} ><Image
                             src="/search_icon.png"
                             alt="Search"
@@ -98,7 +110,7 @@ export default function Home() {
         </>
                         
       
-      <Table />  
+      {/* <Table />   */}
         
         <br /><br /><br />
         <Footer />

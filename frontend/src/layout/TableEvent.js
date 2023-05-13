@@ -26,24 +26,8 @@ export default function Event(){
                     <b>{data.name}</b>
                     <br /><br />
                     <div className={styles.contentbox5}>{data.start} {data.end}</div>
-
-                </div><div className={styles.content8}>
-                        <b>Tuesday</b>
-                        <br /><br />
-                        <div className={styles.contentbox5}>10:00</div>
-                    </div><div className={styles.content8}>
-                        <b>Wednesday</b>
-                        <br /><br />
-                        <div className={styles.contentbox5}>10:00</div>
-                    </div><div className={styles.content8}>
-                        <b>Thursday</b>
-                        <br /><br />
-                        <div className={styles.contentbox5}>10:00</div>
-                    </div><div className={styles.content8}>
-                        <b>Friday</b>
-                        <br /><br />
-                        <div className={styles.contentbox5}>10:00</div>
-                    </div></>
+                    <br/>
+              </div>  </>
 
 )}     
         

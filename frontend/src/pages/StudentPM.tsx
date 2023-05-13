@@ -4,9 +4,25 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import Table from '@/layout/TableStu2.js'
+import { useState } from 'react';
+import {SearchStu} from '@/pages/api/api';
 
 const inter = Inter({ subsets: ['latin'] })
-export default function StudentPM() {      
+export default function StudentPM() {   
+  const [search, setSearch] = useState('');
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+      try {
+        console.log(search);
+        const response = await SearchStu(search);        
+      } catch (error) {
+        setError(true);
+        setErrorMessage('Error searching')
+      }
+    };   
   return (
     <>    
       <Head>
@@ -52,9 +68,9 @@ export default function StudentPM() {
       
       
       <div className={styles.contentbox2a}>
-      <form action="">
-          <input type="text" name="Search"/>
-          <button type="submit"><Image
+      <form onSubmit={handleSearch}>
+          <input type="text" name="Search" value={search} onChange={(event) => setSearch(event.target.value)}/>
+          <button type="submit" ><Image
                             src="/search_icon.png"
                             alt="Search"
                             className={styles.vercelLogo}
@@ -66,7 +82,7 @@ export default function StudentPM() {
       </div>
       <br /><br /><br />    <br /><br /><br />                          
       
-      <Table />                   
+      <Table search={search}/>                   
       
              
       <br /><br /><br />

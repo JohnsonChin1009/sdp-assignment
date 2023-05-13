@@ -39,7 +39,7 @@ export default function Home() {
         >
           <div className={style.image}></div>
           <a href="http://localhost:3000/ProfileStuAssign">
-            <div>{student.name}<br />{student.tp_number}<br />{student.field_of_study}
+            <div>{student.name}<br />{student.tp_number}<br/>{student.intake_code}<br />{student.field_of_study}
             </div></a>
             <div><a href="http://localhost:3000/ProfileStuAssign">
               <b>{student.title}</b>

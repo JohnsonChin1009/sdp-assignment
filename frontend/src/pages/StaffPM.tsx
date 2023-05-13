@@ -18,7 +18,7 @@ export default function Home() {
 
       try {
         console.log(search);
-        const response = await SearchPM(search);
+        const response = await SearchPM(search);        
       } catch (error) {
         setError(true);
         setErrorMessage('Error searching')

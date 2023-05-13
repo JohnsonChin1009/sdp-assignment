@@ -16,6 +16,7 @@ export default function Home() {
     const [newDate, setNewDate] = useState('');
     const [newTime, setNewTime] = useState('');
     const [newStatus, setNewStatus] = useState('');
+    const[message, setMessage] = useState('');
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
   const handleLogout = async()=>{
@@ -31,6 +32,7 @@ export default function Home() {
       try {
         const token = localStorage.getItem('token');
         const response = await addNewAnnouncements(newTitle, newDes, newName, newDate, newTime, newStatus);
+        setMessage("Successfully add.");
       } catch (error) {
         setError(true);
         setErrorMessage('Error adding Announcements')
@@ -101,7 +103,8 @@ export default function Home() {
             <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("1"))} />Show <br />
             <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("0"))} />Hidden
             <br />
-            <button type="submit" className={styles.button6}>Add</button>
+            <a href="http://localhost:3000/EditAnnouncement"><button type="submit" className={styles.button6}>Add</button></a>
+            {message && <p className={styles.word6}>Successfully add.</p>}
         </form>
       </div>
       

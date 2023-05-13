@@ -18,15 +18,15 @@ interface LecturerData {
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
-  const [lecturer, setData] = useState<LecturerData | null>(null);
+  const [lecturer, setData] = useState('');
     
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const token = localStorage.getItem('id');
                 console.log(token);
-                const student = await getPMLecturerProfile(token);
-                setData(student);
+                const lecturer = await getPMLecturerProfile(token);
+                setData(lecturer);
             } catch (error) {
                 console.log('Error fetching data: ', error);
             }

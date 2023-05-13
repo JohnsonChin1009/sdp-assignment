@@ -69,7 +69,7 @@ const updateValue = async()=>{
             </table>                                                              
       </main>            
       <div className={styles.content5}>
-        <a href="http://localhost:3000/ProfileStu.tsx">
+        <a href="http://localhost:3000/ProfileStu">
         <div className={styles.button5}>
           Back 
         </div>
@@ -81,6 +81,7 @@ const updateValue = async()=>{
           <><div className={styles.namebox1} key={data.tp_number}>
             <h2>{data.name}</h2>
             <h3>{data.tp_number}</h3>
+            {data.intake_code}
           </div><br /><br /><br /><br /><div className={styles.topicbox2}>
             <h4>Final Year Project Title</h4><br />
             <input type="text" value={data.title} className={styles.textbox} readOnly/><br/><br/>

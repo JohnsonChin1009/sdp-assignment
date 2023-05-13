@@ -35,7 +35,7 @@ export default function Table() {
                 {data.map((item) => (
                   <div className={style.row1} key={item.id}>
                     <div className={style.image}></div>
-                    <div>{item.name} <br/>{item.tp_number}</div>
+                    <div>{item.name} <br/>{item.tp_number}<br/>{item.intake_code}</div>
                     <div><b>{item.title}</b><br/><br/>{item.supervisor}<br/>{item.secondmarker}</div>
                     <div><button onClick={() => handleRemoveStudent(item.tp_number)}>
                       Remove</button></div>

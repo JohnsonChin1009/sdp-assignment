@@ -4,10 +4,39 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import Event from '@/layout/TableEvent.js'
+import {getLecturerProfile } from './api/api'
+import{getPMProfile} from './api/api'
+import{useState,useEffect} from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    
+    fetchData();
+    fetchData1();
+}, []);
+const fetchData = async () => {
+  try {
+      const token = localStorage.getItem('id');
+      console.log(token);
+      const pm = await getPMProfile(token);
+      setData(pm);
+  } catch (error) {
+      console.log('Error fetching data: ', error);
+  }
+};
+const fetchData1 = async () => {
+  try {
+      const token = localStorage.getItem('id');
+      console.log(token);
+      const lecturer = await getLecturerProfile(token);
+      setData(lecturer);
+  } catch (error) {
+      console.log('Error fetching data: ', error);
+  }
+};
     return (
       <>
         <Head>
@@ -50,7 +79,7 @@ export default function Home() {
           </a>  <br />
       </div>
       <div className={styles.content6}>        
-        <form action="" className={styles.box11}>            
+        {/* <form action="" className={styles.box11}>            
             <select name="date" id="date">
                 <option value="1">January</option>
                 <option value="2">February</option>
@@ -73,9 +102,12 @@ export default function Home() {
                 <option value="2027">2027</option>
                 <option value="2028">2028</option>
             </select>            
-        </form>
+        </form> */}
         <div className={styles.image3}></div>
-        <div className={styles.box11a}>Name <br /> Description <br />Platform</div>
+        {data && (
+          <div className={styles.box11a}>{data.name}<br /> {data.field_of_study} <br />{data.email}</div>
+        )}
+        
       </div>
       <Event /><br /><br />
         <br /><br /><br />

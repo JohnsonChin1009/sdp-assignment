@@ -17,6 +17,7 @@ interface StudentData {
     name: string;
     tp_number: string;
     title: string;
+    intake_code:string;
     field_of_study: string;
     supervisor: string;
     secondmarker: string;
@@ -105,6 +106,7 @@ export default function StudentPM() {
                             <div className={styles.namebox1} key={data.tp_number}>
                                 <h2>{data.name}</h2>
                                 <h3>{data.tp_number}</h3>
+                                {data.intake_code}
                             </div>
                             <div className={styles.line2}></div>
                             <div className={styles.topicbox}>
