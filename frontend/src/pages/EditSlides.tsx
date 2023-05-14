@@ -114,14 +114,14 @@ export default function Home() {
             <input type="text"  required value={newName} onChange={(event) => setNewName(event.target.value)} /><br /><br />
             <div>{slide.date} {slide.time}</div><br/>
             Date: <br />
-            <input type="date" required  value={newDate} onChange={(event => setNewDate(e.target.value))}/><br/>
+            <input type="date" required  value={newDate} onChange={(event => setNewDate(event.target.value))}/><br/>
             Time: <br/>
-            <input type="time" required value={newTime} onChange={(event => setNewTime(e.target.value))}/><br/>
+            <input type="time" required value={newTime} onChange={(event => setNewTime(event.target.value))}/><br/>
             <br />
             Current status (1=Show, 0=Hidden): <div>{slide.show}</div><br/>
             Status: <br />            
-            <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("1"))} />Show <br />
-            <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("0"))} />Hidden
+            <input type="checkbox" value={newStatus} onChange={(event => setNewStatus("1"))} />Show <br />
+            <input type="checkbox" value={newStatus} onChange={(event => setNewStatus("0"))} />Hidden
             <br />
              <button onClick={updateValue}>Update</button>
             
