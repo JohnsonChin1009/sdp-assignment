@@ -4,25 +4,32 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import Event from '@/layout/TableEvent.js'
-import {getLecturerProfile } from './api/api'
-import{getPMProfile} from './api/api'
+import {getStuLecProfile } from './api/api'
+import{getStuPMProfile} from './api/api'
 import{useState,useEffect} from 'react'
 import{logout} from '@/pages/api/api'
 
 const inter = Inter({ subsets: ['latin'] })
-
+// interface Lecturer {
+//   id: string;
+//   name: string;
+//   email:string;
+//   field_of_study: string;
+// }
 export default function Home() {
   const [data, setData] = useState([]);
+  const [data1, setData1] = useState([]);  
   useEffect(() => {
     
     fetchData();
     fetchData1();
+    
 }, []);
 const fetchData = async () => {
   try {
       const token = localStorage.getItem('id');
       console.log(token);
-      const pm = await getPMProfile(token);
+      const pm = await getStuPMProfile(token);
       setData(pm);
   } catch (error) {
       console.log('Error fetching data: ', error);
@@ -32,12 +39,13 @@ const fetchData1 = async () => {
   try {
       const token = localStorage.getItem('id');
       console.log(token);
-      const lecturer = await getLecturerProfile(token);
-      setData(lecturer);
+      const lecturer = await getStuLecProfile(token);
+      setData1(lecturer);
   } catch (error) {
       console.log('Error fetching data: ', error);
   }
 };
+
 const handleLogout = async()=>{
   try{
     await logout();
@@ -89,8 +97,8 @@ const handleLogout = async()=>{
       <div className={styles.content6}>        
         
         <div className={styles.image3}></div>
-        {data && (
-          <div className={styles.box11a}>{data.name}<br /> {data.field_of_study} <br />{data.email}</div>
+        {data || data1 && (
+          <div className={styles.box11a}>{data.name || data1.name}<br /> {data.field_of_study|| data1.field_of_study} <br />{data.email || data1.email}</div>
         )}
         
       </div>

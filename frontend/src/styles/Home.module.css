@@ -1070,27 +1070,25 @@
     margin-left: 20px;
   }
   .image4{  
-    width: 200px;
-    height: 100px;
-    float: right;   
-    margin-top: 10px;
-    margin-right: -20px; 
+    width: 0px;
+    height: 0px;
+    
   }
   .word7{
     margin-left: 30px;
-    font-size: 20px;
+    font-size: 13px;
     color: #2c4051;
   
   }
   .word8{
-    margin-left: 390px;
+    margin-left: 250px;
     font-size: 10px;
     color: #497b9c;
   
   }
   .word9{
-    margin-left: 390px;
-    font-size: 10px;
+    margin-left: 250px;
+    font-size: 8px;
     color: #2c4051;
   
   }
