@@ -18,7 +18,7 @@ interface LecturerData {
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
-  const [lecturer, setData] = useState('');
+  const [lecturer, setData] = useState([]);
     
     useEffect(() => {
         const fetchData = async () => {

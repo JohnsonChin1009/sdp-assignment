@@ -127,6 +127,13 @@ update whether you are using a bug to reduce redundancy.</i>
       <td></td>
       <td>words with space such as Bob Jones will count the space as anotehr data and written in different column</td>
     </tr>
+    <tr>
+      <td>15</td>
+      <td>the problem calling the data for lecturer profile with events in student page</td>
+      <td></td>
+      <td></td>
+      <td>id is still null, but can be passed in and there is some internal server error and route api not found</td>
+    </tr>
     
     <!-- Add more rows as needed -->
   </tbody>
