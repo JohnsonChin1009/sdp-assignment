@@ -10,14 +10,14 @@ import{useState,useEffect} from 'react'
 import{logout} from '@/pages/api/api'
 
 const inter = Inter({ subsets: ['latin'] })
-// interface Lecturer {
-//   id: string;
-//   name: string;
-//   email:string;
-//   field_of_study: string;
-// }
+interface Lecturer {
+  id: string;
+  name: string;
+  email:string;
+  field_of_study: string;
+}
 export default function Home() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Lecturer | null>(null);
   const [data1, setData1] = useState([]);  
   useEffect(() => {
     
@@ -28,8 +28,9 @@ export default function Home() {
 const fetchData = async () => {
   try {
       const token = localStorage.getItem('id');
-      console.log(token);
+      
       const pm = await getStuPMProfile(token);
+      console.log(pm)
       setData(pm);
   } catch (error) {
       console.log('Error fetching data: ', error);
@@ -37,9 +38,8 @@ const fetchData = async () => {
 };
 const fetchData1 = async () => {
   try {
-      const token = localStorage.getItem('id');
-      console.log(token);
-      const lecturer = await getStuLecProfile(token);
+      const token = localStorage.getItem('lecturerid');      
+      const lecturer = await getStuLecProfile(token);      
       setData1(lecturer);
   } catch (error) {
       console.log('Error fetching data: ', error);
@@ -97,8 +97,11 @@ const handleLogout = async()=>{
       <div className={styles.content6}>        
         
         <div className={styles.image3}></div>
-        {data || data1 && (
-          <div className={styles.box11a} key={data.id}>{data.name || data1.name}<br /> {data.field_of_study|| data1.field_of_study} <br />{data.email || data1.email}</div>
+        {data && (
+          <><div className={styles.box11a} key={data.id}><h2>{data.name }</h2><br/>{data.id}<br /> {data.field_of_study} <br />{data.email }</div></>
+        )}
+        {data1 && (
+          <><div className={styles.box11a} key={data1.id}><h2>{data1.name }</h2><br /> {data1.field_of_study} <br />{data1.email }</div></>
         )}
         
       </div>

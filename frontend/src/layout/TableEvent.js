@@ -36,15 +36,24 @@ export default function Event(){
     return (
         
 <div className={styles.content6}>  
-{data || data1 &&(
-    <><div className={styles.content7}>
-                    <b>{data.name || data1.name}</b>
+{data &&(
+    <><div className={styles.content7} key={data.id}>
+                    <b>{data.name}</b>
                     <br /><br />
-                    <div className={styles.contentbox5}>{data.start || data1.start} {data.end || data1.end}</div>
+                    <div className={styles.contentbox5}>{data.start} {data.end}</div>
                     <br/>
               </div>  </>
 
 )}     
+{!data && data1 &&(
+    <><div className={styles.content7} key={data1.id}>
+                    <b>{ data1.name}</b>
+                    <br /><br />
+                    <div className={styles.contentbox5}>{data1.start} {data1.end}</div>
+                    <br/>
+              </div>  </>
+
+)}
         
         
       </div>

@@ -23,8 +23,12 @@ export default function Table() {
     const handleClick = (tpNumber) => {
       localStorage.setItem('tp_number', tpNumber);
       console.log(id);
-      // router.push('/ProfileLecStu');
+      router.push('/ProfileLecStu');
     };
+    const filteredData = data.filter((student) => {
+      return student.name.toLowerCase().includes(search.toLowerCase());
+    });
+
     return (
 <div className={styles.content9}>
       <form action="" className={styles.box12}>
@@ -42,12 +46,12 @@ export default function Table() {
         </select>
       </form><br/><br/><br/><br/><br/>
       <div className={styles.container1}>
-                {data.map((row) => (
-                  <div className={styles.row} key={row.id} onClick={()=>handleClick(data.tp_number)}>
+                {filteredData.map((row) => (
+                  <div className={styles.row} key={row.id} onClick={()=>handleClick(row.tp_number)}>
                     <div className={styles.image}></div>
-                    <a href=""><div onClick={()=>handleClick(data.tp_number)} ><br/>{data.name}<br/>{data.tp_number}<br/>{row.intake_code}</div></a>  
-                    <div onClick={()=>handleClick(data.tp_number)}><br/>{row.title}<br/><br/>{data.supervisor}<br/>{data.secondmarker}</div>
-                    <div onClick={()=>handleClick(data.tp_number)}><br/>IR: <br/>Documentation: <br/>Presentation: <br/></div>   
+                    <a href=""><div onClick={()=>handleClick(row.tp_number)} ><br/>{row.name}<br/>{row.tp_number}<br/>{row.intake_code}</div></a>  
+                    <div onClick={()=>handleClick(row.tp_number)}><br/>{row.title}<br/><br/>{row.supervisor}<br/>{row.secondmarker}</div>
+                    <div onClick={()=>handleClick(row.tp_number)}><br/>IR: <br/>Documentation: <br/>Presentation: <br/></div>   
                     <div><br/><br/><div className={styles.button7}><a href=""><button>Update</button></a></div></div>                                  
                   </div>
                 ))}

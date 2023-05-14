@@ -10,8 +10,7 @@ import { getLecStudentProfile } from '@/pages/api/api';
 import { UpdateProgression } from '@/pages/api/api'
 
 export default function Home() {
-    const [data, setData] = useState([]);
-    const [newStatus, setNewStatus] = useState('');
+    const [data, setData] = useState([]);    
     const [newStatus1, setNewStatus1] = useState('');
     const [newStatus2, setNewStatus2] = useState('');
     const [newStatus3, setNewStatus3] = useState('');
@@ -40,7 +39,7 @@ export default function Home() {
   const updateValue = async()=>{
     try{
       const token = localStorage.getItem('tp_number'); //Retrieving token from local storage)
-      const update1 = await UpdateProgression(token, newStatus, newStatus1, newStatus2, newStatus3)
+      const update1 = await UpdateProgression(token, newStatus1, newStatus2, newStatus3)
       setData(update1);
       console.log(update1);
       fetchData();
@@ -122,7 +121,7 @@ export default function Home() {
                                           </tr>
                                       </tbody>
                                   </table>
-                                  <div><br /><input type="checkbox" value={newStatus} onChange={(event => setNewStatus(event.target.checked ? "1" : ""))}/> Proposal <br />
+                                  <div><br /><br />
                                   <input type="checkbox" value={newStatus1} onChange={(event => setNewStatus1(event.target.checked ? "1" : ""))}/> IR <br />
                                   <input type="checkbox" value={newStatus2} onChange={(event => setNewStatus2(event.target.checked ? "1" : ""))}/> Documentation<br />
                                   <input type="checkbox" value={newStatus3} onChange={(event => setNewStatus3(event.target.checked ? "1" : ""))}/> Presentation <br />

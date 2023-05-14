@@ -68,8 +68,11 @@ class StudentController extends Controller
         
         $data = [
             'projectmanager' => $projectManager ? $projectManager->name : '',
+            'projectmanagerid' => $projectManager ? $projectManager->id : '',
             'supervisor' => $supervisor ? $supervisor->name : '',
+            'supervisorid' => $supervisor ? $supervisor->id : '',
             'secondmarker' => $secondMarker ? $secondMarker->name : '',
+            'secondmarkerid' => $secondMarker ? $secondMarker->id : '',
         ];
 
         return response()->json([
@@ -149,20 +152,14 @@ class StudentController extends Controller
                 'success' => false,
                 'message' => 'Error finding lecturer record',    
             ]);
-        }
-
-        // $supervisor = $student->supervisor ? $student->supervisor : 'Not assigned';
-        // $secondmarker = $student->second_marker ? $student->second_marker : 'Not assigned';
-
-        // $lecturers = Lecturer::where('field_of_study', $student->field_of_study)->get(['name', 'id']);
-        
+        }                
         $data = [
             'name' => $projectmanager->name,
             'id' => $projectmanager->id,            
             'field_of_study' => $projectmanager->field_of_study,            
             'email' => $projectmanager->email,
         ];
-
+       
         return response()->json([
             'success' => true,
             'data' => $data,
