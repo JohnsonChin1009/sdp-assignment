@@ -121,9 +121,17 @@ export default function Home() {
             <a href="http://localhost:3000/EditAnnouncement"><button type="submit" className={styles.button6} onClick={submit}>Add</button></a>
             {message && <p className={styles.word6}>Successfully add.</p>}
         </form>
+        <Image 
+        src="/design-pen1.png"
+        alt="profile"
+        className={styles.image5}
+        width={100}
+        height={100}               
+        priority
+      />
       </div>
       
-      <a href="http://localhost:3000/HomePM"><div className={styles.button10}><button >Done</button></div></a>
+      
       <Footer />
       </>
   )

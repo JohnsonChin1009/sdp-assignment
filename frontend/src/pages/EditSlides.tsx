@@ -48,6 +48,7 @@ export default function Home() {
           const token = localStorage.getItem('id'); //Retrieving token from local storage)
           const update1 = await UpdateAnnouncements(token, newTitle, newDes, newName, newDate, newTime, newStatus )
           setSlides(update1);
+          console.log(update1);
           fetchData();
         }catch(error){
           console.log('Error updating value: ', error);

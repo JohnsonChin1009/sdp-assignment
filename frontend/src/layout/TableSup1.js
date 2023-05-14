@@ -43,11 +43,11 @@ export default function Table() {
       </form><br/><br/><br/><br/><br/>
       <div className={styles.container1}>
                 {data.map((row) => (
-                  <div className={styles.row} key={row.id}>
-                    <div className={styles.image}></div><a href="">
-                    <div><br/>{row.name}<br/>{row.tp_number}<br/>{row.intake_code}</div>
-                    <div><br/>{row.title}<br/><br/>{row.supervisor}<br/>{row.secondmarker}</div>
-                    <div><br/>IR: <br/>Documentation: <br/>Presentation: <br/></div> </a>    
+                  <div className={styles.row} key={row.id} onClick={()=>handleClick(data.tp_number)}>
+                    <div className={styles.image}></div>
+                    <a href=""><div onClick={()=>handleClick(data.tp_number)} ><br/>{row.name}<br/>{row.tp_number}<br/>{row.intake_code}</div></a>  
+                    <div onClick={()=>handleClick(data.tp_number)}><br/>{row.title}<br/><br/>{row.supervisor}<br/>{row.secondmarker}</div>
+                    <div onClick={()=>handleClick(data.tp_number)}><br/>IR: <br/>Documentation: <br/>Presentation: <br/></div>   
                     <div><br/><br/><div className={styles.button7}><a href=""><button>Edit</button></a></div></div>                                  
                   </div>
                 ))}

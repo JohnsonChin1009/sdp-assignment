@@ -502,6 +502,22 @@ export const getStuResults = async()=>{
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 }
+export const UpdateProgression = async (token, newStatus, newStatus1, newStatus2) =>{
+  try{
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token + " " + newStatus + " " + newStatus1 + " " + newStatus2
+      }
+    }    
+    console.log(config);
+    const response = await axios.put(`${API_URL}/updateAnnouncements`, {}, config);
+    const update = response.data.message;
+    console.log(update);    
+    return update;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}
 
 
 
