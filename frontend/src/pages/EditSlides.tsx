@@ -19,6 +19,8 @@ export default function Home() {
     const [newStatus, setNewStatus] = useState('');
     const[slides, setSlides] = useState([]);
     const[message, setMessage] = useState('');    
+    const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
     useEffect(() => {
       
 
@@ -52,6 +54,8 @@ export default function Home() {
           fetchData();
         }catch(error){
           console.log('Error updating value: ', error);
+          setError(true);
+          setErrorMessage('Could not Update!')          
         }
       }
   return (
@@ -127,6 +131,14 @@ export default function Home() {
              <button onClick={updateValue}>Update</button>
             
             </div> ))}
+            <Image 
+        src="/design-pen1.png"
+        alt="profile"
+        className={styles.image5}
+        width={100}
+        height={100}               
+        priority
+      />
       </div>{message && <p className={styles.word6}>Successfully Update.</p>}
       
       

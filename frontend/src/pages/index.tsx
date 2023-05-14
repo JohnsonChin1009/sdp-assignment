@@ -20,7 +20,18 @@ export default function Login() {
   const[message, setMessage] = useState('');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [loginAttempts, setLoginAttempts] = useState(0);
+  const MAX_ATTEMPTS = 3; // Define the maximum number of login attempts
+  const [showErrorMessage, setShowErrorMessage] = useState(true);
+
+  // Update the loginAttempts count when there's an invalid input
+  const handleInvalidInput = () => {
+    setLoginAttempts(loginAttempts + 1);
+    setShowErrorMessage(true);    
+  };
   
+  
+
    const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -80,10 +91,12 @@ export default function Login() {
                 <input type="text" required  value ={email} onChange={(event)=>setEmail(event.target.value)}name="email"/><br /><br />
                 Password <br />
                 <input type="password"required value={password} onChange={(event)=>setPassword(event.target.value)} name="password" /><br /><br />                   
-                <button type="submit" value="login" name="login" className={styles.box2button}>LOGIN</button>
+                <button type="submit" value="login" name="login" className={styles.box2button} onClick={handleInvalidInput}>LOGIN</button>
               </form> <br />
-              {message && <p><i>Successful Login, Loading...</i></p>}
-              {error && <p className={styles.word5}><i>**{errorMessage}</i></p>}
+              {loginAttempts < MAX_ATTEMPTS && (
+  <>
+              {message ? <p><i>Successful Login, Loading...</i></p>: null}
+              {showErrorMessage && error ? <p className={styles.word5}><i>**{errorMessage}</i></p>: null}</>)}
             </div>
         </div>
       </div><br /><br /><br />

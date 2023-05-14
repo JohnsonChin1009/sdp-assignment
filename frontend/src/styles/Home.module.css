@@ -222,6 +222,12 @@
   grid-template-columns: repeat(3,min-content);
   grid-column-gap:40px; 
 }
+.row2{
+  display:grid;
+  grid-template-columns: repeat(2,min-content);
+  grid-column-gap:40px;
+  white-space: nowrap; 
+}
 .row1>div{
   white-space:nowrap;
   word-break: break-all;
@@ -1009,7 +1015,11 @@
     transition: 2s;
   }
   
-  
+  .container{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 10px;
+  }
   
   .row{
     display:grid;
@@ -1020,8 +1030,14 @@
   .row1{
     display:grid;
     grid-template-columns: repeat(5, 2fr);
-    gap: 40px;    
-    overflow-wrap: break-word;
+    gap: 5px;        
+    white-space: nowrap;
+  }
+  .row2{
+    display:grid;
+    grid-template-columns: repeat(3,min-content);
+    grid-column-gap:20px; 
+    white-space: nowrap;
   }
   .box11{  
     float: left;

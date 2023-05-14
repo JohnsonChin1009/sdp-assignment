@@ -102,6 +102,7 @@ export default function Home() {
           const response = await addPMEvent(token, eventName, startDatetime, endtime);
           fetchData();
           window.location.reload();
+          alert("Successfully add!")
         } catch (error) {
           setError(true);
           setErrorMessage('Error adding Event')
@@ -114,11 +115,15 @@ export default function Home() {
         const response = await deleteEvent(id);
         setData(data.filter((event) => event.id !== id));
         fetchData();    
-        setMesssage("Successfully deteled.");
+        alert("Successcfully deleted.");
+        window.location.reload();
+        setMesssage("Successfully deteled!");
       } catch (error) {
         console.log('Error deleting event: ', error);
       }
     };
+    
+    
     const handleLogout = async()=>{
       try{
         await logout();

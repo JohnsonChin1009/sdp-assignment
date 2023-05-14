@@ -92,6 +92,7 @@ export default function Home() {
       try {
         const token = localStorage.getItem('token');
         const response = await addSupEvent(token, eventName, startDatetime, endtime);
+        alert("Successfully add!");
       } catch (error) {
         setError(true);
         setErrorMessage('Error adding Event')
@@ -101,6 +102,7 @@ export default function Home() {
       try {
         const response = await deleteEvent(id);
         setData(data.filter((event) => event.id !== id));
+        alert("Successfully deleted!")
       } catch (error) {
         console.log('Error deleting event: ', error);
       }

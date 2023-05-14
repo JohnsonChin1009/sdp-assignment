@@ -32,7 +32,7 @@ export default function TableStaff({ search }) {
         
               <div className={style.container}>
                 {filteredData.map((staff) => (
-                  <div className={style.row1} key={staff.id} onClick={() => handleClick(staff.id)}>
+                  <div className={style.row2} key={staff.id} onClick={() => handleClick(staff.id)}>
                     <div className={style.image}></div>
                     <div><a href="http://localhost:3000/ProfilePMLec">{staff.name}<br/><br/>{staff.field_of_study}</a></div>                                      
                     </div>

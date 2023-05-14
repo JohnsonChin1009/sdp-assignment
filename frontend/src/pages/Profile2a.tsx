@@ -31,6 +31,7 @@ const updateValue = async()=>{
     const update1 = await UpdateProfileStu(token, newValue)
     setData(update1);
     fetchData();
+    alert("Successfully update!");
   }catch(error){
     console.log('Error updating value: ', error);
   }

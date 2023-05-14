@@ -47,6 +47,7 @@ export default function Home() {
         const token = localStorage.getItem('token');
         const response = await addNewAnnouncements(newTitle, newDes, newName, newDate, newTime, newStatus);
         fetchData();
+        alert("New Announcement has added in.");
         setMessage("Successfully add.");
       } catch (error) {
         setError(true);
