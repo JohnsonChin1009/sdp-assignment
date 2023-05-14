@@ -45,7 +45,7 @@ export default function Home() {
   };
   const updateValue = async()=>{
         try{
-          const token = localStorage.getItem('token'); //Retrieving token from local storage)
+          const token = localStorage.getItem('id'); //Retrieving token from local storage)
           const update1 = await UpdateAnnouncements(token, newTitle, newDes, newName, newDate, newTime, newStatus )
           setSlides(update1);
           fetchData();
