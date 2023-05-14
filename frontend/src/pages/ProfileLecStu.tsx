@@ -1,8 +1,7 @@
 
 import styles from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react'
-import { getLecturerOwnStudent } from '@/pages/api/api';
-import { useRouter } from 'next/router';
+import { getLecturerStudentProfile } from '@/pages/api/api';
 export default function Table() {
   const [data, setData] = useState([]);
     
@@ -11,7 +10,7 @@ export default function Table() {
       const fetchData = async () => {
           try {
                 const token = localStorage.getItem('token'); //Retrieving token from local storage)
-                const student = await getLecturerOwnStudent(token);
+                const student = await getLecturerStudentProfile(token);
                 setData(student);
         } catch (error) {
             console.log('Error fetching data: ', error);
@@ -20,11 +19,6 @@ export default function Table() {
         fetchData();
 
     }, []);
-    const handleClick = (tpNumber) => {
-      localStorage.setItem('tp_number', tpNumber);
-      console.log(id);
-      // router.push('/EditSlides');
-    };
     return (
 <div className={styles.content9}>
       <form action="" className={styles.box12}>
@@ -44,10 +38,10 @@ export default function Table() {
       <div className={styles.container1}>
                 {data.map((row) => (
                   <div className={styles.row} key={row.id}>
-                    <div className={styles.image}></div><a href="">
+                    <div className={styles.image}></div>
                     <div><br/>{row.name}<br/>{row.tp_number}<br/>{row.intake_code}</div>
                     <div><br/>{row.title}<br/><br/>{row.supervisor}<br/>{row.secondmarker}</div>
-                    <div><br/>IR: <br/>Documentation: <br/>Presentation: <br/></div> </a>    
+                    <div><br/>IR: <br/>Documentation: <br/>Presentation: <br/></div>      
                     <div><br/><br/><div className={styles.button7}><a href=""><button>Edit</button></a></div></div>                                  
                   </div>
                 ))}

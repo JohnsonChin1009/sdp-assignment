@@ -32,13 +32,13 @@ export default function SliderComponent() {
               {slides.filter((slide)=> slide.title || slide.description).map((slide)=>(
 
                   <div key={slide.id}>
-                  <div  className={styles.slide1} alt={slide.id}>
+                  <div  className={styles.slide1} >
                     <h3>{slide.title}</h3><br/>
                     Description:
                     <p>{slide.description} <br />by {slide.projectmanager}</p><br/>                                       
                     <div>{slide.date} {slide.time}</div><br/>                    
                     Current status (1=Show, 0=Hidden): <div>{slide.show}</div><br/>                
-                    <a href="http://localhost:3000/EditSlides"><button className={styles.button6} onClick={handleClick(slide.id)}>Edit</button></a>              
+                    <a href="http://localhost:3000/EditSlides"><button className={styles.button6} onClick={()=>handleClick(slide.id)}>Edit</button></a>              
                   </div>
                   </div>
               ))}
