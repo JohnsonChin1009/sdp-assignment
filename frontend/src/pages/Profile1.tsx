@@ -17,7 +17,7 @@ const inter = Inter({ subsets: ['latin'] })
 //   field_of_study: string;
 // }
 export default function Home() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
   const [data1, setData1] = useState([]);  
   useEffect(() => {
     
@@ -27,10 +27,11 @@ export default function Home() {
 }, []);
 const fetchData = async () => {
   try {
-      const token = localStorage.getItem('id');      
+      const token = localStorage.getItem('id'); 
+      console.log(token)     ;
       const pm = await getStuPMProfile(token);
       console.log(pm);
-      setData(pm);
+      setData(...pm);
   } catch (error) {
       console.log('Error fetching data: ', error);
   }

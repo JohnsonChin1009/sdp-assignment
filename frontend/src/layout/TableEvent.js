@@ -18,8 +18,8 @@ export default function Event(){
               const token = localStorage.getItem('id'); //Retrieving token from local storage)
               console.log(token);
               const lecturer = await getPMSchedule(token);
-              console.log(lecturer);
-              setData(lecturer);
+              console.log(lecturer.data);
+              setData(lecturer.data);
       } catch (error) {
           console.log('Error fetching data: ', error);
       }
@@ -29,7 +29,7 @@ export default function Event(){
               const token = localStorage.getItem('id'); //Retrieving token from local storage)
               console.log(token);
               const lecturer = await getLecSchedule(token);
-              setData1(lecturer);
+              setData1(lecturer.data1);
       } catch (error) {
           console.log('Error fetching data: ', error);
       }
@@ -37,8 +37,8 @@ export default function Event(){
     return (
         
 <div className={styles.content6}>  
-{data &&(
-    <><div className={styles.content7} key={data.id}>
+{data.length > 0  &&(
+    <><div className={styles.content7} key={data.lecturerid}>
                     <b>{data.name}</b>
                     <br /><br />
                     <div className={styles.contentbox5}>{data.start} {data.end}</div>
@@ -47,7 +47,7 @@ export default function Event(){
 
 )}     
 {!data && data1 &&(
-    <><div className={styles.content7} key={data1.id}>
+    <><div className={styles.content7} key={data1.lecturerid}>
                     <b>{ data1.name}</b>
                     <br /><br />
                     <div className={styles.contentbox5}>{data1.start} {data1.end}</div>

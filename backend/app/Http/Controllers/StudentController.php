@@ -147,7 +147,8 @@ class StudentController extends Controller
                 'success' => false,
                 'message' => 'Error finding lecturer record',    
             ]);
-        }                
+        }           
+        
         $data = [
             'name' => $projectmanager->name,
             'id' => $projectmanager->id,            

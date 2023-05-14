@@ -121,6 +121,7 @@ export const getStuPMProfile = async (token) => {
     }
     console.log(config);
     const response = await axios.get(`${API_URL}/displayStuPMProfile`, config);
+    console.log(response)
     const PM = response.data.data;
     console.log(PM);
 
