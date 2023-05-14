@@ -10,14 +10,14 @@ import{useState,useEffect} from 'react'
 import{logout} from '@/pages/api/api'
 
 const inter = Inter({ subsets: ['latin'] })
-interface Lecturer {
-  id: string;
-  name: string;
-  email:string;
-  field_of_study: string;
-}
+// interface Lecturer {
+//   id: string;
+//   name: string;
+//   email:string;
+//   field_of_study: string;
+// }
 export default function Home() {
-  const [data, setData] = useState<Lecturer | null>(null);
+  const [data, setData] = useState(null);
   const [data1, setData1] = useState([]);  
   useEffect(() => {
     
@@ -27,10 +27,9 @@ export default function Home() {
 }, []);
 const fetchData = async () => {
   try {
-      const token = localStorage.getItem('id');
-      
+      const token = localStorage.getItem('id');      
       const pm = await getStuPMProfile(token);
-      console.log(pm)
+      console.log(pm);
       setData(pm);
   } catch (error) {
       console.log('Error fetching data: ', error);
@@ -41,6 +40,7 @@ const fetchData1 = async () => {
       const token = localStorage.getItem('id');      
       const lecturer = await getStuLecProfile(token);      
       setData1(lecturer);
+      console.log(lecturer);
   } catch (error) {
       console.log('Error fetching data: ', error);
   }
@@ -98,10 +98,10 @@ const handleLogout = async()=>{
         
         <div className={styles.image3}></div>
         {data && (
-          <><div className={styles.box11a} key={data.id}><h2>{data.name }</h2><br/>{data.id}<br /> {data.field_of_study} <br />{data.email }</div></>
+          <><div className={styles.box11a} key={data.id}><h2>{data.name }</h2><br /> {data.field_of_study} <br />{data.email}</div></>
         )}
-        {data1 && (
-          <><div className={styles.box11a} key={data1.id}><h2>{data1.name }</h2><br /> {data1.field_of_study} <br />{data1.email }</div></>
+        {!data && data1 && (
+          <><div className={styles.box11a} key={data1.id}><h2>{data1.name}</h2><br /> {data1.field_of_study} <br />{data1.email}</div></>
         )}
         
       </div>

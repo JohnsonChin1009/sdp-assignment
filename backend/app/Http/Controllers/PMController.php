@@ -134,7 +134,7 @@ class PMController extends Controller
         if(!$lecturer) {
             return response()->json([
                 'success' => false,
-                'message' => 'Error finding student record',    
+                'message' => 'Error finding lecturer record',    
             ]);
         }
 

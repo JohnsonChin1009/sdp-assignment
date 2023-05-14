@@ -33,12 +33,11 @@ export default function Table() {
         
               <div className={style.container1}>
                 {data &&(
-                  <div className={style.row1} key={item.id}>
+                  <div className={style.row1} key={data.id}>
                     <div className={style.image}></div>
-                    <div>{item.name} <br/>{item.tp_number}<br/>{item.intake_code}</div>
-                    <div><b>{item.title}</b><br/><br/>{item.supervisor}<br/>{item.secondmarker}</div>
-                    <div><button onClick={() => handleRemoveStudent(item.tp_number)}>
-                      Remove</button></div>
+                    <div>{data.name} <br/>{data.tp_number}<br/>{data.intake_code}</div>
+                    <div><b>{data.title}</b><br/><br/>{data.supervisor}<br/>{data.secondmarker}</div>
+                    <div><button onClick={() => handleRemoveStudent(data.tp_number)}>Remove</button></div>
                   </div>
                 )}
                 <br/>

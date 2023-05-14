@@ -18,6 +18,7 @@ export default function Event(){
               const token = localStorage.getItem('id'); //Retrieving token from local storage)
               console.log(token);
               const lecturer = await getPMSchedule(token);
+              console.log(lecturer);
               setData(lecturer);
       } catch (error) {
           console.log('Error fetching data: ', error);

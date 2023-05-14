@@ -141,7 +141,7 @@ class StudentController extends Controller
     {
         $token = $request->header('Authorization');
         $token = str_replace('Bearer ', "", $token);
-        $projectmanager = ProjectManager::where('id', $token)->first();
+        $projectmanager = ProjectManager::where('id', $token)->first();        
         if(!$projectmanager) {
             return response()->json([
                 'success' => false,
