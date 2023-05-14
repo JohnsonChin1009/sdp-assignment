@@ -98,7 +98,7 @@ const handleLogout = async()=>{
             </div><div className={styles.infobox2}>
                 Email : {data.email} <br /><br />
                 Email  : <input type="email"value={newEmail}onChange={(e => setNewEmail(e.target.value))}/><br /><br /> <br />               
-              </div><a href="http://localhost:3000/Profile"><button onClick={updateValue} className={styles.button6}>Done Editing</button></a></>
+              </div><button onClick={updateValue} className={styles.button6}>Done Editing</button></>
              
           )}
           

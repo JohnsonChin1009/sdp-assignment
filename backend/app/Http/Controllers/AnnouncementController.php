@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Announcement;
 use App\Models\ProjectManager;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class AnnouncementController extends Controller
 {
-    public function getAnnouncements(Request $request)
+    public function getSpecificAnnouncements(Request $request)
     {
         $token = $request->header('Authorization');
         $token = str_replace('Bearer ', "", $token);
@@ -45,6 +46,42 @@ class AnnouncementController extends Controller
         return response()->json([
             'success' => true,
             'data' => $announcements,
+        ]);
+    }
+
+    public function updateAnnouncements(Request $request)
+    {
+        $token = $request->header('Authorization');
+        $token = str_replace('Bearer ', "", $token);
+        Log::info($token);
+
+        $tokenValues = explode(' ', $token);
+        $newTitle = $tokenValues[0];
+        log::info($newTitle);
+        $newDescription = $tokenValues[1];
+        $newName = $tokenValues[2];
+        $newDate = $tokenValues[2];
+        $newTime = $tokenValues[2];
+        $newStatus = $tokenValues[2];
+
+        // $student = Announcement::where('tp_number', $tp_number)->first();
+
+        // if (!$student) {
+        //     return response()->json([
+        //         'success' => false,
+        //         'message' => 'Student record not found',
+        //     ]);
+        // }
+
+        // $student->supervisor = $supervisor;
+        // $student->secondmarker = $secondMarker;
+        // $student->save();
+
+        
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Updated Student Record Successfully!',
         ]);
     }
 

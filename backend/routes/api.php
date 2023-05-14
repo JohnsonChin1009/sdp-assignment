@@ -27,9 +27,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('login', [AuthController::class, 'login']);
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:api');
 
-Route::get('getAnnouncements', [AnnouncementController::class, 'getAnnouncements']);
+Route::get('getSpecificAnnouncements', [AnnouncementController::class, 'getSpecificAnnouncements']);
 Route::get('getAllAnnouncements', [AnnouncementController::class, 'getAllAnnouncements']);
 Route::post('addAnnouncements', [AnnouncementController::class, 'addAnnouncements']);
+Route::put('updateAnnouncements', [AnnouncementController::class, 'updateAnnouncements']);
 
 Route::get('displaystudents', [StudentController::class, 'displayStudents']);
 Route::get('displayStudentProfile', [StudentController::class, 'displayStudentProfile']);
@@ -51,6 +52,7 @@ Route::delete('deleteStuSup/{tp_number}', [PMController::class, 'deleteStuSup'])
 Route::get('SearchPM', [PMController::class, 'SearchPM']);
 Route::put('updateprofilePM', [PMController::class, 'updateprofilePM']);
 Route::get('SearchStu', [PMController::class, 'SearchStu']);
+Route::get('displayStuPMProfile', [PMController::class, 'displayStuPMProfile']);
 
 
 Route::post('addSupSchedule', [EventController::class, 'addSupSchedule']);
