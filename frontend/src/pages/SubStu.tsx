@@ -70,7 +70,7 @@ export default function Home() {
       </div>
     <br />
       <div className ={styles.subtitle}>
-        <h1><b>Submission</b></h1>
+        <h1><b><u>Submission</u></b></h1>
       </div>
 
       <div className={styles.table}>
@@ -78,15 +78,15 @@ export default function Home() {
           <tbody>
           <tr>
             <td>
-              <Rectangle />
+              <input type="checkbox"  className={styles.checkbox1} disabled/>              
             </td>
             <td>
-              <div className={styles.subtext}>Proposal</div>
+            <div className={styles.subtext}>Proposal</div>
             </td>
           </tr>
           <tr>
             <td>
-              <Rectangle />
+            <input type="checkbox"  className={styles.checkbox1} disabled/>
             </td>
             <td>
               <div className={styles.subtext}>Information_Report(IR)</div>
@@ -94,7 +94,7 @@ export default function Home() {
           </tr>
           <tr>
             <td>
-              <Rectangle />
+            <input type="checkbox"  className={styles.checkbox1} disabled/>
             </td>
             <td>
               <div className={styles.subtext}>Documentation</div>
@@ -102,7 +102,7 @@ export default function Home() {
           </tr>
           <tr>
             <td>
-              <Rectangle /> 
+            <input type="checkbox"  className={styles.checkbox1} disabled/>
             </td>
             <td>
               <div className={styles.subtext}>Presentation</div>
@@ -117,6 +117,14 @@ export default function Home() {
           </tr>
           </tbody>
         </table>
+        <Image 
+        src="/design-books1.png"
+        alt="profile"
+        className={styles.image6}
+        width={100}
+        height={100}               
+        priority
+      />
       </div>
       <br /><br /><br />
       <Footer />

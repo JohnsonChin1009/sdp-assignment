@@ -8,12 +8,6 @@ import { getPMLecturerProfile } from './api/api'
 import{logout} from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 
-interface LecturerData {
-  id: string;
-  name: string;
-  email: string;
-  field_of_study: string;
-}
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -87,7 +81,7 @@ export default function Home() {
       <div className={styles.image3}></div>
       {lecturer && (
       <>
-      <div className={styles.box11a} >{lecturer.name}<br /> {lecturer.field_of_study} <br />{lecturer.email}</div>
+      <div className={styles.box11a} key={lecturer.id}>{lecturer.name}<br /> {lecturer.field_of_study} <br />{lecturer.email}</div>
       </>
         )}
                                 

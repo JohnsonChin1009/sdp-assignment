@@ -98,7 +98,7 @@ const handleLogout = async()=>{
         
         <div className={styles.image3}></div>
         {data || data1 && (
-          <div className={styles.box11a}>{data.name || data1.name}<br /> {data.field_of_study|| data1.field_of_study} <br />{data.email || data1.email}</div>
+          <div className={styles.box11a} key={data.id}>{data.name || data1.name}<br /> {data.field_of_study|| data1.field_of_study} <br />{data.email || data1.email}</div>
         )}
         
       </div>

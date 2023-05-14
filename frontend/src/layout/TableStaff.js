@@ -21,6 +21,7 @@ export default function TableStaff({ search }) {
     }, []);
     const handleClick = (id) => {
       localStorage.setItem('id', id);
+      console.log(id);
       router.push('/ProfilePMLec');
     };
 

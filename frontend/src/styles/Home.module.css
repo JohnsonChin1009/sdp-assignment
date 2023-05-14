@@ -633,6 +633,10 @@
   margin-top:10px;
   padding:10px;
 }
+.checkbox1{
+  width: 40px;
+  height: 40px;
+}
 
 .subtext{
   font-family: 'Times New Roman', Times, serif;
@@ -651,7 +655,7 @@
 
 .table{
   margin-left:90px;
-  width:1000px;
+  width:100px;
 }
 
 .contentbox2{
@@ -811,6 +815,13 @@
   font-weight: bold; 
   background-color: #b6d3e6;
   margin-left: 20px;
+}
+.image6{  
+  width: 300px;
+height: 400px;
+float: right;   
+margin-top: -250px;
+margin-right: -900px; 
 }
 
 
@@ -1059,6 +1070,12 @@
     margin-top: 30px;
     font-family: 'Times New Roman', Times, serif;
   }
+  .subtext{
+    font-family: 'Times New Roman', Times, serif;
+    font-size:25px;
+    margin-left: -10px;
+    padding:5px;
+  }
   .Ccontentbox { /*Calendar*/
     margin-top:50px;
     margin-left:20px;
@@ -1106,6 +1123,13 @@
     font-size: 8px;
     color: #2c4051;
   
+  }
+  .image6{  
+    width: 200px;
+  height: 300px;
+  float: right;   
+  margin-top: -250px;
+  margin-right: -400px; 
   }
 }
 

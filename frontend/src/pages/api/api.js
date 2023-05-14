@@ -226,7 +226,7 @@ export const getPMLecturerProfile = async (token) => {
     console.log(config);
     const response = await axios.get(`${API_URL}/displayPMLecturerProfile`, config);
     const PM = response.data.data;
-    console.log(PM);
+    console.log(PM); 
 
     return PM;
   } catch (error) {
