@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 export default function Home({search}) {
   const router = useRouter();
 
-  const DataList = () => {
+  
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -58,5 +58,4 @@ export default function Home({search}) {
     );
   };
 
-  return <DataList />;
-}
+  
