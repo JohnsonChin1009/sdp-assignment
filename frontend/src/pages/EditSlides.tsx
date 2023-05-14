@@ -45,8 +45,8 @@ export default function Home() {
   };
   const updateValue = async()=>{
         try{
-        //   const token = localStorage.getItem('token'); //Retrieving token from local storage)
-          const update1 = await UpdateAnnouncements(newTitle, newDes, newName, newDate, newTime, newStatus )
+          const token = localStorage.getItem('token'); //Retrieving token from local storage)
+          const update1 = await UpdateAnnouncements(token, newTitle, newDes, newName, newDate, newTime, newStatus )
           setSlides(update1);
           fetchData();
         }catch(error){
@@ -120,8 +120,8 @@ export default function Home() {
             <br />
             Current status (1=Show, 0=Hidden): <div>{slide.show}</div><br/>
             Status: <br />            
-            <input type="checkbox" value={newStatus} onChange={(event => setNewStatus("1"))} />Show <br />
-            <input type="checkbox" value={newStatus} onChange={(event => setNewStatus("0"))} />Hidden
+            <input type="checkbox" value={newStatus} onChange={(event => setNewStatus(event.target.checked ? "1" : ""))} />Show <br />
+            <input type="checkbox" value={newStatus} onChange={(event => setNewStatus(event.target.checked ? "0" : ""))} />Hidden
             <br />
              <button onClick={updateValue}>Update</button>
             

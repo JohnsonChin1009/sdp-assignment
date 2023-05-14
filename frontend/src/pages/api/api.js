@@ -541,11 +541,11 @@ export const getAllAnnouncements = async (token) => {
   }
 }
 
-export const UpdateAnnouncements = async ( newTitle, newDescription, newName, newDate, newTime, newStatus) =>{
+export const UpdateAnnouncements = async (token, newTitle, newDescription, newName, newDate, newTime, newStatus) =>{
   try{
     const config = {
       headers: {
-        Authorization: 'Bearer ' + newTitle + " " + newDescription + " " + newName + " " + newDate + " " + newTime + " " + newStatus
+        Authorization: 'Bearer ' + token +" "+newTitle + " " + newDescription + " " + newName + " " + newDate + " " + newTime + " " + newStatus
       }
     }    
     console.log(config);
