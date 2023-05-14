@@ -120,8 +120,8 @@ export default function Home() {
             <br />
             Current status (1=Show, 0=Hidden): <div>{slide.show}</div><br/>
             Status: <br />            
-            <input type="checkbox" value={newStatus} onChange={(event => setNewStatus(event.target.checked ? "1" : ""))} />Show <br />
-            <input type="checkbox" value={newStatus} onChange={(event => setNewStatus(event.target.checked ? "0" : ""))} />Hidden
+            <input type="checkbox" value={"1"}  checked={newStatus === "1"} onChange={(event => setNewStatus(event.target.checked ? "1" : ""))} />Show <br />
+            <input type="checkbox" value={"0"}  checked={newStatus === "0"} onChange={(event => setNewStatus(event.target.checked ? "0" : ""))} />Hidden
             <br />
              <button onClick={updateValue}>Update</button>
             
