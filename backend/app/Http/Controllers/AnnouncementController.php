@@ -56,32 +56,35 @@ class AnnouncementController extends Controller
         Log::info($token);
 
         $tokenValues = explode(' ', $token);
-        $newTitle = $tokenValues[0];
+        $id = $tokenValues[0];
+        $newTitle = $tokenValues[1];
         log::info($newTitle);
-        $newDescription = $tokenValues[1];
-        $newName = $tokenValues[2];
-        $newDate = $tokenValues[2];
-        $newTime = $tokenValues[2];
-        $newStatus = $tokenValues[2];
+        $newDescription = $tokenValues[2];
+        $newName = $tokenValues[3];
+        $newDate = $tokenValues[4];
+        $newTime = $tokenValues[5];
+        $newStatus = $tokenValues[6];
 
-        // $student = Announcement::where('tp_number', $tp_number)->first();
+        $Announcement = Announcement::where('id', $id)->first();
 
-        // if (!$student) {
-        //     return response()->json([
-        //         'success' => false,
-        //         'message' => 'Student record not found',
-        //     ]);
-        // }
+        if (!$Announcement) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Announcement record not found',
+            ]);
+        }
 
-        // $student->supervisor = $supervisor;
-        // $student->secondmarker = $secondMarker;
-        // $student->save();
-
-        
+        $Announcement->title = $newTitle;
+        $Announcement->description = $newDescription;
+        $Announcement->projectmanager = $newName;
+        $Announcement->date = $newDate;
+        $Announcement->time = $newTime;
+        $Announcement->show = $newStatus;
+        $Announcement->save();
 
         return response()->json([
             'success' => true,
-            'message' => 'Updated Student Record Successfully!',
+            'message' => 'Updated Announcement Record Successfully!',
         ]);
     }
 
