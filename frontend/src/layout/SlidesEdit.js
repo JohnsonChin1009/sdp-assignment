@@ -23,7 +23,8 @@ export default function SliderComponent() {
       }, []);
       const handleClick = (id) => {
         localStorage.setItem('id', id);
-        router.push('/EditSlides');
+        console.log(id);
+        // router.push('/EditSlides');
       };
       
       return(
@@ -37,7 +38,7 @@ export default function SliderComponent() {
                     <p>{slide.description} <br />by {slide.projectmanager}</p><br/>                                       
                     <div>{slide.date} {slide.time}</div><br/>                    
                     Current status (1=Show, 0=Hidden): <div>{slide.show}</div><br/>                
-                    <a href="http://localhost:3000/EditSlides"><button className={styles.button6} onClick={handleClick}>Edit</button></a>                  
+                    <a href="http://localhost:3000/EditSlides"><button className={styles.button6} onClick={handleClick(slide.id)}>Edit</button></a>              
                   </div>
                   </div>
               ))}
