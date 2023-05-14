@@ -23,7 +23,7 @@ export default function Table() {
     const handleClick = (tpNumber) => {
       localStorage.setItem('tp_number', tpNumber);
       console.log(id);
-      // router.push('/EditSlides');
+      // router.push('/ProfileLecStu');
     };
     return (
 <div className={styles.content9}>
@@ -45,10 +45,10 @@ export default function Table() {
                 {data.map((row) => (
                   <div className={styles.row} key={row.id} onClick={()=>handleClick(data.tp_number)}>
                     <div className={styles.image}></div>
-                    <a href=""><div onClick={()=>handleClick(data.tp_number)} ><br/>{row.name}<br/>{row.tp_number}<br/>{row.intake_code}</div></a>  
-                    <div onClick={()=>handleClick(data.tp_number)}><br/>{row.title}<br/><br/>{row.supervisor}<br/>{row.secondmarker}</div>
+                    <a href=""><div onClick={()=>handleClick(data.tp_number)} ><br/>{data.name}<br/>{data.tp_number}<br/>{row.intake_code}</div></a>  
+                    <div onClick={()=>handleClick(data.tp_number)}><br/>{row.title}<br/><br/>{data.supervisor}<br/>{data.secondmarker}</div>
                     <div onClick={()=>handleClick(data.tp_number)}><br/>IR: <br/>Documentation: <br/>Presentation: <br/></div>   
-                    <div><br/><br/><div className={styles.button7}><a href=""><button>Edit</button></a></div></div>                                  
+                    <div><br/><br/><div className={styles.button7}><a href=""><button>Update</button></a></div></div>                                  
                   </div>
                 ))}
               </div>

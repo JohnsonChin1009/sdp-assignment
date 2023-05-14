@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
-import Filter from '@/layout/TableSup1.js'
+import Table from '@/layout/TableSup1.js'
 const inter = Inter({ subsets: ['latin'] })
 import{logout} from '@/pages/api/api'
 
@@ -40,7 +40,7 @@ export default function Home() {
                             />
                         </a>
                         </td>
-                        <td><a href="http://localhost:3000/HomeStu"><b className={styles.title1}>ApFYPCentre</b></a></td>                     
+                        <td><a href="http://localhost:3000/HomeSupervisor"><b className={styles.title1}>ApFYPCentre</b></a></td>                     
                         <td><a href="http://localhost:3000/ProfileSup" className={styles.button2}>Profile</a></td>
                         <td><a href="http://localhost:3000/StuSup" className={styles.button3}>Student</a></td>                        
                         <td><a href="http://localhost:3000/SubSup" className={styles.button2}>Submission</a></td>
@@ -59,7 +59,7 @@ export default function Home() {
         </a>
       </div>            
        <br /><br /><br />
-       <Filter/>
+       <Table/>
       <div className={styles.content6}>
        
 

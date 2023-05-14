@@ -320,7 +320,7 @@ export const UpdateProfileLec = async (token, newName, newField, newEmail) =>{
   }
 }
 
-export const getLecturerStudentProfile = async (token) => {
+export const getLecStudentProfile = async (token) => {
   try {
     const config = {
       headers: {

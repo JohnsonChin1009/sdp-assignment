@@ -59,6 +59,8 @@ export default function Home() {
   useEffect(()=>{
     
     fetchData();
+    fetchData1();
+    
     
 
   }, []);
@@ -72,7 +74,7 @@ export default function Home() {
       console.log('Error fetching data: ', error);
     }
   };
-    useEffect(() => {
+    
       const fetchData1 = async () => {
         try {
               const token = localStorage.getItem('token'); //Retrieving token from local storage)
@@ -83,15 +85,11 @@ export default function Home() {
       }
     };
       
-        fetchData1();
-
-    }, []);
-    
 
     const [eventName, setEventName] = useState('');
     const [startDatetime, setStartDatetime] = useState('');
     const [endtime, setEndtime] = useState('');
-    const [message, setMesssage] = useState('');
+    const [message, setMessage] = useState('');
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const submit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -101,8 +99,10 @@ export default function Home() {
           const token = localStorage.getItem('token');
           const response = await addPMEvent(token, eventName, startDatetime, endtime);
           fetchData();
-          window.location.reload();
-          alert("Successfully add!")
+          
+          alert("Successfully add!");
+          
+          
         } catch (error) {
           setError(true);
           setErrorMessage('Error adding Event')
@@ -114,10 +114,10 @@ export default function Home() {
       try {
         const response = await deleteEvent(id);
         setData(data.filter((event) => event.id !== id));
-        fetchData();    
+        await fetchData();    
         alert("Successcfully deleted.");
-        window.location.reload();
-        setMesssage("Successfully deteled!");
+        
+        setMessage("Successfully deteled!");
       } catch (error) {
         console.log('Error deleting event: ', error);
       }
@@ -183,7 +183,7 @@ export default function Home() {
             <>
             <div className={styles.image} key={data.id}></div>
             <div className={styles.namebox}>
-            <div>{data.name}</div>
+            <div><h2>{data.name}</h2></div>
             <div>{data.field_of_study}</div>
           </div><div className={styles.infobox}>
               Email  : {data.email}<br />              
@@ -198,7 +198,7 @@ export default function Home() {
                   <input type="datetime-local" required value={startDatetime} onChange={(event) => setStartDatetime(event.target.value)} />
                   to
                   <input type="time" required value={endtime} onChange={(event) => setEndtime(event.target.value)} /><br />
-                  <a href=""><button type="submit" className={styles.button6}>Add</button></a>
+                  <button type="submit" className={styles.button6}>Add</button>
                 </form>
 
             </div></> 

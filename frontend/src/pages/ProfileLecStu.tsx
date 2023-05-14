@@ -6,7 +6,7 @@ import Footer from '@/layout/Footer.js'
 const inter = Inter({ subsets: ['latin'] })
 import{logout} from '@/pages/api/api'
 import { useEffect, useState } from 'react'
-import { getLecturerStudentProfile } from '@/pages/api/api';
+import { getLecStudentProfile } from '@/pages/api/api';
 import { UpdateProgression } from '@/pages/api/api'
 
 export default function Home() {
@@ -14,6 +14,7 @@ export default function Home() {
     const [newStatus, setNewStatus] = useState('');
     const [newStatus1, setNewStatus1] = useState('');
     const [newStatus2, setNewStatus2] = useState('');
+    const [newStatus3, setNewStatus3] = useState('');
     const[message, setMessage] = useState('');    
     useEffect(() => {
       
@@ -23,7 +24,7 @@ export default function Home() {
     const fetchData = async () => {
         try {
               const token = localStorage.getItem('tp_number'); //Retrieving token from local storage)
-              const student = await getLecturerStudentProfile(token);
+              const student = await getLecStudentProfile(token);
               setData(student);
       } catch (error) {
           console.log('Error fetching data: ', error);
@@ -39,10 +40,11 @@ export default function Home() {
   const updateValue = async()=>{
     try{
       const token = localStorage.getItem('tp_number'); //Retrieving token from local storage)
-      const update1 = await UpdateProgression(token, newStatus, newStatus1, newStatus2)
+      const update1 = await UpdateProgression(token, newStatus, newStatus1, newStatus2, newStatus3)
       setData(update1);
       console.log(update1);
       fetchData();
+      alert("Successfully updated!");
     }catch(error){
       console.log('Error updating value: ', error);
     }
@@ -120,11 +122,12 @@ export default function Home() {
                                           </tr>
                                       </tbody>
                                   </table>
-                                  <div><br /><input type="checkbox" value={newStatus} onChange={(event => setNewStatus(event.target.checked ? "1" : ""))}/>IR <br />
-                                  <input type="checkbox" value={newStatus1} onChange={(event => setNewStatus1(event.target.checked ? "1" : ""))}/>Documentation<br />
-                                  <input type="checkbox" value={newStatus2} onChange={(event => setNewStatus2(event.target.checked ? "1" : ""))}/>Presentation <br />
+                                  <div><br /><input type="checkbox" value={newStatus} onChange={(event => setNewStatus(event.target.checked ? "1" : ""))}/> Proposal <br />
+                                  <input type="checkbox" value={newStatus1} onChange={(event => setNewStatus1(event.target.checked ? "1" : ""))}/> IR <br />
+                                  <input type="checkbox" value={newStatus2} onChange={(event => setNewStatus2(event.target.checked ? "1" : ""))}/> Documentation<br />
+                                  <input type="checkbox" value={newStatus3} onChange={(event => setNewStatus3(event.target.checked ? "1" : ""))}/> Presentation <br />
                                   </div>
-                                  <div><br /><br /><div className={styles.button9} onClick={updateValue}><a href=""><button>Assign</button></a></div></div>
+                                  <div><br /><br /><div className={styles.button9} onClick={updateValue}><a href=""><button>Update</button></a></div></div>
                               </div></>
                 )}
               </div>

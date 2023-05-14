@@ -38,6 +38,8 @@ Route::get('displayStudentProfile', [StudentController::class, 'displayStudentPr
 Route::get('displayFieldStudent', [StudentController::class, 'displayFieldStudent']);
 Route::get('displayStudentLec', [StudentController::class, 'displayStudentLec']);
 Route::put('updatestutitle', [StudentController::class, 'updatestutitle']);
+Route::get('displayStuPMProfile', [StudentController::class, 'displayStuPMProfile']);
+Route::get('displayStuLecProfile', [StudentController::class, 'displayLecPMProfile']);
 
 Route::get('displayLecturers', [LecturerController::class, 'displayLecturers']);
 Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile']);
@@ -53,7 +55,6 @@ Route::delete('deleteStuSup/{tp_number}', [PMController::class, 'deleteStuSup'])
 Route::get('SearchPM', [PMController::class, 'SearchPM']);
 Route::put('updateprofilePM', [PMController::class, 'updateprofilePM']);
 Route::get('SearchStu', [PMController::class, 'SearchStu']);
-Route::get('displayStuPMProfile', [PMController::class, 'displayStuPMProfile']);
 
 
 Route::post('addSupSchedule', [EventController::class, 'addSupSchedule']);

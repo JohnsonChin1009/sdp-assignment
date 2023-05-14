@@ -110,4 +110,62 @@ class StudentController extends Controller
             'message' => 'Student title updated successfully',
         ]);
     }
+    public function displayStuLecProfile(Request $request)
+    {
+        $token = $request->header('Authorization');
+        $token = str_replace('Bearer ', "", $token);
+        $lecturer = Lecturer::where('id', $token)->first();
+        if(!$lecturer) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error finding lecturer record',    
+            ]);
+        }
+
+        // $supervisor = $student->supervisor ? $student->supervisor : 'Not assigned';
+        // $secondmarker = $student->second_marker ? $student->second_marker : 'Not assigned';
+
+        // $lecturers = Lecturer::where('field_of_study', $student->field_of_study)->get(['name', 'id']);
+        
+        $data = [
+            'name' => $lecturer->name,
+            'id' => $lecturer->id,            
+            'field_of_study' => $student->field_of_study,            
+            'email' => $student->email,
+        ];
+
+        return response()->json([
+            'success' => true,
+            'data' => $data,
+        ]);
+    } 
+    public function displayStuPMProfile(Request $request)
+    {
+        $token = $request->header('Authorization');
+        $token = str_replace('Bearer ', "", $token);
+        $projectmanager = ProjectManager::where('id', $token)->first();
+        if(!$projectmanager) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error finding lecturer record',    
+            ]);
+        }
+
+        // $supervisor = $student->supervisor ? $student->supervisor : 'Not assigned';
+        // $secondmarker = $student->second_marker ? $student->second_marker : 'Not assigned';
+
+        // $lecturers = Lecturer::where('field_of_study', $student->field_of_study)->get(['name', 'id']);
+        
+        $data = [
+            'name' => $projectmanager->name,
+            'id' => $projectmanager->id,            
+            'field_of_study' => $projectmanager->field_of_study,            
+            'email' => $projectmanager->email,
+        ];
+
+        return response()->json([
+            'success' => true,
+            'data' => $data,
+        ]);
+    } 
 }

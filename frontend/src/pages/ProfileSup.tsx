@@ -159,7 +159,7 @@ export default function Home() {
             <>
             <div className={styles.image} key={data.id}></div>
             <div className={styles.namebox}>
-            <div>{data.name}</div><br /><br />
+            <div><h2>{data.name}</h2></div>
             <div>{data.field_of_study}</div>
           </div><div className={styles.infobox}>
               Email  : {data.email}<br />              
