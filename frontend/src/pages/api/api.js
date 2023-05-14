@@ -540,6 +540,22 @@ export const getAllAnnouncements = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occured while fetching announcements');
   }
 }
+export const getSpecificAnnouncements = async (token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    const response = await axios.get(`${API_URL}/getSpecificAnnouncements`, config);
+    const data = response.data.data;
+    console.log(data);
+    return data;
+  } catch (error)
+  {
+    throw new Error(error.response?.data?.message || 'An error occured while fetching announcements');
+  }
+}
 
 export const UpdateAnnouncements = async (token, newTitle, newDescription, newName, newDate, newTime, newStatus) =>{
   try{

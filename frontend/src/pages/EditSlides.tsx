@@ -7,7 +7,7 @@ import Slides from '@/layout/SlidesEdit.js'
 const inter = Inter({ subsets: ['latin'] })
 import{logout} from '@/pages/api/api'
 import { useEffect, useState } from 'react'
-import{getAnnouncements} from '@/pages/api/api';
+import{getSpecificAnnouncements} from '@/pages/api/api';
 import { UpdateAnnouncements } from '@/pages/api/api';
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
             try {
                 const token = localStorage.getItem('id');
                 console.log(token);
-                const student = await getAnnouncements(token);
+                const student = await getSpecificAnnouncements(token);
                 setSlides(student);
             } catch (error) {
                 console.log('Error fetching data: ', error);
