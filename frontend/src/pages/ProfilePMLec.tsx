@@ -6,7 +6,6 @@ import Footer from '@/layout/Footer.js'
 import Table from '@/layout/TableStu3.js'
 import { getPMLecturerProfile } from './api/api'
 import{logout} from '@/pages/api/api'
-
 import { useEffect, useState } from 'react'
 
 interface LecturerData {
@@ -25,8 +24,9 @@ export default function Home() {
         const fetchData = async () => {
             try {
                 const token = localStorage.getItem('id');
-                console.log(token);
+                console.log(token);                
                 const lecturer = await getPMLecturerProfile(token);
+                console.log(lecturer);
                 setData(lecturer);
             } catch (error) {
                 console.log('Error fetching data: ', error);

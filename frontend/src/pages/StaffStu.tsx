@@ -33,7 +33,7 @@ export default function Home() {
       console.error('Error.logging out: ', error);
     }
   };
-  const handleClick = (id: string) => {
+  const handleClick = (id) => {
     localStorage.setItem('id', id);
     console.log(id);
     router.push('/Profile1');
