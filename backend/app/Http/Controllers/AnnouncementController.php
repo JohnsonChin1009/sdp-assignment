@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 
 class AnnouncementController extends Controller
 {
-    public function getSpecificAnnouncements(Request $request)
+    public function getAnnouncements(Request $request)
     {
         $token = $request->header('Authorization');
         $token = str_replace('Bearer ', "", $token);
@@ -101,4 +101,26 @@ class AnnouncementController extends Controller
     
         return response()->json(['message' => 'Event added successfully']);
     }
+
+
+    public function getSpecificAnnouncements(Request $request)
+    {
+        $token = $request->header('Authorization');
+        $token = str_replace('Bearer ', "", $token);
+        $announcements = Announcement::where('id', $token)->get();
+
+        if (!$announcements) {
+            return response()->json([
+                'success' => false,
+                'message' => 'No Announcement found!',
+            ]);
+        }
+
+        return response()->json([
+            'success' => true,
+            'data' => $announcements,
+        ]);
+    }
 }
+
+
