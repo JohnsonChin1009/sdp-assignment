@@ -118,7 +118,7 @@ export default function Home() {
             <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("1"))} />Show <br />
             <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("0"))} />Hidden
             <br />
-            <button type="submit" className={styles.button6} onClick={submit}>Add</button>
+            <a href="http://localhost:3000/EditAnnouncement"><button type="submit" className={styles.button6} onClick={submit}>Add</button></a>
             {message && <p className={styles.word6}>Successfully add.</p>}
         </form>
       </div>
