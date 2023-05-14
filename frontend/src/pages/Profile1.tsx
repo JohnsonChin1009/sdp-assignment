@@ -38,7 +38,7 @@ const fetchData = async () => {
 };
 const fetchData1 = async () => {
   try {
-      const token = localStorage.getItem('lecturerid');      
+      const token = localStorage.getItem('id');      
       const lecturer = await getStuLecProfile(token);      
       setData1(lecturer);
   } catch (error) {

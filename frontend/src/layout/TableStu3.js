@@ -32,7 +32,7 @@ export default function Table() {
     return (
         
               <div className={style.container1}>
-                {data.map((item) => (
+                {data &&(
                   <div className={style.row1} key={item.id}>
                     <div className={style.image}></div>
                     <div>{item.name} <br/>{item.tp_number}<br/>{item.intake_code}</div>
@@ -40,7 +40,7 @@ export default function Table() {
                     <div><button onClick={() => handleRemoveStudent(item.tp_number)}>
                       Remove</button></div>
                   </div>
-                ))}
+                )}
                 <br/>
                 
               </div>

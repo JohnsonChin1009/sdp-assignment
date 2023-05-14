@@ -8,10 +8,8 @@ import { useEffect, useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 import { useRouter } from 'next/router';
 import{logout} from '@/pages/api/api'
-import { getPMProfile } from '@/pages/api/api.js'
-interface Lecturer{
-  id:string;
-}
+
+
 export default function Home() {
   const [data, setData] = useState('');
   const [data1, setData1] = useState('');
@@ -37,11 +35,11 @@ export default function Home() {
       console.error('Error.logging out: ', error);
     }
   };
-  const handleClick = (id) => {
-    localStorage.removeItem('id')
+  const handleClick = (id) => {    
     localStorage.setItem('id', id);
     console.log(id);
-    router.push('/Profile1');
+
+    //router.push('/Profile1');
   };
 
     return (
@@ -89,7 +87,7 @@ export default function Home() {
        <br /><br /><br /><br />
         <div className={styles.content6}>
           {data &&(
-            <><div className={styles.box10} key={data.id}>
+            <><div className={styles.box10} key={data.projectmanagerid||data.supervisorid||data.secondmarkerid}>
               <a href='http://localhost:3000/Profile1'><div className={styles.text} onClick={() => handleClick(data.projectmanagerid)}>Project Manager</div><br />
                 <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
                 <div className={styles.text}><b>{data.projectmanager}</b><br/> {data.projectmanagerid}</div></a>

@@ -125,16 +125,11 @@ class StudentController extends Controller
             ]);
         }
 
-        // $supervisor = $student->supervisor ? $student->supervisor : 'Not assigned';
-        // $secondmarker = $student->second_marker ? $student->second_marker : 'Not assigned';
-
-        // $lecturers = Lecturer::where('field_of_study', $student->field_of_study)->get(['name', 'id']);
-        
         $data = [
             'name' => $lecturer->name,
             'id' => $lecturer->id,            
-            'field_of_study' => $student->field_of_study,            
-            'email' => $student->email,
+            'field_of_study' => $lecturer->field_of_study,            
+            'email' => $lecturer->email,
         ];
 
         return response()->json([
