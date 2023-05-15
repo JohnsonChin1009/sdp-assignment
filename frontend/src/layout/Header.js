@@ -3,10 +3,7 @@ import styles from '@/styles/Home.module.css'
 export default function header(){
     return (
         <main className={styles.header}>                                       
-                <table>
-                    <tbody>
-                        <tr>
-                            <td><a href="http://localhost:3000/">
+                <a href="http://localhost:3000/">
                                 <Image
                                 src="/APUlogo.png"
                                 alt="APU Logo"
@@ -16,12 +13,9 @@ export default function header(){
                                 priority            
                                 />
                             </a>
-                            </td>
-                            <td><a href="http://localhost:3000/"><b className={styles.title1}>ApFYPCentre</b></a></td>
+                            <a href="http://localhost:3000/"><b className={styles.title1}>ApFYPCentre</b></a>
                             
-                        </tr>
-                    </tbody>                    
-                </table>
+                        
                                                                                                       
       </main>
 

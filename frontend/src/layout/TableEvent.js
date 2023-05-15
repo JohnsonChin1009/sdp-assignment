@@ -35,11 +35,11 @@ export default function Event(){
       }
     };
     return (
-        <><div>Events</div><br/><div className={styles.content6}>
+        <><div className={styles.text2}><i>Events</i></div><br/><div className={styles.content6}>
 
             {data.length > 0 && (
                 <><div className={styles.content7} key={data.id}>
-                    <b>{data.name}</b>
+                    <b><h2>{data.name}</h2></b>
                     <br /><br />
                     <div className={styles.contentbox5}>{data.start} {data.end}</div>
                     <br />
@@ -48,7 +48,7 @@ export default function Event(){
             )}
             {!data && data1 && (
                 <><div className={styles.content7} key={data1.id}>
-                    <b>{data1.name}</b>
+                    <b><h2>{data1.name}</h2></b>
                     <br /><br />
                     <div className={styles.contentbox5}>{data1.start} {data1.end}</div>
                     <br />
