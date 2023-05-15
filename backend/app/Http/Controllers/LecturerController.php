@@ -82,6 +82,43 @@ class LecturerController extends Controller
                     'data' => $data,
                 ]);
             }
+            public function displayStudentSup(Request $request)
+            {
+                $token = $request->header('Authorization');
+                $token = str_replace('Bearer ', "", $token);
+                $lecturer = Lecturer::where('email', $token)->first();
+                            
+                if (!$lecturer) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => $token,
+                    ], 401);
+                }
+                
+                $lecturerId = $lecturer->id;
+                $students = Student::where('supervisor', $lecturerId)->get();
+                
+                $data = $students->map(function ($student)  {
+                    $supervisor = Lecturer::find($student->supervisor);
+                    $secondMarker = Lecturer::find($student->secondmarker);
+            
+                    return [
+                        'name' => $student->name,
+                        'tp_number' => $student->tp_number,
+                        'title' => $student->title,
+                        'field_of_study' => $student->field_of_study,
+                        'specialism' => $student->specialism,
+                        'email' => $student->email,
+                        'supervisor' => $supervisor ? $supervisor->name : null,
+                        'second_marker' => $secondMarker ? $secondMarker->name : null,
+                    ];
+                });
+            
+                return response()->json([
+                    'success' => true,
+                    'data' => $data,
+                ]);
+            }
             public function displaySecOwnStudents(Request $request)
             {
                 $token = $request->header('Authorization');
@@ -99,6 +136,43 @@ class LecturerController extends Controller
                 $students = Student::where('secondmarker', $token)->get();
                 
                 $data = $students->map(function ($student) {
+                    $supervisor = Lecturer::find($student->supervisor);
+                    $secondMarker = Lecturer::find($student->secondmarker);
+            
+                    return [
+                        'name' => $student->name,
+                        'tp_number' => $student->tp_number,
+                        'title' => $student->title,
+                        'field_of_study' => $student->field_of_study,
+                        'specialism' => $student->specialism,
+                        'email' => $student->email,
+                        'supervisor' => $supervisor ? $supervisor->name : null,
+                        'second_marker' => $secondMarker ? $secondMarker->name : null,
+                    ];
+                });
+            
+                return response()->json([
+                    'success' => true,
+                    'data' => $data,
+                ]);
+            }
+            public function displayStudentSec(Request $request)
+            {
+                $token = $request->header('Authorization');
+                $token = str_replace('Bearer ', "", $token);
+                $lecturer = Lecturer::where('email', $token)->first();
+                            
+                if (!$lecturer) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => $token,
+                    ], 401);
+                }
+                
+                $lecturerId = $lecturer->id;
+                $students = Student::where('supervisor', $lecturerId)->get();
+                
+                $data = $students->map(function ($student)  {
                     $supervisor = Lecturer::find($student->supervisor);
                     $secondMarker = Lecturer::find($student->secondmarker);
             

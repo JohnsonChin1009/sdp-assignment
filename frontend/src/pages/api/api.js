@@ -356,6 +356,26 @@ export const getSupOwnStudents = async (token) => {
   throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
 }
 }
+
+export const getStudentSup = async (token) => {
+  try {   
+
+    const config = {
+    headers: {
+      Authorization: 'Bearer ' + token
+    }
+  }
+  console.log(config);
+  const response = await axios.get(`${API_URL}/displayStudentSup`, config);
+  const PM = response.data.data;
+  console.log(PM);
+
+  return PM;
+} catch (error) {
+  throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+}
+}
+
 export const getSecOwnStudents = async (token) => {
   try {   
 
@@ -366,6 +386,25 @@ export const getSecOwnStudents = async (token) => {
   }
   console.log(config);
   const response = await axios.get(`${API_URL}/displaySecOwnStudents`, config);
+  const PM = response.data.data;
+  console.log(PM);
+
+  return PM;
+} catch (error) {
+  throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+}
+}
+
+export const getStudentSec = async (token) => {
+  try {   
+
+    const config = {
+    headers: {
+      Authorization: 'Bearer ' + token
+    }
+  }
+  console.log(config);
+  const response = await axios.get(`${API_URL}/displayStudentSec`, config);
   const PM = response.data.data;
   console.log(PM);
 

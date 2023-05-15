@@ -11,10 +11,12 @@ import { useState } from 'react';
 
 
 
+
 export default function Home() {
   const [search, setSearch] = useState('');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  
   const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -33,6 +35,7 @@ export default function Home() {
       console.error('Error.logging out: ', error);
     }
   };
+  
   return (
     <>
       <Head>
@@ -86,7 +89,7 @@ export default function Home() {
                             /></button>
       </form>
       </div>    
-       <br /><br /><br />
+       <br /><br /><br /><br/>
        <Table search={search}/>
       <div className={styles.content6}>
        
