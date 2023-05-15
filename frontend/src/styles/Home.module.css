@@ -100,18 +100,18 @@
   color: #2c4051;
 
 }
+.image7{
+  position: relative;
+  width: 400px;
+  height: 400px;
+  float: right;   
+  margin-top: -455px;
+  margin-right: 100px; 
+}
 .image5{
   position: relative;
   width: 300px;
   height: 300px;
-  float: right;   
-  margin-top: -255px;
-  margin-right: -20px; 
-}
-.image6{
-  position: relative;
-  width: 200px;
-  height: 500px;
   float: right;   
   margin-top: -255px;
   margin-right: -20px; 
@@ -1165,6 +1165,10 @@ margin-right: -900px;
   .text2{
     margin-left: 30px;
     font-size: 35px;
+  }
+  .image7{    
+    width: 0px;
+    height: 0px;    
   }
 }
 

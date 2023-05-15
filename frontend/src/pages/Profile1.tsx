@@ -103,8 +103,8 @@ const handleLogout = async()=>{
       </div>
       <Event /><Image
           src="/design-lap1.png"
-          alt="APU Logo"
-          className={styles.image5}
+          alt="design-lap1"
+          className={styles.image7}
           width={50}
           height={50}
           priority            
