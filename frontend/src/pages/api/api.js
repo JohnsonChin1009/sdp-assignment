@@ -530,7 +530,7 @@ export const UpdateProgression = async (token, newStatus, newStatus1, newStatus2
       }
     }    
     console.log(config);
-    const response = await axios.put(`${API_URL}/updateAnnouncements`, {}, config);
+    const response = await axios.put(`${API_URL}/updateProgression`, {}, config);
     const update = response.data.message;
     console.log(update);    
     return update;
@@ -595,7 +595,7 @@ export const UpdateAnnouncements = async (token, newTitle, newDescription, newNa
   try{
     const config = {
       headers: {
-        Authorization: 'Bearer ' + token +" "+newTitle + " " + newDescription + " " + newName + " " + newDate + " " + newTime + " " + newStatus
+        Authorization: 'Bearer ' + token +","+newTitle + "," + newDescription + "," + newName + "," + newDate + "," + newTime + "," + newStatus
       }
     }    
     console.log(config);

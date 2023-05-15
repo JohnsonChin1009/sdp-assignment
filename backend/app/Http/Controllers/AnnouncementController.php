@@ -55,7 +55,7 @@ class AnnouncementController extends Controller
         $token = str_replace('Bearer ', "", $token);
         Log::info($token);
 
-        $tokenValues = explode(' ', $token);
+        $tokenValues = explode(',', $token);
         $id = $tokenValues[0];
         $newTitle = $tokenValues[1];
         log::info($newTitle);

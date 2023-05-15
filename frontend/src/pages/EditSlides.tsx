@@ -31,8 +31,20 @@ export default function Home() {
             try {
                 const token = localStorage.getItem('id');
                 console.log(token);
-                const student = await getSpecificAnnouncements(token);
-                setSlides(student);
+                const slide = await getSpecificAnnouncements(token);                
+                setSlides(slide);
+                if (slide.length > 0) {
+                  const initialSlide = slide[0];
+                  setNewTitle(initialSlide.title);
+                  setNewDescription(initialSlide.description);
+                  setNewName(initialSlide.projectmanager);
+                  setNewDate(initialSlide.date);
+                  setNewTime(initialSlide.time);
+                  setNewStatus(initialSlide.show);
+                }
+                if(!Array.isArray(slides)){
+                  console.log('slides is not an arry:', slides)
+                }
             } catch (error) {
                 console.log('Error fetching data: ', error);
             }
@@ -52,6 +64,7 @@ export default function Home() {
           setSlides(update1);
           console.log(update1);
           fetchData();
+          alert("Successful Update!");
         }catch(error){
           console.log('Error updating value: ', error);
           setError(true);
@@ -106,31 +119,42 @@ export default function Home() {
       
       <div className={styles.content1}>        
         <h3><u>Edit Announcements</u></h3>
-        {slides.filter((slide)=> slide.title || slide.description).map((slide)=>(
-        <div key={slide.id}> 
+        {Array.isArray(slides) && slides.map((slide)=>(<>
+          <div key={slide.id}> 
+          <br />
+           Title: <br />
+           <h3>{slide.title}</h3>
+           Description:<br />  
+           <p>{slide.description} <br />by {slide.projectmanager}</p><br/> 
+           <div>{slide.date} {slide.time}</div><br/>
+           Current status (1=Show, 0=Hidden): <div>{slide.show}</div><br/>
+           </div></>
+
+        ))}                                
+           {slides &&(
+            <div key={slides.id}> 
             <br />
-            Title: <br />
-            <h3>{slide.title}</h3>
-            <input type="text"  required value={newTitle} onChange={(event) => setNewTitle(event.target.value)} /><br /><br />
-            <p>{slide.description} <br />by {slide.projectmanager}</p><br/>
+            Title: <br />            
+            <input type="text"  required value={newTitle} onChange={(event) => setNewTitle(event.target.value)} /><br /><br />            
             Description:<br />            
             <textarea name="" id="" cols="50" rows="3"required value={newDes} onChange={(event) => setNewDescription(event.target.value)} ></textarea><br /><br />            
             Editor: by <br/>
-            <input type="text"  required value={newName} onChange={(event) => setNewName(event.target.value)} /><br /><br />
-            <div>{slide.date} {slide.time}</div><br/>
+            <input type="text"  required value={newName} onChange={(event) => setNewName(event.target.value)} /><br /><br />            
             Date: <br />
             <input type="date" required  value={newDate} onChange={(event => setNewDate(event.target.value))}/><br/>
             Time: <br/>
             <input type="time" required value={newTime} onChange={(event => setNewTime(event.target.value))}/><br/>
-            <br />
-            Current status (1=Show, 0=Hidden): <div>{slide.show}</div><br/>
+            <br />            
             Status: <br />            
             <input type="checkbox" value={"1"}  checked={newStatus === "1"} onChange={(event => setNewStatus(event.target.checked ? "1" : ""))} />Show <br />
             <input type="checkbox" value={"0"}  checked={newStatus === "0"} onChange={(event => setNewStatus(event.target.checked ? "0" : ""))} />Hidden
             <br />
              <button onClick={updateValue}>Update</button>
             
-            </div> ))}
+            </div> 
+
+           )}
+        
             <Image 
         src="/design-pen1.png"
         alt="profile"

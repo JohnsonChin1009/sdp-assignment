@@ -51,6 +51,7 @@ export default function StudentPM() {
             console.log(token);
             const updatedstudent = await getUpdatedStudent(token, selectedSupervisorId,selectedSecondMarkerId);
             setData(updatedstudent);
+            alert("Successfully Assigned!");
         } catch (error) {
             console.log('Error fetching data: ', error);
         }
@@ -196,6 +197,7 @@ export default function StudentPM() {
                     </>
                 )}
             </div>
+            <div className={styles.contentbox3}><br /></div>
             <Footer/>
         </>
         
