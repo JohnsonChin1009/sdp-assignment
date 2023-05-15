@@ -12,7 +12,6 @@ import{logout} from '@/pages/api/api'
 
 export default function Home() {
   const [data, setData] = useState('');
-  const [data1, setData1] = useState('');
   const router = useRouter();
   useEffect(() => {
     const fetchData = async () => {
@@ -87,15 +86,15 @@ export default function Home() {
        <br /><br /><br /><br />
         <div className={styles.content6}>
           {data &&(
-            <><div className={styles.box10} key={data.id}>
-              <a href='http://localhost:3000/Profile1'><div className={styles.text} onClick={() => handleClick(data.projectmanagerid.toString())}>Project Manager</div><br />
+            <><div className={styles.box10} key={data.id} onClick={() => handleClick(data.id || data.projectmanagerid || data.supervisorid ||data.secondmarkerid)}>
+              <a href='http://localhost:3000/Profile1'><div className={styles.text} onClick={() => handleClick(data.projectmanagerid)}>Project Manager</div><br />
                 <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
                 <div className={styles.text}><b>{data.projectmanager}</b><br/> {data.projectmanagerid}</div></a>
-            </div><div className={styles.line3}></div><div className={styles.box10} onClick={() => handleClick(data.supervisorid.toString())}>
+            </div><div className={styles.line3}></div><div className={styles.box10} onClick={() => handleClick(data.supervisorid)}>
             <a href='http://localhost:3000/Profile1'><div className={styles.text1}>Supervisor</div><br />
                 <div className={styles.image2}></div><br /><br /><br /><br /><br /><br /><br />
                 <div className={styles.text}><b>{data.supervisor}</b></div></a>
-              </div><div className={styles.line3}></div><div className={styles.box10} onClick={() => handleClick(data.secondmarkerid.toString())}>
+              </div><div className={styles.line3}></div><div className={styles.box10} onClick={() => handleClick(data.secondmarkerid)}>
               <a href='http://localhost:3000/Profile1'><div className={styles.text}>Second Marker</div><br />
                 <div className={styles.image2}></div><br /><br /><br /><br /><br /><br /><br />
                 <div className={styles.text}><b>{data.secondmarker}</b></div></a>

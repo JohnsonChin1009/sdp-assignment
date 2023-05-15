@@ -38,7 +38,7 @@ export default function Event(){
         
 <div className={styles.content6}>  
 {data.length > 0  &&(
-    <><div className={styles.content7} key={data.lecturerid}>
+    <><div className={styles.content7} key={data.id}>
                     <b>{data.name}</b>
                     <br /><br />
                     <div className={styles.contentbox5}>{data.start} {data.end}</div>
@@ -47,7 +47,7 @@ export default function Event(){
 
 )}     
 {!data && data1 &&(
-    <><div className={styles.content7} key={data1.lecturerid}>
+    <><div className={styles.content7} key={data1.id}>
                     <b>{ data1.name}</b>
                     <br /><br />
                     <div className={styles.contentbox5}>{data1.start} {data1.end}</div>

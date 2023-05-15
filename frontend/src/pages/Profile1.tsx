@@ -10,12 +10,7 @@ import{useState,useEffect} from 'react'
 import{logout} from '@/pages/api/api'
 
 const inter = Inter({ subsets: ['latin'] })
-// interface Lecturer {
-//   id: string;
-//   name: string;
-//   email:string;
-//   field_of_study: string;
-// }
+
 export default function Home() {
   const [data, setData] = useState({});
   const [data1, setData1] = useState([]);  
