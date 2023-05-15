@@ -664,7 +664,7 @@ export const UpdateProfilePM = async (token, newName, newField, newEmail) =>{
   try{
     const config = {
       headers: {
-        Authorization: 'Bearer ' + token + "," + newName + "," + newField +"," + newEmail
+        Authorization: 'Bearer ' + token + " " + newName + " " + newField +" " + newEmail
       }
     }    
     console.log(config);

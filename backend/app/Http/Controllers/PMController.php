@@ -234,8 +234,6 @@ class PMController extends Controller
         Log::info($request->input('Email'));
         $PM->save();
 
-        
-
         return response()->json([
             'success' => true,
             'message' => 'Updated Project Manager Record Successfully!',

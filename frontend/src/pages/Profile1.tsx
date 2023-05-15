@@ -31,7 +31,7 @@ const fetchData = async () => {
       console.log(token)     ;
       const pm = await getStuPMProfile(token);
       console.log(pm);
-      setData(...pm);
+      setData(pm);
   } catch (error) {
       console.log('Error fetching data: ', error);
   }
