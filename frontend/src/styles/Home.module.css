@@ -35,6 +35,14 @@
   align-items: left;
   
 }
+.title4{
+  font-size: 25px;
+  display: inline;     
+ position: relative;
+ white-space: nowrap;
+  
+  
+}
 .title2{
   padding-left: 10px;
 }

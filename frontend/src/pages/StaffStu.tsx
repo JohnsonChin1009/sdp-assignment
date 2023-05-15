@@ -64,10 +64,10 @@ export default function Home() {
                               />
                           </a>
                           </td>
-                          <td><a href="http://localhost:3000/HomeStu"><b className={styles.title1}>ApFYPCentre</b></a></td>                     
+                          <td><a href="http://localhost:3000/HomeStu"><b className={styles.title4}>ApFYPCentre</b></a></td>                     
                           <td><a href="http://localhost:3000/ProfileStu" className={styles.button2}>Profile</a></td>
                           <td><a href="http://localhost:3000/SubStu" className={styles.button2}>Submission</a></td>                        
-                          <td><a href="http://localhost:3000/StaffStu" className={styles.button3}>Staff</a></td>
+                          <td><a href="http://localhost:3000/StaffStu" className={styles.button3}>Lecturer</a></td>
                           <td> <br/></td>
                           <td><br/></td>
                           <td><a href="http://localhost:3000" className={styles.box6} onClick={handleLogout}><u>Logout</u></a></td>

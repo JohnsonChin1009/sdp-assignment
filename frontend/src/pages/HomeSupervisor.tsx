@@ -38,7 +38,7 @@ export default function Home() {
                             />
                         </a>
                         </td>
-                        <td><a href="http://localhost:3000/HomeSupervisor"><b className={styles.title1}>ApFYPCentre</b></a></td>                     
+                        <td><a href="http://localhost:3000/HomeSupervisor"><b className={styles.title4}>ApFYPCentre</b></a></td>                     
                         <td><a href="http://localhost:3000/ProfileSup" className={styles.button1}>Profile</a></td>
                         <td><a href="http://localhost:3000/StuSup" className={styles.button2}>Student</a></td>                        
                         <td><a href="http://localhost:3000/SubSup" className={styles.button2}>Submission</a></td>

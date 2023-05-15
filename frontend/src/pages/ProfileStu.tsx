@@ -39,10 +39,10 @@ export default function Profile() {
                             />
                         
                         </td>
-                        <td><b className={styles.title1}>ApFYPCentre</b></td>                     
+                        <td><b className={styles.title4}>ApFYPCentre</b></td>                     
                         <td><a href="http://localhost:3000/ProfileStu" className={styles.button3}>Profile</a></td>
                         <td><a href="http://localhost:3000/SubStu" className={styles.button2}>Submission</a></td>                        
-                        <td><a href="http://localhost:3000/StaffStu" className={styles.button2}>Staff</a></td>
+                        <td><a href="http://localhost:3000/StaffStu" className={styles.button2}>Lecturer</a></td>
                         <td> <br/></td>
                         <td><br/></td>
                         <td><a href="http://localhost:3000" className={styles.box6} onClick={handleLogout}><u>Logout</u></a></td>

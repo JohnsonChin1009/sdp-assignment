@@ -71,7 +71,7 @@ export default function Home() {
                             />
                         </a>
                         </td>
-                        <td><a href="http://localhost:3000/HomeStu"><b className={styles.title1}>ApFYPCentre</b></a></td>                     
+                        <td><a href="http://localhost:3000/HomeStu"><b className={styles.title4}>ApFYPCentre</b></a></td>                     
                         <td><a href="http://localhost:3000/ProfileSup" className={styles.button2}>Profile</a></td>
                         <td><a href="http://localhost:3000/StuSup" className={styles.button3}>Student</a></td>                        
                         <td><a href="http://localhost:3000/SubSup" className={styles.button2}>Submission</a></td>
