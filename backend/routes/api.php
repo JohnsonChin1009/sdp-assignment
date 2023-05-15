@@ -60,7 +60,9 @@ Route::get('SearchStu', [PMController::class, 'SearchStu']);
 Route::post('addSupSchedule', [EventController::class, 'addSupSchedule']);
 Route::post('addPMSchedule', [EventController::class, 'addPMSchedule']);
 Route::get('getPMSchedule', [EventController::class, 'getPMSchedule']);
+Route::get('getStuPMSchedule', [EventController::class, 'getStuPMSchedule']);
 Route::get('getLecSchedule', [EventController::class, 'getLecSchedule']);
+Route::get('getStuLecSchedule', [EventController::class, 'getStuLecSchedule']);
 Route::delete('deleteEvent/{id}', [EventController::class, 'deleteEvent']);
 
 

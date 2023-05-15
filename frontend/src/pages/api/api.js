@@ -130,6 +130,23 @@ export const getStuPMProfile = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+export const getStuPMSchedule = async (token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    console.log(config)
+    console.log('Token:', token);
+    const response = await axios.get(`${API_URL}/getStuPMSchedule`, config);
+    const data = response.data.data;
+    console.log(response.data); 
+    return data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+  }
+}
 export const getStuLecProfile = async (token) => {
   try {
     const config = {
@@ -418,34 +435,34 @@ export const deleteEvent = async (id) => {
 };
 
 //Anouncement
-export const getAllResults = async()=>{
-  try{
-    const response = await axios.post(`${API_URL}/displayresults`);
-    return response.data;
+// export const getAllResults = async()=>{
+//   try{
+//     const response = await axios.post(`${API_URL}/displayresults`);
+//     return response.data;
     
-  }catch(error){
-    throw new Error(error.response?.data?.message || 'An error occurred');
-  }
-}
-export const getResultStu = async(token)=>{
-  try {
+//   }catch(error){
+//     throw new Error(error.response?.data?.message || 'An error occurred');
+//   }
+// }
+// export const getResultStu = async(token)=>{
+//   try {
     
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-    console.log(config);
-    const response = await axios.get(`${API_URL}/displayresults`, config);
-    const results = response.data.data;
-    console.log(results);
+//     const config = {
+//       headers: {
+//         Authorization: 'Bearer ' + token
+//       }
+//     }
+//     console.log(config);
+//     const response = await axios.get(`${API_URL}/displayresults`, config);
+//     const results = response.data.data;
+//     console.log(results);
 
-    return results;
-  }catch(error){
+//     return results;
+//   }catch(error){
     
-    throw new Error(error.response?.data?.message || 'An error occurred');
-  }
-}
+//     throw new Error(error.response?.data?.message || 'An error occurred');
+//   }
+// }
 
 
 export const addPMEvent = async (token, EventName, startDatetime, endtime) => {

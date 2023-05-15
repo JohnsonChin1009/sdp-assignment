@@ -80,6 +80,32 @@ class EventController extends Controller
             'data' => $schedule,
         ]);
     }
+    public function getStuPMSchedule(Request $request)
+    {
+        $token = $request->header('Authorization');
+        Log::info($request->header('Authorization'));
+        $token = str_replace('Bearer ', "", $token);
+        Log::info($token);
+        $PM = ProjectManager::where('id', $token)->first();
+        Log::info($PM);
+        $PMID = $PM->id;
+        Log::info($PMID);
+
+        if (!$PM) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Lecturer does not have any event records',
+            ]
+            );}
+
+        $schedule = Schedule::where('lecturerid', $PMID)->get();
+        Log::info($schedule);
+
+        return response()->json([
+            'success' => true,
+            'data' => $schedule,
+        ]);
+    }
 
     public function getLecSchedule(Request $request)
     {
@@ -107,7 +133,32 @@ class EventController extends Controller
             'data' => $schedule,
         ]);
     }
+    public function getStuLecSchedule(Request $request)
+    {
+        $token = $request->header('Authorization');
+        Log::info($request->header('Authorization'));
+        $token = str_replace('Bearer ', "", $token);
+        Log::info($token);
+        $Lecturer = Lecturer::where('id', $token)->first();
+        Log::info($Lecturer);
+        $Lecturerid = $Lecturer->id;
+        Log::info($Lecturerid);
 
+        if (!$Lecturer) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Lecturer does not have any event records',
+            ]
+            );}
+
+        $schedule = Schedule::where('lecturerid', $Lecturerid)->get();
+        Log::info($schedule);
+
+        return response()->json([
+            'success' => true,
+            'data' => $schedule,
+        ]);
+    }
 
     public function deleteEvent($id)
     {
