@@ -8,6 +8,12 @@ import { getPMLecturerProfile } from './api/api'
 import{logout} from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 
+interface Lecturer{
+id:string;
+name: string;
+email: string;
+field_of_study:string;
+}
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -19,7 +25,7 @@ export default function Home() {
             try {
                 const token = localStorage.getItem('id');
                 console.log(token);                
-                const lecturer = await getPMLecturerProfile(token);
+                const lecturer = await getPMLecturerProfile(token);                                
                 console.log(lecturer);
                 setData(lecturer);
             } catch (error) {
@@ -83,7 +89,7 @@ export default function Home() {
       <>
       <div className={styles.box11a} key={lecturer.id}>{lecturer.name}<br /> {lecturer.field_of_study} <br />{lecturer.email}</div>
       </>
-        )}
+       ) }
                                 
       <br /><br /><br />    <br /><br /><br />                          
       

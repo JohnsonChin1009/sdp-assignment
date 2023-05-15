@@ -130,7 +130,7 @@ class PMController extends Controller
         $token = $request->header('Authorization');
         $token = str_replace('Bearer ', "", $token);
         $lecturer = Lecturer::where('id', $token)->first();
-
+        
         if(!$lecturer) {
             return response()->json([
                 'success' => false,
