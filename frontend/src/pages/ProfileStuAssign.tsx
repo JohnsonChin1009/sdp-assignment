@@ -33,25 +33,28 @@ export default function StudentPM() {
     const [data, setData] = useState<StudentData | null>(null);
     
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const token = localStorage.getItem('tp_number');
-                console.log(token);
-                const student = await getPMStudentProfile(token);
-                setData(student);
-            } catch (error) {
-                console.log('Error fetching data: ', error);
-            }
-        };
+        
         fetchData();
     }, []);
+    const fetchData = async () => {
+        try {
+            const token = localStorage.getItem('tp_number');
+            console.log(token);
+            const student = await getPMStudentProfile(token);
+            setData(student);
+        } catch (error) {
+            console.log('Error fetching data: ', error);
+        }
+    };
     const AssignLecturers = async()=>{
         try {
             const token = localStorage.getItem('tp_number');
             console.log(token);
             const updatedstudent = await getUpdatedStudent(token, selectedSupervisorId,selectedSecondMarkerId);
             setData(updatedstudent);
+            console.log(updatedstudent);
             alert("Successfully Assigned!");
+            fetchData();
         } catch (error) {
             console.log('Error fetching data: ', error);
         }
@@ -207,7 +210,8 @@ export default function StudentPM() {
                     </>
                 )}
             </div>
-            <div className={styles.contentbox3}><br /></div>
+            <div className={styles.contentbox3}><br /><br/><br/><br/></div>
+            <div className={styles.contentbox3}><br /><br/></div>
             <Footer/>
         </>
         

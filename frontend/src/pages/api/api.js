@@ -271,11 +271,15 @@ export const getUpdatedStudent = async (token, selectSupervisor, selectSecondMar
       headers: {
         Authorization: 'Bearer ' + token + " " + selectSupervisor + " " + selectSecondMarker
       }
+    };
+    const body= {
+      supervisor: selectSupervisor,
+      secondMarker: selectSecondMarker,
     }
     
     console.log(config);
-    const response = await axios.get(`${API_URL}/updateStudentInfo`, config);
-    const Updated = response.data.updatedstudent;    
+    const response = await axios.put(`${API_URL}/updateStudentInfo`, body,config);
+    const Updated = response.data.data;    
     console.log(Updated);
 
     return Updated;
@@ -284,26 +288,6 @@ export const getUpdatedStudent = async (token, selectSupervisor, selectSecondMar
   }
 }
 
-export const AssignLecturers= async (token, value1, value2)=>{
-  try{
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-    const payload = {
-      value1,
-      value2,
-    }
-    const response = await axios.put(`${API_URL}/assignlecturers`,config);
-    const update = response.data.data;
-    console.log(update);
-    console.log(payload)
-    return update;
-  }catch(error){
-    throw new Error(error.response?.data?.message || 'An error occurred');
-  }
-}
 
 export const deleteStudent = async (tp_number) => {
   try {
@@ -364,6 +348,24 @@ export const getSupOwnStudents = async (token) => {
   }
   console.log(config);
   const response = await axios.get(`${API_URL}/displaySupOwnStudents`, config);
+  const PM = response.data.data;
+  console.log(PM);
+
+  return PM;
+} catch (error) {
+  throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+}
+}
+export const getSecOwnStudents = async (token) => {
+  try {   
+
+    const config = {
+    headers: {
+      Authorization: 'Bearer ' + token
+    }
+  }
+  console.log(config);
+  const response = await axios.get(`${API_URL}/displaySecOwnStudents`, config);
   const PM = response.data.data;
   console.log(PM);
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lecturer;
+use App\Models\Student;
 use Illuminate\Support\Facades\Log;
 
 class LecturerController extends Controller
@@ -44,8 +45,115 @@ class LecturerController extends Controller
                 'data' => $lecturer,
                 ]);
             }
-    
+            public function displaySupOwnStudents(Request $request)
+            {
+                $token = $request->header('Authorization');
+                $token = str_replace('Bearer ', "", $token);
+                $lecturer = Lecturer::where('id', $token)->first();
+                            
+                if (!$lecturer) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => $token,
+                    ], 401);
+                }
+                
+                // $field_of_study = $lecturer->field_of_study;
+                $students = Student::where('supervisor', $token)->get();
+                
+                $data = $students->map(function ($student) {
+                    $supervisor = Lecturer::find($student->supervisor);
+                    $secondMarker = Lecturer::find($student->secondmarker);
+            
+                    return [
+                        'name' => $student->name,
+                        'tp_number' => $student->tp_number,
+                        'title' => $student->title,
+                        'field_of_study' => $student->field_of_study,
+                        'specialism' => $student->specialism,
+                        'email' => $student->email,
+                        'supervisor' => $supervisor ? $supervisor->name : null,
+                        'second_marker' => $secondMarker ? $secondMarker->name : null,
+                    ];
+                });
+            
+                return response()->json([
+                    'success' => true,
+                    'data' => $data,
+                ]);
+            }
+            public function displaySecOwnStudents(Request $request)
+            {
+                $token = $request->header('Authorization');
+                $token = str_replace('Bearer ', "", $token);
+                $lecturer = Lecturer::where('id', $token)->first();
+                            
+                if (!$lecturer) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => $token,
+                    ], 401);
+                }
+                
+                // $field_of_study = $lecturer->field_of_study;
+                $students = Student::where('secondmarker', $token)->get();
+                
+                $data = $students->map(function ($student) {
+                    $supervisor = Lecturer::find($student->supervisor);
+                    $secondMarker = Lecturer::find($student->secondmarker);
+            
+                    return [
+                        'name' => $student->name,
+                        'tp_number' => $student->tp_number,
+                        'title' => $student->title,
+                        'field_of_study' => $student->field_of_study,
+                        'specialism' => $student->specialism,
+                        'email' => $student->email,
+                        'supervisor' => $supervisor ? $supervisor->name : null,
+                        'second_marker' => $secondMarker ? $secondMarker->name : null,
+                    ];
+                });
+            
+                return response()->json([
+                    'success' => true,
+                    'data' => $data,
+                ]);
+            }
 
+            public function displayLecStudentProfile(Request $request)
+            {
+                $token = $request->header('Authorization');
+                $token = str_replace('Bearer ', "", $token);
+                $student = Student::where('tp_number', $token)->first();
+                if(!$student) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Error finding student record',    
+                    ]);
+                }
+        
+                $supervisor = $student->supervisor ? $student->supervisor : 'Not assigned';
+                $secondmarker = $student->second_marker ? $student->second_marker : 'Not assigned';
+        
+                $lecturers = Lecturer::where('field_of_study', $student->field_of_study)->get(['name', 'id']);
+                
+                $data = [
+                    'name' => $student->name,
+                    'tp_number' => $student->tp_number,
+                    'title' => $student->title,
+                    'field_of_study' => $student->field_of_study,
+                    'specialism' => $student->specialism,
+                    'email' => $student->email,
+                    'supervisor' => $supervisor,
+                    'second_marker' => $secondmarker,
+                    'lecturers' => $lecturers,
+                ];
+        
+                return response()->json([
+                    'success' => true,
+                    'data' => $data,
+                ]);
+            }
 
             
 }

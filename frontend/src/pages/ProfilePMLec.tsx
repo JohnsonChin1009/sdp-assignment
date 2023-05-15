@@ -91,9 +91,10 @@ export default function Home() {
       </>
        ) }
                                 
-      <br /><br /><br />    <br /><br /><br />                          
-      
-      <Table />                                      
+      <br /><br /><br />    <br /><br /><br />      <br/>                    
+      <div className={styles.contentbox3}>
+      <Table />      
+      </div>                                
              
       <br /><br /><br />
       <Footer />

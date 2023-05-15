@@ -1,50 +1,66 @@
 import style from '@/styles/Home.module.css'
 import{ useEffect, useState } from 'react'
 import { getSupOwnStudents } from '@/pages/api/api';
-import { deleteStudent } from '@/pages/api/api';
+import { getSecOwnStudents } from '@/pages/api/api';
+
 
 export default function Table() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState('');
+  const [data1, setData1] = useState('');
   
 
     useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const students = await getSupOwnStudents();
-          setData(students);
-        } catch (error) {
-          console.log('Error fetching data: ', error);
-        }
-      };
+     
 
       fetchData();
+      fetchData1();
     }, []);
-     
-     const handleRemoveStudent = async (tp_number) => {
+    const fetchData = async () => {
       try {
-        const response = await deleteStudent(tp_number);
-        setData(data.filter((student) => student.tp_number !== tp_number));
+        const token = localStorage.getItem('id');
+        console.log(token);
+        const students = await getSupOwnStudents(token);
+        setData(students);
       } catch (error) {
-        console.log('Error deleting student: ', error);
+        console.log('Error fetching data: ', error);
       }
     };
+    const fetchData1 = async () => {
+      try {
+        const token = localStorage.getItem('id');
+        console.log(token);
+        const students = await getSecOwnStudents(token);
+        setData1(students);
+      } catch (error) {
+        console.log('Error fetching data: ', error);
+      }
+    };
+     
+     
 
     return (
         
-              <div className={style.container1}>
-                {data && data.length ===0 ? (<p className={style.text4}>No students assigned</p>):(data.map((student)=>(
-                  <div className={style.row1} key={student.id}>
-                    <div className={style.image}></div>
-                    <div>{student.name} <br/>{student.tp_number}<br/>{student.intake_code}</div>
-                    <div><b>{student.title}</b><br/><br/>{student.supervisor}<br/>{student.secondmarker}</div>
-                    <div><button onClick={() => handleRemoveStudent(student.tp_number)}>Remove</button></div>
-                  </div>
-                ))
-                  
-                )}
-                <br/>
-                
-              </div>
+              <><div className={style.container1}> Supervise:
+        {data.length === 0 ? (<p className={style.text4}>No students assigned</p>) : (data.map((data) => (
+          <div className={style.row1} key={data.id}>
+            <div className={style.image}></div>
+            <div>{data.name} <br />{data.tp_number}<br />{data.intake_code}</div>
+            <div><b>{data.title}</b><br /><br />{data.supervisor}<br />{data.secondmarker}</div>
+          </div>
+        )))}
+        <br />
+
+      </div><div className={style.container1}> Mark:
+          {data1.length === 0 ? (<p className={style.text4}>No students assigned</p>) : (data1.map((data1) => (
+            <div className={style.row1} key={data1.id}>
+              <div className={style.image}></div>
+              <div>{data1.name} <br />{data1.tp_number}<br />{data1.intake_code}</div>
+              <div><b>{data1.title}</b><br /><br />{data1.supervisor}<br />{data1.secondmarker}</div>
+            </div>
+          )))}
+          <br />
+
+        </div></>
               
             
        

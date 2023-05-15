@@ -92,7 +92,7 @@ export default function Home() {
       
       <TableStaff search={search} />                                     
              
-      <br /><br /><br />
+      <br /><br /><br /><br /><div className={styles.contentbox3}><br /><br /><br/><br/></div>
       <Footer />
       </>
   )

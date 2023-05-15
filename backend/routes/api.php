@@ -42,13 +42,15 @@ Route::get('displayStuPMProfile', [StudentController::class, 'displayStuPMProfil
 Route::get('displayStuLecProfile', [StudentController::class, 'displayLecPMProfile']);
 Route::get('displayLecturers', [LecturerController::class, 'displayLecturers']);
 Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile']);
+Route::get('displaySupOwnStudents', [LecturerController::class, 'displaySupOwnStudents']);
+Route::get('displaySecOwnStudents', [LecturerController::class, 'displaySecOwnStudents']);
 
 Route::get('displayPMProfile', [PMController::class, 'displayPMProfile']);
 Route::get('displayPMOwnStudents', [PMController::class, 'displayPMOwnStudents']);
 Route::get('displayPMStudentProfile', [PMController::class, 'displayPMStudentProfile']);
 Route::get('displayPMStaff', [PMController::class, 'displayPMStaff']);
 Route::get('displayPMLecturerProfile', [PMController::class, 'displayPMLecturerProfile']);
-Route::get('updateStudentInfo', [PMController::class, 'updateStudentInfo']);
+Route::put('updateStudentInfo', [PMController::class, 'updateStudentInfo']);
 Route::delete('deleteStuSup/{tp_number}', [PMController::class, 'deleteStuSup']);
 Route::get('SearchPM', [PMController::class, 'SearchPM']);
 Route::get('SearchStu', [PMController::class, 'SearchStu']);

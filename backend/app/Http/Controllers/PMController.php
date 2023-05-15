@@ -149,10 +149,12 @@ class PMController extends Controller
         $token = $request->header('Authorization');
         $token = str_replace('Bearer ', "", $token);
 
-        $tokenValues = explode(' ', $token);
+        $supervisor = $request -> input('supervisor');
+        $secondMarker = $request->input('secondMarker');
+        $tokenValues = explode(" ", $token);
         $tp_number = $tokenValues[0];
-        $supervisor = $tokenValues[1];
-        $secondMarker = $tokenValues[2];
+        // $supervisor = $tokenValues[1];
+        // $secondMarker = $tokenValues[2];
 
         $student = Student::where('tp_number', $tp_number)->first();
 
