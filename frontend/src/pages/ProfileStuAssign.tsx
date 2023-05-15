@@ -146,12 +146,17 @@ export default function StudentPM() {
                                 <br />
                                 <table>
                                     <tbody>
+                                        {/* <tr>
+                                            <td>Assigned Supervisor </td>
+                                            <td>:</td>
+                                            <td>{data.supervisor}</td>
+                                        </tr> */}
                                         <tr>
                                             <td>Supervisor</td>
                                             <td>: </td>
                                             <td>
                                                 <select name="Supervisor" id="" onChange={(e) => setSelectedSupervisorId(e.target.value)} value={selectedSupervisorId}>
-                                                    
+                                                <option value={"Not Assigned"}>--Choose--</option>
                                                     {data.lecturers.map((lecturer) => {
                                                         const isSecondMarker = lecturer.id === selectedSecondMarkerId;
                                                         if (!isSecondMarker) {
@@ -166,12 +171,17 @@ export default function StudentPM() {
                                                 </select>
                                             </td>
                                         </tr>
+                                        {/* <tr>
+                                            <td>Assigned Second Marker </td>
+                                            <td>:</td>
+                                            <td>{data.secondmarker}</td>
+                                        </tr> */}
                                         <tr>
                                             <td>Second Marker</td>
                                             <td>:  </td>
                                             <td>
                                                 <select name="Second Marker" id="" onChange={(e) => setSelectedSecondMarkerId(e.target.value)} value={selectedSecondMarkerId}>
-                                                    
+                                                    <option value={"Not Assigned"}>--Choose--</option>
                                                     {data.lecturers.map((lecturer) => {
                                                         const isSupervisor = lecturer.id === selectedSupervisorId;
                                                         if (!isSupervisor) {
@@ -187,7 +197,7 @@ export default function StudentPM() {
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><button type="submit" onClick={AssignLecturers}>Assign</button></td>
+                                            <td><button type="submit" onClick={AssignLecturers} >Assign</button></td>
                                         </tr>
                                     </tbody>
                                 </table>
