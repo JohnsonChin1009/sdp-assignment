@@ -930,8 +930,11 @@ margin-right: -900px;
     margin-left: 20px;
     color: #497b9c;
   }
-  .box6, .box7{
+  .box6{
     margin-left: 20px;
+  }
+  .box7{
+    margin-left:150px ;
   }
   .box9{
     margin-left: 150px;
