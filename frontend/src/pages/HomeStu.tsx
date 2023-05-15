@@ -99,7 +99,7 @@ export default function Home() {
             height={100}        
             priority
             />
-            <p className={styles.word}>Staff</p>
+            <p className={styles.word1}>Lecturer</p>
           </div> 
         </a>
        
