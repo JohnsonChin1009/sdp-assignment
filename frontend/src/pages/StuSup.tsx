@@ -58,8 +58,7 @@ export default function Home() {
                         </td>
                         <td><a href="http://localhost:3000/HomeSupervisor"><b className={styles.title4}>ApFYPCentre</b></a></td>                     
                         <td><a href="http://localhost:3000/ProfileSup" className={styles.button2}>Profile</a></td>
-                        <td><a href="http://localhost:3000/StuSup" className={styles.button3}>Student</a></td>                        
-                        <td><a href="http://localhost:3000/SubSup" className={styles.button2}>Submission</a></td>
+                        <td><a href="http://localhost:3000/StuSup" className={styles.button3}>Student</a></td>                                                
                         <td> <br/></td>
                         <td><br/></td>
                         <td><a href="http://localhost:3000" className={styles.box6}  onClick={handleLogout}><u>Logout</u></a></td>

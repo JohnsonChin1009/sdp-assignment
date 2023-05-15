@@ -6,15 +6,14 @@ import Footer from '@/layout/Footer.js'
 import Table from '@/layout/TableSub.js'
 import { getStuResults } from '@/pages/api/api';
 import { useEffect, useState } from 'react'
-import {SearchStu} from '@/pages/api/api';
 import{logout} from '@/pages/api/api'
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home() { 
-    const[search, setSearch] = useState('');    
+      
     const [data, setData] = useState([]);
     const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
     
 
     useEffect(() => {
@@ -32,17 +31,7 @@ export default function Home() {
     }, []);
   
   
-    const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
-  
-        try {
-          console.log(search);
-          const searching = await SearchStu(search);        
-        } catch (error) {
-          setError(true);
-          setErrorMessage('Error searching')
-        }
-      };
+    
       const handleLogout = async()=>{
         try{
           await logout();
@@ -93,32 +82,13 @@ export default function Home() {
           </div>
           </a>  <br />
       </div>
-      <div className={styles.contentbox2a}>      
-          <input type="text" name="Search" placeholder="Search by name" value={search} onChange={(e)=>setSearch(e.target.value)}/>
-          <button type="submit" onClick={handleSearch} ><Image
-                            src="/search_icon.png"
-                            alt="Search"
-                            className={styles.vercelLogo}
-                            width={20}
-                            height={10}
-                            priority            
-                            /></button>      
-      </div><br /><br /><br /><br />
+      <br /><br /><br /><br />
     
-        <>
-         {data.map((item) => (
-            <div className={styles.row1} key={item.id}>
-            <div className={styles.image}></div>
-            <div><br/>{item.name} <br/>{item.tp_number}</div>
-            <div><br/>{item.title}<br/><br/>Supervisor: {item.supervisor}<br/>SecondMarker: {data.secondmarker}</div>
-            <div><br/>Documentation: <br/>Presentation: <br/>Final Mark: <br/></div>                                        
-            <div><br/><br/><div className={styles.button7}><a href=""><button>Edit</button></a></div></div>
-            </div>
-          ))}
-        </>
-                        
+        <div>
+        <Table/>
+        </div>
       
-      {/* <Table />   */}
+      
         
         <br /><br /><br />
         <Footer />

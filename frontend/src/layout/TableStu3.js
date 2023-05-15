@@ -32,14 +32,14 @@ export default function Table() {
     return (
         
               <div className={style.container1}>
-                {data &&(
+                {data.length ===0 ? (<p className={style.text4}>No students assigned</p>) :(data.map((data)=>(
                   <div className={style.row1} key={data.id}>
                     <div className={style.image}></div>
                     <div>{data.name} <br/>{data.tp_number}<br/>{data.intake_code}</div>
                     <div><b>{data.title}</b><br/><br/>{data.supervisor}<br/>{data.secondmarker}</div>
                     <div><button onClick={() => handleRemoveStudent(data.tp_number)}>Remove</button></div>
                   </div>
-                )}
+                )))}
                 <br/>
                 
               </div>

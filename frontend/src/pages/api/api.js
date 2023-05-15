@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_URL = 'http://localhost:8000/api'; // Replace with your Laravel API endpoint
-//login
+//login--------------------------------------------
 export const login = async (email, password) => {
   try {
     console.log(email, password);
@@ -13,7 +13,7 @@ export const login = async (email, password) => {
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 };
-//logout
+//logout--------------------------------------------
 export const logout = async () =>{
   try{
     const response = await axios.get(`${API_URL}/logout`);
@@ -22,7 +22,7 @@ export const logout = async () =>{
     throw new Error(error.response?.data?.message || 'An error occurred while fetching student records');
   }
 }
-//Display All
+//Display All---------------------------------------
 export const getStudents = async () => {
   try {
     const response = await axios.get(`${API_URL}/displaystudents`);
@@ -43,7 +43,8 @@ export const getLecturers = async () => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecture records');
   }
 };
-//STUDENT
+
+//STUDENT-------------------------------------------
 export const getStudentProfile = async (token) => {
   try {
     
@@ -62,6 +63,7 @@ export const getStudentProfile = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching student profile' || token);
   }
 };
+
 export const UpdateProfileStu = async (token, newValue) =>{
   try{
     const config = {
@@ -78,6 +80,7 @@ export const UpdateProfileStu = async (token, newValue) =>{
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 }
+
 export const getStudentStaff = async (token) => {
   try {
     
@@ -96,6 +99,7 @@ export const getStudentStaff = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+
 export const getStudentLec = async (token) => {
   try {
     const config = {
@@ -112,6 +116,7 @@ export const getStudentLec = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occured while fetching lecturers assigned for this student');
   }
 }
+
 export const getStuPMProfile = async (token) => {
   try {
     const config = {
@@ -130,6 +135,7 @@ export const getStuPMProfile = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+
 export const getStuPMSchedule = async (token) => {
   try {
     const config = {
@@ -147,6 +153,7 @@ export const getStuPMSchedule = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+
 export const getStuLecProfile = async (token) => {
   try {
     const config = {
@@ -164,7 +171,8 @@ export const getStuLecProfile = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
-//PM
+
+//PM---------------------------------------
 export const getPMProfile = async (token) => {
   try {
     
@@ -183,6 +191,7 @@ export const getPMProfile = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+
 export const getPMStudentProfile = async (token) => {
   try {
     const config = {
@@ -200,6 +209,7 @@ export const getPMStudentProfile = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+
 export const getPMOwnStudents = async (token) => {
   try {
     
@@ -216,6 +226,7 @@ export const getPMOwnStudents = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+
 export const getPMStaff = async (token) => {
   try {
     
@@ -234,6 +245,7 @@ export const getPMStaff = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+
 export const getPMLecturerProfile = async (token) => {
   try {
     const config = {
@@ -251,7 +263,7 @@ export const getPMLecturerProfile = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
-//Update
+
 export const getUpdatedStudent = async (token, selectSupervisor, selectSecondMarker) => {
   try {
     
@@ -271,6 +283,7 @@ export const getUpdatedStudent = async (token, selectSupervisor, selectSecondMar
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+
 export const AssignLecturers= async (token, value1, value2)=>{
   try{
     const config = {
@@ -303,7 +316,8 @@ export const deleteStudent = async (tp_number) => {
     );
   }
 };
-//Lecturers
+
+//Lecturers-----------------------------------------
 export const getLecturerProfile = async (token) => {
   try {
     const config = {
@@ -321,22 +335,7 @@ export const getLecturerProfile = async (token) => {
   }
 }
 
-export const UpdateProfileLec = async (token, newName, newField, newEmail) =>{
-  try{
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token + " " + newName + " " + newField +" " + newEmail
-      }
-    }    
-    console.log(config);
-    const response = await axios.put(`${API_URL}/updateprofileLec`, {}, config);
-    const update = response.data.message;
-    console.log(update);    
-    return update;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred');
-  }
-}
+
 
 export const getLecStudentProfile = async (token) => {
   try {
@@ -376,7 +375,50 @@ export const getLecStudentProfile = async (token) => {
 
 
 
-//Events
+//Events---------------------------------------------
+export const addPMEvent = async (token, EventName, startDatetime, endtime) => {
+  try { 
+      const config = {
+        headers: {
+          Authorization: 'Bearer ' + token
+        }
+      }
+    
+    console.log(EventName, startDatetime, endtime);
+    const eventData = {
+      title: EventName,
+      start: startDatetime,
+      end: endtime,
+    };
+    const response = await axios.post(`${API_URL}/addPMSchedule`, eventData, config);
+    console.log(config)
+
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message ||
+        "Error adding Event"
+    );
+  }
+};
+
+export const getPMSchedule = async (token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    console.log(config)
+    console.log('Token:', token);
+    const response = await axios.get(`${API_URL}/getPMSchedule`, config);
+    const data = response.data.data;
+    console.log(response.data); 
+    return data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+  }
+}
 export const getLecSchedule = async (token) => {
   try {
     const config = {
@@ -434,84 +476,8 @@ export const deleteEvent = async (id) => {
   }
 };
 
-//Anouncement
-// export const getAllResults = async()=>{
-//   try{
-//     const response = await axios.post(`${API_URL}/displayresults`);
-//     return response.data;
-    
-//   }catch(error){
-//     throw new Error(error.response?.data?.message || 'An error occurred');
-//   }
-// }
-// export const getResultStu = async(token)=>{
-//   try {
-    
-//     const config = {
-//       headers: {
-//         Authorization: 'Bearer ' + token
-//       }
-//     }
-//     console.log(config);
-//     const response = await axios.get(`${API_URL}/displayresults`, config);
-//     const results = response.data.data;
-//     console.log(results);
-
-//     return results;
-//   }catch(error){
-    
-//     throw new Error(error.response?.data?.message || 'An error occurred');
-//   }
-// }
-
-
-export const addPMEvent = async (token, EventName, startDatetime, endtime) => {
-  try { 
-      const config = {
-        headers: {
-          Authorization: 'Bearer ' + token
-        }
-      }
-    
-    console.log(EventName, startDatetime, endtime);
-    const eventData = {
-      title: EventName,
-      start: startDatetime,
-      end: endtime,
-    };
-    const response = await axios.post(`${API_URL}/addPMSchedule`, eventData, config);
-    console.log(config)
-
-    return response.data;
-  } catch (error) {
-    throw new Error(
-      error.response?.data?.message ||
-        "Error adding Event"
-    );
-  }
-};
-
-export const getPMSchedule = async (token) => {
-  try {
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-    console.log(config)
-    console.log('Token:', token);
-    const response = await axios.get(`${API_URL}/getPMSchedule`, config);
-    const data = response.data.data;
-    console.log(response.data); 
-    return data;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
-  }
-}
-
-
-//Submission Part
-export const getStuResults = async()=>{
+//Results------------------------------------------
+export const getAllResults = async()=>{
   try{
     const response = await axios.post(`${API_URL}/displayresults`);
     return response.data;
@@ -520,6 +486,42 @@ export const getStuResults = async()=>{
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 }
+export const getStuResults = async(token)=>{
+  try {
+    
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    console.log(config);
+    const response = await axios.get(`${API_URL}/displaysturesults`, config);
+    const results = response.data.data;
+    console.log(results);
+
+    return results;
+  }catch(error){
+    
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}
+export const UpdateStuResult = async (token, newValue) =>{
+  try{
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token + " " + newValue
+      }
+    }    
+    console.log(config);
+    const response = await axios.put(`${API_URL}/updatesturesult`, {}, config);
+    const update = response.data.message;
+    console.log(update);    
+    return update;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}
+//Submission Part----------------------------------
 export const UpdateProgression = async (token, newStatus, newStatus1, newStatus2) =>{
   try{
     const config = {
@@ -539,9 +541,7 @@ export const UpdateProgression = async (token, newStatus, newStatus1, newStatus2
 
 
 
-
-
-//Anouncement
+//Anouncement--------------------------------------
 export const getAnnouncements = async (token) => {
   try {
     const config = {
@@ -639,7 +639,7 @@ export const addNewAnnouncements = async (newTitle, newDescription, newName, new
 
 
 
-//Search
+//Search------------------------------------------
 export const SearchPM = async (search) => {
   try {
 
@@ -677,19 +677,3 @@ export const SearchStu = async (search) => {
   }
 };
 
-export const UpdateProfilePM = async (token, newName, newField, newEmail) =>{
-  try{
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token + " " + newName + " " + newField +" " + newEmail
-      }
-    }    
-    console.log(config);
-    const response = await axios.put(`${API_URL}/updateprofilePM`, {}, config);
-    const update = response.data.message;
-    console.log(update);    
-    return update;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred');
-  }
-}

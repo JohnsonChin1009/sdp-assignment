@@ -208,37 +208,7 @@ class PMController extends Controller
         ]);
     }
 
-    public function updateprofilePM(Request $request)
-    {
-        $token = $request->header('Authorization');
-        Log::info($token);
-        Log::info($request);
-        $token = str_replace('Bearer ', "", $token);
-        Log::info($token);
-        $PM = ProjectManager::where('email', $token)->first();
-
-        if (!$PM) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Project Manager record not found',
-            ]);
-        }
-
-        Log::info($request->input('Name'));
-
-        $PM->name = $request->input('Name');
-        Log::info($request->input('Name'));
-        $PM->field_of_study = $request->input('Field');
-        Log::info($request->input('Field'));
-        $PM->email = $request->input('Email');
-        Log::info($request->input('Email'));
-        $PM->save();
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Updated Project Manager Record Successfully!',
-        ]);
-    }
+   
 
     public function SearchStu(Request $request)
     {
@@ -258,4 +228,38 @@ class PMController extends Controller
         ]);
     }
 
+    public function updatesturesult(Request $request)
+    {
+        $token = $request->header("Authorization");
+        $token = str_replace('Bearer ', "", $token);
+
+        $email = substr($token, 0, strpos($token, ' '));
+        $newMark = substr($token, strpos($token, ' ') + 1);
+
+        $result = Result::where('tp_number', $tp_number)->first();
+
+        if(!$result)
+        {
+            return response()->json([
+                'success' => false,
+                'message' => 'Student not found in database',
+            ]);
+        }
+
+        if ($newMark === '') {
+            return response()->json([
+                'success' => false,
+                'message' => 'Title is empty',
+            ]);
+        }
+        
+        $result->finalmark = $newMark;
+        $result->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Student mark updated successfully',
+        ]);
+    }
 }
+

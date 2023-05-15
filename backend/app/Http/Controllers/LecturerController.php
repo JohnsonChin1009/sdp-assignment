@@ -46,41 +46,6 @@ class LecturerController extends Controller
             }
     
 
-    public function updateprofileLec(Request $request)
-    {
-        $token = $request->header('Authorization');
-        $token = str_replace('Bearer ', "", $token);
-        Log::info($token);
-        $tokenValues = explode(' ', $token);
-        Log::info($tokenValues);
-        $token = $tokenValues[0];
-        $newName = $tokenValues[1];
-        $newField = $tokenValues[2];
-        $newEmail = $tokenValues[3];
-        $lecturer = Lecturer::where('email', $token)->first();
-
-        if (!$lecturer) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Lecturer record not found',
-            ]);
-        }
-
-        $lecturer->name = $newName;
-        $lecturer->field_of_study = $newField;
-        $lecturer->email = $newEmail;
-        $lecturer->save();
-
-        
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Updated Lecturer Record Successfully!',
-        ]);
-    }
-
-
-
 
             
 }

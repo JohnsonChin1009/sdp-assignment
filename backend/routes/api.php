@@ -40,10 +40,8 @@ Route::get('displayStudentLec', [StudentController::class, 'displayStudentLec'])
 Route::put('updatestutitle', [StudentController::class, 'updatestutitle']);
 Route::get('displayStuPMProfile', [StudentController::class, 'displayStuPMProfile']);
 Route::get('displayStuLecProfile', [StudentController::class, 'displayLecPMProfile']);
-
 Route::get('displayLecturers', [LecturerController::class, 'displayLecturers']);
 Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile']);
-Route::put('updateprofileLec', [LecturerController::class, 'updateprofileLec']);
 
 Route::get('displayPMProfile', [PMController::class, 'displayPMProfile']);
 Route::get('displayPMOwnStudents', [PMController::class, 'displayPMOwnStudents']);
@@ -53,9 +51,8 @@ Route::get('displayPMLecturerProfile', [PMController::class, 'displayPMLecturerP
 Route::get('updateStudentInfo', [PMController::class, 'updateStudentInfo']);
 Route::delete('deleteStuSup/{tp_number}', [PMController::class, 'deleteStuSup']);
 Route::get('SearchPM', [PMController::class, 'SearchPM']);
-Route::put('updateprofilePM', [PMController::class, 'updateprofilePM']);
 Route::get('SearchStu', [PMController::class, 'SearchStu']);
-
+Route::put('updatesturesult', [PMController::class, 'updatesturesult']);
 
 Route::post('addSupSchedule', [EventController::class, 'addSupSchedule']);
 Route::post('addPMSchedule', [EventController::class, 'addPMSchedule']);

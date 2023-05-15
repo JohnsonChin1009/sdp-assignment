@@ -187,8 +187,7 @@ export default function Home() {
             <div>{data.field_of_study}</div>
           </div><div className={styles.infobox}>
               Email  : {data.email}<br />              
-              <br />
-              <a href="http://localhost:3000/Profile"><button type="submit" className={styles.button6}>Edit</button></a>
+              <br />              
             </div><div className={styles.infobox1}>
                 <form onSubmit={submit}> <br />
                  <h3> Add New Event </h3><br />
