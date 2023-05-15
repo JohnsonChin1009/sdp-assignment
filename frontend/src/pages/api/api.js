@@ -563,11 +563,11 @@ export const UpdateStuResult = async (token, newValue) =>{
   }
 }
 //Submission Part----------------------------------
-export const UpdateProgression = async (token, newStatus, newStatus1, newStatus2) =>{
+export const UpdateProgression = async (token, newStatus, newStatus1, newStatus2, newMark1, newMark2, newMark3) =>{
   try{
     const config = {
       headers: {
-        Authorization: 'Bearer ' + token + " " + newStatus + " " + newStatus1 + " " + newStatus2
+        Authorization: 'Bearer ' + token + " " + newStatus + " " + newStatus1 + " " + newStatus2 + " " + newMark1 + " " + newMark2 + " " + newMark3 
       }
     }    
     console.log(config);

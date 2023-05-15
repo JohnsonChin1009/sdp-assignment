@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 
 export default function TableStaff({ search }) {
   const [data, setData] = useState([]);
+  
   const router = useRouter();
     useEffect(() => {
       const fetchData = async () => {
@@ -12,6 +13,7 @@ export default function TableStaff({ search }) {
           const token = localStorage.getItem('token');
           const lecturers = await getPMStaff(token);
           setData(lecturers);
+          
         } catch (error) {
           console.log('Error fetching data: ', error);
         }
@@ -35,7 +37,7 @@ export default function TableStaff({ search }) {
                 {filteredData.map((staff) => (
                   <div className={style.row2} key={staff.id} onClick={() => handleClick(staff.id)}>
                     <div className={style.image}></div>
-                    <div><a href="http://localhost:3000/ProfilePMLec">{staff.name}<br/><br/>{staff.field_of_study}</a></div>                                      
+                    <div><a href="http://localhost:3000/ProfilePMLec">{staff.name}<br/><br/>{staff.field_of_study}</a></div>                                                       
                     </div>
                 ))}
               </div>

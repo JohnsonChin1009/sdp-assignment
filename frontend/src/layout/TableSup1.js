@@ -8,7 +8,7 @@ export default function Table() {
   const [data, setData] = useState([]);
   const [students, setData1] = useState([]);
   const router = useRouter();
-    
+  const [selectedOption, setSelectedOption] = useState('');  
     
     useEffect(() => {      
         fetchData();
@@ -41,46 +41,58 @@ export default function Table() {
       router.push('/ProfileLecStu');
     };
     const filteredData = data.filter((student) => {
-      return student.name.toLowerCase().includes(search.toLowerCase());
+      return student.name.toLowerCase().includes(search.toLowerCase()) && 
+         (selectedOption === '-' || student.id === selectedOption);
     });
     const filteredData1 = students.filter((student) => {
-      return student.name.toLowerCase().includes(search.toLowerCase());
+      return student.name.toLowerCase().includes(search.toLowerCase()) &&
+      (selectedOption === '-' || student.id === selectedOption);
     });
-    return (
+    
+    return ( 
 <div className={styles.content9}>
       <form action="" className={styles.box12}>
           Supervise: 
-          <select name="student" >
-            <option value="-">All</option>
-            <option value=""></option>
+          
+            <select name="student" value={selectedOption} onChange={(e)=>setSelectedOption(e.target.value)}>
+            <option value="-">All</option>{data.map((data)=>(
+            <option value={data.id} key={data.id}>{data.name}</option> ))}
           </select>
+         
       </form>
       
       <form className={styles.box12}>
         Mark:
-        <select>
-            <option value="-">All</option>
-        </select>
+        
+            <select name="student" value={selectedOption} onChange={(e)=>setSelectedOption(e.target.value)}>
+            <option value="-">All</option>{students.map((data1)=>(
+            <option value={data1.id} key={data1.id}>{data1.name}</option>))}
+          </select>
+          
       </form><br/><br/><br/><br/><br/>
       <div className={styles.container1}>
         Supervise:<br/>
                 {data.length ===0 ? (<p className={styles.text3}>No Students assigned yet</p>) :(filteredData.map((row) => (
                   <div className={styles.row} key={row.id} onClick={()=>handleClick(row.tp_number)}>
+                    <div className={styles.content7}>
                     <div className={styles.image}></div>
-                    <a href=""><div onClick={()=>handleClick(row.tp_number)} ><br/>{row.name}<br/>{row.tp_number}<br/>{row.intake_code}</div></a>  
+                    <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(row.tp_number)} ><br/>{row.name}<br/>{row.tp_number}<br/>{row.intake_code}</div></a>  
                     <div><br/>{row.title}<br/><br/>{row.supervisor}<br/>{row.secondmarker}</div>
                     <div><br/>IR: <br/>Documentation: <br/>Presentation: <br/></div>   
                     <div><br/><br/><div className={styles.button7}><a href=""><button>Update</button></a></div></div>                                  
+                  </div>
                   </div>
                 )))}
         Mark:<br/>
                 {students.length ===0 ? (<p className={styles.text3}>No Students assigned yet</p>) :(filteredData1.map((row) => (
                   <div className={styles.row} key={row.id} onClick={()=>handleClick(row.tp_number)}>
+                    <div className={styles.content7}>
                     <div className={styles.image}></div>
-                    <a href=""><div onClick={()=>handleClick(row.tp_number)} ><br/>{row.name}<br/>{row.tp_number}<br/>{row.intake_code}</div></a>  
+                    <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(row.tp_number)} ><br/>{row.name}<br/>{row.tp_number}<br/>{row.intake_code}</div></a>  
                     <div><br/>{row.title}<br/><br/>{row.supervisor}<br/>{row.secondmarker}</div>
                     <div><br/>IR: <br/>Documentation: <br/>Presentation: <br/></div>   
-                    <div><br/><br/><div className={styles.button7}><a href=""><button>Update</button></a></div></div>                                  
+                    <div><br/><br/><div className={styles.button7}><a href=""><button>Update</button></a></div></div>           
+                    </div>                       
                   </div>
                 )))}
               </div>

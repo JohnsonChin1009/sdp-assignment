@@ -14,6 +14,9 @@ export default function Home() {
     const [newStatus1, setNewStatus1] = useState('');
     const [newStatus2, setNewStatus2] = useState('');
     const [newStatus3, setNewStatus3] = useState('');
+    const [newMark1, setNewMark1] = useState('');
+    const [newMark2, setNewMark2] = useState('');
+    const [newMark3, setNewMark3] = useState('');
     const[message, setMessage] = useState('');    
     useEffect(() => {
       
@@ -122,9 +125,9 @@ export default function Home() {
                                       </tbody>
                                   </table>
                                   <div><br /><br />
-                                  <input type="checkbox" value={newStatus1} onChange={(event => setNewStatus1(event.target.checked ? "1" : ""))}/> IR <br />
-                                  <input type="checkbox" value={newStatus2} onChange={(event => setNewStatus2(event.target.checked ? "1" : ""))}/> Documentation<br />
-                                  <input type="checkbox" value={newStatus3} onChange={(event => setNewStatus3(event.target.checked ? "1" : ""))}/> Presentation <br />
+                                  <input type="checkbox" value={newStatus1} onChange={(event => setNewStatus1(event.target.checked ? "1" : ""))}/> IR : <input type="text" value={newMark1} onChange={(event)=> setNewMark1(event.target.value)}/><br />
+                                  <input type="checkbox" value={newStatus2} onChange={(event => setNewStatus2(event.target.checked ? "1" : ""))}/> Documentation : <input type="text" value={newMark2} onChange={(event)=> setNewMark2(event.target.value)}/><br />
+                                  <input type="checkbox" value={newStatus3} onChange={(event => setNewStatus3(event.target.checked ? "1" : ""))}/> Presentation : <input type="text" value={newMark3} onChange={(event)=> setNewMark3(event.target.value)}/><br />
                                   </div>
                                   <div><br /><br /><div className={styles.button9} onClick={updateValue}><a href=""><button>Update</button></a></div></div>
                               </div></>

@@ -6,9 +6,7 @@ import { getSecOwnStudents } from '@/pages/api/api';
 
 export default function Table() {
   const [data, setData] = useState('');
-  const [data1, setData1] = useState('');
-  
-
+  const [data1, setData1] = useState('');    
     useEffect(() => {
      
 
@@ -20,7 +18,7 @@ export default function Table() {
         const token = localStorage.getItem('id');
         console.log(token);
         const students = await getSupOwnStudents(token);
-        setData(students);
+        setData(students);        
       } catch (error) {
         console.log('Error fetching data: ', error);
       }
@@ -30,7 +28,7 @@ export default function Table() {
         const token = localStorage.getItem('id');
         console.log(token);
         const students = await getSecOwnStudents(token);
-        setData1(students);
+        setData1(students);        
       } catch (error) {
         console.log('Error fetching data: ', error);
       }
@@ -40,22 +38,22 @@ export default function Table() {
 
     return (
         
-              <><div className={style.container1}> Supervise:
+              <><div className={style.container1}> Supervise:<br/>
         {data.length === 0 ? (<p className={style.text4}>No students assigned</p>) : (data.map((data) => (
           <div className={style.row1} key={data.id}>
             <div className={style.image}></div>
             <div>{data.name} <br />{data.tp_number}<br />{data.intake_code}</div>
-            <div><b>{data.title}</b><br /><br />{data.supervisor}<br />{data.secondmarker}</div>
+            <div><b>{data.title}</b><br /><br />Second Marker:<br />{data.secondmarker}</div>
           </div>
         )))}
         <br />
 
-      </div><div className={style.container1}> Mark:
+      </div><div className={style.container1}> Mark:<br/>
           {data1.length === 0 ? (<p className={style.text4}>No students assigned</p>) : (data1.map((data1) => (
             <div className={style.row1} key={data1.id}>
               <div className={style.image}></div>
               <div>{data1.name} <br />{data1.tp_number}<br />{data1.intake_code}</div>
-              <div><b>{data1.title}</b><br /><br />{data1.supervisor}<br />{data1.secondmarker}</div>
+              <div><b>{data1.title}</b><br /><br />Supervisor: <br />{data1.supervisor}</div>
             </div>
           )))}
           <br />

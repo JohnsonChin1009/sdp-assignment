@@ -57,8 +57,7 @@ class LecturerController extends Controller
                         'message' => $token,
                     ], 401);
                 }
-                
-                // $field_of_study = $lecturer->field_of_study;
+                                
                 $students = Student::where('supervisor', $token)->get();
                 
                 $data = $students->map(function ($student) {
@@ -76,7 +75,8 @@ class LecturerController extends Controller
                         'second_marker' => $secondMarker ? $secondMarker->name : null,
                     ];
                 });
-            
+                
+                
                 return response()->json([
                     'success' => true,
                     'data' => $data,
@@ -206,10 +206,10 @@ class LecturerController extends Controller
                     ]);
                 }
         
-                $supervisor = $student->supervisor ? $student->supervisor : 'Not assigned';
-                $secondmarker = $student->second_marker ? $student->second_marker : 'Not assigned';
+                // $supervisor = $student->supervisor ? $student->supervisor : 'Not assigned';
+                // $secondmarker = $student->second_marker ? $student->second_marker : 'Not assigned';
         
-                $lecturers = Lecturer::where('field_of_study', $student->field_of_study)->get(['name', 'id']);
+                // $lecturers = Lecturer::where('field_of_study', $student->field_of_study)->get(['name', 'id']);
                 
                 $data = [
                     'name' => $student->name,
