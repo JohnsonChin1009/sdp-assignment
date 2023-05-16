@@ -13,21 +13,21 @@ import { useState } from 'react';
 
 
 export default function Home() {
-  const [search, setSearch] = useState('');
+  // const [search, setSearch] = useState('');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   
-  const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  // const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
 
-      try {
-        console.log(search);
-        const response = await SearchStu(search);        
-      } catch (error) {
-        setError(true);
-        setErrorMessage('Error searching')
-      }
-    };   
+  //     try {
+  //       console.log(search);
+  //       const response = await SearchStu(search);        
+  //     } catch (error) {
+  //       setError(true);
+  //       setErrorMessage('Error searching')
+  //     }
+  //   };   
   const handleLogout = async()=>{
     try{
       await logout();
@@ -75,28 +75,10 @@ export default function Home() {
           Back 
         </div>
         </a>
-      </div>        
-      <div className={styles.contentbox2a}>
-      <form onSubmit={handleSearch}>
-      <input type="text" name="Search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder={"Search by Name"}/>
-          <button type="submit" ><Image
-                            src="/search_icon.png"
-                            alt="Search"
-                            className={styles.vercelLogo}
-                            width={20}
-                            height={10}
-                            priority            
-                            /></button>
-      </form>
-      </div>    
+      </div>                 
        <br /><br /><br /><br/>
-       <Table search2={search}/>
-      <div className={styles.content6}>
-       
-
-        
-        
-      </div>                                           
+       <Table />
+      <div className={styles.content6}>      </div>                                           
       <br /><br /><br />
       <Footer />
       </>

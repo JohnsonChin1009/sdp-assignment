@@ -46,6 +46,7 @@ Route::get('displaySupOwnStudents', [LecturerController::class, 'displaySupOwnSt
 Route::get('displaySecOwnStudents', [LecturerController::class, 'displaySecOwnStudents']);
 Route::get('displayStudentSup', [LecturerController::class, 'displayStudentSup']);
 Route::get('displayStudentSec', [LecturerController::class, 'displayStudentSec']);
+Route::get('displayLecStuProfile', [LecturerController::class, 'displayLecStuProfile']);
 
 Route::get('displayPMProfile', [PMController::class, 'displayPMProfile']);
 Route::get('displayPMOwnStudents', [PMController::class, 'displayPMOwnStudents']);

@@ -194,7 +194,7 @@ class LecturerController extends Controller
                 ]);
             }
 
-            public function displayLecStudentProfile(Request $request)
+            public function displayLecStuProfile(Request $request)
             {
                 $token = $request->header('Authorization');
                 $token = str_replace('Bearer ', "", $token);
@@ -217,10 +217,7 @@ class LecturerController extends Controller
                     'title' => $student->title,
                     'field_of_study' => $student->field_of_study,
                     'specialism' => $student->specialism,
-                    'email' => $student->email,
-                    'supervisor' => $supervisor,
-                    'second_marker' => $secondmarker,
-                    'lecturers' => $lecturers,
+                    'email' => $student->email,                                        
                 ];
         
                 return response()->json([

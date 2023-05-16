@@ -329,7 +329,7 @@ export const getLecStudentProfile = async (token) => {
       }
     }
     console.log(config);
-    const response = await axios.get(`${API_URL}/displayLecStudentProfile`, config);
+    const response = await axios.get(`${API_URL}/displayLecStuProfile`, config);
     const PM = response.data.data;
     console.log(PM);
 
@@ -412,6 +412,7 @@ export const getStudentSec = async (token) => {
 } catch (error) {
   throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
 }
+
 }
 
 
@@ -563,7 +564,7 @@ export const UpdateStuResult = async (token, newValue) =>{
   }
 }
 //Submission Part----------------------------------
-export const UpdateProgression = async (token, newStatus, newStatus1, newStatus2, newMark1, newMark2, newMark3) =>{
+export const UpdateProgression = async (token, newStatus, newStatus1, newStatus2, IR, Doc, Pre) =>{
   try{
     const config = {
       headers: {
