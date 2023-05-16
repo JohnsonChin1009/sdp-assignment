@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Lecturer;
 use App\Models\Student;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class LecturerController extends Controller
 {
@@ -98,10 +99,22 @@ class LecturerController extends Controller
                 $lecturerId = $lecturer->id;
                 $students = Student::where('supervisor', $lecturerId)->get();
                 
-                $data = $students->map(function ($student)  {
+                
+                $data = $students->map(function ($student) {
                     $supervisor = Lecturer::find($student->supervisor);
                     $secondMarker = Lecturer::find($student->secondmarker);
-            
+                    $progressData = null;
+                    $storedData = Storage::get('progress_data.json');
+                $progressArray = json_decode($storedData, true) ?? [];
+                   foreach($progressArray as $progress){
+                    if($progress['tp_number']===$student->tp_number){
+                        $progressData = $progress;
+                        break;
+                    }
+                    
+                   }
+                    
+                   
                     return [
                         'name' => $student->name,
                         'tp_number' => $student->tp_number,
@@ -111,10 +124,12 @@ class LecturerController extends Controller
                         'email' => $student->email,
                         'supervisor' => $supervisor ? $supervisor->name : null,
                         'second_marker' => $secondMarker ? $secondMarker->name : null,
-                        'Pro' =>$progressData['Pro'] ?? null,
-                        'IR' => $progressData['IR'] ?? null, 
-                        'Doc' => $progressData['Doc'] ?? null, 
-                        'Pre' => $progressData['Pre'] ?? null, 
+                        'Pro' => $progressData ? $progressData['Pro'] : null,
+                        'IR' => $progressData ? $progressData['IR'] : null,
+                        'Doc' =>  $progressData ? $progressData['Doc'] : null,
+                        'Pre' => $progressData ? $progressData['Pre'] : null,
+        
+                        
                     ];
                 });
             
@@ -179,7 +194,16 @@ class LecturerController extends Controller
                 $data = $students->map(function ($student)  {
                     $supervisor = Lecturer::find($student->supervisor);
                     $secondMarker = Lecturer::find($student->secondmarker);
-            
+                    $progressData = null;
+                    $storedData = Storage::get('progress_data.json');
+                $progressArray = json_decode($storedData, true) ?? [];
+                   foreach($progressArray as $progress){
+                    if($progress['tp_number']===$student->tp_number){
+                        $progressData = $progress;
+                        break;
+                    }
+                    
+                   }
                     return [
                         'name' => $student->name,
                         'tp_number' => $student->tp_number,
@@ -189,6 +213,10 @@ class LecturerController extends Controller
                         'email' => $student->email,
                         'supervisor' => $supervisor ? $supervisor->name : null,
                         'second_marker' => $secondMarker ? $secondMarker->name : null,
+                        'Pro' => $progressData ? $progressData['Pro'] : null,
+                        'IR' => $progressData ? $progressData['IR'] : null,
+                        'Doc' =>  $progressData ? $progressData['Doc'] : null,
+                        'Pre' => $progressData ? $progressData['Pre'] : null,
                     ];
                 });
             
@@ -209,11 +237,17 @@ class LecturerController extends Controller
                         'message' => 'Error finding student record',    
                     ]);
                 }
-        
-                // $supervisor = $student->supervisor ? $student->supervisor : 'Not assigned';
-                // $secondmarker = $student->second_marker ? $student->second_marker : 'Not assigned';
-        
-                // $lecturers = Lecturer::where('field_of_study', $student->field_of_study)->get(['name', 'id']);
+                $storedData = Storage::get('progress_data.json');
+                $progressArray = json_decode($storedData, true) ?? [];
+                $progressData = null;
+               
+                   foreach($progressArray as $progress){
+                    if($progress['tp_number']===$student->tp_number){
+                        $progressData = $progress;
+                        break;
+                    }
+                    
+                   }
                 
                 $data = [
                     'name' => $student->name,
@@ -221,7 +255,11 @@ class LecturerController extends Controller
                     'title' => $student->title,
                     'field_of_study' => $student->field_of_study,
                     'specialism' => $student->specialism,
-                    'email' => $student->email,                                        
+                    'email' => $student->email,   
+                    'Pro' => $progressData ? $progressData['Pro'] : null,
+                    'IR' => $progressData ? $progressData['IR'] : null,
+                    'Doc' =>  $progressData ? $progressData['Doc'] : null,
+                    'Pre' => $progressData ? $progressData['Pre'] : null,                                     
                 ];
         
                 return response()->json([
@@ -229,35 +267,59 @@ class LecturerController extends Controller
                     'data' => $data,
                 ]);
             }
-            public function updateProgression(Request $request)
-    {
-        $token = $request->header('Authorization');
-        $token = str_replace('Bearer ', "", $token);
-        Log::info($token);
+    public function updateProgression(Request $request)
+{
+    $token = $request->header('Authorization');
+    $token = str_replace('Bearer ', "", $token);
+    Log::info($token);
 
-        $tokenValues = explode(' ', $token);
-        $tp_number = $tokenValues[0];        
-        // $Pro = $tokenValues[1];
-        // $IR = $tokenValues[2];
-        // $Doc = $tokenValues[3];
-        // $Pre = $tokenValues[4];
-        
-        $progressData = [
-            'tp_number' => $token,           
-            'Pro' => $request->input('Pro'),
-            'IR' => $request->input('IR'),
-            'Doc' => $request->input('Doc'),
-            'Pre' => $request->input('Pre'),
-        ];    
-    
-       
+    $tokenValues = explode(' ', $token);
+    $tp_number = $tokenValues[0];
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Updated Results Successfully!',
-            'data' => $progressData,
-        ]);
+    $progressData = [
+        'tp_number' => $tp_number,
+        'Pro' => $request->input('Pro'),
+        'IR' => $request->input('IR'),
+        'Doc' => $request->input('Doc'),
+        'Pre' => $request->input('Pre'),
+        'Mark' => $request->input('Mark'),
+    ];
+
+    $storedData = Storage::get('progress_data.json');
+    $progressArray = json_decode($storedData, true) ?? [];
+
+    // Find the index of the existing progress data for the given tp_number
+    $index = array_search($tp_number, array_column($progressArray, 'tp_number'));
+
+    if ($index !== false) {
+        // If the progress data for the tp_number already exists, update the mark
+        $progressArray[$index]['Pro'] = $progressData['Pro'];
+        $progressArray[$index]['IR'] = $progressData['IR'];
+        $progressArray[$index]['Doc'] = $progressData['Doc'];
+        $progressArray[$index]['Pre'] = $progressData['Pre'];
+    } else {
+        // If the progress data doesn't exist, add it to the array
+        $progressArray[] = $progressData;
     }
+
+    // Log the progress array before storing it
+    Log::info('Progress Array before storage: ' . json_encode($progressArray));
+
+    // Store the updated progress array back to storage
+    Storage::put('progress_data.json', json_encode($progressArray));
+
+    // Log the progress array after storing it
+    Log::info('Progress Array after storage: ' . json_encode($progressArray));
+
+    // Retrieve the updated progress array
+    $data = $this->displayStudentSup($request);
+    return response()->json([
+        'success' => true,
+        'message' => 'Updated Results Successfully!',
+        'update1' => $progressData,
+        
+    ]);
+}
 
             
 }

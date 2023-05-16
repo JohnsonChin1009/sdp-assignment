@@ -15,6 +15,7 @@ export default function Home() {
     const [IR, setIR] = useState('');
     const [Doc, setDoc] = useState('');
     const [Pre, setPre] = useState('');
+    const [Mark, setMark] = useState('');
     const[message, setMessage] = useState('');    
     useEffect(() => {
       
@@ -24,14 +25,15 @@ export default function Home() {
     const fetchData = async () => {
         try {
               const token = localStorage.getItem('tp_number'); //Retrieving token from local storage)
-              const student = await getLecStudentProfile(token);
-              setData(student);
-              if (student.length > 0) {
-                const initialStudent = student[0];                
+              const data = await getLecStudentProfile(token);
+              setData(data);
+              if (data.length > 0) {
+                const initialStudent = data[0];                
                 setPro(initialStudent.Pro);
                 setIR(initialStudent.IR);
                 setDoc(initialStudent.Doc);
                 setPre(initialStudent.Pre);
+                setMark(initialStudent.Mark);
                             
               }  
       } catch (error) {
@@ -49,8 +51,8 @@ export default function Home() {
   const updateValue = async()=>{
     try{
       const token = localStorage.getItem('tp_number'); //Retrieving token from local storage)
-      const update1 = await UpdateProgression(token,Pro,IR,Doc,Pre)
-      setData(update1);
+      const update1 = await UpdateProgression(token,Pro,IR,Doc,Pre, Mark)
+      setData(update1.data);
       console.log(token);
       console.log(update1);
       fetchData();
@@ -133,10 +135,20 @@ export default function Home() {
                                       </tbody>
                                   </table>
                                   <div><br /><br />
-                                   Proposal: <input type="text" value={Pro} onChange={(event)=> setPro(event.target.value)}/><br />
-                                   IR: <input type="text" value={IR} onChange={(event)=> setIR(event.target.value)}/><br />
-                                   Documentation : <input type="text" value={Doc} onChange={(event)=> setDoc(event.target.value)}/><br />
-                                   Presentation : <input type="text" value={Pre} onChange={(event)=> setPre(event.target.value)}/><br />
+                                  Proposal: {data.Pro}%<br/>
+                                  IR: {data.IR} %<br/>
+                                  Doc: {data.Doc} %<br/>
+                                  Pre: {data.Pre} %<br/>
+                                  <br/><br/>
+                                   Proposal: <input type="text" value={Pro || ""} onChange={(event)=> setPro(event.target.value)}/><br />
+                                   IR: <input type="text" value={IR || ""} onChange={(event)=> setIR(event.target.value)}/><br />
+                                   Documentation : <input type="text" value={Doc || ""} onChange={(event)=> setDoc(event.target.value)}/><br />
+                                   Presentation : <input type="text" value={Pre || ""} onChange={(event)=> setPre(event.target.value)}/><br />
+                                   Mark by: <select onChange={(event)=> setMark(event.target.value === 'Supervisor' ? '1' : '2')}>
+                                    <option>-Choose-</option>
+                                    <option value="Supervisor">Supervisor</option>
+                                    <option value="SecondMarker">Second Marker</option>
+                                   </select>
                                   </div>
                                   <div><br /><br /><div className={styles.button9} onClick={updateValue}><button>Update</button></div></div>
                               </div></>

@@ -519,88 +519,91 @@ export const deleteEvent = async (id) => {
 };
 
 //Results------------------------------------------
-export const getAllResults = async()=>{
-  try{
-    const response = await axios.post(`${API_URL}/displayresults`);
-    return response.data;
+// export const getAllResults = async()=>{
+//   try{
+//     const response = await axios.post(`${API_URL}/displayresults`);
+//     return response.data;
     
-  }catch(error){
-    throw new Error(error.response?.data?.message || 'An error occurred');
-  }
-}
-export const getStuResults = async(token)=>{
-  try {
-    
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-    console.log(config);
-    const response = await axios.get(`${API_URL}/displaysturesults`, config);
-    const results = response.data.data;
-    console.log(results);
-
-    return results;
-  }catch(error){
-    
-    throw new Error(error.response?.data?.message || 'An error occurred');
-  }
-}
-export const UpdateStuResult = async (token, newValue) =>{
-  try{
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token + " " + newValue
-      }
-    }    
-    console.log(config);
-    const response = await axios.put(`${API_URL}/updatesturesult`, {}, config);
-    const update = response.data.message;
-    console.log(update);    
-    return update;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred');
-  }
-}
-//Submission Part----------------------------------
-export const UpdateProgression = async (token,  Pro, IR, Doc, Pre) =>{
-  try{
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token + " " + Pro + " " + IR + " " + Doc + " " + Pre
-      }
-    }    
-    console.log(config);
-    const response = await axios.put(`${API_URL}/updateProgression`, config);
-    const update = response.data.update1;
-    console.log(update);    
-    return update;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred');
-  }
-}
-// export const UpdateProgression = async (token, Pro, IR, Doc, Pre) => {
+//   }catch(error){
+//     throw new Error(error.response?.data?.message || 'An error occurred');
+//   }
+// }
+// export const getStuResults = async(token)=>{
 //   try {
+    
 //     const config = {
 //       headers: {
-//         Authorization: `Bearer ${token}`,
-//       },
-//     };
-//     const response = await axios.put(`${API_URL}/updateProgression`, {
-//       Pro: Pro,
-//       IR: IR,
-//       Doc: Doc,
-//       Pre: Pre,
-//     }, config);
-//     const update = response.data.data;
-//     console.log(response);
-//     console.log(update);
+//         Authorization: 'Bearer ' + token
+//       }
+//     }
+//     console.log(config);
+//     const response = await axios.get(`${API_URL}/displaysturesults`, config);
+//     const results = response.data.data;
+//     console.log(results);
+
+//     return results;
+//   }catch(error){
+    
+//     throw new Error(error.response?.data?.message || 'An error occurred');
+//   }
+// }
+// export const UpdateStuResult = async (token, newValue) =>{
+//   try{
+//     const config = {
+//       headers: {
+//         Authorization: 'Bearer ' + token + " " + newValue
+//       }
+//     }    
+//     console.log(config);
+//     const response = await axios.put(`${API_URL}/updatesturesult`, {}, config);
+//     const update = response.data.message;
+//     console.log(update);    
 //     return update;
 //   } catch (error) {
 //     throw new Error(error.response?.data?.message || 'An error occurred');
 //   }
-// };
+// }
+//Submission Part----------------------------------
+// export const UpdateProgression = async (token,  Pro, IR, Doc, Pre, Mark) =>{
+//   try{
+//     const config = {
+//       headers: {
+//         Authorization: 'Bearer ' + token + " " + Pro + " " + IR + " " + Doc + " " + Pre + " " + Mark
+//       }
+//     }    
+//     console.log(config);
+//     const response = await axios.put(`${API_URL}/updateProgression`, config);
+//     const update = response.data.update1;
+//     console.log(update);    
+//     return update;
+//   } catch (error) {
+//     throw new Error(error.response?.data?.message || 'An error occurred');
+//   }
+// }
+export const UpdateProgression = async (token, Pro, IR, Doc, Pre, Mark) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const data = {
+      Pro,
+      IR,
+      Doc,
+      Pre,
+      Mark,
+    };
+    console.log(config);
+    console.log(data);
+    const response = await axios.put(`${API_URL}/updateProgression`, data, config);
+    const update = response.data.update1;
+    console.log(update);
+    return update;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+};
 
 
 

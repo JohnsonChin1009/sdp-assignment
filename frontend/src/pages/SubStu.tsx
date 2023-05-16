@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import{logout} from '@/pages/api/api'
-import { getStuResults } from '@/pages/api/api'
+import { getStudentSup } from '@/pages/api/api'
 
 const inter = Inter({ subsets: ['latin'] })
 

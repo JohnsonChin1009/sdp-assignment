@@ -69,24 +69,23 @@ export default function Table() {
       <div className={styles.container1}>
         Supervise:<br/><br/>
                 {data.length ===0 ? (<p className={styles.text3}>No Students assigned yet</p>) :( data.map((data) => (
-                  <div className={styles.row} key={data.id} onClick={()=>handleClick(data.tp_number)}>
+                  <div className={styles.row} key={data.tp_number} onClick={()=>handleClick(data.tp_number)}>
                     <div className={styles.content10}> 
                     <div className={styles.image}></div>
                     <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(data.tp_number)} ><br/>{data.name}<br/>{data.tp_number}<br/>{data.intake_code}</div></a>  
-                    <div><br/>{data.title}<br/><br/>{data.supervisor}<br/>{data.secondmarker}</div>
+                    <div><br/>{data.title}<br/></div>
                     <div><br/>Proposal: {data.Pro}<br/>IR: {data.IR}<br/>Documentation: {data.Doc}<br/>Presentation: {data.Pre}</div>                       
                   </div>
                   </div>
                 )))}
         Mark:<br/>
                 {students.length ===0 ? (<p className={styles.text3}>No Students assigned yet</p>) :(students.map((row) => (
-                  <div className={styles.row} key={row.id} onClick={()=>handleClick(row.tp_number)}>
+                  <div className={styles.row} key={row.tp_number} onClick={()=>handleClick(row.tp_number)}>
                     <div className={styles.content10}>
                     <div className={styles.image}></div>
                     <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(row.tp_number)} ><br/>{row.name}<br/>{row.tp_number}<br/>{row.intake_code}</div></a>  
-                    <div><br/>{row.title}<br/><br/>{row.supervisor}<br/>{row.secondmarker}</div>
-                    <div><br/>IR: <br/>Documentation: <br/>Presentation: <br/></div>   
-                    <div><br/><br/><div className={styles.button7}><a href=""><button>Update</button></a></div></div>           
+                    <div><br/>{row.title}<br/></div>
+                    <div><br/>Proposal: {row.Pro}<br/>IR: {row.IR}<br/>Documentation: {row.Doc}<br/>Presentation: {row.Pre}</div>                     
                     </div>                       
                   </div>
                 )))}
