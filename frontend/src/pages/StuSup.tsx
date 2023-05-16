@@ -90,7 +90,7 @@ export default function Home() {
       </form>
       </div>    
        <br /><br /><br /><br/>
-       <Table search={search} search2={search}/>
+       <Table search2={search}/>
       <div className={styles.content6}>
        
 

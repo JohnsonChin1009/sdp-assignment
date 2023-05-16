@@ -71,8 +71,9 @@ export default function Table({search2}) {
           </select>
           
       </form><br/><br/><br/><br/><br/>
+      <div className={styles.contentbox3}>
       <div className={styles.container1}>
-        Supervise:<br/>
+        Supervise:<br/><br/>
                 {data.length ===0 ? (<p className={styles.text3}>No Students assigned yet</p>) :(filteredData && (
                   <div className={styles.row} key={filteredData.id} onClick={()=>handleClick(filteredData.tp_number)}>
                     <div className={styles.content10}>
@@ -80,7 +81,7 @@ export default function Table({search2}) {
                     <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(filteredData.tp_number)} ><br/>{filteredData.name}<br/>{filteredData.tp_number}<br/>{filteredData.intake_code}</div></a>  
                     <div><br/>{filteredData.title}<br/><br/>{filteredData.supervisor}<br/>{filteredData.secondmarker}</div>
                     <div><br/>IR: <br/>Documentation: <br/>Presentation: <br/></div>   
-                    <div><br/><br/><div className={styles.button7}><a href=""><button>Update</button></a></div></div>                                  
+                    <div><br/><br/><div className={styles.button8}><a href=""><button>Update</button></a></div></div>                                  
                   </div>
                   </div>
                 ))}
@@ -96,6 +97,7 @@ export default function Table({search2}) {
                     </div>                       
                   </div>
                 )))}
+              </div>
               </div>
         
 </div>
