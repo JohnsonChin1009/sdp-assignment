@@ -10,13 +10,11 @@ import { getLecStudentProfile } from '@/pages/api/api';
 import { UpdateProgression } from '@/pages/api/api'
 
 export default function Home() {
-    const [data, setData] = useState([]);    
-    const [newStatus1, setNewStatus1] = useState('');
-    const [newStatus2, setNewStatus2] = useState('');
-    const [newStatus3, setNewStatus3] = useState('');
-    const [newMark1, setNewMark1] = useState('');
-    const [newMark2, setNewMark2] = useState('');
-    const [newMark3, setNewMark3] = useState('');
+    const [data, setData] = useState([]);      
+    const [Pro, setPro] = useState('');
+    const [IR, setIR] = useState('');
+    const [Doc, setDoc] = useState('');
+    const [Pre, setPre] = useState('');
     const[message, setMessage] = useState('');    
     useEffect(() => {
       
@@ -28,6 +26,14 @@ export default function Home() {
               const token = localStorage.getItem('tp_number'); //Retrieving token from local storage)
               const student = await getLecStudentProfile(token);
               setData(student);
+              if (student.length > 0) {
+                const initialStudent = student[0];                
+                setPro(initialStudent.Pro);
+                setIR(initialStudent.IR);
+                setDoc(initialStudent.Doc);
+                setPre(initialStudent.Pre);
+                            
+              }  
       } catch (error) {
           console.log('Error fetching data: ', error);
       }
@@ -39,18 +45,20 @@ export default function Home() {
       console.error('Error.logging out: ', error);
     }
   };
+  
   const updateValue = async()=>{
     try{
       const token = localStorage.getItem('tp_number'); //Retrieving token from local storage)
-      const update1 = await UpdateProgression(token, newStatus1, newStatus2, newStatus3)
+      const update1 = await UpdateProgression(token,Pro,IR,Doc,Pre)
       setData(update1);
+      console.log(token);
       console.log(update1);
       fetchData();
       alert("Successfully updated!");
     }catch(error){
       console.log('Error updating value: ', error);
     }
-  }
+  };
   return (
     <>
       <Head>
@@ -125,11 +133,12 @@ export default function Home() {
                                       </tbody>
                                   </table>
                                   <div><br /><br />
-                                  <input type="checkbox" value={newStatus1} onChange={(event => setNewStatus1(event.target.checked ? "1" : ""))}/> IR : <input type="text" value={newMark1} onChange={(event)=> setNewMark1(event.target.value)}/><br />
-                                  <input type="checkbox" value={newStatus2} onChange={(event => setNewStatus2(event.target.checked ? "1" : ""))}/> Documentation : <input type="text" value={newMark2} onChange={(event)=> setNewMark2(event.target.value)}/><br />
-                                  <input type="checkbox" value={newStatus3} onChange={(event => setNewStatus3(event.target.checked ? "1" : ""))}/> Presentation : <input type="text" value={newMark3} onChange={(event)=> setNewMark3(event.target.value)}/><br />
+                                   Proposal: <input type="text" value={Pro} onChange={(event)=> setPro(event.target.value)}/><br />
+                                   IR: <input type="text" value={IR} onChange={(event)=> setIR(event.target.value)}/><br />
+                                   Documentation : <input type="text" value={Doc} onChange={(event)=> setDoc(event.target.value)}/><br />
+                                   Presentation : <input type="text" value={Pre} onChange={(event)=> setPre(event.target.value)}/><br />
                                   </div>
-                                  <div><br /><br /><div className={styles.button9} onClick={updateValue}><a href=""><button>Update</button></a></div></div>
+                                  <div><br /><br /><div className={styles.button9} onClick={updateValue}><button>Update</button></div></div>
                               </div></>
                 )}
               </div>

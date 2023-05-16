@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 import { getStudentSup } from '@/pages/api/api';
 import { getStudentSec} from '@/pages/api/api';
 import { useRouter } from 'next/router';
+
+
 export default function Table() {
   const [data, setData] = useState([]);
   const [students, setData1] = useState([]);
@@ -72,7 +74,7 @@ export default function Table() {
                     <div className={styles.image}></div>
                     <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(data.tp_number)} ><br/>{data.name}<br/>{data.tp_number}<br/>{data.intake_code}</div></a>  
                     <div><br/>{data.title}<br/><br/>{data.supervisor}<br/>{data.secondmarker}</div>
-                    <div><br/>IR: <br/>Documentation: <br/>Presentation: </div>                       
+                    <div><br/>Proposal: {data.Pro}<br/>IR: {data.IR}<br/>Documentation: {data.Doc}<br/>Presentation: {data.Pre}</div>                       
                   </div>
                   </div>
                 )))}

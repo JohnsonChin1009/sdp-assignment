@@ -111,6 +111,10 @@ class LecturerController extends Controller
                         'email' => $student->email,
                         'supervisor' => $supervisor ? $supervisor->name : null,
                         'second_marker' => $secondMarker ? $secondMarker->name : null,
+                        'Pro' =>$progressData['Pro'] ?? null,
+                        'IR' => $progressData['IR'] ?? null, 
+                        'Doc' => $progressData['Doc'] ?? null, 
+                        'Pre' => $progressData['Pre'] ?? null, 
                     ];
                 });
             
@@ -225,6 +229,35 @@ class LecturerController extends Controller
                     'data' => $data,
                 ]);
             }
+            public function updateProgression(Request $request)
+    {
+        $token = $request->header('Authorization');
+        $token = str_replace('Bearer ', "", $token);
+        Log::info($token);
+
+        $tokenValues = explode(' ', $token);
+        $tp_number = $tokenValues[0];        
+        // $Pro = $tokenValues[1];
+        // $IR = $tokenValues[2];
+        // $Doc = $tokenValues[3];
+        // $Pre = $tokenValues[4];
+        
+        $progressData = [
+            'tp_number' => $token,           
+            'Pro' => $request->input('Pro'),
+            'IR' => $request->input('IR'),
+            'Doc' => $request->input('Doc'),
+            'Pre' => $request->input('Pre'),
+        ];    
+    
+       
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Updated Results Successfully!',
+            'data' => $progressData,
+        ]);
+    }
 
             
 }

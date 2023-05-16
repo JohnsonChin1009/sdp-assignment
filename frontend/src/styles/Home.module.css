@@ -793,9 +793,9 @@
 .content10{
   background-color: #b6d3e6;
   height: auto;
-  width: 900px;
+  width: 400px;
   border-radius: 20px;
-  margin-left: 20px;
+  margin-left: 10px;
   float: left;
   padding: 25px;    
 }
@@ -1197,9 +1197,9 @@ margin-right: -900px;
   .content10{
     background-color: #b6d3e6;
     height: auto;
-    width: auto;
+    width: 400px;
     border-radius: 20px;
-    margin-left: 10px;
+    margin-left: 60px;
     float: left;
     padding: 25px;    
   }

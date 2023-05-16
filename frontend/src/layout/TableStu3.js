@@ -43,7 +43,7 @@ export default function Table() {
           <div className={style.row1} key={data.id}>
             <div className={style.image}></div>
             <div>{data.name} <br />{data.tp_number}<br />{data.intake_code}</div>
-            <div><b>{data.title}</b><br /><br />Second Marker:<br />{data.secondmarker}</div>
+            <div><b>{data.title}</b><br /><br /></div>
           </div>
         )))}
         <br />
@@ -53,7 +53,7 @@ export default function Table() {
             <div className={style.row1} key={data1.id}>
               <div className={style.image}></div>
               <div>{data1.name} <br />{data1.tp_number}<br />{data1.intake_code}</div>
-              <div><b>{data1.title}</b><br /><br />Supervisor: <br />{data1.supervisor}</div>
+              <div><b>{data1.title}</b><br /><br /></div>
             </div>
           )))}
           <br />

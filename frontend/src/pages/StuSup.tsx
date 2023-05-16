@@ -6,28 +6,16 @@ import Footer from '@/layout/Footer.js'
 import Table from '@/layout/TableSup1.js'
 const inter = Inter({ subsets: ['latin'] })
 import{logout} from '@/pages/api/api'
-import {SearchStu} from '@/pages/api/api';
+
 import { useState } from 'react';
 
 
 
 
 export default function Home() {
-  // const [search, setSearch] = useState('');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   
-  // const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-
-  //     try {
-  //       console.log(search);
-  //       const response = await SearchStu(search);        
-  //     } catch (error) {
-  //       setError(true);
-  //       setErrorMessage('Error searching')
-  //     }
-  //   };   
   const handleLogout = async()=>{
     try{
       await logout();

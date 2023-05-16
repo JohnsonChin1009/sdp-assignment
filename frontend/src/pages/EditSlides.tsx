@@ -41,10 +41,7 @@ export default function Home() {
                   setNewDate(initialSlide.date);
                   setNewTime(initialSlide.time);
                   setNewStatus(initialSlide.show);
-                }
-                if(!Array.isArray(slides)){
-                  console.log('slides is not an arry:', slides)
-                }
+                }                
             } catch (error) {
                 console.log('Error fetching data: ', error);
             }

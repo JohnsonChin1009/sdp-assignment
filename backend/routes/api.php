@@ -40,6 +40,7 @@ Route::get('displayStudentLec', [StudentController::class, 'displayStudentLec'])
 Route::put('updatestutitle', [StudentController::class, 'updatestutitle']);
 Route::get('displayStuPMProfile', [StudentController::class, 'displayStuPMProfile']);
 Route::get('displayStuLecProfile', [StudentController::class, 'displayLecPMProfile']);
+
 Route::get('displayLecturers', [LecturerController::class, 'displayLecturers']);
 Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile']);
 Route::get('displaySupOwnStudents', [LecturerController::class, 'displaySupOwnStudents']);
@@ -47,6 +48,7 @@ Route::get('displaySecOwnStudents', [LecturerController::class, 'displaySecOwnSt
 Route::get('displayStudentSup', [LecturerController::class, 'displayStudentSup']);
 Route::get('displayStudentSec', [LecturerController::class, 'displayStudentSec']);
 Route::get('displayLecStuProfile', [LecturerController::class, 'displayLecStuProfile']);
+Route::put('updateProgression', [LecturerController::class, 'updateProgression']);
 
 Route::get('displayPMProfile', [PMController::class, 'displayPMProfile']);
 Route::get('displayPMOwnStudents', [PMController::class, 'displayPMOwnStudents']);
