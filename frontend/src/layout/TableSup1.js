@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 import { getStudentSup } from '@/pages/api/api';
 import { getStudentSec} from '@/pages/api/api';
 import { useRouter } from 'next/router';
-export default function Table() {
+import { fileURLToPath } from 'url';
+export default function Table({search2}) {
   const [data, setData] = useState([]);
   const [students, setData1] = useState([]);
   const router = useRouter();
@@ -37,15 +38,15 @@ export default function Table() {
   };
     const handleClick = (tpNumber) => {
       localStorage.setItem('tp_number', tpNumber);
-      console.log(id);
+      console.log(tpNumber);
       router.push('/ProfileLecStu');
     };
     const filteredData = data.filter((student) => {
-      return student.name.toLowerCase().includes(search.toLowerCase()) && 
+      return student.name.toLowerCase().includes(search2.toLowerCase()) && 
          (selectedOption === '-' || student.id === selectedOption);
     });
     const filteredData1 = students.filter((student) => {
-      return student.name.toLowerCase().includes(search.toLowerCase()) &&
+      return student.name.toLowerCase().includes(search2.toLowerCase()) &&
       (selectedOption === '-' || student.id === selectedOption);
     });
     
@@ -72,21 +73,21 @@ export default function Table() {
       </form><br/><br/><br/><br/><br/>
       <div className={styles.container1}>
         Supervise:<br/>
-                {data.length ===0 ? (<p className={styles.text3}>No Students assigned yet</p>) :(filteredData.map((row) => (
-                  <div className={styles.row} key={row.id} onClick={()=>handleClick(row.tp_number)}>
-                    <div className={styles.content7}>
+                {data.length ===0 ? (<p className={styles.text3}>No Students assigned yet</p>) :(filteredData && (
+                  <div className={styles.row} key={filteredData.id} onClick={()=>handleClick(filteredData.tp_number)}>
+                    <div className={styles.content10}>
                     <div className={styles.image}></div>
-                    <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(row.tp_number)} ><br/>{row.name}<br/>{row.tp_number}<br/>{row.intake_code}</div></a>  
-                    <div><br/>{row.title}<br/><br/>{row.supervisor}<br/>{row.secondmarker}</div>
+                    <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(filteredData.tp_number)} ><br/>{filteredData.name}<br/>{filteredData.tp_number}<br/>{filteredData.intake_code}</div></a>  
+                    <div><br/>{filteredData.title}<br/><br/>{filteredData.supervisor}<br/>{filteredData.secondmarker}</div>
                     <div><br/>IR: <br/>Documentation: <br/>Presentation: <br/></div>   
                     <div><br/><br/><div className={styles.button7}><a href=""><button>Update</button></a></div></div>                                  
                   </div>
                   </div>
-                )))}
+                ))}
         Mark:<br/>
                 {students.length ===0 ? (<p className={styles.text3}>No Students assigned yet</p>) :(filteredData1.map((row) => (
                   <div className={styles.row} key={row.id} onClick={()=>handleClick(row.tp_number)}>
-                    <div className={styles.content7}>
+                    <div className={styles.content10}>
                     <div className={styles.image}></div>
                     <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(row.tp_number)} ><br/>{row.name}<br/>{row.tp_number}<br/>{row.intake_code}</div></a>  
                     <div><br/>{row.title}<br/><br/>{row.supervisor}<br/>{row.secondmarker}</div>

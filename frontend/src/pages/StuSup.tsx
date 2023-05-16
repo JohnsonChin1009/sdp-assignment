@@ -78,7 +78,7 @@ export default function Home() {
       </div>        
       <div className={styles.contentbox2a}>
       <form onSubmit={handleSearch}>
-        <input type="text" name="Search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder={"Search by Name"}/>
+      <input type="text" name="Search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder={"Search by Name"}/>
           <button type="submit" ><Image
                             src="/search_icon.png"
                             alt="Search"
@@ -90,7 +90,7 @@ export default function Home() {
       </form>
       </div>    
        <br /><br /><br /><br/>
-       <Table search={search}/>
+       <Table search={search} search2={search}/>
       <div className={styles.content6}>
        
 

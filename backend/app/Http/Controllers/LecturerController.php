@@ -170,7 +170,7 @@ class LecturerController extends Controller
                 }
                 
                 $lecturerId = $lecturer->id;
-                $students = Student::where('supervisor', $lecturerId)->get();
+                $students = Student::where('secondmarker', $lecturerId)->get();
                 
                 $data = $students->map(function ($student)  {
                     $supervisor = Lecturer::find($student->supervisor);

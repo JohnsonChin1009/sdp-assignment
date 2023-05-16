@@ -790,6 +790,15 @@
   padding: 25px;  
   font-size: 30px;
 }
+.content10{
+  background-color: #b6d3e6;
+  height: auto;
+  width: 600px;
+  border-radius: 20px;
+  margin-left: 100px;
+  float: left;
+  padding: 25px;    
+}
 .contentbox5{
   font-size: 20px;
 }
