@@ -103,10 +103,17 @@ const handleLogout = async()=>{
         
       </div>
       <div className={styles.contentbox3}>
-      <br /><br /><br />
-      </div>
       
-      <br /><br /><br />
+      </div>
+      <Image 
+        src="/design-paper1.png"
+        alt="profile"
+        className={styles.image7}
+        width={100}
+        height={100}               
+        priority
+      />
+      
       <Footer />
       </>
   )
