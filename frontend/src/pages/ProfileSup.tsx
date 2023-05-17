@@ -55,19 +55,20 @@ export default function Home() {
   const[events, setEvents] =useState([]);
     
   useEffect(()=>{
-    const fetchData = async () => {
-      try{
-        const token = localStorage.getItem('token');
-        console.log(token);
-        const eventsData = await getLecSchedule(token);
-        setEvents(eventsData);
-      }catch(error){
-        console.log('Error fetching data: ', error);
-      }
-    };
+    
     fetchData();
 
   }, []);
+  const fetchData = async () => {
+    try{
+      const token = localStorage.getItem('token');
+      console.log(token);
+      const eventsData = await getLecSchedule(token);
+      setEvents(eventsData);
+    }catch(error){
+      console.log('Error fetching data: ', error);
+    }
+  };
     useEffect(() => {
       const fetchData = async () => {
           try {
@@ -93,6 +94,7 @@ export default function Home() {
         const token = localStorage.getItem('token');
         const response = await addSupEvent(token, eventName, startDatetime, endtime);
         alert("Successfully add!");
+        fetchData();
       } catch (error) {
         setError(true);
         setErrorMessage('Error adding Event')
