@@ -14,4 +14,5 @@ class Result extends Model
         'second_mark',
         'final_mark',
     ];
+    public $timestamps = false;
 }

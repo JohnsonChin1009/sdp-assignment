@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->json('firstmark');
             $table->json('secondmark');
-            $table->integer('finalmark');
+            $table->integer('finalmark')->nullable();
         });
     }
 

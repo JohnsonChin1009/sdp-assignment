@@ -61,6 +61,8 @@ Route::delete('deleteStuSup/{tp_number}', [PMController::class, 'deleteStuSup'])
 Route::get('SearchPM', [PMController::class, 'SearchPM']);
 Route::get('SearchStu', [PMController::class, 'SearchStu']);
 Route::put('updatesturesult', [PMController::class, 'updatesturesult']);
+Route::get('displayResult', [PMController::class, 'displayResult']);
+Route::get('displayPMStuResult', [PMController::class, 'displayPMStuResult']);
 
 Route::post('addSupSchedule', [EventController::class, 'addSupSchedule']);
 Route::post('addPMSchedule', [EventController::class, 'addPMSchedule']);

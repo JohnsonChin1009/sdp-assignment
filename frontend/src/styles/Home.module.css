@@ -253,6 +253,10 @@
   grid-template-columns: repeat(3,min-content);
   grid-column-gap:40px; 
 }
+.row4{
+  display:grid;
+  grid-template-columns: repeat(5,min-content);  
+}
 .row2{
   display:grid;
   grid-template-columns: repeat(2,min-content);
@@ -260,6 +264,10 @@
   white-space: nowrap; 
 }
 .row1>div{
+  white-space:nowrap;
+  word-break: break-all;
+}
+.row4>div{
   white-space:nowrap;
   word-break: break-all;
 }
@@ -799,6 +807,16 @@
   float: left;
   padding: 25px;    
 }
+.content11{
+  background-color: #b6d3e6;
+  height: auto;
+  width: 400px;
+  border-radius: 20px;
+  margin-left: 100px;
+  float: left;
+  padding: 25px;    
+}
+
 .contentbox5{
   font-size: 20px;
 }
@@ -1194,7 +1212,7 @@ margin-right: -900px;
     width: 0px;
     height: 0px;    
   }
-  .content10{
+  .content10, .content11{
     background-color: #b6d3e6;
     height: auto;
     width: 400px;

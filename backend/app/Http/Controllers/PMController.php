@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Lecturer;
 use App\Models\ProjectManager;
 use App\Models\Student;
+use App\Models\Result;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class PMController extends Controller
 {
@@ -235,10 +237,29 @@ class PMController extends Controller
         $token = $request->header("Authorization");
         $token = str_replace('Bearer ', "", $token);
 
-        $email = substr($token, 0, strpos($token, ' '));
-        $newMark = substr($token, strpos($token, ' ') + 1);
+        Log::info($token);
 
+                  
+        $tokenValues = explode(',', $token);
+        $tp_number = $tokenValues[0];
+        $finalMark = $tokenValues[1];
+
+    
+        $finalMark = $request->input('finalMark');
+        $title = Student::where('tp_number', $tp_number)->value('title');
+        $student = Student::where('tp_number', $tp_number)->first();
         $result = Result::where('tp_number', $tp_number)->first();
+        
+
+        $result = Result::updateOrCreate(
+            ['tp_number' => $tp_number],
+            ['finalmark' => $finalMark, 
+            'firstmark' => $result ? $result->firstmark : null,
+            'secondmark' => $result ? $result->secondmark : null,            
+            'title' => $title]
+        );
+    
+        
 
         if(!$result)
         {
@@ -247,21 +268,172 @@ class PMController extends Controller
                 'message' => 'Student not found in database',
             ]);
         }
-
-        if ($newMark === '') {
-            return response()->json([
-                'success' => false,
-                'message' => 'Title is empty',
-            ]);
-        }
-        
-        $result->finalmark = $newMark;
+        $result->finalmark = $finalMark;
         $result->save();
+
+        
 
         return response()->json([
             'success' => true,
             'message' => 'Student mark updated successfully',
         ]);
     }
+    
+    public function displayResult(Request $request)
+            {
+               
+                $token = $request->header('Authorization');
+                $token = str_replace('Bearer ', "", $token);
+                $projectmanager = ProjectManager::where('email', $token)->first();
+                            
+                if (!$projectmanager) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => $token,
+                    ], 401);
+                }
+                
+                
+                $field_of_study = $projectmanager->field_of_study;
+                $students = Student::where('field_of_study', $field_of_study)->get();
+                
+                
+                
+                $data = $students->map(function ($student) {
+                    $supervisor = Lecturer::find($student->supervisor);
+                    $secondMarker = Lecturer::find($student->secondmarker);
+                    $storedData = Storage::get('progress_data.json');
+                    $progressArray = json_decode($storedData, true) ?: [];
+                    $progressData = null;
+                    $results = Result::where('tp_number', $student->tp_number)->get();
+                    $firstMarkTotal = 0;
+                    $firstMarkCount = 0;
+                    $secondMarkTotal = 0;
+                    $secondMarkCount = 0;
+                    $finalMark = Result::value('finalmark')? : null;
+                    
+                       foreach($progressArray as $progress){
+                        if($progress['tp_number']===$student->tp_number){
+                            $progressData = $progress;                            
+                            break;
+                        }
+                        
+                       }
+                       if ($progressData) {
+                        $firstMark = $progressData['1'] ?? null;
+                        $secondMark = $progressData['2'] ?? null;
+                    
+                        if ($firstMark !== null) {
+                            $firstMarkTotal += array_sum($firstMark);
+                        }
+                    
+                        if ($secondMark !== null) {
+                            $secondMarkTotal = array_sum($secondMark);
+                        }
+                    }
+                    
+                    
+                       
+            
+                    return [
+                        'name' => $student->name,
+                        'tp_number' => $student->tp_number,
+                        'title' => $student->title,
+                        'field_of_study' => $student->field_of_study,
+                        'specialism' => $student->specialism,
+                        'email' => $student->email,
+                        'supervisor' => $supervisor ? $supervisor->name : null,
+                        'second_marker' => $secondMarker ? $secondMarker->name : null,     
+                                          
+                        'firstMark' => $firstMarkTotal,
+                        'secondMark' => $secondMarkTotal,
+                        'finalMark' => $finalMark, 
+                    ];
+                });
+                                                          
+                return response()->json([
+                    'success' => true,
+                    'data' => $data,
+                ]);
+            }
+            public function displayPMStuResult(Request $request)
+            {
+               
+                $token = $request->header('Authorization');
+                $token = str_replace('Bearer ', "", $token);
+                $students = Student::where('tp_number', $token)->get();
+                            
+                if (!$students) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => $token,
+                    ], 401);
+                }
+                
+                
+               
+                
+                
+                $data = $students->map(function ($student) {
+                    $supervisor = Lecturer::find($student->supervisor);
+                    $secondMarker = Lecturer::find($student->secondmarker);
+                    $storedData = Storage::get('progress_data.json');
+                    $progressArray = json_decode($storedData, true) ?: [];
+                    $progressData = null;
+                    $results = Result::where('tp_number', $student->tp_number)->get();
+                    $firstMarkTotal = 0;
+                    $firstMarkCount = 0;
+                    $secondMarkTotal = 0;
+                    $secondMarkCount = 0;
+                    $finalMark = Result::value('finalmark')? : null;
+                    
+                       foreach($progressArray as $progress){
+                        if($progress['tp_number']===$student->tp_number){
+                            $progressData = $progress; 
+                            
+                            if ($progressData) {
+                                $firstMark = $progressData['1'] ?? null;
+                                $secondMark = $progressData['2'] ?? null;
+                            
+                                if ($firstMark !== null) {
+                                    $firstMarkTotal += array_sum($firstMark);
+                                }
+                            
+                                if ($secondMark !== null) {
+                                    $secondMarkTotal = array_sum($secondMark);
+                                }
+                            }                 
+                            break;
+                        }
+                        
+                       }
+                       
+                    
+                    
+                       
+            
+                    return [
+                        'name' => $student->name,
+                        'tp_number' => $student->tp_number,
+                        'title' => $student->title,
+                        'field_of_study' => $student->field_of_study,
+                        'specialism' => $student->specialism,
+                        'email' => $student->email,
+                        'supervisor' => $supervisor ? $supervisor->name : null,
+                        'second_marker' => $secondMarker ? $secondMarker->name : null,       
+                        'Pro' => $progressData ? $progressData['Pro'] : null,                 
+                        'firstMark' => $firstMarkTotal,
+                        'secondMark' => $secondMarkTotal,
+                        'finalMark' => $finalMark, 
+                    ];
+                });
+                                                          
+                return response()->json([
+                    'success' => true,
+                    'data' => $data,
+                ]);
+            }
+
+
 }
 
