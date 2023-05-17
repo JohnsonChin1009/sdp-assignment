@@ -40,6 +40,7 @@ Route::get('displayStudentLec', [StudentController::class, 'displayStudentLec'])
 Route::put('updatestutitle', [StudentController::class, 'updatestutitle']);
 Route::get('displayStuPMProfile', [StudentController::class, 'displayStuPMProfile']);
 Route::get('displayStuLecProfile', [StudentController::class, 'displayLecPMProfile']);
+Route::get('displayStuResult', [StudentController::class, 'displayStuResult']);
 
 Route::get('displayLecturers', [LecturerController::class, 'displayLecturers']);
 Route::get('displayLecturerProfile', [LecturerController::class, 'displayLecturerProfile']);

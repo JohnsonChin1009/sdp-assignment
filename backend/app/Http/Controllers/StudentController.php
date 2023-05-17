@@ -7,6 +7,8 @@ use App\Models\Student;
 use App\Models\Lecturer;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Storage;
+
 class StudentController extends Controller
 {
     public function displayStudents()
@@ -161,4 +163,45 @@ class StudentController extends Controller
             'data' => $data,
         ]);
     } 
+    public function displayStuResult(Request $request)
+            {
+                $token = $request->header('Authorization');
+                $token = str_replace('Bearer ', "", $token);
+                $student = Student::where('email', $token)->first();
+                if(!$student) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Error finding student record',    
+                    ]);
+                }
+                $storedData = Storage::get('progress_data.json');
+                $progressArray = json_decode($storedData, true) ?? [];
+                $progressData = null;
+               
+                   foreach($progressArray as $progress){
+                    if($progress['tp_number']===$student->tp_number){
+                        $progressData = $progress;
+                        break;
+                    }
+                    
+                   }
+                
+                $data = [
+                    'name' => $student->name,
+                    'tp_number' => $student->tp_number,
+                    'title' => $student->title,
+                    'field_of_study' => $student->field_of_study,
+                    'specialism' => $student->specialism,
+                    'email' => $student->email,   
+                    'Pro' => $progressData ? $progressData['Pro'] : null,
+                    'IR' => $progressData ? $progressData['IR'] : null,
+                    'Doc' =>  $progressData ? $progressData['Doc'] : null,
+                    'Pre' => $progressData ? $progressData['Pre'] : null,                                     
+                ];
+        
+                return response()->json([
+                    'success' => true,
+                    'data' => $data,
+                ]);
+            }
 }

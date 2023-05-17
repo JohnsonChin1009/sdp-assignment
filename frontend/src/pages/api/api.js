@@ -171,7 +171,22 @@ export const getStuLecProfile = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+export const getStuResult = async (token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    console.log(config);
+    const response = await axios.get(`${API_URL}/displayStuResult`, config);
+    const PM = response.data.data;
+    console.log(PM);
 
+    return PM;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+  }}
 //PM---------------------------------------
 export const getPMProfile = async (token) => {
   try {
@@ -528,25 +543,7 @@ export const deleteEvent = async (id) => {
 //     throw new Error(error.response?.data?.message || 'An error occurred');
 //   }
 // }
-// export const getStuResults = async(token)=>{
-//   try {
-    
-//     const config = {
-//       headers: {
-//         Authorization: 'Bearer ' + token
-//       }
-//     }
-//     console.log(config);
-//     const response = await axios.get(`${API_URL}/displaysturesults`, config);
-//     const results = response.data.data;
-//     console.log(results);
 
-//     return results;
-//   }catch(error){
-    
-//     throw new Error(error.response?.data?.message || 'An error occurred');
-//   }
-// }
 // export const UpdateStuResult = async (token, newValue) =>{
 //   try{
 //     const config = {

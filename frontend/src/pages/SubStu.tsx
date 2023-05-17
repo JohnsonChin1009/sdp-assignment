@@ -4,11 +4,18 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import{logout} from '@/pages/api/api'
-import { getStudentSup } from '@/pages/api/api'
+import { useEffect, useState } from 'react'
+import { getStuResult } from '@/pages/api/api'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+      
+    fetchData();
+
+}, []);
   const handleLogout = async()=>{
     try{
       await logout();
@@ -16,6 +23,16 @@ export default function Home() {
       console.error('Error.logging out: ', error);
     }
   };
+  const fetchData = async () => {
+    try {
+          const token = localStorage.getItem('token'); //Retrieving token from local storage)
+          const data = await getStuResult(token);
+          console.log(token);
+          setData(data);         
+  } catch (error) {
+      console.log('Error fetching data: ', error);
+  }
+};
   return (
     <>
       <Head>
@@ -72,7 +89,7 @@ export default function Home() {
           <tbody>
           <tr>
             <td>
-              <input type="checkbox"  className={styles.checkbox1} disabled/>              
+              <input type="checkbox"  className={styles.checkbox1} name= "proposal" value="1" checked={data?.Pro !== null}   disabled/>              
             </td>
             <td>
             <div className={styles.subtext}>Proposal</div>
@@ -80,7 +97,7 @@ export default function Home() {
           </tr>
           <tr>
             <td>
-            <input type="checkbox"  className={styles.checkbox1} disabled/>
+            <input type="checkbox"  className={styles.checkbox1} name= "IR" value="1" checked={data?.IR !== null}   disabled/>
             </td>
             <td>
               <div className={styles.subtext}>Information_Report(IR)</div>
@@ -88,7 +105,7 @@ export default function Home() {
           </tr>
           <tr>
             <td>
-            <input type="checkbox"  className={styles.checkbox1} disabled/>
+            <input type="checkbox"  className={styles.checkbox1} name= "Documentation" value="1" checked={data?.Doc !== null}   disabled/>
             </td>
             <td>
               <div className={styles.subtext}>Documentation</div>
@@ -96,7 +113,7 @@ export default function Home() {
           </tr>
           <tr>
             <td>
-            <input type="checkbox"  className={styles.checkbox1} disabled/>
+            <input type="checkbox"  className={styles.checkbox1} name= "Presentation" value="1" checked={data?.Pre !== null}   disabled/>
             </td>
             <td>
               <div className={styles.subtext}>Presentation</div>
