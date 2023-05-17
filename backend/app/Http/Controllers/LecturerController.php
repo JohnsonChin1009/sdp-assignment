@@ -107,7 +107,7 @@ class LecturerController extends Controller
                     $storedData = Storage::get('progress_data.json');
                 $progressArray = json_decode($storedData, true) ?? [];
                    foreach($progressArray as $progress){
-                    if($progress['tp_number']===$student->tp_number){
+                    if($progress['tp_number']===$student->tp_number && $progress['Mark']==1){
                         $progressData = $progress;
                         break;
                     }
@@ -198,7 +198,7 @@ class LecturerController extends Controller
                     $storedData = Storage::get('progress_data.json');
                 $progressArray = json_decode($storedData, true) ?? [];
                    foreach($progressArray as $progress){
-                    if($progress['tp_number']===$student->tp_number){
+                    if($progress['tp_number']===$student->tp_number && $progress['Mark']==2 ){
                         $progressData = $progress;
                         break;
                     }
