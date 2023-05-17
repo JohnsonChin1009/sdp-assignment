@@ -89,7 +89,7 @@ export default function Home() {
             <><div className={styles.box10} key={data.id} onClick={() => handleClick(data.id || data.projectmanagerid || data.supervisorid ||data.secondmarkerid)}>
               <a href='http://localhost:3000/Profile1'><div className={styles.text} onClick={() => handleClick(data.projectmanagerid)}>Project Manager</div><br />
                 <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
-                <div className={styles.text}><b>{data.projectmanager}</b><br/> {data.projectmanagerid}</div></a>
+                <div className={styles.text}><b>{data.projectmanager}</b><br/></div></a>
             </div><div className={styles.line3}></div><div className={styles.box10} onClick={() => handleClick(data.supervisorid)}>
             <a href='http://localhost:3000/Profile1'><div className={styles.text1}>Supervisor</div><br />
                 <div className={styles.image2}></div><br /><br /><br /><br /><br /><br /><br />
