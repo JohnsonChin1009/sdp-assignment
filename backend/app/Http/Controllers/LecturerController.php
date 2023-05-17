@@ -313,6 +313,7 @@ class LecturerController extends Controller
 
     // Retrieve the updated progress array
     $data = $this->displayStudentSup($request);
+    $data = $this->displayStudentSec($request);
     return response()->json([
         'success' => true,
         'message' => 'Updated Results Successfully!',

@@ -14,7 +14,8 @@ export default function Home({search}) {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem('token');
-        const students = await getResult(token);        
+        const students = await getResult(token);     
+        console.log(students)  ;
         setData(students);
       } catch (error) {
         console.log('Error fetching data: ', error);
@@ -36,8 +37,8 @@ export default function Home({search}) {
                 {Array.isArray(data) && filteredData.map((row) => (
                   <div className={style.row4} key={row.id} >
                     <div className={style.content11}>                  
-                    <div>{row.name}<br/>{row.tp_number}<br/><b>{row.title}</b></div><br/>
-                    <div>First Mark: {row.firstmark}<br/>Second Mark: {row.secondmark}<br/>Final Mark: {row.finalmark}<br/></div>                     
+                    <div><h3>{row.name}</h3><br/>{row.tp_number}<br/><h3><b>{row.title}</b></h3></div><br/>
+                    <div>Final Mark: {row.finalmark}<br/></div>                     
                     <br/><button className={style.button6} onClick={()=>handleClick(row.tp_number)}>Update</button></div>                    
                   </div>
                   

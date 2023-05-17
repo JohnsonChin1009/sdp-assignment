@@ -356,83 +356,196 @@ class PMController extends Controller
                     'data' => $data,
                 ]);
             }
-            public function displayPMStuResult(Request $request)
-            {
+            // public function displayPMStuResult(Request $request)
+            // {
                
-                $token = $request->header('Authorization');
-                $token = str_replace('Bearer ', "", $token);
-                $students = Student::where('tp_number', $token)->get();
+            //     $token = $request->header('Authorization');
+            //     $token = str_replace('Bearer ', "", $token);
+            //     $students = Student::where('tp_number', $token)->get();
                             
-                if (!$students) {
-                    return response()->json([
-                        'success' => false,
-                        'message' => $token,
-                    ], 401);
-                }
+            //     if (!$students) {
+            //         return response()->json([
+            //             'success' => false,
+            //             'message' => $token,
+            //         ], 401);
+            //     }
                 
                 
                
                 
                 
-                $data = $students->map(function ($student) {
-                    $supervisor = Lecturer::find($student->supervisor);
-                    $secondMarker = Lecturer::find($student->secondmarker);
-                    $storedData = Storage::get('progress_data.json');
-                    $progressArray = json_decode($storedData, true) ?: [];
-                    $progressData = null;
-                    $results = Result::where('tp_number', $student->tp_number)->get();
-                    $firstMarkTotal = 0;
-                    $firstMarkCount = 0;
-                    $secondMarkTotal = 0;
-                    $secondMarkCount = 0;
-                    $finalMark = Result::value('finalmark')? : null;
+            //     $data = $students->map(function ($student) {
+            //         $supervisor = Lecturer::find($student->supervisor);
+            //         $secondMarker = Lecturer::find($student->secondmarker);
+            //         $storedData = Storage::get('progress_data.json');
+            //         $progressArray = json_decode($storedData, true) ?: [];
+            //         $progressData = null;
+            //         $results = Result::where('tp_number', $student->tp_number)->get();
+            //         $firstMarkTotal = 0;
+            //         $firstMarkCount = 0;
+            //         $secondMarkTotal = 0;
+            //         $secondMarkCount = 0;
+            //         $finalMark = Result::value('finalmark')? : null;
                     
-                       foreach($progressArray as $progress){
-                        if($progress['tp_number']===$student->tp_number){
-                            $progressData = $progress; 
+            //            foreach($progressArray as $progress){
+            //             if($progress['tp_number']===$student->tp_number){
+            //                 $progressData = $progress; 
                             
-                            if ($progressData) {
-                                $firstMark = $progressData['1'] ?? null;
-                                $secondMark = $progressData['2'] ?? null;
+            //                 if ($progressData) {
+            //                     $firstMark = $progressData['1'] ?? null;
+            //                     $secondMark = $progressData['2'] ?? null;
                             
-                                if ($firstMark !== null) {
-                                    $firstMarkTotal += array_sum($firstMark);
-                                }
+            //                     if ($firstMark !== null) {
+            //                         $firstMarkTotal += array_sum($firstMark);
+            //                     }
                             
-                                if ($secondMark !== null) {
-                                    $secondMarkTotal = array_sum($secondMark);
-                                }
-                            }                 
-                            break;
-                        }
+            //                     if ($secondMark !== null) {
+            //                         $secondMarkTotal = array_sum($secondMark);
+            //                     }
+            //                 }                 
+            //                 break;
+            //             }
                         
-                       }
+            //            }
                        
                     
                     
                        
             
-                    return [
-                        'name' => $student->name,
-                        'tp_number' => $student->tp_number,
-                        'title' => $student->title,
-                        'field_of_study' => $student->field_of_study,
-                        'specialism' => $student->specialism,
-                        'email' => $student->email,
-                        'supervisor' => $supervisor ? $supervisor->name : null,
-                        'second_marker' => $secondMarker ? $secondMarker->name : null,       
-                        'Pro' => $progressData ? $progressData['Pro'] : null,                 
-                        'firstMark' => $firstMarkTotal,
-                        'secondMark' => $secondMarkTotal,
-                        'finalMark' => $finalMark, 
-                    ];
-                });
+            //         return [
+            //             'name' => $student->name,
+            //             'tp_number' => $student->tp_number,
+            //             'title' => $student->title,
+            //             'field_of_study' => $student->field_of_study,
+            //             'specialism' => $student->specialism,
+            //             'email' => $student->email,
+            //             'supervisor' => $supervisor ? $supervisor->name : null,
+            //             'second_marker' => $secondMarker ? $secondMarker->name : null,       
+            //             'Pro' => $progressData ? $progressData['Pro'] : null,                 
+            //             'firstMark' => $firstMarkTotal,
+            //             'secondMark' => $secondMarkTotal,
+            //             'finalMark' => $finalMark, 
+            //         ];
+            //     });
                                                           
-                return response()->json([
-                    'success' => true,
-                    'data' => $data,
-                ]);
-            }
+            //     return response()->json([
+            //         'success' => true,
+            //         'data' => $data,
+            //     ]);
+            // }
+    public function displayPMStuResult1(Request $request)
+    {
+        
+        $token = $request->header('Authorization');
+        $token = str_replace('Bearer ', "", $token);
+        $students = Student::where('tp_number', $token)->get();
+                    
+        if (!$students) {
+            return response()->json([
+                'success' => false,
+                'message' => $token,
+            ], 401);
+        }                         
+        
+        
+        $data = $students->map(function ($student) {
+            $supervisor = Lecturer::find($student->supervisor);
+            $secondMarker = Lecturer::find($student->secondmarker);
+            $storedData = Storage::get('progress_data.json');
+            $progressArray = json_decode($storedData, true) ?: [];
+            $progressData = null;
+            
+            
+            
+            
+                foreach($progressArray as $progress){
+                if($progress['tp_number']===$student->tp_number && $progress['Mark']==1 ){
+                    $progressData = $progress; 
+                                                            
+                    break;
+                }
+                
+                }
+
+            return [
+                'name' => $student->name,
+                'tp_number' => $student->tp_number,
+                'title' => $student->title,
+                'field_of_study' => $student->field_of_study,
+                'specialism' => $student->specialism,
+                'email' => $student->email,
+                'supervisor' => $supervisor ? $supervisor->name : null,
+                'second_marker' => $secondMarker ? $secondMarker->name : null,       
+                'Pro' => $progressData ? $progressData['Pro'] : null,                 
+                'IR' => $progressData ? $progressData['IR'] : null,
+                'Doc' =>  $progressData ? $progressData['Doc'] : null,
+                'Pre' => $progressData ? $progressData['Pre'] : null,                        
+            ];
+        });
+                                                    
+        return response()->json([
+            'success' => true,
+            'data' => $data,
+        ]);
+    }
+    public function displayPMStuResult2(Request $request)
+    {
+        
+        $token = $request->header('Authorization');
+        $token = str_replace('Bearer ', "", $token);
+        $students = Student::where('tp_number', $token)->get();
+                    
+        if (!$students) {
+            return response()->json([
+                'success' => false,
+                'message' => $token,
+            ], 401);
+        }
+        
+        
+        
+        
+        
+        $data = $students->map(function ($student) {
+            $supervisor = Lecturer::find($student->supervisor);
+            $secondMarker = Lecturer::find($student->secondmarker);
+            $storedData = Storage::get('progress_data.json');
+            $progressArray = json_decode($storedData, true) ?: [];
+            $progressData = null;
+            
+            
+            
+            
+                foreach($progressArray as $progress){
+                if($progress['tp_number']===$student->tp_number && $progress['Mark']==2 ){
+                    $progressData = $progress; 
+                                                            
+                    break;
+                }
+                
+                }
+
+            return [
+                'name' => $student->name,
+                'tp_number' => $student->tp_number,
+                'title' => $student->title,
+                'field_of_study' => $student->field_of_study,
+                'specialism' => $student->specialism,
+                'email' => $student->email,
+                'supervisor' => $supervisor ? $supervisor->name : null,
+                'second_marker' => $secondMarker ? $secondMarker->name : null,       
+                'Pro' => $progressData ? $progressData['Pro'] : null,                 
+                'IR' => $progressData ? $progressData['IR'] : null,
+                'Doc' =>  $progressData ? $progressData['Doc'] : null,
+                'Pre' => $progressData ? $progressData['Pre'] : null,                        
+            ];
+        });
+                                                    
+        return response()->json([
+            'success' => true,
+            'data' => $data,
+        ]);
+    }
 
 
 }
