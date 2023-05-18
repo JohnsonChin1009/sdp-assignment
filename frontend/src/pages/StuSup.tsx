@@ -13,8 +13,7 @@ import { useState } from 'react';
 
 
 export default function Home() {
-  const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+ 
   
   const handleLogout = async()=>{
     try{

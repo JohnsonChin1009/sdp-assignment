@@ -64,6 +64,7 @@ export default function Login() {
     } catch (error) {
       // Handle error during login here
       console.error('An error occurred during the login request:', error);
+      alert("Invalid email or password");
       setError(true);
       setErrorMessage('Invalid email or password')
 
