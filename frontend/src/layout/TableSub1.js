@@ -3,7 +3,7 @@ import { getPMStuResult1 } from '@/pages/api/api';
 import { getPMStuResult2 } from '@/pages/api/api';
 import { useEffect, useState } from 'react'
 import { UpdateStuResult } from '@/pages/api/api';
-import Table from './TableStu3';
+
 
 
 export default function Home() {  

@@ -134,11 +134,7 @@ export default function Home() {
                                           </tr>
                                       </tbody>
                                   </table>
-                                  <div><br /><br />
-                                  Proposal: {data.Pro}%<br/>
-                                  IR: {data.IR} %<br/>
-                                  Doc: {data.Doc} %<br/>
-                                  Pre: {data.Pre} %<br/>
+                                  <div>
                                   <br/><br/>
                                    Proposal: <input type="text" value={Pro || ""} onChange={(event)=> setPro(event.target.value)}/><br />
                                    IR: <input type="text" value={IR || ""} onChange={(event)=> setIR(event.target.value)}/><br />

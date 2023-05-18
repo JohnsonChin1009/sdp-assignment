@@ -289,7 +289,15 @@ class LecturerController extends Controller
     $progressArray = json_decode($storedData, true) ?? [];
 
     // Find the index of the existing progress data for the given tp_number
-    $index = array_search($tp_number, array_column($progressArray, 'tp_number'));
+    // $index = array_search($tp_number, array_column($progressArray, 'tp_number'));
+    $index = null;
+
+foreach ($progressArray as $key => $progress) {
+    if ($progress['tp_number'] === $tp_number && $progress['Mark'] === $progressData['Mark']) {
+        $index = $key;
+        break;
+    }
+}
 
     if ($index !== false) {
         // If the progress data for the tp_number already exists, update the mark
