@@ -232,52 +232,102 @@ class PMController extends Controller
         ]);
     }
 
-    public function updatesturesult(Request $request)
-    {
-        $token = $request->header("Authorization");
-        $token = str_replace('Bearer ', "", $token);
+    // public function updatesturesult(Request $request)
+    // {
+    //     $token = $request->header("Authorization");
+    //     $token = str_replace('Bearer ', "", $token);
 
-        Log::info($token);
+    //     Log::info($token);
 
                   
-        $tokenValues = explode(',', $token);
+    //     $tokenValues = explode(',', $token);
+    //     $tp_number = $tokenValues[0];
+    //     $finalMark = $tokenValues[1];
+
+    
+    //     $finalMark = $request->input('finalMark');
+    //     $title = Student::where('tp_number', $tp_number)->value('title');
+    //     $student = Student::where('tp_number', $tp_number)->first();
+    //     $result = Result::where('tp_number', $tp_number)->first();
+        
+
+    //     $result = Result::updateOrCreate(
+    //         ['tp_number' => $tp_number],
+    //         ['finalmark' => $finalMark, 
+    //         'firstmark' => $result ? $result->firstmark : null,
+    //         'secondmark' => $result ? $result->secondmark : null,            
+    //         'title' => $title]
+    //     );
+    
+        
+
+    //     if(!$result)
+    //     {
+    //         return response()->json([
+    //             'success' => false,
+    //             'message' => 'Student not found in database',
+    //         ]);
+    //     }
+    //     $result->finalmark = $finalMark;
+    //     $result->save();
+
+        
+
+    //     return response()->json([
+    //         'success' => true,
+    //         'message' => 'Student mark updated successfully',
+    //     ]);
+    // }
+    public function updatesturesult(Request $request)
+    {
+        $token = $request->header('Authorization');
+        $token = str_replace('Bearer ', "", $token);
+        Log::info($token);
+    
+        $tokenValues = explode(' ', $token);
         $tp_number = $tokenValues[0];
-        $finalMark = $tokenValues[1];
-
+       
     
-        $finalMark = $request->input('finalMark');
-        $title = Student::where('tp_number', $tp_number)->value('title');
-        $student = Student::where('tp_number', $tp_number)->first();
-        $result = Result::where('tp_number', $tp_number)->first();
-        
-
-        $result = Result::updateOrCreate(
-            ['tp_number' => $tp_number],
-            ['finalmark' => $finalMark, 
-            'firstmark' => $result ? $result->firstmark : null,
-            'secondmark' => $result ? $result->secondmark : null,            
-            'title' => $title]
-        );
+        $resultData = [
+            'tp_number' => $tp_number,
+            'finalMark' => $request->input('finalMark'),            
+        ];
     
-        
-
-        if(!$result)
-        {
-            return response()->json([
-                'success' => false,
-                'message' => 'Student not found in database',
-            ]);
+        $storedData1 = Storage::get('result_data.json');
+        $resultArray = json_decode($storedData1, true) ?? [];
+    
+        // Find the index of the existing progress data for the given tp_number
+        $index = array_search($tp_number, array_column($resultArray, 'tp_number'));
+    
+        if ($index !== false) {
+            // If the progress data for the tp_number already exists, update the mark
+            $resultArray[$index]['finalMark'] = $resultData['finalMark'];           
+        } else {
+            // If the progress data doesn't exist, add it to the array
+            $resultArray[] = $resultData;
         }
-        $result->finalmark = $finalMark;
-        $result->save();
-
-        
-
+    
+        // Log the progress array before storing it
+        Log::info('Result Array before storage: ' . json_encode($resultArray));
+    
+        // Store the updated progress array back to storage
+        Storage::put('result_data.json', json_encode($resultArray));
+    
+        // Log the progress array after storing it
+        Log::info('Result Array after storage: ' . json_encode($resultArray));
+    
+        // Retrieve the updated progress array
+        $data = $this->displayPMStuResult1($request);
+        $data = $this->displayPMStuResult2($request);
+        $data = $this->displayResult($request);
         return response()->json([
             'success' => true,
-            'message' => 'Student mark updated successfully',
+            'message' => 'Updated Results Successfully!',
+            'update1' => $resultData,
+            
         ]);
     }
+    
     
     public function displayResult(Request $request)
             {
@@ -302,38 +352,28 @@ class PMController extends Controller
                 $data = $students->map(function ($student) {
                     $supervisor = Lecturer::find($student->supervisor);
                     $secondMarker = Lecturer::find($student->secondmarker);
-                    $storedData = Storage::get('progress_data.json');
-                    $progressArray = json_decode($storedData, true) ?: [];
-                    $progressData = null;
-                    $results = Result::where('tp_number', $student->tp_number)->get();
-                    $firstMarkTotal = 0;
-                    $firstMarkCount = 0;
-                    $secondMarkTotal = 0;
-                    $secondMarkCount = 0;
-                    $finalMark = Result::value('finalmark')? : null;
-                    
-                       foreach($progressArray as $progress){
-                        if($progress['tp_number']===$student->tp_number){
-                            $progressData = $progress;                            
+                    // $storedData = Storage::get('progress_data.json');
+                    // $progressArray = json_decode($storedData, true) ?: [];
+                    // $progressData = null;
+                    $storedData1 = Storage::get('result_data.json');
+                    $resultArray = json_decode($storedData1, true) ?: [];
+                    $resultData = null;
+                   
+                    //    foreach($progressArray as $progress){
+                    //     if($progress['tp_number']===$student->tp_number){
+                    //         $progressData = $progress;                            
+                    //         break;
+                    //     }
+                        
+                    //    }      
+                       foreach($resultArray as $progress1){
+                        if($progress1['tp_number']===$student->tp_number){
+                            $resultData = $progress1;                            
                             break;
                         }
                         
-                       }
-                       if ($progressData) {
-                        $firstMark = $progressData['1'] ?? null;
-                        $secondMark = $progressData['2'] ?? null;
-                    
-                        if ($firstMark !== null) {
-                            $firstMarkTotal += array_sum($firstMark);
-                        }
-                    
-                        if ($secondMark !== null) {
-                            $secondMarkTotal = array_sum($secondMark);
-                        }
-                    }
-                    
-                    
-                       
+                       }                                                                                      
+                                                                                            
             
                     return [
                         'name' => $student->name,
@@ -343,11 +383,8 @@ class PMController extends Controller
                         'specialism' => $student->specialism,
                         'email' => $student->email,
                         'supervisor' => $supervisor ? $supervisor->name : null,
-                        'second_marker' => $secondMarker ? $secondMarker->name : null,     
-                                          
-                        'firstMark' => $firstMarkTotal,
-                        'secondMark' => $secondMarkTotal,
-                        'finalMark' => $finalMark, 
+                        'second_marker' => $secondMarker ? $secondMarker->name : null,                       
+                        'finalMark' =>  $resultData ? $resultData['finalMark'] : null,  
                     ];
                 });
                                                           
@@ -356,83 +393,7 @@ class PMController extends Controller
                     'data' => $data,
                 ]);
             }
-            // public function displayPMStuResult(Request $request)
-            // {
-               
-            //     $token = $request->header('Authorization');
-            //     $token = str_replace('Bearer ', "", $token);
-            //     $students = Student::where('tp_number', $token)->get();
-                            
-            //     if (!$students) {
-            //         return response()->json([
-            //             'success' => false,
-            //             'message' => $token,
-            //         ], 401);
-            //     }
-                
-                
-               
-                
-                
-            //     $data = $students->map(function ($student) {
-            //         $supervisor = Lecturer::find($student->supervisor);
-            //         $secondMarker = Lecturer::find($student->secondmarker);
-            //         $storedData = Storage::get('progress_data.json');
-            //         $progressArray = json_decode($storedData, true) ?: [];
-            //         $progressData = null;
-            //         $results = Result::where('tp_number', $student->tp_number)->get();
-            //         $firstMarkTotal = 0;
-            //         $firstMarkCount = 0;
-            //         $secondMarkTotal = 0;
-            //         $secondMarkCount = 0;
-            //         $finalMark = Result::value('finalmark')? : null;
-                    
-            //            foreach($progressArray as $progress){
-            //             if($progress['tp_number']===$student->tp_number){
-            //                 $progressData = $progress; 
-                            
-            //                 if ($progressData) {
-            //                     $firstMark = $progressData['1'] ?? null;
-            //                     $secondMark = $progressData['2'] ?? null;
-                            
-            //                     if ($firstMark !== null) {
-            //                         $firstMarkTotal += array_sum($firstMark);
-            //                     }
-                            
-            //                     if ($secondMark !== null) {
-            //                         $secondMarkTotal = array_sum($secondMark);
-            //                     }
-            //                 }                 
-            //                 break;
-            //             }
-                        
-            //            }
-                       
-                    
-                    
-                       
             
-            //         return [
-            //             'name' => $student->name,
-            //             'tp_number' => $student->tp_number,
-            //             'title' => $student->title,
-            //             'field_of_study' => $student->field_of_study,
-            //             'specialism' => $student->specialism,
-            //             'email' => $student->email,
-            //             'supervisor' => $supervisor ? $supervisor->name : null,
-            //             'second_marker' => $secondMarker ? $secondMarker->name : null,       
-            //             'Pro' => $progressData ? $progressData['Pro'] : null,                 
-            //             'firstMark' => $firstMarkTotal,
-            //             'secondMark' => $secondMarkTotal,
-            //             'finalMark' => $finalMark, 
-            //         ];
-            //     });
-                                                          
-            //     return response()->json([
-            //         'success' => true,
-            //         'data' => $data,
-            //     ]);
-            // }
     public function displayPMStuResult1(Request $request)
     {
         
@@ -454,7 +415,10 @@ class PMController extends Controller
             $storedData = Storage::get('progress_data.json');
             $progressArray = json_decode($storedData, true) ?: [];
             $progressData = null;
-            
+            $storedData1 = Storage::get('result_data.json');
+            $resultArray = json_decode($storedData1, true) ?: [];
+            $resultData = null;
+    
             
             
             
@@ -466,6 +430,13 @@ class PMController extends Controller
                 }
                 
                 }
+                foreach($resultArray as $progress1){
+                    if($progress1['tp_number']===$student->tp_number){
+                        $resultData = $progress1;                            
+                        break;
+                    }
+                    
+                   }  
 
             return [
                 'name' => $student->name,
@@ -479,7 +450,8 @@ class PMController extends Controller
                 'Pro' => $progressData ? $progressData['Pro'] : null,                 
                 'IR' => $progressData ? $progressData['IR'] : null,
                 'Doc' =>  $progressData ? $progressData['Doc'] : null,
-                'Pre' => $progressData ? $progressData['Pre'] : null,                        
+                'Pre' => $progressData ? $progressData['Pre'] : null,   
+                'finalMark' =>  $resultData ? $resultData['finalMark'] : null,                      
             ];
         });
                                                     
@@ -502,19 +474,13 @@ class PMController extends Controller
             ], 401);
         }
         
-        
-        
-        
-        
         $data = $students->map(function ($student) {
             $supervisor = Lecturer::find($student->supervisor);
             $secondMarker = Lecturer::find($student->secondmarker);
             $storedData = Storage::get('progress_data.json');
             $progressArray = json_decode($storedData, true) ?: [];
             $progressData = null;
-            
-            
-            
+                                               
             
                 foreach($progressArray as $progress){
                 if($progress['tp_number']===$student->tp_number && $progress['Mark']==2 ){
@@ -524,6 +490,7 @@ class PMController extends Controller
                 }
                 
                 }
+                
 
             return [
                 'name' => $student->name,
@@ -537,13 +504,14 @@ class PMController extends Controller
                 'Pro' => $progressData ? $progressData['Pro'] : null,                 
                 'IR' => $progressData ? $progressData['IR'] : null,
                 'Doc' =>  $progressData ? $progressData['Doc'] : null,
-                'Pre' => $progressData ? $progressData['Pre'] : null,                        
+                'Pre' => $progressData ? $progressData['Pre'] : null,  
+                                      
             ];
         });
                                                     
         return response()->json([
             'success' => true,
-            'data' => $data,
+            'data1' => $data,
         ]);
     }
 

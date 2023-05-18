@@ -63,6 +63,14 @@ export default function Home() {
         <div>
         <Table/>
         </div>
+        <Image
+                            src="/design-lap1.png"
+                            alt="APU Logo"
+                            className={styles.image8}
+                            width={50}
+                            height={50}
+                            priority            
+                            />
         <div className={styles.contentbox3}></div>
       
         

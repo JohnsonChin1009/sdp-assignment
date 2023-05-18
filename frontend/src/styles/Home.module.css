@@ -108,6 +108,14 @@
   margin-top: -455px;
   margin-right: 100px; 
 }
+.image8{
+  position: relative;
+  width: 400px;
+  height: 400px;
+  float: right;  
+  margin-top: -50px;  
+  margin-right: 160px; 
+}
 .image5{
   position: relative;
   width: 300px;
@@ -1208,7 +1216,7 @@ margin-right: -900px;
     margin-left: 30px;
     font-size: 35px;
   }
-  .image7{    
+  .image7, .image8{    
     width: 0px;
     height: 0px;    
   }

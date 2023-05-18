@@ -575,7 +575,7 @@ export const getPMStuResult2 = async (token) => {
       }
     }
     const response = await axios.get(`${API_URL}/displayPMStuResult2`, config);
-    const PM = response.data.data;      
+    const PM = response.data.data1;      
 
     return PM;
   } catch (error) {
@@ -586,12 +586,15 @@ export const UpdateStuResult = async (token, finalMark) =>{
   try{
     const config = {
       headers: {
-        Authorization: 'Bearer ' + token + "," + finalMark
+        Authorization: `Bearer ${token}` ,
       }
-    }    
+    };
+    const data = {
+      finalMark,
+    };   
     console.log(config);
-    const response = await axios.put(`${API_URL}/updatesturesult`, {}, config);
-    const update = response.data.data;
+    const response = await axios.put(`${API_URL}/updatesturesult`, data, config);
+    const update = response.data.update1;
     console.log(update);    
     return update;
   } catch (error) {
