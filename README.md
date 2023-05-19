@@ -46,9 +46,9 @@ update whether you are using a bug to reduce redundancy.</i>
     <tr>
       <td>3</td>
       <td>Calendar not working</td>
-      <td></td>
-      <td></td>
-      <td>Cannot display full details and the data can be press</td>
+      <td>Tung En Zi Ming</td>
+      <td>Tung En Zi Ming</td>
+      <td>Done</td>
     </tr>
     <tr>
       <td>4</td>
@@ -60,9 +60,9 @@ update whether you are using a bug to reduce redundancy.</i>
     <tr>
       <td>5</td>
       <td>Search function havent do</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>Tung En Zi Ming</td>
+      <td>Tung En Zi Ming</td>
+      <td>Done</td>
     </tr>
     <tr>
       <td>6</td>
