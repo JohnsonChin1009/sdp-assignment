@@ -90,9 +90,9 @@ const handleLogout = async()=>{
           </div>
           </a>  <br />
       </div>
-      <div className={styles.content6}>        
+      <div className={styles.contentbox3}>        
         
-        <div className={styles.image3}></div>
+        
         {data && (
           <><div className={styles.box11a} key={data.id}><h2>{data.name }</h2><br /> {data.field_of_study} <br />{data.email}</div></>
         )}
@@ -100,7 +100,7 @@ const handleLogout = async()=>{
           <><div className={styles.box11a} key={data1.id}><h2>{data1.name}</h2><br /> {data1.field_of_study} <br />{data1.email}</div></>
         )}
         
-      </div>
+      </div><br/><br/><br/><br/><br/><br/><br/><br/>
       <Event /><Image
           src="/design-lap1.png"
           alt="design-lap1"

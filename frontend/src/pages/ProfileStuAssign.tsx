@@ -113,7 +113,7 @@ export default function StudentPM() {
                 {data && (
                     <>
                         
-                            <div className={styles.image}></div>
+                            
                             <div className={styles.namebox1} key={data.tp_number}>
                                 <h2>{data.name}</h2>
                                 <h3>{data.tp_number}</h3>

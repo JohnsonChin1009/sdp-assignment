@@ -38,26 +38,32 @@ export default function Table() {
 
     return (
         
-              <><div className={style.container1}> Supervise:<br/>
+              <><div className={style.content3a}>
+                    <h2> Supervise:</h2><br/> <br/>      
+              <div className={style.container}> 
         {data.length === 0 ? (<p className={style.text4}>No students assigned</p>) : (data.map((data) => (
           <div className={style.row1} key={data.id}>
-            <div className={style.image}></div>
+            <div className={style.content10}>
             <div>{data.name} <br />{data.tp_number}<br />{data.intake_code}</div>
             <div><b>{data.title}</b><br /><br /></div>
-          </div>
+          </div></div>
         )))}
-        <br />
-
-      </div><div className={style.container1}> Mark:<br/>
+        
+        </div>
+        <br /><br />
+      </div><div className={style.content3a}>
+      <h2>Mark:</h2><br/>
+      <div className={style.container}> 
           {data1.length === 0 ? (<p className={style.text4}>No students assigned</p>) : (data1.map((data1) => (
             <div className={style.row1} key={data1.id}>
-              <div className={style.image}></div>
+              <div className={style.content11}>
               <div>{data1.name} <br />{data1.tp_number}<br />{data1.intake_code}</div>
               <div><b>{data1.title}</b><br /><br /></div>
             </div>
+            </div>
           )))}
           <br />
-
+          </div>
         </div></>
               
             

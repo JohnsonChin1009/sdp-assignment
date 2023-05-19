@@ -158,12 +158,12 @@ export default function Home() {
          
           {data &&(
             <>
-            <div className={styles.image} key={data.id}></div>
+            <div key={data.id}></div>
             <div className={styles.namebox}>
-            <div><h2>{data.name}</h2></div>
-            <div>{data.field_of_study}</div>
+            <div><h2>{data.name}</h2><br/></div>
+            <div>{data.field_of_study}<br/> Email  : {data.email}</div>
           </div><div className={styles.infobox}>
-              Email  : {data.email}<br />              
+             <br />              
               <br />              
             </div> <div className={styles.infobox1}>
                 <form onSubmit={submit}> <br />

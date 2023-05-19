@@ -84,13 +84,13 @@ export default function Home() {
         </a>
       </div>  
       
-      <div className={styles.image3}></div>
+      <div className={styles.contentbox3}>
       {lecturer && (
       <>
-      <div className={styles.box11a} key={lecturer.id}>{lecturer.name}<br /> {lecturer.field_of_study} <br />{lecturer.email}</div>
+      <div className={styles.box11a} key={lecturer.id}><h2>{lecturer.name}</h2><br /> {lecturer.id}<br/>{lecturer.field_of_study} <br />{lecturer.email}</div>
       </>
        ) }
-                                
+         </div>                       
       <br /><br /><br />    <br /><br /><br />      <br/>                    
       <div className={styles.contentbox3}>
       <Table />      

@@ -86,18 +86,15 @@ export default function Home() {
        <br /><br /><br /><br />
         <div className={styles.content6}>
           {data &&(
-            <><div className={styles.box10} key={data.id} onClick={() => handleClick(data.id || data.projectmanagerid || data.supervisorid ||data.secondmarkerid)}>
-              <a href='http://localhost:3000/Profile1'><div className={styles.text} onClick={() => handleClick(data.projectmanagerid)}>Project Manager</div><br />
-                <div className={styles.image2}></div><br /><br /><br /><br /><br /><br />
-                <div className={styles.text}><b>{data.projectmanager}</b><br/></div></a>
-            </div><div className={styles.line3}></div><div className={styles.box10} onClick={() => handleClick(data.supervisorid)}>
-            <a href='http://localhost:3000/Profile1'><div className={styles.text1}>Supervisor</div><br />
-                <div className={styles.image2}></div><br /><br /><br /><br /><br /><br /><br />
-                <div className={styles.text}><b>{data.supervisor}</b></div></a>
-              </div><div className={styles.line3}></div><div className={styles.box10} onClick={() => handleClick(data.secondmarkerid)}>
-              <a href='http://localhost:3000/Profile1'><div className={styles.text}>Second Marker</div><br />
-                <div className={styles.image2}></div><br /><br /><br /><br /><br /><br /><br />
-                <div className={styles.text}><b>{data.secondmarker}</b></div></a>
+            <><div className={styles.content10} key={data.id} onClick={() => handleClick(data.id || data.projectmanagerid || data.supervisorid ||data.secondmarkerid)}>
+              <a href='http://localhost:3000/Profile1'><div className={styles.text} onClick={() => handleClick(data.projectmanagerid)}>Project Manager</div><br />                
+                <div className={styles.text}><b><h2>{data.projectmanager}</h2></b><br/></div></a>
+            </div><div className={styles.content10} onClick={() => handleClick(data.supervisorid)}>
+            <a href='http://localhost:3000/Profile1'><div className={styles.text1}>Supervisor</div><br />               
+                <div className={styles.text}><b><h2>{data.supervisor}</h2></b></div></a>
+              </div><div className={styles.content10} onClick={() => handleClick(data.secondmarkerid)}>
+              <a href='http://localhost:3000/Profile1'><div className={styles.text}>Second Marker</div><br />                
+                <div className={styles.text}><b><h2>{data.secondmarker}</h2></b></div></a>
               </div></>
           )}
           

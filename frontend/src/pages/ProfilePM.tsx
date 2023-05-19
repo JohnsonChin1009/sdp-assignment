@@ -181,13 +181,12 @@ export default function Home() {
         <div className={styles.contentbox1}>     
           {data &&(
             <>
-            <div className={styles.image} key={data.id}></div>
+            <div key={data.id}></div>
             <div className={styles.namebox}>
-            <div><h2>{data.name}</h2></div>
-            <div>{data.field_of_study}</div>
+            <div><h2>{data.name}</h2></div><br/>
+            <div>{data.field_of_study}<br/>Email  : {data.email}</div>
           </div><div className={styles.infobox}>
-              Email  : {data.email}<br />              
-              <br />              
+              <br />                                      
             </div><div className={styles.infobox1}>
                 <form onSubmit={submit}> <br />
                  <h3> Add New Event </h3><br />

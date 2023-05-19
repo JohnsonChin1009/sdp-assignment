@@ -85,7 +85,7 @@ const handleLogout = async()=>{
         </a>
       </div>  
       <div className={styles.contentbox3}>
-        <div className={styles.image}></div>
+        
         {data && (
           <><div className={styles.namebox1} key={data.tp_number}>
             <h2>{data.name}</h2>
