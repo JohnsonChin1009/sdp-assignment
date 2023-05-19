@@ -84,7 +84,7 @@ export default function Home() {
           </a>  <br />
       </div>
        <br /><br /><br /><br />
-        <div className={styles.content6}>
+        <div className={styles.row3}>
           {data &&(
             <><div className={styles.content10} key={data.id} onClick={() => handleClick(data.id || data.projectmanagerid || data.supervisorid ||data.secondmarkerid)}>
               <a href='http://localhost:3000/Profile1'><div className={styles.text} onClick={() => handleClick(data.projectmanagerid)}>Project Manager</div><br />                
@@ -100,7 +100,7 @@ export default function Home() {
           
           
         </div>
-        <br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         <Footer />
         </>
   )
