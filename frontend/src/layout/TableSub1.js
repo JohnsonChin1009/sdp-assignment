@@ -58,9 +58,9 @@ export default function Home() {
                 { Array.isArray(data) && data.map((data)=>(                
                   <div className={style.context10} key={data.tp_number}>                    
                     <div><br/>{data.name}<br/>{data.tp_number}<br/><h3><b>{data.title}</b></h3></div>
-                    First Mark: <br/> Proposal : {data.Pro}% , IR : {data.IR}% , Doc : {data.Doc}% , Presentation : {data.Pre}% <br/><br/>
-                    {data1 &&( <p>Second Mark:<br/> Proposal : {data1.Pro}% , IR : {data1.IR}% , Doc : {data1.Doc}% , Presentation : {data1.Pre}% </p> )}<br/>
-                    <div><br/>Final Mark: {data.finalmark}</div>
+                    First Mark: <br/> Proposal : {data.Pro} , IR : {data.IR} , Doc : {data.Doc} , Presentation : {data.Pre} <br/><br/>
+                    {Array.isArray(data1) && data1.map((data1)=> ( <p>Second Mark:<br/> Proposal : {data1.Pro} , IR : {data1.IR} , Doc : {data1.Doc} , Presentation : {data1.Pre} </p> ))}<br/>
+                    <div>{data && (<p><br/>Final Mark: {data.finalmark}</p>)}</div>
                     <div>Update Final Mark: <input type="text"  value={finalMark}onChange={(e => setfinalMark(e.target.value))}/>
                     <br/><button className={style.button6} onClick={updateValue}>Update</button></div>                    
                   </div>

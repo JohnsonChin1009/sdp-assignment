@@ -70,10 +70,9 @@ export default function Table() {
         Supervise:<br/><br/>
                 {data.length ===0 ? (<p className={styles.text3}>No Students assigned yet</p>) :( data.map((data) => (
                   <div className={styles.row} key={data.tp_number} onClick={()=>handleClick(data.tp_number)}>
-                    <div className={styles.content10}> 
-                    <div className={styles.image}></div>
-                    <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(data.tp_number)} ><br/>{data.name}<br/>{data.tp_number}<br/>{data.intake_code}</div></a>  
-                    <div><br/>{data.title}<br/></div>
+                    <div className={styles.content10}>                     
+                    <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(data.tp_number)} ><br/><h3>{data.name}</h3>{data.tp_number}<br/>{data.intake_code}</div></a>  
+                    <div><br/><h2>{data.title}</h2><br/></div>
                     <div><br/>Proposal: {data.Pro}<br/>IR: {data.IR}<br/>Documentation: {data.Doc}<br/>Presentation: {data.Pre}</div>                       
                   </div>
                   </div>
@@ -81,10 +80,9 @@ export default function Table() {
         Mark:<br/>
                 {students.length ===0 ? (<p className={styles.text3}>No Students assigned yet</p>) :(students.map((row) => (
                   <div className={styles.row} key={row.tp_number} onClick={()=>handleClick(row.tp_number)}>
-                    <div className={styles.content10}>
-                    <div className={styles.image}></div>
-                    <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(row.tp_number)} ><br/>{row.name}<br/>{row.tp_number}<br/>{row.intake_code}</div></a>  
-                    <div><br/>{row.title}<br/></div>
+                    <div className={styles.content10}>                  
+                    <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(row.tp_number)} ><br/><h3>{row.name}</h3>{row.tp_number}<br/>{row.intake_code}</div></a>  
+                    <div  onClick={()=>handleClick(row.tp_number)}><br/><h2>{row.title}</h2><br/></div>
                     <div><br/>Proposal: {row.Pro}<br/>IR: {row.IR}<br/>Documentation: {row.Doc}<br/>Presentation: {row.Pre}</div>                     
                     </div>                       
                   </div>

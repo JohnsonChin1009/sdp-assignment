@@ -109,7 +109,8 @@ export default function Home() {
       <div className={styles.contentbox3}>
       <div className={styles.contentbox3a}>
                 {data && (
-                  <><div className={styles.image}></div><div className={styles.namebox1}>
+                  <><div className={styles.image}></div>
+                  <div className={styles.namebox1}>
                               <h2>{data.name}</h2>
                               <h3>{data.tp_number}</h3>
                               {data.intake_code}
