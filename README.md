@@ -32,9 +32,9 @@ update whether you are using a bug to reduce redundancy.</i>
     <tr>
       <td>1</td>
       <td>Assign student function doesn't work</td>
+      <td>Johnson</td>
       <td></td>
-      <td></td>
-      <td></td>
+      <td>Make JSON array for lecturers to take down not more than 5 students</td>
     </tr>
     <tr>
       <td>2</td>
@@ -95,9 +95,9 @@ update whether you are using a bug to reduce redundancy.</i>
     <tr>
       <td>10</td>
       <td>Make JSON array for lecturers to take down not more than 5 students</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>Johnson</td>
+      <td>Johnson</td>
+      <td>Edited Lecturer model to not save more tha 5 into array</td>
     </tr>
     <tr>
       <td>11</td>
