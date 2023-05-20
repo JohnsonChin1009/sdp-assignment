@@ -1,5 +1,6 @@
 <?php
 
+'intake_code' => '',
 namespace Database\Seeders;
 
 use Illuminate\Support\Facades\DB;
@@ -17,6 +18,7 @@ class StudentsTableSeeder extends Seeder
                 [
                     'tp_number' => 'TP074070', 
                     'name' => 'CARMINE MCAVINCHEY', 
+                    'intake_code' => '',
                     'field_of_study' => 'INFORMATION TECHNOLOGY', 
                     'specialism' => 'SOFTWARE ENGINEERING', 
                     'email' => 'tp074070@mail.apu.edu.my', 
@@ -30,6 +32,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP085650', 
                     'name' => 'WALLIE CLAMP', 
+                    'intake_code' => '',
                     'field_of_study' => 'INFORMATION TECHNOLOGY', 
                     'specialism' => 'SOFTWARE ENGINEERING', 
                     'email' => 'wclamp1@pen.io', 
@@ -43,6 +46,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP091820', 
                     'name' => 'PAOLINA SCUFFHAM', 
+                    'intake_code' => '',
                     'field_of_study' => 'INFORMATION TECHNOLOGY', 
                     'specialism' => 'DATA ANALYTICS', 
                     'email' => 'pscuffham2@vistaprint.com', 
@@ -56,6 +60,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP069500', 
                     'name' => 'JANETA GOATER', 
+                    'intake_code' => '',
                     'field_of_study' => 'INFORMATION TECHNOLOGY', 
                     'specialism' => 'ARTIFICIAL INTELLIGENCE', 
                     'email' => 'jgoater3@webs.com', 
@@ -69,6 +74,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP096820', 
                     'name' => 'EBONY SPRIGGEN', 
+                    'intake_code' => '',
                     'field_of_study' => 'INFORMATION TECHNOLOGY', 
                     'specialism' => 'SOFTWARE ENGINEERING', 
                     'email' => 'espriggen4@desdev.cn', 
@@ -82,6 +88,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP037150', 
                     'name' => 'RICHIE WHYMARK', 
+                    'intake_code' => '',
                     'field_of_study' => 'INFORMATION TECHNOLOGY', 
                     'specialism' => 'DATA ANALYTICS', 
                     'email' => 'rwhymark5@technorati.com', 
@@ -95,6 +102,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP006440', 
                     'name' => 'SERENE FISHLEE', 
+                    'intake_code' => '',
                     'field_of_study' => 'INFORMATION TECHNOLOGY', 
                     'specialism' => 'SOFTWARE ENGINEERING', 
                     'email' => 'sfishlee6@phoca.cz', 
@@ -108,6 +116,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP043970', 
                     'name' => 'MARION MABSON', 
+                    'intake_code' => '',
                     'field_of_study' => 'INFORMATION TECHNOLOGY', 
                     'specialism' => 'SOFTWARE ENGINEERING', 
                     'email' => 'mmabson7@gnu.org', 
@@ -121,6 +130,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP012990', 
                     'name' => 'JONIS ELKS', 
+                    'intake_code' => '',
                     'field_of_study' => 'INFORMATION TECHNOLOGY', 
                     'specialism' => 'ARTIFICIAL INTELLIGENCE', 
                     'email' => 'jelks8@pagesperso-orange.fr', 
@@ -134,6 +144,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP062740', 
                     'name' => 'CHICKY EYTEL', 
+                    'intake_code' => '',
                     'field_of_study' => 'INFORMATION TECHNOLOGY', 
                     'specialism' => 'ARTIFICIAL INTELLIGENCE', 
                     'email' => 'ceytel9@purevolume.com', 
@@ -147,6 +158,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP075710', 
                     'name' => 'ELYN BECCONSALL', 
+                    'intake_code' => '',
                     'field_of_study' => 'ENGINEERING', 
                     'specialism' => 'AUTOMATION CREATION', 
                     'email' => 'ebecconsall0@tripod.com', 
@@ -160,6 +172,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP015110', 
                     'name' => 'DRUCY FIDDIMAN', 
+                    'intake_code' => '',
                     'field_of_study' => 'ENGINEERING', 
                     'specialism' => 'MACHINE MANIPULATION', 
                     'email' => 'dfiddiman1@1688.com', 
@@ -173,6 +186,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP027460', 
                     'name' => 'ENID BECKINGHAM', 
+                    'intake_code' => '',
                     'field_of_study' => 'ENGINEERING', 
                     'specialism' => 'MACHINE MANIPULATION', 
                     'email' => 'ebeckingham2@ox.ac.uk', 
@@ -186,6 +200,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP036200', 
                     'name' => 'ELIOT TALKINGTON', 
+                    'intake_code' => '',
                     'field_of_study' => 'ENGINEERING', 
                     'specialism' => 'AUTOMATION CREATION', 
                     'email' => 'etalkington3@indiegogo.com', 
@@ -199,6 +214,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP093650', 
                     'name' => 'RALEIGH ADDINGTON', 
+                    'intake_code' => '',
                     'field_of_study' => 'ENGINEERING', 
                     'specialism' => 'ROBOTICS', 
                     'email' => 'raddington4@reverbnation.com', 
@@ -212,6 +228,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP045320', 
                     'name' => 'HOLT CLOWLEY', 
+                    'intake_code' => '',
                     'field_of_study' => 'ENGINEERING', 
                     'specialism' => 'MACHINE MANIPULATION', 
                     'email' => 'hclowley5@weebly.com', 
@@ -225,6 +242,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP052410', 
                     'name' => 'DORTHY HEINTZSCH', 
+                    'intake_code' => '',
                     'field_of_study' => 'ENGINEERING', 
                     'specialism' => 'ROBOTICS', 
                     'email' => 'dheintzsch6@surveymonkey.com', 
@@ -238,6 +256,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP084010', 
                     'name' => 'DORENE ARMATIDGE', 
+                    'intake_code' => '',
                     'field_of_study' => 'ENGINEERING', 
                     'specialism' => 'MACHINE MANIPULATION', 
                     'email' => 'darmatidge7@google.pl', 
@@ -251,6 +270,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP011490', 
                     'name' => 'THORNY TOMMEI', 
+                    'intake_code' => '',
                     'field_of_study' => 'ENGINEERING', 
                     'specialism' => 'MACHINE MANIPULATION', 
                     'email' => 'ttommei8@tuttocitta.it', 
@@ -264,6 +284,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP002470', 
                     'name' => 'LONEE SPURGE', 
+                    'intake_code' => '',
                     'field_of_study' => 'ENGINEERING', 
                     'specialism' => 'ROBOTICS', 
                     'email' => 'lspurge9@state.tx.us', 
@@ -277,6 +298,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP074430', 
                     'name' => 'TRICIA STUCHBERRY', 
+                    'intake_code' => '',
                     'field_of_study' => 'MEDIA AND DESIGN', 
                     'specialism' => 'INTERIOR DESIGN', 
                     'email' => 'tstuchberry0@51.la', 
@@ -290,6 +312,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP064850', 
                     'name' => 'BERT SWORD', 
+                    'intake_code' => '',
                     'field_of_study' => 'MEDIA AND DESIGN', 
                     'specialism' => 'GRAPHIC DESIGN', 
                     'email' => 'bsword1@tiny.cc', 
@@ -303,6 +326,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP090190', 
                     'name' => 'BABBETTE WYLLT', 
+                    'intake_code' => '',
                     'field_of_study' => 'MEDIA AND DESIGN', 
                     'specialism' => 'GRAPHIC DESIGN', 
                     'email' => 'bwyllt2@tripadvisor.com', 
@@ -316,6 +340,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP022190', 
                     'name' => 'WHITNEY BINGLEY', 
+                    'intake_code' => '',
                     'field_of_study' => 'MEDIA AND DESIGN', 
                     'specialism' => 'GRAPHIC DESIGN', 
                     'email' => 'wbingley3@dell.com', 
@@ -329,6 +354,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP045440', 
                     'name' => 'VIRGINIA DILLISTON', 
+                    'intake_code' => '',
                     'field_of_study' => 'MEDIA AND DESIGN', 
                     'specialism' => 'INTERIOR DESIGN', 
                     'email' => 'vdilliston4@yahoo.co.jp', 
@@ -342,6 +368,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP063350', 
                     'name' => 'VINNIE SLYFORD', 
+                    'intake_code' => '',
                     'field_of_study' => 'MEDIA AND DESIGN', 
                     'specialism' => 'GRAPHIC DESIGN', 
                     'email' => 'vslyford5@wufoo.com', 
@@ -355,6 +382,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP097990', 
                     'name' => 'BENTON YEOMANS', 
+                    'intake_code' => '',
                     'field_of_study' => 'MEDIA AND DESIGN', 
                     'specialism' => 'EXTERIOR DESIGN', 
                     'email' => 'byeomans6@va.gov', 
@@ -368,6 +396,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP026710', 
                     'name' => 'ALEJANDRO LOUGHREN', 
+                    'intake_code' => '',
                     'field_of_study' => 'MEDIA AND DESIGN', 
                     'specialism' => 'EXTERIOR DESIGN', 
                     'email' => 'aloughren7@sphinn.com', 
@@ -381,6 +410,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP038840', 
                     'name' => 'ROSY LODOVICHI', 
+                    'intake_code' => '',
                     'field_of_study' => 'MEDIA AND DESIGN', 
                     'specialism' => 'INTERIOR DESIGN', 
                     'email' => 'rlodovichi8@hc360.com', 
@@ -394,6 +424,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP049460', 
                     'name' => 'MIC CHINNOCK', 
+                    'intake_code' => '',
                     'field_of_study' => 'MEDIA AND DESIGN', 
                     'specialism' => 'EXTERIOR DESIGN', 
                     'email' => 'mchinnock9@usgs.gov', 
@@ -407,6 +438,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP044930', 
                     'name' => 'STEPHAN PYKETT', 
+                    'intake_code' => '',
                     'field_of_study' => 'PSYCHOLOGY', 
                     'specialism' => 'SOCIALOGY', 
                     'email' => 'spykett0@yandex.ru', 
@@ -420,6 +452,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP082360', 
                     'name' => 'LYNNELLE BIAGGIONI', 
+                    'intake_code' => '',
                     'field_of_study' => 'PSYCHOLOGY', 
                     'specialism' => 'SOCIALOGY', 
                     'email' => 'lbiaggioni1@reuters.com', 
@@ -433,6 +466,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP045260', 
                     'name' => 'TANDI WILBUD', 
+                    'intake_code' => '',
                     'field_of_study' => 'PSYCHOLOGY', 
                     'specialism' => 'HUMAN BEHAVIORISM', 
                     'email' => 'twilbud2@ucoz.com', 
@@ -446,6 +480,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP073700', 
                     'name' => 'MARION LARGAN', 
+                    'intake_code' => '',
                     'field_of_study' => 'PSYCHOLOGY', 
                     'specialism' => 'SOCIALOGY', 
                     'email' => 'mlargan3@elegantthemes.com', 
@@ -459,6 +494,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP062720', 
                     'name' => 'ERNESTINE LORNE', 
+                    'intake_code' => '',
                     'field_of_study' => 'PSYCHOLOGY', 
                     'specialism' => 'SOCIALOGY', 
                     'email' => 'elorne4@europa.eu', 
@@ -472,6 +508,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP060030', 
                     'name' => 'JAKE TIDMARSH', 
+                    'intake_code' => '',
                     'field_of_study' => 'PSYCHOLOGY', 
                     'specialism' => 'HUMAN BEHAVIORISM', 
                     'email' => 'jtidmarsh5@si.edu', 
@@ -485,6 +522,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP012370', 
                     'name' => 'MADELENA DELUCIA', 
+                    'intake_code' => '',
                     'field_of_study' => 'PSYCHOLOGY', 
                     'specialism' => 'SOCIALOGY', 
                     'email' => 'mdelucia6@nymag.com', 
@@ -498,6 +536,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP093090', 
                     'name' => 'SARA-ANN PRETSELL', 
+                    'intake_code' => '',
                     'field_of_study' => 'PSYCHOLOGY', 
                     'specialism' => 'HUMAN BEHAVIORISM', 
                     'email' => 'spretsell7@omniture.com', 
@@ -511,6 +550,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP079920', 
                     'name' => 'YANKEE KEPPY', 
+                    'intake_code' => '',
                     'field_of_study' => 'PSYCHOLOGY', 
                     'specialism' => 'HUMAN BEHAVIORISM', 
                     'email' => 'ykeppy8@domainmarket.com', 
@@ -524,6 +564,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP016310', 
                     'name' => 'CELESTA CUXSON', 
+                    'intake_code' => '',
                     'field_of_study' => 'PSYCHOLOGY', 
                     'specialism' => 'MENTAL WELLNESS', 
                     'email' => 'ccuxson9@baidu.com', 
@@ -537,6 +578,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP093720', 
                     'name' => 'EZMERALDA KEELE', 
+                    'intake_code' => '',
                     'field_of_study' => 'BANKING AND FINANCE', 
                     'specialism' => 'INVESTMENT ANALYSIS', 
                     'email' => 'ekeele0@sphinn.com', 
@@ -550,6 +592,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP026940', 
                     'name' => 'NANON SPEDRONI', 
+                    'intake_code' => '',
                     'field_of_study' => 'BANKING AND FINANCE', 
                     'specialism' => 'FINANCIAL CONSULTANCY', 
                     'email' => 'nspedroni1@rambler.ru', 
@@ -563,6 +606,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP008380', 
                     'name' => 'ARLINA ANTRUM', 
+                    'intake_code' => '',
                     'field_of_study' => 'BANKING AND FINANCE', 
                     'specialism' => 'CRYPTOCURRENCY', 
                     'email' => 'aantrum2@xing.com', 
@@ -576,6 +620,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP029830', 
                     'name' => 'ALDO BAYNE', 
+                    'intake_code' => '',
                     'field_of_study' => 'BANKING AND FINANCE', 
                     'specialism' => 'FINANCIAL CONSULTANCY', 
                     'email' => 'abayne3@psu.edu', 
@@ -589,6 +634,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP017540', 
                     'name' => 'ZANE LETCHFORD', 
+                    'intake_code' => '',
                     'field_of_study' => 'BANKING AND FINANCE', 
                     'specialism' => 'INVESTMENT ANALYSIS', 
                     'email' => 'zletchford4@vk.com', 
@@ -602,6 +648,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP068550', 
                     'name' => 'GEORGETA KABSCH', 
+                    'intake_code' => '',
                     'field_of_study' => 'BANKING AND FINANCE', 
                     'specialism' => 'INVESTMENT ANALYSIS', 
                     'email' => 'gkabsch5@tinypic.com', 
@@ -615,6 +662,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP080360', 
                     'name' => 'JOHNNA ROWTHORN', 
+                    'intake_code' => '',
                     'field_of_study' => 'BANKING AND FINANCE', 
                     'specialism' => 'FINANCIAL CONSULTANCY', 
                     'email' => 'jrowthorn6@washingtonpost.com', 
@@ -628,6 +676,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP063090', 
                     'name' => 'MARILEE WHITFIELD', 
+                    'intake_code' => '',
                     'field_of_study' => 'BANKING AND FINANCE', 
                     'specialism' => 'CRYPTOCURRENCY', 
                     'email' => 'mwhitfield7@usa.gov', 
@@ -641,6 +690,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP044510', 
                     'name' => 'ELFREDA GANTLEY', 
+                    'intake_code' => '',
                     'field_of_study' => 'BANKING AND FINANCE', 
                     'specialism' => 'INVESTMENT ANALYSIS', 
                     'email' => 'egantley8@jimdo.com', 
@@ -654,6 +704,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP075120', 
                     'name' => 'ELEANORA MULCOCK', 
+                    'intake_code' => '',
                     'field_of_study' => 'BANKING AND FINANCE', 
                     'specialism' => 'FINANCIAL CONSULTANCY', 
                     'email' => 'emulcock9@huffingtonpost.com', 
@@ -667,6 +718,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP033200', 
                     'name' => 'BEARNARD FREDI', 
+                    'intake_code' => '',
                     'field_of_study' => 'BUSINESS', 
                     'specialism' => 'INFORMATIVE ADVISORY', 
                     'email' => 'bfredi0@friendfeed.com', 
@@ -680,6 +732,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP089010', 
                     'name' => 'FREDRIC TOP', 
+                    'intake_code' => '',
                     'field_of_study' => 'BUSINESS', 
                     'specialism' => 'ORGANIZATION MANAGEMENT', 
                     'email' => 'ftop1@plala.or.jp', 
@@ -693,6 +746,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP096710', 
                     'name' => 'WEST LAW', 
+                    'intake_code' => '',
                     'field_of_study' => 'BUSINESS', 
                     'specialism' => 'INFORMATIVE ADVISORY', 
                     'email' => 'wlaw2@un.org', 
@@ -706,6 +760,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP038760', 
                     'name' => 'RIK MUNDIE', 
+                    'intake_code' => '',
                     'field_of_study' => 'BUSINESS', 
                     'specialism' => 'ENTREPRENEURSHIP', 
                     'email' => 'rmundie3@posterous.com', 
@@ -719,6 +774,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP084410', 
                     'name' => 'BUCK GALLICHAN', 
+                    'intake_code' => '',
                     'field_of_study' => 'BUSINESS', 
                     'specialism' => 'INFORMATIVE ADVISORY', 
                     'email' => 'bgallichan4@pen.io', 
@@ -732,6 +788,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP009990', 
                     'name' => 'NOLA TIMEBY', 
+                    'intake_code' => '',
                     'field_of_study' => 'BUSINESS', 
                     'specialism' => 'INFORMATIVE ADVISORY', 
                     'email' => 'ntimeby5@amazon.co.jp', 
@@ -745,6 +802,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP054830', 
                     'name' => 'TORRANCE SEVIOR', 
+                    'intake_code' => '',
                     'field_of_study' => 'BUSINESS', 
                     'specialism' => 'ENTREPRENEURSHIP', 
                     'email' => 'tsevior6@studiopress.com', 
@@ -758,6 +816,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP067130', 
                     'name' => 'GUSTAVO STENETT', 
+                    'intake_code' => '',
                     'field_of_study' => 'BUSINESS', 
                     'specialism' => 'ORGANIZATION MANAGEMENT', 
                     'email' => 'gstenett7@opensource.org', 
@@ -771,6 +830,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP052550', 
                     'name' => 'BETTA AIME', 
+                    'intake_code' => '',
                     'field_of_study' => 'BUSINESS', 
                     'specialism' => 'INFORMATIVE ADVISORY', 
                     'email' => 'baime8@digg.com', 
@@ -784,6 +844,7 @@ class StudentsTableSeeder extends Seeder
                  [
                     'tp_number' => 'TP035710', 
                     'name' => 'MELLISENT RENZO', 
+                    'intake_code' => '',
                     'field_of_study' => 'BUSINESS', 
                     'specialism' => 'ORGANIZATION MANAGEMENT', 
                     'email' => 'mrenzo9@wikimedia.org', 

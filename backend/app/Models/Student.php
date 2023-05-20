@@ -18,6 +18,7 @@ class Student extends Model
     protected $fillable = [
         'tp_number',
         'name',
+        'intake_code',
         'field_of_study',
         'specialism',
         'email',

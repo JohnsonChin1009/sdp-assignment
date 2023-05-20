@@ -43,7 +43,12 @@ class StudentController extends Controller
         }
 
         $projectmanager = ProjectManager::where('id', $student->projectmanager)->first();
+        $supervisor = Lecturer::where('id', $student->supervisor)->first();
+        $secondmarker = Lecturer::where('id', $student->secondmarker)->first();
+
         $student->projectmanager = $projectmanager ? $projectmanager->name : '';
+        $student->supervisor = $supervisor ? $supervisor->name : '';
+        $student->secondmarker = $secondmarker ? $secondmarker->name : '';
 
             return response()->json([
                 'success' => true,
