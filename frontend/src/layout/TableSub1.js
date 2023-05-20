@@ -1,6 +1,6 @@
 import style from '@/styles/Home.module.css'
-import { getPMStuResult1 } from '@/pages/api/api';
-import { getPMStuResult2 } from '@/pages/api/api';
+import { getMoodleAPI} from '@/pages/api/api';
+
 import { useEffect, useState } from 'react'
 import { UpdateStuResult } from '@/pages/api/api';
 
@@ -21,7 +21,7 @@ export default function Home() {
       try {
         const token = localStorage.getItem('tp_number'); //Retrieving token from local storage)      
         console.log(token);
-        const students = await getPMStuResult1(token);
+        const students = await getMoodleAPI(token);
         setData(students);
         console.log(students);
       } catch (error) {

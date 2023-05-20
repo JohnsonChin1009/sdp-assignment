@@ -550,7 +550,7 @@ export const getResult = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
-export const getPMStuResult1 = async (token) => {
+export const getMoodleAPI = async (token) => {
   try {
     
     const config = {
@@ -558,7 +558,7 @@ export const getPMStuResult1 = async (token) => {
         Authorization: 'Bearer ' + token 
       }
     }
-    const response = await axios.get(`${API_URL}/displayPMStuResult1`, config);
+    const response = await axios.get(`${API_URL}/displayMoodleAPI`, config);
     const PM = response.data.data;      
 
     return PM;
@@ -566,22 +566,7 @@ export const getPMStuResult1 = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
-export const getPMStuResult2 = async (token) => {
-  try {
-    
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token 
-      }
-    }
-    const response = await axios.get(`${API_URL}/displayPMStuResult2`, config);
-    const PM = response.data.data1;      
 
-    return PM;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
-  }
-}
 export const UpdateStuResult = async (token, finalMark) =>{
   try{
     const config = {
