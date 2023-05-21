@@ -97,7 +97,7 @@ export default function Login() {
               {loginAttempts < MAX_ATTEMPTS && (
   <>
               {message ? <p><i>Successful Login, Loading...</i></p>: null}
-              {showErrorMessage && error ? <p className={styles.word5}><i>**{errorMessage}</i></p>: null}</>)}
+              </>)}
             </div>
         </div>
       </div><br /><br /><br />
