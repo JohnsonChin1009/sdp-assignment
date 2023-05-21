@@ -23,10 +23,15 @@ class MarkController extends Controller
             ['component' => 'Presentation', 'mark' => '87'],
         ];
 
-        return [
+        $data = [
             'marks' => $marks,
             'secondmarks' => $secondmarks,
         ];
+
+        return response()->json([
+            'success' => true,
+            'data' => $data
+        ]);
     }
 }
 ?>
