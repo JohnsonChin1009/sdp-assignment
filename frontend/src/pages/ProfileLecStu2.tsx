@@ -143,11 +143,11 @@ export default function Home() {
                                   <br/><br/>
                                   {Array.isArray(data1.marks) && data1.marks.map((mark, index) => (
                     <><br/><div key={index} className={styles.word3}>
-                        <div>
-                        {mark.component}: {mark.mark}
-                        </div>                                                
-                      </div></>
-                        ))}      
+                        
+                         {data1.secondmarks[index].component}: {data1.secondmarks[index].mark}
+                        </div>
+                      </>
+    ))}      
                                    {/* Proposal: <input type="text" value={Pro || ""} onChange={(event)=> setPro(event.target.value)}/><br />
                                    IR: <input type="text" value={IR || ""} onChange={(event)=> setIR(event.target.value)}/><br />
                                    Documentation : <input type="text" value={Doc || ""} onChange={(event)=> setDoc(event.target.value)}/><br />

@@ -42,6 +42,11 @@ export default function Table() {
       console.log(tpNumber);
       router.push('/ProfileLecStu');
     };
+    const handleClick1 = (tpNumber) => {
+      localStorage.setItem('tp_number', tpNumber);
+      console.log(tpNumber);
+      router.push('/ProfileLecStu2');
+    };
     
     
     return ( 
@@ -62,10 +67,10 @@ export default function Table() {
       <div className={styles.contentbox3a}>
         <h2>Mark:</h2><br/>
                 {students.length ===0 ? (<p className={styles.text3}>No Students assigned yet</p>) :(students.map((row) => (
-                  <div className={styles.row} key={row.tp_number} onClick={()=>handleClick(row.tp_number)}>
+                  <div className={styles.row1} key={row.tp_number} onClick={()=>handleClick1(row.tp_number)}>
                     <div className={styles.content10}>                  
-                    <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(row.tp_number)} ><br/><h3>{row.name}</h3>{row.tp_number}<br/>{row.intake_code}</div></a>  
-                    <div  onClick={()=>handleClick(row.tp_number)}><br/><h2>{row.title}</h2><br/></div>
+                    <a href="http://localhost:3000/ProfileLecStu2"><div onClick={()=>handleClick1(row.tp_number)} ><br/><h3>{row.name}</h3>{row.tp_number}<br/>{row.intake_code}</div></a>  
+                    <div  onClick={()=>handleClick1(row.tp_number)}><br/>{row.title}<br/></div>
                     {/* <div><br/>Proposal: {row.Pro}<br/>IR: {row.IR}<br/>Documentation: {row.Doc}<br/>Presentation: {row.Pre}</div>                      */}
                     </div>                       
                   </div>
