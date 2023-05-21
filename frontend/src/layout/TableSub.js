@@ -38,7 +38,7 @@ export default function Home({search}) {
                   <div className={style.row4} key={row.id} >
                     <div className={style.content11}>                  
                     <div><h3>{row.name}</h3><br/>{row.tp_number}<br/><h3><b>{row.title}</b></h3></div><br/>
-                    <div className={style.word7}><b><u>Final Mark:  {row.finalMark || row.finalmark}</u></b><br/></div>                     
+                    <div className={style.word11}><b><u>Final Mark:  {row.finalMark || row.finalmark}</u></b><br/></div>                     
                     <br/><button className={style.button6} onClick={()=>handleClick(row.tp_number)}>Update</button></div>                    
                   </div>
                   
