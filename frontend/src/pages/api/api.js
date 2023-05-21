@@ -550,22 +550,26 @@ export const getResult = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+
 export const getMoodleAPI = async (token) => {
   try {
-    
     const config = {
       headers: {
-        Authorization: 'Bearer ' + token 
-      }
-    }
-    const response = await axios.get(`${API_URL}/displayMoodleAPI`, config);
-    const PM = response.data.data;      
+        Authorization: 'Bearer ' + token,
+      },
+    };
 
-    return PM;
+    const response = await axios.get(`${API_URL}/displayMoodleAPI`, config);
+    const data = response.data;
+
+    return data;
   } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+    throw new Error(
+      error.response?.data?.message || 'An error occurred while fetching Moodle API data'
+    );
   }
-}
+};
+
 
 export const UpdateStuResult = async (token, finalMark) =>{
   try{

@@ -8,6 +8,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\PMController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\MarkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,6 @@ Route::get('getLecSchedule', [EventController::class, 'getLecSchedule']);
 Route::get('getStuLecSchedule', [EventController::class, 'getStuLecSchedule']);
 Route::delete('deleteEvent/{id}', [EventController::class, 'deleteEvent']);
 
-
+Route::get('displayMoodleAPI', [MarkController::class, 'displayMoodleAPI']);
 //User:PM at LecturerPage -> call Lecturer -> filter based on field_of_study -> when pressed on lecturer -> display assigned students
 ?>
