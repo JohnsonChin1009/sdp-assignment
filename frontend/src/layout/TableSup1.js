@@ -54,7 +54,7 @@ export default function Table() {
                     <div className={styles.content10}>                     
                     <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(data.tp_number)} ><br/><h3>{data.name}</h3>{data.tp_number}<br/>{data.intake_code}</div></a>  
                     <div><br/>{data.title}<br/></div>
-                    <div><br/>Proposal: {data.Pro}<br/>IR: {data.IR}<br/>Documentation: {data.Doc}<br/>Presentation: {data.Pre}</div>                       
+                    {/* <div><br/>Proposal: {data.Pro}<br/>IR: {data.IR}<br/>Documentation: {data.Doc}<br/>Presentation: {data.Pre}</div>                        */}
                   </div>
                   </div>
                 )))}
@@ -66,7 +66,7 @@ export default function Table() {
                     <div className={styles.content10}>                  
                     <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(row.tp_number)} ><br/><h3>{row.name}</h3>{row.tp_number}<br/>{row.intake_code}</div></a>  
                     <div  onClick={()=>handleClick(row.tp_number)}><br/><h2>{row.title}</h2><br/></div>
-                    <div><br/>Proposal: {row.Pro}<br/>IR: {row.IR}<br/>Documentation: {row.Doc}<br/>Presentation: {row.Pre}</div>                     
+                    {/* <div><br/>Proposal: {row.Pro}<br/>IR: {row.IR}<br/>Documentation: {row.Doc}<br/>Presentation: {row.Pre}</div>                      */}
                     </div>                       
                   </div>
                 )))}

@@ -98,7 +98,7 @@ const handleLogout = async()=>{
           <><div className={styles.box11a} key={data.id}><h2>{data.name }</h2><br /> {data.field_of_study} <br />{data.email}</div></>
         )}
         {!data && data1 && (
-          <><div className={styles.box11a} key={data1.id}><h2>{data1.name}</h2><br /> {data1.field_of_study} <br />{data1.email}</div></>
+          <><div className={styles.box11a} key={data1.id }><h2>{data1.name}</h2><br /> {data1.field_of_study} <br />{data1.email}</div></>
         )}
         
       </div><br/><br/><br/><br/><br/><br/><br/><br/>

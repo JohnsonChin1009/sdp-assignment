@@ -163,12 +163,12 @@ export const getStuLecProfile = async (token) => {
     }
     console.log(config);
     const response = await axios.get(`${API_URL}/displayStuLecProfile`, config);
-    const PM = response.data.data;
+    const PM = response.data;
     console.log(PM);
 
     return PM;
   } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching student profile' || token);
   }
 }
 export const getStuResult = async (token) => {
@@ -180,12 +180,12 @@ export const getStuResult = async (token) => {
     }
     console.log(config);
     const response = await axios.get(`${API_URL}/displayStuResult`, config);
-    const PM = response.data.data;
+    const PM = response.data;
     console.log(PM);
 
     return PM;
   } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching student profile' || token);
   }}
 //PM---------------------------------------
 export const getPMProfile = async (token) => {

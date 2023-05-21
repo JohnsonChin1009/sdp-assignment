@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 import{logout} from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 import { getLecStudentProfile } from '@/pages/api/api';
+import { getMoodleAPI } from '@/pages/api/api'
 import { UpdateProgression } from '@/pages/api/api'
 
 export default function Home() {
@@ -16,26 +17,19 @@ export default function Home() {
     const [Doc, setDoc] = useState('');
     const [Pre, setPre] = useState('');
     const [Mark, setMark] = useState('');
+    const [data1, setData1] = useState([]); 
     const[message, setMessage] = useState('');    
     useEffect(() => {
       
         fetchData();
+        fetchData1();
 
     }, []);
     const fetchData = async () => {
         try {
               const token = localStorage.getItem('tp_number'); //Retrieving token from local storage)
               const data = await getLecStudentProfile(token);
-              setData(data);
-              if (data.length > 0) {
-                const initialStudent = data[0];                
-                setPro(initialStudent.Pro);
-                setIR(initialStudent.IR);
-                setDoc(initialStudent.Doc);
-                setPre(initialStudent.Pre);
-                setMark(initialStudent.Mark);
-                            
-              }  
+              setData(data);              
       } catch (error) {
           console.log('Error fetching data: ', error);
       }
@@ -45,6 +39,17 @@ export default function Home() {
       await logout();
     }catch(error){
       console.error('Error.logging out: ', error);
+    }
+  };
+  const fetchData1 = async () => {
+    try {
+      const token = localStorage.getItem('tp_number'); //Retrieving token from local storage)      
+      console.log(token);
+      const students = await getMoodleAPI(token);
+      setData1(students);
+      console.log(students);
+    } catch (error) {
+      console.log('Error fetching data: ', error);
     }
   };
   
@@ -86,8 +91,7 @@ export default function Home() {
                         </td>
                         <td><a href="http://localhost:3000/HomeStu"><b className={styles.title4}>ApFYPCentre</b></a></td>                     
                         <td><a href="http://localhost:3000/ProfileSup" className={styles.button2}>Profile</a></td>
-                        <td><a href="http://localhost:3000/StuSup" className={styles.button3}>Student</a></td>                        
-                        <td><a href="http://localhost:3000/SubSup" className={styles.button2}>Submission</a></td>
+                        <td><a href="http://localhost:3000/StuSup" className={styles.button3}>Student</a></td>                                                
                         <td> <br/></td>
                         <td><br/></td>
                         <td><a href="http://localhost:3000" className={styles.box6}  onClick={handleLogout}><u>Logout</u></a></td>
@@ -137,7 +141,14 @@ export default function Home() {
                                   </table>
                                   <div>
                                   <br/><br/>
-                                   Proposal: <input type="text" value={Pro || ""} onChange={(event)=> setPro(event.target.value)}/><br />
+                                  {Array.isArray(data1.marks) && data1.marks.map((mark, index) => (
+                    <><br/><div key={index}>
+                        <div>
+                        {mark.component}: {mark.mark}
+                        </div>                                                
+                      </div></>
+                        ))}      
+                                   {/* Proposal: <input type="text" value={Pro || ""} onChange={(event)=> setPro(event.target.value)}/><br />
                                    IR: <input type="text" value={IR || ""} onChange={(event)=> setIR(event.target.value)}/><br />
                                    Documentation : <input type="text" value={Doc || ""} onChange={(event)=> setDoc(event.target.value)}/><br />
                                    Presentation : <input type="text" value={Pre || ""} onChange={(event)=> setPre(event.target.value)}/><br />
@@ -145,14 +156,21 @@ export default function Home() {
                                     <option>-Choose-</option>
                                     <option value="Supervisor">Supervisor</option>
                                     <option value="SecondMarker">Second Marker</option>
-                                   </select>
+                                   </select> */}
                                   </div>
-                                  <div><br /><br /><div className={styles.button9} onClick={updateValue}><button>Update</button></div></div>
+                                  {/* <div><br /><br /><div className={styles.button9} onClick={updateValue}><button>Update</button></div></div> */}
                               </div></>
                 )}
               </div>
               {message && <p className={styles.word6}>Successfully Update.</p>}
-        
+              <Image 
+        src="/design-pen1.png"
+        alt="profile"
+        className={styles.image9}
+        width={100}
+        height={100}               
+        priority
+      />
               </div>
 
         

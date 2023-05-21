@@ -103,16 +103,16 @@ class LecturerController extends Controller
                 $data = $students->map(function ($student) {
                     $supervisor = Lecturer::find($student->supervisor);
                     $secondMarker = Lecturer::find($student->secondmarker);
-                    $progressData = null;
-                    $storedData = Storage::get('progress_data.json');
-                $progressArray = json_decode($storedData, true) ?? [];
-                   foreach($progressArray as $progress){
-                    if($progress['tp_number']===$student->tp_number && $progress['Mark']==1){
-                        $progressData = $progress;
-                        break;
-                    }
+                //     $progressData = null;
+                //     $storedData = Storage::get('progress_data.json');
+                // $progressArray = json_decode($storedData, true) ?? [];
+                //    foreach($progressArray as $progress){
+                //     if($progress['tp_number']===$student->tp_number && $progress['Mark']==1){
+                //         $progressData = $progress;
+                //         break;
+                //     }
                     
-                   }
+                //    }
                     
                    
                     return [
@@ -124,10 +124,10 @@ class LecturerController extends Controller
                         'email' => $student->email,
                         'supervisor' => $supervisor ? $supervisor->name : null,
                         'second_marker' => $secondMarker ? $secondMarker->name : null,
-                        'Pro' => $progressData ? $progressData['Pro'] : null,
-                        'IR' => $progressData ? $progressData['IR'] : null,
-                        'Doc' =>  $progressData ? $progressData['Doc'] : null,
-                        'Pre' => $progressData ? $progressData['Pre'] : null,
+                        // 'Pro' => $progressData ? $progressData['Pro'] : null,
+                        // 'IR' => $progressData ? $progressData['IR'] : null,
+                        // 'Doc' =>  $progressData ? $progressData['Doc'] : null,
+                        // 'Pre' => $progressData ? $progressData['Pre'] : null,
         
                         
                     ];
@@ -194,16 +194,16 @@ class LecturerController extends Controller
                 $data = $students->map(function ($student)  {
                     $supervisor = Lecturer::find($student->supervisor);
                     $secondMarker = Lecturer::find($student->secondmarker);
-                    $progressData = null;
-                    $storedData = Storage::get('progress_data.json');
-                $progressArray = json_decode($storedData, true) ?? [];
-                   foreach($progressArray as $progress){
-                    if($progress['tp_number']===$student->tp_number && $progress['Mark']==2 ){
-                        $progressData = $progress;
-                        break;
-                    }
+                //     $progressData = null;
+                //     $storedData = Storage::get('progress_data.json');
+                // $progressArray = json_decode($storedData, true) ?? [];
+                //    foreach($progressArray as $progress){
+                //     if($progress['tp_number']===$student->tp_number && $progress['Mark']==2 ){
+                //         $progressData = $progress;
+                //         break;
+                //     }
                     
-                   }
+                //    }
                     return [
                         'name' => $student->name,
                         'tp_number' => $student->tp_number,
@@ -213,10 +213,10 @@ class LecturerController extends Controller
                         'email' => $student->email,
                         'supervisor' => $supervisor ? $supervisor->name : null,
                         'second_marker' => $secondMarker ? $secondMarker->name : null,
-                        'Pro' => $progressData ? $progressData['Pro'] : null,
-                        'IR' => $progressData ? $progressData['IR'] : null,
-                        'Doc' =>  $progressData ? $progressData['Doc'] : null,
-                        'Pre' => $progressData ? $progressData['Pre'] : null,
+                        // 'Pro' => $progressData ? $progressData['Pro'] : null,
+                        // 'IR' => $progressData ? $progressData['IR'] : null,
+                        // 'Doc' =>  $progressData ? $progressData['Doc'] : null,
+                        // 'Pre' => $progressData ? $progressData['Pre'] : null,
                     ];
                 });
             
@@ -237,17 +237,17 @@ class LecturerController extends Controller
                         'message' => 'Error finding student record',    
                     ]);
                 }
-                $storedData = Storage::get('progress_data.json');
-                $progressArray = json_decode($storedData, true) ?? [];
-                $progressData = null;
+                // $storedData = Storage::get('progress_data.json');
+                // $progressArray = json_decode($storedData, true) ?? [];
+                // $progressData = null;
                
-                   foreach($progressArray as $progress){
-                    if($progress['tp_number']===$student->tp_number){
-                        $progressData = $progress;
-                        break;
-                    }
+                //    foreach($progressArray as $progress){
+                //     if($progress['tp_number']===$student->tp_number){
+                //         $progressData = $progress;
+                //         break;
+                //     }
                     
-                   }
+                //    }
                 
                 $data = [
                     'name' => $student->name,
@@ -256,10 +256,10 @@ class LecturerController extends Controller
                     'field_of_study' => $student->field_of_study,
                     'specialism' => $student->specialism,
                     'email' => $student->email,   
-                    'Pro' => $progressData ? $progressData['Pro'] : null,
-                    'IR' => $progressData ? $progressData['IR'] : null,
-                    'Doc' =>  $progressData ? $progressData['Doc'] : null,
-                    'Pre' => $progressData ? $progressData['Pre'] : null,                                     
+                    // 'Pro' => $progressData ? $progressData['Pro'] : null,
+                    // 'IR' => $progressData ? $progressData['IR'] : null,
+                    // 'Doc' =>  $progressData ? $progressData['Doc'] : null,
+                    // 'Pre' => $progressData ? $progressData['Pre'] : null,                                     
                 ];
         
                 return response()->json([
@@ -320,8 +320,8 @@ foreach ($progressArray as $key => $progress) {
     Log::info('Progress Array after storage: ' . json_encode($progressArray));
 
     // Retrieve the updated progress array
-    $data = $this->displayStudentSup($request);
-    $data = $this->displayStudentSec($request);
+    // $data = $this->displayStudentSup($request);
+    // $data = $this->displayStudentSec($request);
     return response()->json([
         'success' => true,
         'message' => 'Updated Results Successfully!',

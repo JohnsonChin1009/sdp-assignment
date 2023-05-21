@@ -5,15 +5,18 @@ import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import{logout} from '@/pages/api/api'
 import { useEffect, useState } from 'react'
+import { getMoodleAPI } from '@/pages/api/api'
 import { getStuResult } from '@/pages/api/api'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [data, setData] = useState([]);
+  const [data1, setData1] = useState([]); 
   useEffect(() => {
       
     fetchData();
+    fetchData1();
 
 }, []);
   const handleLogout = async()=>{
@@ -26,11 +29,22 @@ export default function Home() {
   const fetchData = async () => {
     try {
           const token = localStorage.getItem('token'); //Retrieving token from local storage)
-          const data = await getStuResult(token);
+          const data = await getMoodleAPI(token);
           console.log(token);
           setData(data);         
   } catch (error) {
       console.log('Error fetching data: ', error);
+  }
+};
+const fetchData1 = async () => {
+  try {
+    const token = localStorage.getItem('token'); //Retrieving token from local storage)      
+    console.log(token);
+    const students = await getStuResult(token);
+    setData1(students);
+    console.log(students);
+  } catch (error) {
+    console.log('Error fetching data: ', error);
   }
 };
   return (
@@ -121,7 +135,7 @@ export default function Home() {
           </tr>
           <tr>
             <td>
-              <div className={styles.subtext}>Total_Mark: </div>
+              {data1 &&(<><div className={styles.subtext}>Total_Mark: <br/><h1><u>{data1.finalMark || data1.finalmark}</u></h1></div></>)}
             </td>
             <td>
               <div className={styles.subtext}></div></td>
