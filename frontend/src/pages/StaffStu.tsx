@@ -40,6 +40,12 @@ export default function Home() {
 
     router.push('/Profile1');
   };
+  const handleClick1 = (id) => {    
+    localStorage.setItem('id', id);
+    console.log(id);
+
+    router.push('/Profile1a');
+  };
 
     return (
       <>
@@ -89,11 +95,11 @@ export default function Home() {
             <><div className={styles.content10} key={data.id} onClick={() => handleClick(data.id || data.projectmanagerid || data.supervisorid ||data.secondmarkerid)}>
               <a href='http://localhost:3000/Profile1'><div className={styles.text} onClick={() => handleClick(data.projectmanagerid)}>Project Manager</div><br />                
                 <div className={styles.text}><b><h2>{data.projectmanager}</h2></b><br/></div></a>
-            </div><div className={styles.content10} onClick={() => handleClick(data.id || data.supervisorid)}>
-            <a href='http://localhost:3000/Profile1'><div className={styles.text1}>Supervisor</div><br />               
+            </div><div className={styles.content10} onClick={() => handleClick1(data.id || data.supervisorid)}>
+            <a href='http://localhost:3000/Profile1a'><div className={styles.text1}>Supervisor</div><br />               
                 <div className={styles.text}><b><h2>{data.supervisor}</h2></b></div></a>
-              </div><div className={styles.content10} onClick={() => handleClick(data.id || data.secondmarkerid)}>
-              <a href='http://localhost:3000/Profile1'><div className={styles.text}>Second Marker</div><br />                
+              </div><div className={styles.content10} onClick={() => handleClick1(data.id || data.secondmarkerid)}>
+              <a href='http://localhost:3000/Profile1a'><div className={styles.text}>Second Marker</div><br />                
                 <div className={styles.text}><b><h2>{data.secondmarker}</h2></b></div></a>
               </div></>
           )}

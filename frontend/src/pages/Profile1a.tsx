@@ -3,9 +3,8 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
-import Event from '@/layout/TableEvent.js'
-// import {getStuLecProfile } from './api/api'
-import{getStuPMProfile} from './api/api'
+import Event from '@/layout/TableEvent2.js'
+import {getStuLecProfile } from './api/api'
 import{useState,useEffect} from 'react'
 import{logout} from '@/pages/api/api'
 
@@ -13,35 +12,25 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [data, setData] = useState({});
-  const [data1, setData1] = useState([]);  
+  
   useEffect(() => {
     
     fetchData();
-    // fetchData1();
+    
     
 }, []);
 const fetchData = async () => {
   try {
       const token = localStorage.getItem('id'); 
       console.log(token);
-      const pm = await getStuPMProfile(token);
+      const pm = await getStuLecProfile(token);
       console.log(pm);
       setData(pm);
   } catch (error) {
       console.log('Error fetching data: ', error);
   }
 };
-// const fetchData1 = async () => {
-//   try {
-//       const token = localStorage.getItem('id');   
-//       console.log(token); 
-//       const lecturer = await getStuLecProfile(token);      
-//       setData1(lecturer);
-//       console.log(lecturer);
-//   } catch (error) {
-//       console.log('Error fetching data: ', error);
-//   }
-// };
+
 
 const handleLogout = async()=>{
   try{
@@ -97,9 +86,7 @@ const handleLogout = async()=>{
         {data && (
           <><div className={styles.box11a} key={data.id}><h2>{data.name }</h2><br /> {data.field_of_study} <br />{data.email}</div></>
         )}
-        {/* {!data && data1 && (
-          <><div className={styles.box11a} key={data1.id }><h2>{data1.name}</h2><br /> {data1.field_of_study} <br />{data1.email}</div></>
-        )} */}
+        
         
       </div><br/><br/><br/><br/><br/><br/><br/><br/>
       <Event /><Image
