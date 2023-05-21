@@ -560,7 +560,28 @@ export const getMoodleAPI = async (token) => {
     };
 
     const response = await axios.get(`${API_URL}/displayMoodleAPI`, config);
-    const data = response.data;
+    const data = response.data.data;
+    
+
+    return data;
+    
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message || 'An error occurred while fetching Moodle API data'
+    );
+  }
+};
+
+export const getPMStuResult = async (token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    };
+
+    const response = await axios.get(`${API_URL}/displayPMStuResult`, config);
+    const data = response.data.data;
 
     return data;
   } catch (error) {
@@ -569,7 +590,6 @@ export const getMoodleAPI = async (token) => {
     );
   }
 };
-
 
 export const UpdateStuResult = async (token, finalMark) =>{
   try{

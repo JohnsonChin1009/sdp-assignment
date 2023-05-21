@@ -63,7 +63,7 @@ Route::get('SearchPM', [PMController::class, 'SearchPM']);
 Route::get('SearchStu', [PMController::class, 'SearchStu']);
 Route::put('updatesturesult', [PMController::class, 'updatesturesult']);
 Route::get('displayResult', [PMController::class, 'displayResult']);
-Route::get('displayPMStuResult1', [PMController::class, 'displayPMStuResult1']);
+Route::get('displayPMStuResult', [PMController::class, 'displayPMStuResult']);
 Route::get('displayPMStuResult2', [PMController::class, 'displayPMStuResult2']);
 
 Route::post('addSupSchedule', [EventController::class, 'addSupSchedule']);

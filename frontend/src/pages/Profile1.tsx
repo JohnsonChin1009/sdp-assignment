@@ -23,7 +23,7 @@ export default function Home() {
 const fetchData = async () => {
   try {
       const token = localStorage.getItem('id'); 
-      console.log(token)     ;
+      console.log(token);
       const pm = await getStuPMProfile(token);
       console.log(pm);
       setData(pm);
@@ -33,7 +33,8 @@ const fetchData = async () => {
 };
 const fetchData1 = async () => {
   try {
-      const token = localStorage.getItem('id');      
+      const token = localStorage.getItem('id');   
+      console.log(token); 
       const lecturer = await getStuLecProfile(token);      
       setData1(lecturer);
       console.log(lecturer);
