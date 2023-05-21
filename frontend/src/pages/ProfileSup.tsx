@@ -105,6 +105,7 @@ export default function Home() {
         const response = await deleteEvent(id);
         setData(data.filter((event) => event.id !== id));
         alert("Successfully deleted!")
+        fetchData();
       } catch (error) {
         console.log('Error deleting event: ', error);
       }
