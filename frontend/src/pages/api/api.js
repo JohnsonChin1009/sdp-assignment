@@ -180,7 +180,7 @@ export const getStuResult = async (token) => {
     }
     console.log(config);
     const response = await axios.get(`${API_URL}/displayStuResult`, config);
-    const PM = response.data.data;
+    const PM = response.data;
     console.log(PM);
 
     return PM;
@@ -628,7 +628,7 @@ export const UpdateProgression = async (token, Pro, IR, Doc, Pre, Mark) => {
     console.log(config);
     console.log(data);
     const response = await axios.put(`${API_URL}/updateProgression`, data, config);
-    const update = response.data.update1;
+    const update = response.data;
     console.log(update);
     return update;
   } catch (error) {

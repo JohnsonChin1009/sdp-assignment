@@ -107,7 +107,7 @@ class LecturerController extends Controller
                 //     $storedData = Storage::get('progress_data.json');
                 // $progressArray = json_decode($storedData, true) ?? [];
                 //    foreach($progressArray as $progress){
-                //     if($progress['tp_number']===$student->tp_number && $progress['Mark']==1){
+                //     if($progress['tp_number']===$student->tp_number ){
                 //         $progressData = $progress;
                 //         break;
                 //     }
@@ -198,7 +198,7 @@ class LecturerController extends Controller
                 //     $storedData = Storage::get('progress_data.json');
                 // $progressArray = json_decode($storedData, true) ?? [];
                 //    foreach($progressArray as $progress){
-                //     if($progress['tp_number']===$student->tp_number && $progress['Mark']==2 ){
+                //     if($progress['tp_number']===$student->tp_number ){
                 //         $progressData = $progress;
                 //         break;
                 //     }
@@ -217,7 +217,7 @@ class LecturerController extends Controller
                         // 'IR' => $progressData ? $progressData['IR'] : null,
                         // 'Doc' =>  $progressData ? $progressData['Doc'] : null,
                         // 'Pre' => $progressData ? $progressData['Pre'] : null,
-                    ];
+                 ];
                 });
             
                 return response()->json([
@@ -237,17 +237,17 @@ class LecturerController extends Controller
                         'message' => 'Error finding student record',    
                     ]);
                 }
-                // $storedData = Storage::get('progress_data.json');
-                // $progressArray = json_decode($storedData, true) ?? [];
-                // $progressData = null;
+                $storedData = Storage::get('progress_data.json');
+                $progressArray = json_decode($storedData, true) ?? [];
+                $progressData = null;
                
-                //    foreach($progressArray as $progress){
-                //     if($progress['tp_number']===$student->tp_number){
-                //         $progressData = $progress;
-                //         break;
-                //     }
+                   foreach($progressArray as $progress){
+                    if($progress['tp_number']===$student->tp_number){
+                        $progressData = $progress;
+                        break;
+                    }
                     
-                //    }
+                   }
                 
                 $data = [
                     'name' => $student->name,
@@ -256,10 +256,10 @@ class LecturerController extends Controller
                     'field_of_study' => $student->field_of_study,
                     'specialism' => $student->specialism,
                     'email' => $student->email,   
-                    // 'Pro' => $progressData ? $progressData['Pro'] : null,
-                    // 'IR' => $progressData ? $progressData['IR'] : null,
-                    // 'Doc' =>  $progressData ? $progressData['Doc'] : null,
-                    // 'Pre' => $progressData ? $progressData['Pre'] : null,                                     
+                    'Pro' => $progressData ? $progressData['Pro'] : null,
+                    'IR' => $progressData ? $progressData['IR'] : null,
+                    'Doc' =>  $progressData ? $progressData['Doc'] : null,
+                    'Pre' => $progressData ? $progressData['Pre'] : null,                                     
                 ];
         
                 return response()->json([
@@ -289,11 +289,11 @@ class LecturerController extends Controller
     $progressArray = json_decode($storedData, true) ?? [];
 
     // Find the index of the existing progress data for the given tp_number
-    // $index = array_search($tp_number, array_column($progressArray, 'tp_number'));
+    $index = array_search($tp_number, array_column($progressArray, 'tp_number'));
     $index = null;
 
 foreach ($progressArray as $key => $progress) {
-    if ($progress['tp_number'] === $tp_number && $progress['Mark'] === $progressData['Mark']) {
+    if ($progress['tp_number'] === $tp_number ) {
         $index = $key;
         break;
     }
@@ -320,8 +320,8 @@ foreach ($progressArray as $key => $progress) {
     Log::info('Progress Array after storage: ' . json_encode($progressArray));
 
     // Retrieve the updated progress array
-    // $data = $this->displayStudentSup($request);
-    // $data = $this->displayStudentSec($request);
+    $data = $this->displayStudentSup($request);
+    $data = $this->displayStudentSec($request);
     return response()->json([
         'success' => true,
         'message' => 'Updated Results Successfully!',

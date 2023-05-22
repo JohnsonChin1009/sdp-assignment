@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 import{logout} from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 import { getLecStudentProfile } from '@/pages/api/api';
-import { getMoodleAPI } from '@/pages/api/api'
+// import { getMoodleAPI } from '@/pages/api/api'
 import { UpdateProgression } from '@/pages/api/api'
 
 export default function Home() {
@@ -17,18 +17,20 @@ export default function Home() {
     const [Doc, setDoc] = useState('');
     const [Pre, setPre] = useState('');
     const [Mark, setMark] = useState('');
-    const [data1, setData1] = useState([]); 
+    // const [data1, setData1] = useState([]); 
     const[message, setMessage] = useState('');    
     useEffect(() => {
       
         fetchData();
-        fetchData1();
+        // fetchData1();
 
     }, []);
     const fetchData = async () => {
         try {
               const token = localStorage.getItem('tp_number'); //Retrieving token from local storage)
+              console.log(token);
               const data = await getLecStudentProfile(token);
+              console.log(data);
               setData(data);              
       } catch (error) {
           console.log('Error fetching data: ', error);
@@ -41,17 +43,17 @@ export default function Home() {
       console.error('Error.logging out: ', error);
     }
   };
-  const fetchData1 = async () => {
-    try {
-      const token = localStorage.getItem('tp_number'); //Retrieving token from local storage)      
-      console.log(token);
-      const students = await getMoodleAPI(token);
-      setData1(students);
-      console.log(students);
-    } catch (error) {
-      console.log('Error fetching data: ', error);
-    }
-  };
+  // const fetchData1 = async () => {
+  //   try {
+  //     const token = localStorage.getItem('tp_number'); //Retrieving token from local storage)      
+  //     console.log(token);
+  //     const students = await getMoodleAPI(token);
+  //     setData1(students);
+  //     console.log(students);
+  //   } catch (error) {
+  //     console.log('Error fetching data: ', error);
+  //   }
+  // };
   
   const updateValue = async()=>{
     try{
@@ -140,15 +142,26 @@ export default function Home() {
                                       </tbody>
                                   </table>
                                   <div>
+                                    <br/>
+                                    <label className={styles.word2}><a href=""><u>Proposal</u></a></label>,
+                                    <label className={styles.word2}><a href=""><u>IR</u></a></label>,
+                                    <label className={styles.word2}><a href=""><u>Documentation</u></a></label>,
+                                    <label className={styles.word2}><a href=""><u>Presentation</u></a></label><br/><br/>
+                                    Proposal:{data.Pro}<br/>
+                                    IR:{data.IR}<br/>
+                                    Documentation:{data.Doc}<br/>
+                                    Presentation:{data.Pre}<br/>
+
+                                    
                                   <br/><br/>
-                                  {Array.isArray(data1.marks) && data1.marks.map((mark, index) => (
+                                  {/* {Array.isArray(data1.marks) && data1.marks.map((mark, index) => (
                     <><br/><div key={index} className={styles.word3}>
                         <div>
                         {mark.component}: {mark.mark}
                         </div>                                                
                       </div></>
-                        ))}      
-                                   {/* Proposal: <input type="text" value={Pro || ""} onChange={(event)=> setPro(event.target.value)}/><br />
+                        ))}       */}
+                                   Proposal: <input type="text" value={Pro || ""} onChange={(event)=> setPro(event.target.value)}/><br />
                                    IR: <input type="text" value={IR || ""} onChange={(event)=> setIR(event.target.value)}/><br />
                                    Documentation : <input type="text" value={Doc || ""} onChange={(event)=> setDoc(event.target.value)}/><br />
                                    Presentation : <input type="text" value={Pre || ""} onChange={(event)=> setPre(event.target.value)}/><br />
@@ -156,9 +169,9 @@ export default function Home() {
                                     <option>-Choose-</option>
                                     <option value="Supervisor">Supervisor</option>
                                     <option value="SecondMarker">Second Marker</option>
-                                   </select> */}
+                                   </select>
                                   </div>
-                                  {/* <div><br /><br /><div className={styles.button9} onClick={updateValue}><button>Update</button></div></div> */}
+                                  <div><br /><br /><div className={styles.button9} onClick={updateValue}><button>Update</button></div></div>
                               </div></>
                 )}
               </div>

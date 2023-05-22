@@ -136,12 +136,12 @@ const fetchData1 = async () => {
           <tr>
             <td>
               {data1 &&(<><div className={styles.subtext}>Total_Mark: <br/><h1><u>{data1.finalMark || data1.finalmark}</u></h1></div></>)}
-            </td>
-            <td>
-              <div className={styles.subtext}></div></td>
+            </td>                       
           </tr>
           </tbody>
         </table>
+        <br />
+        <label className={styles.word2}><a href=""><u>Log Sheet</u></a></label>
         <Image 
         src="/design-books1.png"
         alt="profile"
