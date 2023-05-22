@@ -36,12 +36,12 @@ class Student extends Model
 
     public function supervisor()
     {
-        return $this->belongsTo(Lecturer::class, 'supervisor_id');
+        return $this->belongsTo(Lecturer::class, 'supervisor', 'id');
     }
 
     public function secondMarker()
     {
-        return $this->belongsTo(Lecturer::class, 'secondmarker_id');
+        return $this->belongsTo(Lecturer::class, 'second_marker', 'id');
     }
     
     public function getSupervisorNameAttribute()

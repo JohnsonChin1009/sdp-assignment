@@ -93,40 +93,50 @@ class PMController extends Controller
     }
 
     public function displayPMStudentProfile(Request $request)
-    {
-        $token = $request->header('Authorization');
-        $token = str_replace('Bearer ', "", $token);
-        $student = Student::where('tp_number', $token)->first();
-        if(!$student) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Error finding student record',    
-            ]);
-        }
-
-        $supervisor = $student->supervisor ? $student->supervisor : 'Not assigned';
-        $secondmarker = $student->second_marker ? $student->second_marker : 'Not assigned';
-
-        $lecturers = Lecturer::where('field_of_study', $student->field_of_study)->get(['name', 'id']);
-        
-        $data = [
-            'name' => $student->name,
-            'tp_number' => $student->tp_number,
-            'title' => $student->title,
-            'field_of_study' => $student->field_of_study,
-            'specialism' => $student->specialism,
-            'email' => $student->email,
-            'intake_code' => $student->intake_code,
-            'supervisor' => $supervisor,
-            'second_marker' => $secondmarker,
-            'lecturers' => $lecturers,
-        ];
-
+{
+    $token = $request->header('Authorization');
+    $token = str_replace('Bearer ', "", $token);
+    $student = Student::where('tp_number', $token)->first();
+    if (!$student) {
         return response()->json([
-            'success' => true,
-            'data' => $data,
+            'success' => false,
+            'message' => 'Error finding student record',
         ]);
-    } 
+    }
+
+    $supervisor = $student->supervisor ? Lecturer::find($student->supervisor)->name : 'Not assigned';
+    $secondmarker = $student->second_marker ? Lecturer::find($student->second_marker)->name : 'Not assigned';
+
+    $lecturers = Lecturer::where('field_of_study', $student->field_of_study)->get(['name', 'id', 'supervisor_list', 'secondmarker_list']);
+
+    $lecturers->transform(function ($lecturer) {
+        $lecturer->supervisor_count = $lecturer->supervisor_list ? count($lecturer->supervisor_list) : 0;
+        $lecturer->secondmarker_count = $lecturer->secondmarker_list ? count($lecturer->secondmarker_list) : 0;
+        unset($lecturer->supervisor_list, $lecturer->secondmarker_list);
+        return $lecturer;
+    });
+
+    $supervisorCount = $student->supervisor ? count($student->supervisor->supervisor_list) : 0;
+    $secondmarkerCount = $student->second_marker ? count($student->second_marker->secondmarker_list) : 0;
+
+    $data = [
+        'name' => $student->name,
+        'tp_number' => $student->tp_number,
+        'title' => $student->title,
+        'field_of_study' => $student->field_of_study,
+        'specialism' => $student->specialism,
+        'email' => $student->email,
+        'intake_code' => $student->intake_code,
+        'lecturers' => $lecturers,
+    ];
+
+    return response()->json([
+        'success' => true,
+        'data' => $data,
+    ]);
+}
+
+
 
     public function displayPMLecturerProfile(Request $request)
     {
