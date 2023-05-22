@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Lecturer;
 use App\Models\ProjectManager;
 use App\Models\Student;
-use App\Models\Result;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Log;
@@ -153,14 +152,12 @@ class PMController extends Controller
         $token = $request->header('Authorization');
         $token = str_replace('Bearer ', "", $token);
 
-        $supervisor = $request -> input('supervisor');
-        $secondMarker = $request->input('secondMarker');
+        $supervisorId = $request->input('supervisor');
+        $secondMarkerId = $request->input('secondMarker');
         $tokenValues = explode(" ", $token);
-        $tp_number = $tokenValues[0];
-        // $supervisor = $tokenValues[1];
-        // $secondMarker = $tokenValues[2];
+        $tpNumber = $tokenValues[0];
 
-        $student = Student::where('tp_number', $tp_number)->first();
+        $student = Student::where('tp_number', $tpNumber)->first();
 
         if (!$student) {
             return response()->json([
@@ -169,11 +166,33 @@ class PMController extends Controller
             ]);
         }
 
-        $student->supervisor = $supervisor;
-        $student->secondmarker = $secondMarker;
-        $student->save();
+        $supervisor = Lecturer::find($supervisorId);
+        $secondMarker = Lecturer::find($secondMarkerId);
 
-        
+        if (!$supervisor || !$secondMarker) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Supervisor or Second Marker not found',
+            ]);
+        }
+
+        // Add tp_number to the supervisor's list
+        $supervisorList = $supervisor->supervisor_list ?? [];
+        $supervisorList[] = $tpNumber;
+        $supervisor->supervisor_list = array_slice($supervisorList, 0, 5); // Limit the array to 5 items
+
+        // Add tp_number to the second marker's list
+        $secondMarkerList = $secondMarker->secondmarker_list ?? [];
+        $secondMarkerList[] = $tpNumber;
+        $secondMarker->secondmarker_list = array_slice($secondMarkerList, 0, 5); // Limit the array to 5 items
+
+        // Save the lecturer records
+        $supervisor->save();
+        $secondMarker->save();
+
+        $student->supervisor = $supervisorId;
+        $student->secondmarker = $secondMarkerId;
+        $student->save();
 
         return response()->json([
             'success' => true,
