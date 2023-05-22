@@ -211,7 +211,7 @@ export default function StudentPM() {
                 )}
             </div>
             <div className={styles.contentbox3}><br /><br/><br/><br/></div>
-            <div className={styles.contentbox3}><br /><br/></div>
+            
             <Footer/>
         </>
         

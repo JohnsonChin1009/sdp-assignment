@@ -59,6 +59,7 @@ class PMController extends Controller
                 'field_of_study' => $student->field_of_study,
                 'specialism' => $student->specialism,
                 'email' => $student->email,
+                'intake_code' => $student->intake_code,
                 'supervisor' => $supervisor ? $supervisor->name : null,
                 'second_marker' => $secondMarker ? $secondMarker->name : null,
             ];
@@ -116,6 +117,7 @@ class PMController extends Controller
             'field_of_study' => $student->field_of_study,
             'specialism' => $student->specialism,
             'email' => $student->email,
+            'intake_code' => $student->intake_code,
             'supervisor' => $supervisor,
             'second_marker' => $secondmarker,
             'lecturers' => $lecturers,
