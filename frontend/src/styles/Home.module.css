@@ -911,7 +911,8 @@
   border-radius: 5px;
 }
 .button7 button:hover, .button7a button:hover{
-  background-color: #a8c1d4;
+  background-color: #bbc2c6;
+  border-color: #ffffff;    
   color: #1c4365;
 }
 .button8{

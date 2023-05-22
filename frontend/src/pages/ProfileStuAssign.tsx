@@ -122,7 +122,8 @@ export default function StudentPM() {
                             <div className={styles.line2}></div>
                             <div className={styles.topicbox}>
                                 <h4>Final Year Project Title</h4><br />
-                                <h2>{data.title}</h2>
+                                <h2>{data.title}</h2><br/>
+                                <label className={styles.word2}><a href=""><u>Proposal</u></a></label>
                             </div>
                             
                             
