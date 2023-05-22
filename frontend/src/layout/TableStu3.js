@@ -40,30 +40,39 @@ export default function Table() {
         
               <><div className={style.content3a}>
                     <h2> Supervise:</h2><br/> <br/>      
-              <div className={style.container}> 
+              
         {data.length === 0 ? (<p className={style.text4}>No students assigned</p>) : (data.map((data) => (
-          <div className={style.row1} key={data.id}>
-            <div className={style.content10}>
-            <div>{data.name} <br />{data.tp_number}<br />{data.intake_code}</div>
-            <div><b>{data.title}</b><br /><br /></div>
-          </div></div>
+          <table border="{10px}"> 
+          <tbody key={data.id}>
+            <td width="300px|100%">
+              <tr><div>{data.name} {data.tp_number}{data.intake_code}</div></tr>              
+            </td>
+            <td >
+              <tr><div><b>{data.title}</b><br /><br /></div></tr>
+            </td>          
+          </tbody>
+          </table>
         )))}
         
-        </div>
+        
         <br /><br />
       </div><div className={style.content3a}>
       <h2>Mark:</h2><br/>
-      <div className={style.container}> 
+      
           {data1.length === 0 ? (<p className={style.text4}>No students assigned</p>) : (data1.map((data1) => (
-            <div className={style.row1} key={data1.id}>
-              <div className={style.content11}>
-              <div>{data1.name} <br />{data1.tp_number}<br />{data1.intake_code}</div>
-              <div><b>{data1.title}</b><br /><br /></div>
-            </div>
-            </div>
+             <table border="{10px}"> 
+             <tbody key={data1.id}>
+               <td width="300px|100%">
+                 <tr><div>{data1.name} {data1.tp_number}{data1.intake_code}</div></tr>              
+               </td>
+               <td >
+                 <tr><div><b>{data1.title}</b><br /><br /></div></tr>
+               </td>
+               </tbody>
+               </table>
           )))}
           <br />
-          </div>
+          
         </div></>
               
             

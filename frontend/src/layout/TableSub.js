@@ -33,14 +33,27 @@ export default function Home({search}) {
     });
     return (
         
-              <div className={style.container}>
+              <div className={style.content}>
                 {Array.isArray(data) && filteredData.map((row) => (
-                  <div className={style.row4} key={row.id} >
-                    <div className={style.content11}>                  
-                    <div><h3>{row.name}</h3><br/>{row.tp_number}<br/><h3><b>{row.title}</b></h3></div><br/>
-                    <div className={style.word11}><b><u>Final Mark:  {row.finalMark || row.finalmark}</u></b><br/></div>                     
-                    <br/><button className={style.button6} onClick={()=>handleClick(row.tp_number)}>Update</button></div>                    
-                  </div>
+                  <table border="{10px}" key={row.id} >
+                    <tbody>
+                      <td width="300px|100%">
+                        <tr><div><h3>{row.name}</h3>{row.tp_number}</div><br/></tr>
+                      </td>
+                      <td width="400px|100%">
+                        <tr><h3><b>{row.title}</b></h3></tr>
+                      </td>
+                      <td width="300px|100%">
+                        <tr><div className={style.word11}><b><u>Final Mark:  {row.finalMark || row.finalmark}</u></b><br/></div>                     </tr>
+                      </td>
+                      <td width="20px|100%">
+                        <tr className={style.button6}  onClick={()=>handleClick(row.tp_number)}> <label >Update</label></tr>
+                      </td>
+                    </tbody>
+                    
+                    
+                   
+                  </table>
                   
                 ))}
               </div>

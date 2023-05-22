@@ -33,29 +33,37 @@ export default function Home({search}) {
     });
 
   return (
-    <div className={style.container}>
+    <div className={style.content}>
+      
       {filteredData.map((student) => (
         <div
-          className={style.row1}
+                    
           key={student.tp_number}
           onClick={() => handleClick(student.tp_number)} // Add onClick event handler
         >          
-          <div className={style.content11}>
           
+          <table  border="{10px}">
           <a href="http://localhost:3000/ProfileStuAssign">
-            <div><h3>{student.name}</h3><br />{student.tp_number}<br/>{student.intake_code}<br />{student.field_of_study}
-            </div></a>
-            <div><a href="http://localhost:3000/ProfileStuAssign">
-              <div className={style.word10}>{student.title}</div>
-              <br/>
+            
+              <td width="300px|100%">
+                <tr><h3>{student.name}</h3><br />{student.tp_number}<br/>{student.intake_code}<br />{student.field_of_study}</tr>
+              </td>
+              <td width="500px|100%">
+                <tr> <div className={style.word10}>{student.title}</div></tr>
+              </td>
+              <td width="350px|100%">
+                <tr>Supervisor: {student.supervisor_name || student.supervisor}
               <br />
-              Supervisor: {student.supervisor_name || student.supervisor}
-              <br />
-              Second Marker: {student.second_marker_name || student.second_marker}</a>
-            </div>
-        </div>
+              Second Marker: {student.second_marker_name || student.second_marker}</tr>
+              </td>
+            
+              
+            </a></table>
+            
+        
         </div>
         ))}
+    
     </div>
     );
   };

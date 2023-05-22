@@ -33,14 +33,23 @@ export default function TableStaff({ search }) {
 
     return (
         
-              <div className={style.container}>
+              <table  border="{10px}">
+                <tbody>
                 {filteredData.map((staff) => (
-                  <div className={style.row2} key={staff.id} onClick={() => handleClick(staff.id)}>
-                    <div className={style.content11}>
-                    <div><a href="http://localhost:3000/ProfilePMLec"><h3>{staff.name}</h3><br/>{staff.id}<br/>{staff.field_of_study}</a></div>                                                       
-                    </div></div>
+                  <div className={style.contentbox3} key={staff.id} onClick={() => handleClick(staff.id)}>
+                    <td width="300px|100%">
+                      <tr><div><a href="http://localhost:3000/ProfilePMLec"><h3>{staff.name}</h3><br/></a></div></tr>
+                    </td>
+                    <td width="100px|100%">
+                      <tr>{staff.id}</tr>
+                    </td>
+                    <td>
+                      <tr width="400px|100%">{staff.field_of_study}</tr>
+                    </td>
+                    </div>
                 ))}
-              </div>
+                </tbody>
+              </table>
             
        
         

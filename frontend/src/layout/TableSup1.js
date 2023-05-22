@@ -53,32 +53,52 @@ export default function Table() {
 <div className={styles.content9}>
       <div className={styles.contentbox3}>
       <h2>Supervise:</h2><br/>
-      <div className={styles.container}>        
+            
                 {data.length ===0 ? (<p className={styles.text3}>No Students assigned yet</p>) :( data.map((data) => (
-                  <div className={styles.row1} key={data.tp_number} onClick={()=>handleClick(data.tp_number)}>
-                    <div className={styles.content10}>                     
-                    <a href="http://localhost:3000/ProfileLecStu"><div onClick={()=>handleClick(data.tp_number)} ><br/><h3>{data.name}</h3>{data.tp_number}<br/>{data.intake_code}</div></a>  
-                    <div><br/>{data.title}<br/></div>
-                    {/* <div><br/>Proposal: {data.Pro}<br/>IR: {data.IR}<br/>Documentation: {data.Doc}<br/>Presentation: {data.Pre}</div>                        */}
-                  </div>
-                  </div>
+                  <table border="{10px}" width="300px | 100%"  key={data.tp_number} onClick={() => handleClick(data.tp_number)}> 
+                  <tbody>
+                    <><td width="350px|100%">
+                    <tr><a href="http://localhost:3000/ProfileLecStu"><div onClick={() => handleClick(data.tp_number)}><br /><h3>{data.name}</h3>{data.tp_number}<br />{data.intake_code}</div></a>  </tr>
+
+                  </td><td width="450px|100%">
+                      <tr> <div><br />{data.title}<br /></div></tr>
+                    </td></>
+                    
+                   
+                     {/* <div><br/>Proposal: {data.Pro}<br/>IR: {data.IR}<br/>Documentation: {data.Doc}<br/>Presentation: {data.Pre}</div>                        */}
+                    </tbody> 
+      </table>
+                  
                 )))}
+                
       </div>
-      <div className={styles.contentbox3a}>
-        <h2>Mark:</h2><br/>
+      <div className={styles.content9}>
+      <div className={styles.contentbox3b}>
+      <h2>Mark:</h2><br/>
+      
+      
                 {students.length ===0 ? (<p className={styles.text3}>No Students assigned yet</p>) :(students.map((row) => (
-                  <div className={styles.row1} key={row.tp_number} onClick={()=>handleClick1(row.tp_number)}>
-                    <div className={styles.content10}>                  
-                    <a href="http://localhost:3000/ProfileLecStu2"><div onClick={()=>handleClick1(row.tp_number)} ><br/><h3>{row.name}</h3>{row.tp_number}<br/>{row.intake_code}</div></a>  
-                    <div  onClick={()=>handleClick1(row.tp_number)}><br/>{row.title}<br/></div>
-                    {/* <div><br/>Proposal: {row.Pro}<br/>IR: {row.IR}<br/>Documentation: {row.Doc}<br/>Presentation: {row.Pre}</div>                      */}
-                    </div>                       
-                  </div>
+                  <table border="{10px}" width="500px | 100%" key={row.tp_number} onClick={()=>handleClick1(row.tp_number)}> 
+                  <tbody> 
+                    <><td width="350px|100%">
+                    <tr><a href="http://localhost:3000/ProfileLecStu2"><div onClick={() => handleClick1(row.tp_number)}><br /><h3>{row.name}</h3>{row.tp_number}<br />{row.intake_code}</div></a>  </tr>
+                  </td><td width="450px|100%">
+                      <tr><div onClick={() => handleClick1(row.tp_number)}><br />{row.title}<br /></div></tr>
+                    </td></>
+                    
+                    
+                     {/* <div><br/>Proposal: {row.Pro}<br/>IR: {row.IR}<br/>Documentation: {row.Doc}<br/>Presentation: {row.Pre}</div>                      */}
+                    </tbody>
+              </table>                   
+                  
                 )))}
+                
+                
+              </div>              
               </div>
               </div>
         
-      </div>
+      
 
 )
 }
