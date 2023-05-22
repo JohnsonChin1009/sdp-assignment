@@ -238,6 +238,7 @@
   
 }
 
+
 .eventsTable td {
   white-space: nowrap;
   text-align: left;  
@@ -578,6 +579,12 @@
   float:left;  
   margin: 20px;
   margin-left: 5px;
+  clear: both;
+}
+.contentbox3b{  
+  float:left;  
+  margin: 10px;
+  margin-left: -50px;  
   clear: both;
 }
 .image{
