@@ -1,6 +1,5 @@
 <?php
 
-'intake_code' => '',
 namespace Database\Seeders;
 
 use Illuminate\Support\Facades\DB;
