@@ -316,6 +316,7 @@ export const deleteStudent = async (tp_number) => {
   }
 };
 
+
 //Lecturers-----------------------------------------
 export const getLecturerProfile = async (token) => {
   try {
@@ -551,6 +552,23 @@ export const getResult = async (token) => {
   }
 }
 
+export const getPMStuResult = async (token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    console.log(config);
+    const response = await axios.get(`${API_URL}/displayPMStuResult`, config);
+    const PM = response.data.data;
+    console.log(PM); 
+
+    return PM;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+  }
+}
 export const getMoodleAPI = async (token) => {
   try {
     const config = {
@@ -560,7 +578,7 @@ export const getMoodleAPI = async (token) => {
     };
 
     const response = await axios.get(`${API_URL}/displayMoodleAPI`, config);
-    const data = response.data;
+    const data = response.data.data;
 
     return data;
   } catch (error) {
