@@ -153,23 +153,6 @@ export const getStuPMSchedule = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
-export const getStuLecSchedule = async (token) => {
-  try {
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token
-      }
-    }
-    console.log(config)
-    console.log('Token:', token);
-    const response = await axios.get(`${API_URL}/getStuLecSchedule`, config);
-    const data = response.data.data;
-    console.log(response.data); 
-    return data;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
-  }
-}
 
 export const getStuLecProfile = async (token) => {
   try {
@@ -185,7 +168,7 @@ export const getStuLecProfile = async (token) => {
 
     return PM;
   } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching student profile' || token);
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
 export const getStuResult = async (token) => {
@@ -197,12 +180,12 @@ export const getStuResult = async (token) => {
     }
     console.log(config);
     const response = await axios.get(`${API_URL}/displayStuResult`, config);
-    const PM = response.data;
+    const PM = response.data.data;
     console.log(PM);
 
     return PM;
   } catch (error) {
-    throw new Error(error.response?.data?.message || 'An error occurred while fetching student profile' || token);
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }}
 //PM---------------------------------------
 export const getPMProfile = async (token) => {
@@ -577,28 +560,7 @@ export const getMoodleAPI = async (token) => {
     };
 
     const response = await axios.get(`${API_URL}/displayMoodleAPI`, config);
-    const data = response.data.data;
-    
-
-    return data;
-    
-  } catch (error) {
-    throw new Error(
-      error.response?.data?.message || 'An error occurred while fetching Moodle API data'
-    );
-  }
-};
-
-export const getPMStuResult = async (token) => {
-  try {
-    const config = {
-      headers: {
-        Authorization: 'Bearer ' + token,
-      },
-    };
-
-    const response = await axios.get(`${API_URL}/displayPMStuResult`, config);
-    const data = response.data.data;
+    const data = response.data;
 
     return data;
   } catch (error) {
@@ -607,6 +569,7 @@ export const getPMStuResult = async (token) => {
     );
   }
 };
+
 
 export const UpdateStuResult = async (token, finalMark) =>{
   try{
