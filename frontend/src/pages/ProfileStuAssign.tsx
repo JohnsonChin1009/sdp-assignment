@@ -165,7 +165,7 @@ export default function StudentPM() {
                                                         if (!isSecondMarker) {
                                                         return (
                                                             <option key={lecturer.id} value={lecturer.id}>
-                                                            {lecturer.name ? lecturer.name: ""}
+                                                            {lecturer.name ? `${lecturer.name} (${lecturer.supervisor_count})` : ""}
                                                             </option>
                                                         );
                                                         }
@@ -190,7 +190,7 @@ export default function StudentPM() {
                                                         if (!isSupervisor) {
                                                             return (
                                                               <option key={lecturer.id} value={lecturer.id}>
-                                                                {lecturer.name ? lecturer.name: ""}
+                                                                {lecturer.name ? `${lecturer.name} (${lecturer.secondmarker_count})` : ""}
                                                               </option>
                                                             );
                                                           }
