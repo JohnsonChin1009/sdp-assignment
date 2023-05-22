@@ -793,3 +793,20 @@ export const SearchStu = async (search) => {
   }
 };
 
+export const AssignLecturers = async (token, selectSupervisor, selectSecondmarker) =>{
+  try{
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token + "," + selectSupervisor + "," + selectSecondmarker
+      }
+    }    
+    console.log(config);
+    const response = await axios.put(`${API_URL}/assignlecturers`, config);
+    const update = response.data.message;
+    console.log(update);    
+    return update;
+    
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred');
+  }
+}

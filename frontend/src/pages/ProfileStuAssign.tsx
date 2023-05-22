@@ -49,7 +49,6 @@ export default function StudentPM() {
     const AssignLecturers = async()=>{
         try {
             const token = localStorage.getItem('tp_number');
-            console.log(token);
             const updatedstudent = await getUpdatedStudent(token, selectedSupervisorId,selectedSecondMarkerId);
             setData(updatedstudent);
             console.log(updatedstudent);
