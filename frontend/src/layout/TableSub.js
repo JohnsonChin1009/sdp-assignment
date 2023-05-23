@@ -38,7 +38,7 @@ export default function Home({search}) {
                   <table border="{10px}" key={row.id} >
                     <tbody>
                       <td width="300px|100%">
-                        <tr><div><h3>{row.name}</h3>{row.tp_number}</div><br/></tr>
+                        <tr><div><h3>{row.name}</h3>{row.tp_number}</div><br/>{row.intake_code}</tr>
                       </td>
                       <td width="400px|100%">
                         <tr><h3><b>{row.title}</b></h3></tr>

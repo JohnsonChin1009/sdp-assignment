@@ -59,7 +59,7 @@ export default function Home() {
               <div className={style.content11}>
                 {Array.isArray(data) && data.map((data)=>( <>               
                   <div className={style.context10} key={data.tp_number}>                    
-                    <div><br/>{data.name}<br/>{data.tp_number}<br/><h3><b>{data.title}</b></h3></div>
+                    <div><br/>{data.name}<br/>{data.tp_number}<br/><h3><b>{data.title}</b></h3>{data.intake_code}</div>
                     {Array.isArray(data1.marks) && data1.marks.map((mark, index) => (
                     <><br/><div key={index}>
                         <div>

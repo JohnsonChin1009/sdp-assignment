@@ -45,10 +45,16 @@ export default function Table() {
           <table border="{10px}"> 
           <tbody key={data.id}>
             <td width="300px|100%">
-              <tr><div>{data.name} {data.tp_number}{data.intake_code}</div></tr>              
+              <tr><div>{data.name}</div></tr>              
+            </td>
+            <td>
+              <tr>{data.tp_number}</tr>
+            </td>
+            <td>
+              <tr>{data.intake_code}</tr>
             </td>
             <td >
-              <tr><div><b>{data.title}</b><br /><br /></div></tr>
+              <tr><div><b><br/>{data.title}</b><br /><br /></div></tr>
             </td>          
           </tbody>
           </table>
@@ -63,10 +69,16 @@ export default function Table() {
              <table border="{10px}"> 
              <tbody key={data1.id}>
                <td width="300px|100%">
-                 <tr><div>{data1.name} {data1.tp_number}{data1.intake_code}</div></tr>              
+                 <tr><div>{data1.name}</div></tr>              
+               </td>
+               <td>
+                <tr>{data1.tp_number}</tr>
+               </td>
+               <td>
+                <tr>{data1.intake_code}</tr>
                </td>
                <td >
-                 <tr><div><b>{data1.title}</b><br /><br /></div></tr>
+                 <tr><div><b><br/>{data1.title}</b><br /><br /></div></tr>
                </td>
                </tbody>
                </table>

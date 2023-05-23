@@ -70,6 +70,7 @@ class LecturerController extends Controller
                         'tp_number' => $student->tp_number,
                         'title' => $student->title,
                         'field_of_study' => $student->field_of_study,
+                        'intake_code'=> $student->intake_code,
                         'specialism' => $student->specialism,
                         'email' => $student->email,
                         'supervisor' => $supervisor ? $supervisor->name : null,
@@ -122,6 +123,7 @@ class LecturerController extends Controller
                         'field_of_study' => $student->field_of_study,
                         'specialism' => $student->specialism,
                         'email' => $student->email,
+                        'intake_code'=> $student->intake_code,
                         'supervisor' => $supervisor ? $supervisor->name : null,
                         'second_marker' => $secondMarker ? $secondMarker->name : null,
                         // 'Pro' => $progressData ? $progressData['Pro'] : null,
@@ -165,6 +167,7 @@ class LecturerController extends Controller
                         'field_of_study' => $student->field_of_study,
                         'specialism' => $student->specialism,
                         'email' => $student->email,
+                        'intake_code'=> $student->intake_code,
                         'supervisor' => $supervisor ? $supervisor->name : null,
                         'second_marker' => $secondMarker ? $secondMarker->name : null,
                     ];
@@ -211,6 +214,7 @@ class LecturerController extends Controller
                         'field_of_study' => $student->field_of_study,
                         'specialism' => $student->specialism,
                         'email' => $student->email,
+                        'intake_code'=> $student->intake_code,
                         'supervisor' => $supervisor ? $supervisor->name : null,
                         'second_marker' => $secondMarker ? $secondMarker->name : null,
                         // 'Pro' => $progressData ? $progressData['Pro'] : null,
@@ -237,17 +241,17 @@ class LecturerController extends Controller
                         'message' => 'Error finding student record',    
                     ]);
                 }
-                $storedData = Storage::get('progress_data.json');
-                $progressArray = json_decode($storedData, true) ?? [];
-                $progressData = null;
+                // $storedData = Storage::get('progress_data.json');
+                // $progressArray = json_decode($storedData, true) ?? [];
+                // $progressData = null;
                
-                   foreach($progressArray as $progress){
-                    if($progress['tp_number']===$student->tp_number){
-                        $progressData = $progress;
-                        break;
-                    }
+                //    foreach($progressArray as $progress){
+                //     if($progress['tp_number']===$student->tp_number){
+                //         $progressData = $progress;
+                //         break;
+                //     }
                     
-                   }
+                //    }
                 
                 $data = [
                     'name' => $student->name,
@@ -256,10 +260,11 @@ class LecturerController extends Controller
                     'field_of_study' => $student->field_of_study,
                     'specialism' => $student->specialism,
                     'email' => $student->email,   
-                    'Pro' => $progressData ? $progressData['Pro'] : null,
-                    'IR' => $progressData ? $progressData['IR'] : null,
-                    'Doc' =>  $progressData ? $progressData['Doc'] : null,
-                    'Pre' => $progressData ? $progressData['Pre'] : null,                                     
+                    'intake_code'=> $student->intake_code,
+                    // 'Pro' => $progressData ? $progressData['Pro'] : null,
+                    // 'IR' => $progressData ? $progressData['IR'] : null,
+                    // 'Doc' =>  $progressData ? $progressData['Doc'] : null,
+                    // 'Pre' => $progressData ? $progressData['Pre'] : null,                                     
                 ];
         
                 return response()->json([

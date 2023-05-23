@@ -176,7 +176,7 @@ export default function Home() {
               <Image 
         src="/design-pen1.png"
         alt="profile"
-        className={styles.image9}
+        className={styles.image9a}
         width={100}
         height={100}               
         priority
