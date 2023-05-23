@@ -52,9 +52,9 @@
 
 /*Slides*/
 .slider{
-  width: auto;
-  height: 100px;
-  padding-top:20px;
+  width: 650px;
+  height: 150px;
+  padding-top:5px;
   border-radius:10px;
   overflow: hidden;
 }
@@ -84,19 +84,19 @@
 }
 .word7,.word11{
   margin-left: 30px;
-  font-size: 20px;
+  font-size: 15px;
   color: #2c4051;
 
 }
 
 .word8{
-  margin-left: 390px;
+  margin-left: 300px;
   font-size: 15px;
   color: #497b9c;
 
 }
 .word9{
-  margin-left: 390px;
+  margin-left: 300px;
   font-size: 10px;
   color: #2c4051;
 
