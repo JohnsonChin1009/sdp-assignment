@@ -93,7 +93,7 @@ class PMController extends Controller
     }
 
     public function displayPMStudentProfile(Request $request)
-{
+    {
     $token = $request->header('Authorization');
     $token = str_replace('Bearer ', "", $token);
     $student = Student::where('tp_number', $token)->first();
@@ -116,8 +116,9 @@ class PMController extends Controller
         return $lecturer;
     });
 
-    $supervisorCount = $student->supervisor ? count($student->supervisor->supervisor_list) : 0;
-    $secondmarkerCount = $student->second_marker ? count($student->second_marker->secondmarker_list) : 0;
+    $supervisorCount = $student->supervisor ? count(Lecturer::find($student->supervisor)->supervisor_list) : 0;
+    $secondmarkerCount = $student->second_marker ? count(Lecturer::find($student->second_marker)->secondmarker_list) : 0;
+
 
     $data = [
         'name' => $student->name,
