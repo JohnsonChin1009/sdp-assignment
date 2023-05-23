@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->string('tp_number', 8)->primary();
             $table->string('name');
-            $table->string('intake_code');
             $table->string('field_of_study');
             $table->string('specialism');
             $table->string('email');
