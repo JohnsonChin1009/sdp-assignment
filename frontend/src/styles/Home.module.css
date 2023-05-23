@@ -55,6 +55,7 @@
   width: 650px;
   height: 130px;
   padding-top:5px;
+  margin-left: 5px;
   border-radius:10px;
   overflow: hidden;
 }
@@ -1276,6 +1277,14 @@ margin-right: -900px;
     margin-left: 60px;
     float: left;
     padding: 25px;    
+  }
+  .slider{
+    width: 650px;
+    height: 120px;
+    padding-top:5px;
+    margin-left: -20px;
+    border-radius:10px;
+    overflow: hidden;
   }
 }
 
