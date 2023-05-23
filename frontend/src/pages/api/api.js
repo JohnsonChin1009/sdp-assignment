@@ -23,6 +23,17 @@ export const logout = async () =>{
   }
 }
 //Display All---------------------------------------
+export const getIntakeCodes = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/getIntakeCodes`);
+    const intakecodes = response.data.data;
+
+    return intakecodes;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occured while fetching intake codes');
+  }
+}
+
 export const getStudents = async () => {
   try {
     const response = await axios.get(`${API_URL}/displaystudents`);

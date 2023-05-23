@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Announcement;
 use App\Models\ProjectManager;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -105,7 +106,6 @@ class AnnouncementController extends Controller
         return response()->json(['message' => 'Event added successfully']);
     }
 
-
     public function getSpecificAnnouncements(Request $request)
     {
         $token = $request->header('Authorization');
@@ -122,6 +122,16 @@ class AnnouncementController extends Controller
         return response()->json([
             'success' => true,
             'data' => $announcements,
+        ]);
+    }
+
+    public function getIntakeCodes()
+    {
+        $intakeCodes = Student::distinct('intake_code')->pluck('intake_code')->toArray();
+
+        return response()->json([
+            'success' => true,
+            'data' => $intakeCodes,
         ]);
     }
 }

@@ -30,6 +30,7 @@ Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:api')
 
 Route::get('getAnnouncements', [AnnouncementController::class, 'getAnnouncements']);
 Route::get('getAllAnnouncements', [AnnouncementController::class, 'getAllAnnouncements']);
+Route::get('getIntakeCodes', [AnnouncementController::class, 'getIntakeCodes']);
 Route::get('getSpecificAnnouncements', [AnnouncementController::class, 'getSpecificAnnouncements']);
 Route::post('addAnnouncements', [AnnouncementController::class, 'addAnnouncements']);
 Route::put('updateAnnouncements', [AnnouncementController::class, 'updateAnnouncements']);
