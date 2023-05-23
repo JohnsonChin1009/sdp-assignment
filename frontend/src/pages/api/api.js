@@ -171,6 +171,25 @@ export const getStuLecProfile = async (token) => {
     throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
   }
 }
+
+export const getStuLecSchedule = async (token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    }
+    console.log(config)
+    console.log('Token:', token);
+    const response = await axios.get(`${API_URL}/getStuLecSchedule`, config);
+    const data = response.data.data;
+    console.log(response.data); 
+    return data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'An error occurred while fetching lecturer profile' || token);
+  }
+}
+
 export const getStuResult = async (token) => {
   try {
     const config = {
