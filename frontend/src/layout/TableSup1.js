@@ -58,7 +58,7 @@ export default function Table() {
                   <table border="{10px}" width="300px | 100%"  key={index} onClick={() => handleClick(data.tp_number, index)}> 
                   <tbody>
                     <><td width="350px|100%">
-                    <tr><a href="http://localhost:3000/ProfileLecStu"><div onClick={() => handleClick(data.tp_number, index)}><br /><h3>{data.name}</h3>{data.tp_number}<br />{data.intake_code}</div></a>  </tr>
+                    <tr><a href="http://localhost:3000/ProfileLecStu"><div onClick={() => handleClick(data.tp_number, index)}><br /><h3>{data.name}</h3>{data.tp_number}<br />{data.field_of_study}<br/>{data.intake_code}</div></a>  </tr>
 
                   </td><td width="450px|100%">
                       <tr> <div><br />{data.title}<br /></div></tr>
@@ -87,7 +87,7 @@ export default function Table() {
                   <table border="{10px}" width="500px | 100%" key={row.tp_number} onClick={()=>handleClick1(row.tp_number)}> 
                   <tbody> 
                     <><td width="350px|100%">
-                    <tr><a href="http://localhost:3000/ProfileLecStu2"><div onClick={() => handleClick1(row.tp_number)}><br /><h3>{row.name}</h3>{row.tp_number}<br />{row.intake_code}</div></a>  </tr>
+                    <tr><a href="http://localhost:3000/ProfileLecStu2"><div onClick={() => handleClick1(row.tp_number)}><br /><h3>{row.name}</h3>{row.tp_number}<br />{row.field_of_study}<br/>{row.intake_code}</div></a>  </tr>
                   </td><td width="450px|100%">
                       <tr><div onClick={() => handleClick1(row.tp_number)}><br />{row.title}<br /></div></tr>
                     </td>
