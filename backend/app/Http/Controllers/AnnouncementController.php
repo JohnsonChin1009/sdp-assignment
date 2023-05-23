@@ -64,7 +64,8 @@ class AnnouncementController extends Controller
         $newName = $tokenValues[3];
         $newDate = $tokenValues[4];
         $newTime = $tokenValues[5];
-        $newStatus = $tokenValues[6];
+        $newIntakeCode = $tokenValues[6];
+        $newStatus = $tokenValues[7];
 
         $Announcement = Announcement::where('id', $id)->first();
 
@@ -80,6 +81,7 @@ class AnnouncementController extends Controller
         $Announcement->projectmanager = $newName;
         $Announcement->date = $newDate;
         $Announcement->time = $newTime;
+        $Announcement->intake_code = $newIntakeCode;
         $Announcement->show = $newStatus;
         $Announcement->save();
 
@@ -98,6 +100,7 @@ class AnnouncementController extends Controller
         $Announcement->projectmanager = $request->input('name');
         $Announcement->date = $request->input('date');
         $Announcement->time = $request->input('time');
+        $Announcement->intake_code = $request->input('intake_code');
         $Announcement->show = $request->input('show');
         $Announcement->save();
     

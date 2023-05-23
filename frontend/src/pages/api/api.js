@@ -750,7 +750,7 @@ export const UpdateAnnouncements = async (token, newTitle, newDescription, newNa
     throw new Error(error.response?.data?.message || 'An error occurred');
   }
 }
-export const addNewAnnouncements = async (newTitle, newDescription, newName, newDate, newTime, newStatus) => {
+export const addNewAnnouncements = async (newTitle, newDescription, newName, newDate, newTime, newIntake, newStatus) => {
   try { 
       const config = {
         headers: {
