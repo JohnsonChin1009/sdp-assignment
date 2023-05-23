@@ -9,14 +9,17 @@ import{logout} from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 import { addNewAnnouncements } from '@/pages/api/api'
 import{getAllAnnouncements} from '@/pages/api/api';
+import { getIntakeCodes } from '@/pages/api/api'
 
 
 export default function Home() {
     const [newTitle, setNewTitle] = useState('');
+    const [data, setData] = useState([]);
     const [newDes, setNewDescription] = useState('');
     const [newName, setNewName] = useState('');
     const [newDate, setNewDate] = useState('');
     const [newTime, setNewTime] = useState('');
+    const [newIntake, setNewIntake] = useState([]);
     const [newStatus, setNewStatus] = useState('');
     const[slides, setSlides] = useState([]);
     const[message, setMessage] = useState('');
@@ -24,11 +27,21 @@ export default function Home() {
     const [errorMessage, setErrorMessage] = useState('');
     useEffect(() => {      
       fetchData();
+      fetchData1();
     }, []);
     const fetchData = async () => {
         try {
           const sliders = await getAllAnnouncements();
           setSlides(sliders);
+        } catch (error) {
+          console.log('Error fetching slide: ', error);
+        }
+      };
+      const fetchData1 = async () => {
+        try {
+          const intake= await getIntakeCodes();
+          console.log(intake);
+          setData(intake);
         } catch (error) {
           console.log('Error fetching slide: ', error);
         }
@@ -45,7 +58,7 @@ export default function Home() {
 
       try {
         const token = localStorage.getItem('token');
-        const response = await addNewAnnouncements(newTitle, newDes, newName, newDate, newTime, newStatus);
+        const response = await addNewAnnouncements(newTitle, newDes, newName, newDate, newTime, newStatus, newIntake);
         fetchData();
         alert("New Announcement has added in.");
         setMessage("Successfully add.");
@@ -113,8 +126,16 @@ export default function Home() {
             Date: <br />
             <input type="date" required  value={newDate} onChange={(e => setNewDate(e.target.value))}/><br/>
             Time: <br/>
-            <input type="time" required value={newTime} onChange={(e => setNewTime(e.target.value))}/><br/>
-            <br />
+            <input type="time" required value={newTime} onChange={(e => setNewTime(e.target.value))}/><br/><br/>
+            Intake: <br/>{data && data.length > 0 && (
+  <select className={styles.text5}required onChange={(event) => setNewIntake(event.target.value)}>
+    {data.map((intake, index) => (
+      <option key={index} value={intake}>{intake}</option>
+    ))}
+  </select>
+)}
+{!data || data.length === 0 && <p>No intake data available.</p>}
+            <br /><br/>
             Status: <br />            
             <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("1"))} />Show <br />
             <input type="checkbox" value={newStatus} onChange={(e => setNewStatus("0"))} />Hidden

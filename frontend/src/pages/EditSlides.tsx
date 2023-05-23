@@ -9,14 +9,17 @@ import{logout} from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 import{getSpecificAnnouncements} from '@/pages/api/api';
 import { UpdateAnnouncements } from '@/pages/api/api';
+import { getIntakeCodes } from '@/pages/api/api'
 
 export default function Home() {
+  const [data, setData] = useState('');
     const [newTitle, setNewTitle] = useState('');
     const [newDes, setNewDescription] = useState('');
     const [newName, setNewName] = useState('');
     const [newDate, setNewDate] = useState('');
     const [newTime, setNewTime] = useState('');
     const [newStatus, setNewStatus] = useState('');
+    const [newIntake, setNewIntake] = useState([]);
     const[slides, setSlides] = useState([]);
     const[message, setMessage] = useState('');    
     const [error, setError] = useState(false);
@@ -25,6 +28,7 @@ export default function Home() {
       
 
       fetchData();
+      fetchData1();
     }, []);
    
         const fetchData = async () => {
@@ -41,10 +45,20 @@ export default function Home() {
                   setNewDate(initialSlide.date);
                   setNewTime(initialSlide.time);
                   setNewStatus(initialSlide.show);
+                  setNewIntake(initialSlide.intake);
                 }                
             } catch (error) {
                 console.log('Error fetching data: ', error);
             }
+        };
+        const fetchData1 = async () => {
+          try {
+            const intake= await getIntakeCodes();
+            console.log(intake);
+            setData(intake);
+          } catch (error) {
+            console.log('Error fetching slide: ', error);
+          }
         };
         
   const handleLogout = async()=>{
@@ -57,7 +71,7 @@ export default function Home() {
   const updateValue = async()=>{
         try{
           const token = localStorage.getItem('id'); //Retrieving token from local storage)
-          const update1 = await UpdateAnnouncements(token, newTitle, newDes, newName, newDate, newTime, newStatus )
+          const update1 = await UpdateAnnouncements(token, newTitle, newDes, newName, newDate, newTime, newStatus, newIntake )
           setSlides(update1);
           console.log(update1);
           fetchData();
@@ -122,7 +136,7 @@ export default function Home() {
            Title: <br />
            <h3>{slide.title}</h3>
            Description:<br />  
-           <p>{slide.description} <br />by {slide.projectmanager}</p><br/> 
+           <p>{slide.description} <br />by {slide.projectmanager}</p><br/>{slide.intake_code}<br/> 
            <div>{slide.date} {slide.time}</div><br/>
            Current status (1=Show, 0=Hidden): <div>{slide.show}</div><br/>
            </div></>
@@ -141,7 +155,16 @@ export default function Home() {
             <input type="date" required  value={newDate} onChange={(event => setNewDate(event.target.value))}/><br/>
             Time: <br/>
             <input type="time" required value={newTime} onChange={(event => setNewTime(event.target.value))}/><br/>
-            <br />            
+            <br />     
+            Intake: <br/>{data && data.length > 0 && (
+            <select className={styles.text5}required onChange={(event) => setNewIntake(event.target.value)}>
+              {data.map((intake, index) => (
+                <option key={index} value={intake}>{intake}</option>
+              ))}
+            </select>
+          )}
+          {!data || data.length === 0 && <p>No intake data available.</p>}
+                      <br /><br/>       
             Status: <br />            
             <input type="checkbox" value={"1"}  checked={newStatus === "1"} onChange={(event => setNewStatus(event.target.checked ? "1" : ""))} />Show <br />
             <input type="checkbox" value={"0"}  checked={newStatus === "0"} onChange={(event => setNewStatus(event.target.checked ? "0" : ""))} />Hidden

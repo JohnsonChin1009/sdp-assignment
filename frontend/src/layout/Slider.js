@@ -51,7 +51,7 @@ export default function SliderComponent() {
                       
                     </tr>
                     <tr>
-                      <td><p className={styles.word7}>{sliders.description} <br /></p><p className={styles.word8}>by {sliders.projectmanager}</p></td>
+                      <td><p className={styles.word7}>{sliders.description} <br /></p><p className={styles.word8}>by {sliders.projectmanager}</p><p className={styles.word8}>{sliders.intake_code }</p></td>
                       
                     </tr>
                     <tr>

@@ -27,7 +27,7 @@ export const getIntakeCodes = async () => {
   try {
     const response = await axios.get(`${API_URL}/getIntakeCodes`);
     const intakecodes = response.data.data;
-
+console.log(intakecodes);
     return intakecodes;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'An error occured while fetching intake codes');
@@ -718,11 +718,11 @@ export const getSpecificAnnouncements = async (token) => {
   }
 }
 
-export const UpdateAnnouncements = async (token, newTitle, newDescription, newName, newDate, newTime, newStatus) =>{
+export const UpdateAnnouncements = async (token, newTitle, newDescription, newName, newDate, newTime, newStatus, newIntake) =>{
   try{
     const config = {
       headers: {
-        Authorization: 'Bearer ' + token +","+newTitle + "," + newDescription + "," + newName + "," + newDate + "," + newTime + "," + newStatus
+        Authorization: 'Bearer ' + token +","+newTitle + "," + newDescription + "," + newName + "," + newDate + "," + newTime + "," + newStatus+ "," + newIntake
       }
     }    
     console.log(config);
@@ -742,7 +742,7 @@ export const addNewAnnouncements = async (newTitle, newDescription, newName, new
         }
       }
     
-    console.log(newTitle, newDescription, newName, newDate, newTime, newStatus);
+    console.log(newTitle, newDescription, newName, newDate, newTime, newStatus, newIntake);
     const AnnouncementData = {
       title: newTitle,
       description:newDescription,
@@ -750,6 +750,7 @@ export const addNewAnnouncements = async (newTitle, newDescription, newName, new
       date: newDate,
       time: newTime,
       show: newStatus,
+      intake_code: newIntake,
     };
     const response = await axios.post(`${API_URL}/addAnnouncements`, AnnouncementData, config);
     console.log(config)

@@ -53,7 +53,7 @@
 /*Slides*/
 .slider{
   width: 650px;
-  height: 150px;
+  height: 130px;
   padding-top:5px;
   border-radius:10px;
   overflow: hidden;
@@ -80,6 +80,10 @@
 .text4{
   margin-left: 0px;
   margin-top: 50px;
+  
+}
+.text5{
+  color: #1c4365;
   
 }
 .word7,.word11{
