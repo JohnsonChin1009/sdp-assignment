@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('projectmanager');
             $table->date('date');
             $table->time('time');
+            $table->string('intake_code');
             $table->boolean('show')->default(true);
         });
     }

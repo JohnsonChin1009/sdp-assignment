@@ -13,6 +13,7 @@ class Announcement extends Model
         'projectmanager',
         'date',
         'time',
+        'intake_code',
         'show',
     ];
 

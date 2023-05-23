@@ -21,6 +21,7 @@ class AnnouncementsTableSeeder extends Seeder
                 'projectmanager' => 'BOB JONES',
                 'date' => '2023-05-12',
                 'time' => '10:00:00',
+                'intake_code' => 'APD1F2106CS(SE)',
                 'show' => true,
             ],
 
@@ -31,6 +32,7 @@ class AnnouncementsTableSeeder extends Seeder
                 'projectmanager' => 'JOHNSON CHIN',
                 'date' => '2023-05-12',
                 'time' => '14:30:00',
+                'intake_code' => 'APD1F2106CS(SE)',
                 'show' => true,
             ],
 
@@ -41,6 +43,7 @@ class AnnouncementsTableSeeder extends Seeder
                 'projectmanager' => 'GEISERFORD CHENG',
                 'date' => '2023-05-14',
                 'time' => '00:00:30',
+                'intake_code' => 'APD1F2106CS(SE)',
                 'show' => false,
             ],
 
@@ -51,6 +54,7 @@ class AnnouncementsTableSeeder extends Seeder
                 'projectmanager' => 'CODY CHIANG',
                 'date' => '2023-05-14',
                 'time' => '10:00:00',
+                'intake_code' => 'APD1F2106CS(SE)',
                 'show' => false,
             ],
 
@@ -61,6 +65,7 @@ class AnnouncementsTableSeeder extends Seeder
                 'projectmanager' => 'YEEWENG CHEONG',
                 'date' => '2023-05-20',
                 'time' => '15:30:00',
+                'intake_code' => 'APD1F2106CS(SE)',
                 'show' => false,
             ],
 
@@ -71,6 +76,7 @@ class AnnouncementsTableSeeder extends Seeder
                 'projectmanager' => 'TUNGEN CHEW',
                 'date' => '2023-05-30',
                 'time' => '11:40:00',
+                'intake_code' => 'APD1F2106CS(SE)',
                 'show' => true,
             ],
         ];
