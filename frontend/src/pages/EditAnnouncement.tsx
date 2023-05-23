@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 import{logout} from '@/pages/api/api'
 import { useEffect, useState } from 'react'
 import { addNewAnnouncements } from '@/pages/api/api'
-import{getAllAnnouncements} from '@/pages/api/api';
+import{ getAllAnnouncements } from '@/pages/api/api';
 import { getIntakeCodes } from '@/pages/api/api'
 
 

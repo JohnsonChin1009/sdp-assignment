@@ -738,7 +738,7 @@ export const UpdateAnnouncements = async (token, newTitle, newDescription, newNa
   try{
     const config = {
       headers: {
-        Authorization: 'Bearer ' + token +","+newTitle + "," + newDescription + "," + newName + "," + newDate + "," + newTime + "," + newStatus+ "," + newIntake
+        Authorization: 'Bearer ' + token +","+newTitle + "," + newDescription + "," + newName + "," + newDate + "," + newTime + "," + newIntake+ "," + newStatus
       }
     }    
     console.log(config);
