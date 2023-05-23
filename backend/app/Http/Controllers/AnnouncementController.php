@@ -134,6 +134,32 @@ class AnnouncementController extends Controller
             'data' => $intakeCodes,
         ]);
     }
+
+    public function getStuAnnouncements(Request $request)
+    {
+        $token = $request->header('Authorization');
+        $token = str_replace('Bearer ', "", $token);
+
+        $student = Student::where('tp_number', $token)->first();
+
+        if (!$student) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to find student record',
+                'authorization' => $token,
+            ], 401);
+        }
+
+        $intakeCode = $student->intake_code;
+
+        $announcements = Announcement::where('intake_code', $intakeCode)->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $announcements,
+        ]);
+
+    }
 }
 
 
