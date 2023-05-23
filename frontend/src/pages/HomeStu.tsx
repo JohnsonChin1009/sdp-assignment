@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Footer from '@/layout/Footer.js'
 import{logout} from '@/pages/api/api'
-import Slides from '@/layout/Slider.js'
+import Slides from '@/layout/Slider1.js'
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
