@@ -10,7 +10,8 @@ export default function SliderComponent() {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const sliders = await getStuAnnouncements();
+            const token = localStorage.getItem('token');
+            const sliders = await getStuAnnouncements(token);
             setSlides(sliders);
            
           } catch (error) {

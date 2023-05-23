@@ -143,7 +143,7 @@ class AnnouncementController extends Controller
         $token = $request->header('Authorization');
         $token = str_replace('Bearer ', "", $token);
 
-        $student = Student::where('tp_number', $token)->first();
+        $student = Student::where('email', $token)->first();
 
         if (!$student) {
             return response()->json([
