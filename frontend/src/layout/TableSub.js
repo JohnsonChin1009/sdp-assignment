@@ -44,7 +44,7 @@ export default function Home({search}) {
                         <tr><h3><b>{row.title}</b></h3></tr>
                       </td>
                       <td width="300px|100%">
-                        <tr><div className={style.word11}><b><u>Final Mark:  {row.finalMark || row.finalmark}</u></b><br/></div>                     </tr>
+                        <tr><div className={style.word11}><h3><b><u>Final Mark:  {row.finalMark || row.finalmark}</u></b></h3><br/></div>  </tr>
                       </td>
                       <td width="20px|100%">
                         <tr className={style.button6}  onClick={()=>handleClick(row.tp_number)}> <label >Update</label></tr>
